@@ -122,4 +122,21 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+    
+    /**
+     * Lista de capitulos por historia
+     * @param string $token
+     */
+    public function actionListaDeCapitulos($token=null){
+    	
+    	return $this->render('listaDeCapitulos');
+    }
+    
+    /**
+     * Visualizacion de capitulo seleccionado
+     * @param string $token
+     */
+    public function actionVerCapitulo($token=null){
+    	return $this->render('verCapitulo');
+    }
 }
