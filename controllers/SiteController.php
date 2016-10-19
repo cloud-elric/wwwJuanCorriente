@@ -11,6 +11,7 @@ use app\models\ContactForm;
 use app\models\EntHistorias;
 use app\models\EntHistoriasExtend;
 
+
 class SiteController extends Controller {
 	/**
 	 * @inheritdoc
@@ -152,7 +153,7 @@ class SiteController extends Controller {
 	 * @param string $token        	
 	 */
 	public function actionVerCapitulo($token = null) {
-		
+		$this->layout='headerPost';
 		$historia = $this->getHistoriaByToken($token);
 		
 		return $this->render ( 'verCapitulo' );
@@ -172,4 +173,5 @@ class SiteController extends Controller {
 		}
 	}
 	
+
 }

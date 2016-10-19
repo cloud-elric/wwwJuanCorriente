@@ -1,0 +1,136 @@
+/*!
+	-----------------------------------------------------------------------------
+
+	3.0 - Listado
+			# Extra
+
+	-----------------------------------------------------------------------------
+	*/
+
+/*  Listado
+	================================================ */
+.listado
+	// background-color: rgba(green,.3)
+	// Search
+	.listado-seach
+		// background-color: rgba(yellow,.6)
+		display: flex
+		justify-content: center
+		margin: 14px auto 30px
+		opacity: .6
+		position: relative
+		width: 290px
+		+transition(opacity 0.3s ease-in)
+		&:hover
+			opacity: 1
+		input[type="text"]
+			background-color: #1B1D20
+			border: none
+			+border-radius(51px)
+			color: $white
+			font-family: $font-base
+			font-size: .96em
+			font-weight: 300
+			padding: 10px 42px 10px 18px
+			width: 100%
+			&:focus
+				outline: none
+		button
+			background-color: transparent
+			border: none
+			color: #C4E5EE
+			cursor: pointer
+			height: 20px
+			margin-top: -10px
+			opacity: .4
+			position: absolute
+			right: 14px
+			top: 50%
+			width: 20px
+			+transition(opacity 0.3s ease-in)
+			i
+				font-size: 1.8em
+			&:focus
+				outline: none
+			&:focus,
+			&:hover
+				opacity: 1
+	// Articles
+	.listado-articles
+		// background-color: rgba(red,.2)
+		display: flex
+		+respond-to(sm)
+			align-items: center
+			flex-wrap: wrap
+		+respond-to(xs)
+			align-items: center
+			flex-wrap: wrap
+		// Item
+		.listado-articles-item
+			background-color: #292929
+			+border-radius(3px)
+			display: block
+			margin-right: 2%
+			overflow: hidden
+			width: 26%
+			&:nth-child(4n+4)
+				margin-right: 0
+			+respond-to(sm)
+				margin-bottom: 30px
+				width: 32%
+				&:nth-child(3n+3)
+					margin-right: 0
+			+respond-to(xs)
+				margin-bottom: 30px
+				width: 49%
+				&:nth-child(2n+2)
+					margin-right: 0
+			+respond-to(xx)
+				margin-right: 0
+				width: 100%
+			// Imagen 
+			.listado-articles-item-imagen
+				background-image: url(../images/portada.jpg)
+				background-position: 50%
+				background-repeat: no-repeat
+				background-size: cover
+				height: 300px
+				position: relative
+				width: 100%
+				// Capitulo 
+				.listado-articles-item-capitulo
+					background-color: rgba(#000, .8)
+					color: $white
+					left: 0
+					padding: 10px
+					position: absolute
+					right: 0
+					top: 0
+					h4
+						font-size: .9em
+				// Nuevo 
+				.listado-articles-item-new
+					// background-color: red
+					color: $white
+					height: 76px
+					overflow: hidden
+					padding: 10px
+					position: absolute
+					right: 0
+					top: 0
+					width: 70px
+					span
+						background-color: #29CEED
+						display: block
+						font-size: .8em
+						// transform: rotate(45deg)
+						padding: 4px 0
+						text-align: center
+						transform: translateY(6px) translateX(-34px) rotate(48deg)
+						width: 130px
+			// Title 
+			.listado-articles-item-title
+				background-color: #C6E5B5
+				color: #201D2D
+				font-size: 1.125em
+				padding: 14px 10px

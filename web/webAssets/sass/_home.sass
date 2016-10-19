@@ -1,0 +1,76 @@
+/*!
+	-----------------------------------------------------------------------------
+
+	3.0 - Home
+			# Extra
+
+	-----------------------------------------------------------------------------
+	*/
+
+/*  Home
+	================================================ */
+.home
+	// background-color: rgba(green,.3)
+	text-align: center
+	// Categorías
+	.home-categorias
+		// background-color: rgba(yellow,.6)
+		display: flex
+		justify-content: center
+		// +respond-to(sm)
+		// 	align-items: center
+		// 	flex-wrap: wrap
+		+respond-to(xs)
+			align-items: center
+			flex-wrap: wrap
+		.home-categorias-item
+			background-color: $white
+			+border-radius(4px)
+			cursor: pointer
+			margin-right: 49px
+			padding: 10px 8px
+			position: relative
+			&:last-child
+				margin-right: 0
+			&.active
+				&:before
+					background-color: $white
+					bottom: -12px
+					content: ""
+					height: 3px
+					left: -4px
+					position: absolute
+					right: -4px
+			+respond-to(sm)
+				margin-right: 16px
+			+respond-to(xs)
+				margin-bottom: 30px
+				margin-right: 8px
+				width: 25%
+				&:nth-child(3n+3)
+					margin-right: 0
+	// Article
+	.home-article
+		color: $white
+		padding: 70px 0
+		// Columna
+		.home-article-col
+			align-items: flex-start
+			// background-color: red
+			display: flex
+			flex-direction: column
+			justify-content: center
+			text-align: left
+			+respond-to(xs)
+				margin-bottom: 30px
+			.home-article-imagen
+				width: 100%
+			.home-article-title
+				font-size: 1.563em
+				margin-bottom: 10px
+			.home-article-desc
+				font-size: .95em
+				line-height: 1.4em
+		// Button
+		.home-article-button
+			margin-top: 40px

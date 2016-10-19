@@ -1,0 +1,81 @@
+/*!
+	-----------------------------------------------------------------------------
+
+	3.0 - Ver Capítulo
+			# Extra
+
+	-----------------------------------------------------------------------------
+	*/
+
+/*  Ver Capítulo
+	================================================ */
+.ver-capitulo
+	position: relative
+	// Header
+	.ver-capitulo-header
+		align-items: center
+		// background-color: rgba(yellow,.4)
+		background-image: url(../images/portada.jpg)
+		background-position: 50%
+		background-repeat: no-repeat
+		background-size: cover
+		display: flex
+		flex-direction: column
+		height: 444px
+		justify-content: space-around
+		margin-bottom: 30px
+		position: relative
+		+transition(all 0.3s ease-in)
+		// Logo
+		h1
+			color: $white
+			font-size: 1.406em
+			margin-top: 30px
+		// Title
+		h2
+			color: $white
+			font-size: 4.063em
+			font-weight: 400
+			margin-top: 140px
+			text-align: center
+		// Leer de día o noche
+		.ver-capitulo-leer
+			color: #8EF0EF
+			cursor: pointer
+			font-size: 1.250em
+			left: 30px
+			position: absolute
+			top: 44px
+			z-index: 3
+		// FullScreen
+		.ver-capitulo-full-screen
+			align-items: center
+			color: #8EF0EF
+			cursor: pointer
+			display: flex
+			justify-content: center
+			position: absolute
+			right: 20px
+			top: 400px
+			z-index: 3
+			span
+				font-size: 0.7em
+				margin-right: 8px
+				text-transform: uppercase
+			i
+				font-size: 0.85em
+	// Post
+	.ver-capitulo-post
+		margin: 0 auto
+		max-width: 600px
+		width: 90%
+		p
+			color: #AAF5F5
+			font-size: .9em
+			line-height: 1.250em
+			margin-bottom: 22px
+			text-align: justify
+		img
+			margin: 0 auto 22px
+			width: 100%
+

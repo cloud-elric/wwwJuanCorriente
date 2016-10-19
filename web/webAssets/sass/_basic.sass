@@ -1,0 +1,201 @@
+/*!
+	-----------------------------------------------------------------------------
+
+	2.0 - Basicos
+			# Basic
+			# Utility
+			# Extra
+
+	-----------------------------------------------------------------------------
+	*/
+
+/*  Basic
+	========================================================================== */
+*,
+*:after,
+*:before
+	box-sizing: border-box
+
+*
+	margin: 0
+	padding: 0
+
+body
+	background-color: $black
+	font:
+		family: $font-base
+		size: 16px
+		weight: 300
+	color: $text-base
+
+/* a */
+a
+	color: $primary-color
+	font:
+		family: $font-base
+		size: 16px
+		weight: 400
+	text-decoration: none
+	+transition(all 0.3s ease-in)
+	&:hover
+		color: $primary-color-light
+		text-decoration: none
+		+transition(all 0.3s ease-out)
+
+/* img */
+img
+	+transition(all 0.5s ease-in)
+
+/* Utility
+   ========================================================================== */
+/* h1 - h6 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6
+	font:
+		family: $font-base
+		weight: 400
+	margin: 0
+	padding: 0
+h1,
+.h1
+	font-size: 2.8em
+h2,
+.h2
+	font-size: 2.4em
+h3,
+.h3
+	font-size: 2em
+h4,
+.h4
+	font-size: 1.6em
+h5,
+.h5
+	font-size: 1.4em
+h6,
+.h6
+	font-size: 1.2em
+
+/* hr */
+hr
+	border: none
+	margin: 0
+
+/* Page */
+.page
+	display: block
+
+/* Contenedor */
+.container,
+.container-full
+	// background-color: rgba($white,.1)
+	margin: 0 auto
+	max-width: 1024px
+	width: 90%
+
+.container-full
+	max-width: 1280px
+
+/*  Loader
+	================================================ */
+.loader
+	align-items: center
+	background-color: $white
+	bottom: 0
+	display: flex
+	height: 100vh
+	left: 0
+	justify-content: center
+	position: fixed
+	right: 0
+	top: 0
+	width: 100%
+	z-index: 999
+	
+// Large
+// @include respond-to(lg)
+// Desktop
+// @include respond-to(md)
+// Tablet
+// @include respond-to(sm)
+// Mobile
+// @include respond-to(xs)
+// Extra mobile
+// @include respond-to(xx)
+
+/*  Btn
+    ================================================ */
+.btn
+    display: inline-block
+    font-weight: 400
+    line-height: 1.25
+    text-align: center
+    white-space: nowrap
+    vertical-align: middle
+    cursor: pointer
+    -webkit-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    user-select: none
+    border: 1px solid transparent
+    padding: .5rem 1rem
+    font-size: 1rem
+    border-radius: .25rem
+
+.btn.active.focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn:active:focus,
+.btn:focus 
+    outline: none
+    outline-offset: -2px
+
+.btn:focus,
+.btn:hover 
+    text-decoration: none
+
+.btn.focus 
+    text-decoration: none
+
+.btn.active,
+.btn:active 
+    background-image: none
+    outline: 0
+
+.btn.disabled,
+.btn:disabled 
+    cursor: not-allowed
+    opacity: .65
+
+.btn-primary 
+    color: #fff
+    background-color: $primary-color
+    border-color: $primary-color
+
+.btn-primary:hover 
+    color: #fff
+    background-color: $primary-color-light
+    border-color: $primary-color-light
+
+.btn-primary.focus,
+.btn-primary:focus 
+    color: #fff
+    background-color: $primary-color-dark
+    border-color: $primary-color-dark
+
+.btn-primary.active,
+.btn-primary:active
+    color: #fff
+    background-color: $primary-color-dark
+    border-color: $primary-color-dark
+    background-image: none

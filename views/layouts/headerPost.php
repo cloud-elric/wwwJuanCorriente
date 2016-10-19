@@ -29,12 +29,6 @@ AppAsset::register($this);
         <?php $this->beginBody() ?>
         <!-- .animsition -->
         <div class="animsition">
-            
-            <!-- header -->
-            <header>
-                <h1>Historias de México</h1>
-            </header>
-            <!-- end - header -->
 
             <!-- .page -->
             <div class="page">
