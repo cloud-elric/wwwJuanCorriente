@@ -137,6 +137,7 @@ class SiteController extends Controller
      * @param string $token
      */
     public function actionVerCapitulo($token=null){
+        $this->layout='headerPost';
     	return $this->render('verCapitulo');
     }
 }
