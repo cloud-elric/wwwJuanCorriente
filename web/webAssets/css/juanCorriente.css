@@ -843,6 +843,12 @@ footer .social-media a:last-child {
   max-height: 90vh;
 }
 
+@media screen and (max-width: 768px) {
+  .modal-admin .modal-content {
+    padding: 22px 20px;
+  }
+}
+
 .modal-admin .modal-content .modal-close {
   align-items: center;
   background-color: #6779EF;
@@ -885,6 +891,12 @@ footer .social-media a:last-child {
   font-weight: 300;
 }
 
+@media screen and (max-width: 544px) {
+  .modal-admin .modal-content .modal-admin-header .modal-admin-cont-title {
+    width: 100%;
+  }
+}
+
 .modal-admin .modal-content .modal-admin-header .modal-admin-cont-btn-guardar {
   background-color: #6779EF;
   border-color: #6779EF;
@@ -901,6 +913,14 @@ footer .social-media a:last-child {
   color: #FFF;
   background-color: #95a2f4;
   border-color: #95a2f4;
+}
+
+@media screen and (max-width: 544px) {
+  .modal-admin .modal-content .modal-admin-header .modal-admin-cont-btn-guardar {
+    padding: .5rem .4rem;
+    max-width: 116px;
+    width: 50%;
+  }
 }
 
 .modal-admin .modal-content .modal-admin-form {
@@ -944,7 +964,7 @@ footer .social-media a:last-child {
   border: none;
   color: #252B31;
   display: block;
-  font-family: 'Fira Sans', sans-serif;
+  font-family: "Fira Sans", sans-serif;
   font-size: 2.813em;
   font-weight: 500;
   opacity: .21;
@@ -958,6 +978,12 @@ footer .social-media a:last-child {
   color: #252B31;
   opacity: 1;
   outline: none;
+}
+
+@media screen and (max-width: 768px) {
+  .modal-admin .modal-content .modal-admin-form .modal-admin-form-titulo {
+    font-size: 1.7em;
+  }
 }
 
 .modal-admin .modal-content .modal-admin-form .component-calendar {
@@ -995,6 +1021,19 @@ footer .social-media a:last-child {
   margin-right: 30px;
 }
 
+@media screen and (max-width: 768px) {
+  .modal-admin .modal-content .modal-admin-form .modal-admin-form-datepiker label {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 544px) {
+  .modal-admin .modal-content .modal-admin-form .modal-admin-form-datepiker label {
+    margin-right: 10px;
+    width: calc(50% - 118px);
+  }
+}
+
 .modal-admin .modal-content .modal-admin-form .modal-admin-form-datepiker input {
   background-color: transparent;
   border: none;
@@ -1004,24 +1043,106 @@ footer .social-media a:last-child {
   outline: none;
 }
 
-.modal-admin .modal-content .modal-admin-form .modal-admin-form-header {
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-datepiker input::-webkit-input-placeholder {
+  color: #252B31;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 500;
+}
+
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-datepiker input:-moz-placeholder {
+  color: #252B31;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 500;
+}
+
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-datepiker input::-moz-placeholder {
+  color: #252B31;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 500;
+}
+
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-datepiker input:-ms-input-placeholder {
+  color: #252B31;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 768px) {
+  .modal-admin .modal-content .modal-admin-form .modal-admin-form-datepiker input {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 544px) {
+  .modal-admin .modal-content .modal-admin-form .modal-admin-form-datepiker input {
+    width: 118px;
+  }
+}
+
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-header,
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-imagen {
   align-items: center;
   display: flex;
-  border: 1px dashed #979797;
+  border: 1px dashed #C4CFD4;
   justify-content: center;
-  height: 130px;
+  height: 160px;
   margin-bottom: 30px;
+  overflow: hidden;
+  position: relative;
   width: 100%;
 }
 
-.modal-admin .modal-content .modal-admin-form .modal-admin-form-header span {
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-header span,
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-imagen span {
   color: #979797;
   display: block;
   font-size: 1.6em;
 }
 
-.modal-admin .modal-content .modal-admin-form .modal-admin-form-header:focus, .modal-admin .modal-content .modal-admin-form .modal-admin-form-header:hover {
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-header:focus, .modal-admin .modal-content .modal-admin-form .modal-admin-form-header:hover,
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-imagen:focus,
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-imagen:hover {
+  border: 1px dashed #979797;
   outline: none;
+}
+
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-header:focus:after, .modal-admin .modal-content .modal-admin-form .modal-admin-form-header:hover:after,
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-imagen:focus:after,
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-imagen:hover:after {
+  color: #979797;
+}
+
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-header:after,
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-imagen:after {
+  align-items: center;
+  background-color: #EFFAFF;
+  bottom: 0;
+  content: "Agregar Header";
+  color: #C4CFD4;
+  cursor: pointer;
+  display: flex;
+  font-family: "Fira Sans", sans-serif;
+  font-size: 1.95em;
+  font-weight: 500;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-header.modal-admin-form-imagen,
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-imagen.modal-admin-form-imagen {
+  height: 100px;
+}
+
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-header.modal-admin-form-imagen:after,
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-imagen.modal-admin-form-imagen:after {
+  content: "Agregar Imagen";
+  font-size: 1.3em;
+  font-weight: 400;
 }
 
 .modal-admin .modal-content .modal-admin-form textarea {
@@ -1072,10 +1193,11 @@ footer .social-media a:last-child {
   border: none;
   color: #252B31;
   display: block;
-  font-family: 'Fira Sans', sans-serif;
+  font-family: "Fira Sans", sans-serif;
   font-size: 1.15em;
   font-weight: 300;
-  opacity: .21;
+  opacity: .51;
+  margin-bottom: 30px;
   -ms-transition: all 0.22s ease-in;
   -moz-transition: all 0.22s ease-in;
   -webkit-transition: all 0.22s ease-in;

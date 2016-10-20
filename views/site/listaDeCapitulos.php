@@ -111,8 +111,8 @@ use yii\helpers\Url;
 			<!-- end - .modal-admin-cont-title -->
 
 			<!-- .modal-admin-cont-btn-guardar -->
-			<button id="modal-agregar-post-open" class="btn modal-admin-cont-btn-guardar">
-				Guardar
+			<button id="modal-agregar-post-guardar" class="btn modal-admin-cont-btn-guardar ladda-button" data-style="zoom-out">
+				<span class="ladda-label">Guardar</span>
 			</button>
 			<!-- end - .modal-admin-cont-btn-guardar -->
 		</div>
@@ -145,15 +145,19 @@ use yii\helpers\Url;
 				<span>Agregar Header</span>
 			</div> -->
 			<!-- end - .modal-admin-form-header -->
-
-			<input class="modal-admin-form-header" type="file" placeholder="Agregar Header">
+			
+			<!-- File Header -->
+			<input type="file" class="modal-admin-form-header">
 			
 			<!-- Texto -->
 			<!-- <label class="modal-admin-form-texto" for="modal-admin-form-texto">Dame un parrafo...</label>
 			<textarea class="modal-admin-form-texto" id="modal-admin-form-texto" placeholder="Dame un parrafo..."></textarea> -->
 
 			<!-- Texto -->
-			<p class="modal-admin-form-texto" contentEditable="true"></p>
+			<p class="modal-admin-form-texto" contentEditable="true">Dame un parrafo...</p>
+			
+			<!-- File Imagen -->
+			<input type="file" class="modal-admin-form-imagen">
 
 			<!-- .modal-admin-form-controlers -->
 			<div class="modal-admin-form-controlers">
@@ -177,17 +181,3 @@ use yii\helpers\Url;
 
 </div>
 <!-- end - .modal -->
-
-<!-- .admin -->
-<div class="admin">
-	<!-- .admin-cont -->
-	<div class="admin-cont">
-		<!-- .admin-cont-form -->
-		<div class="admin-cont-form">
-			d
-		</div>
-		<!-- end - .admin-cont-form -->
-	</div>
-	<!-- end - .admin-cont -->
-</div>
-<!-- end - .admin -->

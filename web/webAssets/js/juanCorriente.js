@@ -42,12 +42,13 @@ $(document).ready(function(){
 	/**
 	 * Ladda
 	 */
-	$('.home-article-button').click(function(e){
-		e.preventDefault();
+	// Home - Btn de Comenzar a Leer
+	$('.home-article-button').click(function(){
 		var l = Ladda.create(this);
 		l.start();
 	});
-	$('#ladda-2').click(function(e){
+	// Modal - Btn de Guardar
+	$('#modal-agregar-post-guardar').click(function(e){
 		e.preventDefault();
 		var l = Ladda.create(this);
 		l.start();
