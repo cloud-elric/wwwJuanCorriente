@@ -22,13 +22,28 @@ use yii\helpers\Url;
 		</div>
 		<!-- end - .home-categorias -->
 
+		<article class="home-article active">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 home-article-col">
+					<img class="home-article-imagen" src="<?=Url::base()?>/webAssets/images/portada.jpg" alt="Article">
+				</div>
+				<div class="col-xs-12 col-sm-6 home-article-col">
+					<h3 class="home-article-title">Descripción 1</h3>
+					<p class="home-article-desc">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus eligendi ea voluptas hic veritatis a aut modi consectetur voluptatum sapiente, culpa adipisci, distinctio nulla ipsum, magnam architecto doloribus, fugiat ex?. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde sapiente voluptates, inventore at maxime ex sunt exercitationem ipsum expedita, nesciunt molestiae labore dolorem accusantium cum ullam enim, laudantium, dolor harum.
+					</p>
+				</div>
+			</div>
+			<a class="btn btn-primary home-article-button" href="<?=Url::base()?>/site/lista-de-capitulos">Comenzar a leer</a>
+		</article>
+
 		<article class="home-article">
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 home-article-col">
 					<img class="home-article-imagen" src="<?=Url::base()?>/webAssets/images/portada.jpg" alt="Article">
 				</div>
 				<div class="col-xs-12 col-sm-6 home-article-col">
-					<h3 class="home-article-title">Descripción</h3>
+					<h3 class="home-article-title">Descripción 2</h3>
 					<p class="home-article-desc">
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus eligendi ea voluptas hic veritatis a aut modi consectetur voluptatum sapiente, culpa adipisci, distinctio nulla ipsum, magnam architecto doloribus, fugiat ex?. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde sapiente voluptates, inventore at maxime ex sunt exercitationem ipsum expedita, nesciunt molestiae labore dolorem accusantium cum ullam enim, laudantium, dolor harum.
 					</p>
