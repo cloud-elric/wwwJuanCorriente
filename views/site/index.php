@@ -34,7 +34,7 @@ use yii\helpers\Url;
 					</p>
 				</div>
 			</div>
-			<a class="btn btn-primary home-article-button" href="<?=Url::base()?>/site/lista-de-capitulos">Comenzar a leer</a>
+			<a class="btn btn-primary home-article-button ladda-button" data-style="zoom-out" href="<?=Url::base()?>/site/lista-de-capitulos"><span class="ladda-label">Comenzar a leer</span></a>
 		</article>
 
 		<article class="home-article">
@@ -49,7 +49,7 @@ use yii\helpers\Url;
 					</p>
 				</div>
 			</div>
-			<a class="btn btn-primary home-article-button" href="<?=Url::base()?>/site/lista-de-capitulos">Comenzar a leer</a>
+			<a class="btn btn-primary home-article-button ladda-button" data-style="zoom-out" href="<?=Url::base()?>/site/lista-de-capitulos"><span class="ladda-label">Comenzar a leer</span></a>
 		</article>
 
 	</div>

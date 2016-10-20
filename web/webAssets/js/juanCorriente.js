@@ -42,7 +42,7 @@ $(document).ready(function(){
 	/**
 	 * Ladda
 	 */
-	$('#ladda-1').click(function(e){
+	$('.home-article-button').click(function(e){
 		e.preventDefault();
 		var l = Ladda.create(this);
 		l.start();

@@ -122,8 +122,11 @@ use yii\helpers\Url;
 		<form action="" class="modal-admin-form">
 
 			<!-- Título -->
-			<label class="modal-admin-form-titulo" for="modal-admin-form-titulo">Dame un título...</label>
-			<input class="modal-admin-form-titulo" type="text" id="modal-admin-form-titulo" placeholder="Dame un título...">
+			<!-- <label class="modal-admin-form-titulo" for="modal-admin-form-titulo">Dame un título...</label>
+			<input class="modal-admin-form-titulo" type="text" id="modal-admin-form-titulo" placeholder="Dame un título..."> -->
+			
+			<!-- Título -->
+			<h3 class="modal-admin-form-titulo" contentEditable="true">Dame un título...</h3>
 
 			<!-- <div class="component-calendar">
 				<input class="calendar-date" type="text" value="">
@@ -146,8 +149,11 @@ use yii\helpers\Url;
 			<input class="modal-admin-form-header" type="file" placeholder="Agregar Header">
 			
 			<!-- Texto -->
-			<label class="modal-admin-form-texto" for="modal-admin-form-texto">Dame un parrafo...</label>
-			<textarea class="modal-admin-form-texto" id="modal-admin-form-texto" placeholder="Dame un parrafo..."></textarea>
+			<!-- <label class="modal-admin-form-texto" for="modal-admin-form-texto">Dame un parrafo...</label>
+			<textarea class="modal-admin-form-texto" id="modal-admin-form-texto" placeholder="Dame un parrafo..."></textarea> -->
+
+			<!-- Texto -->
+			<p class="modal-admin-form-texto" contentEditable="true"></p>
 
 			<!-- .modal-admin-form-controlers -->
 			<div class="modal-admin-form-controlers">
