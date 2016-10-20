@@ -32,6 +32,7 @@ class AppAsset extends AssetBundle
         'webAssets/plugins/ladda/js/ladda.min.js',
         'https://code.jquery.com/ui/1.12.1/jquery-ui.js',
         'webAssets/js/juanCorriente.js',
+    	'js/site.js'	
     ];
     public $depends = [
         'yii\web\YiiAsset',

@@ -19,6 +19,7 @@ $form = ActiveForm::begin ( [
 
 ?>
 
+	<label id="js-titulo-capitulo" onclick='editarTitulo();'>Dame un título</label>
 
 
 
