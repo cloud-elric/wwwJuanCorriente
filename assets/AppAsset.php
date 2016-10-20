@@ -23,7 +23,7 @@ class AppAsset extends AssetBundle
         'webAssets/plugins/ionicons/css/ionicons.min.css',
         'webAssets/plugins/flexboxgrid/css/flexboxgrid.min.css',
         'https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css',
-        // '/resources/demos/style.css',
+        'webAssets/plugins/animate/css/animate.css',
         'webAssets/css/juanCorriente.css',
     ];
     public $js = [

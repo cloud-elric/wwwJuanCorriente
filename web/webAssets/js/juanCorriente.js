@@ -53,6 +53,11 @@ $(document).ready(function(){
 		var l = Ladda.create(this);
 		l.start();
 	});
+	// Modal - Btn de Login
+	$('.login-form-btn').click(function(){
+		var l = Ladda.create(this);
+		l.start();
+	});
 
 	/**
 	 * Modal
@@ -66,6 +71,15 @@ $(document).ready(function(){
 	 * Datepicker
 	 */
 	$( "#datepicker" ).datepicker();
+
+	/**
+	 * Animate - Login elementos
+	 */
+	
+	$(".login-cont .animated").animate({ "opacity": "0" }, 0, function() {
+		$(".login-cont").show();
+		$(".login-cont .animated").each(function(index) {$( this ).addClass("delay-"+(index)+" fadeInUp");});
+	});
 
 }); // end - READY
 
