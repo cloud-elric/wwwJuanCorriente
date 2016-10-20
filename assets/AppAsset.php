@@ -22,12 +22,15 @@ class AppAsset extends AssetBundle
         'webAssets/plugins/ladda/css/ladda.min.css',
         'webAssets/plugins/ionicons/css/ionicons.min.css',
         'webAssets/plugins/flexboxgrid/css/flexboxgrid.min.css',
+        'https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css',
+        // '/resources/demos/style.css',
         'webAssets/css/juanCorriente.css',
     ];
     public $js = [
         'webAssets/plugins/animsition/js/animsition.min.js',
         'webAssets/plugins/ladda/js/spin.min.js',
         'webAssets/plugins/ladda/js/ladda.min.js',
+        'https://code.jquery.com/ui/1.12.1/jquery-ui.js',
         'webAssets/js/juanCorriente.js',
     	'js/site.js'	
     ];

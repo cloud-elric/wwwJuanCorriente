@@ -1,0 +1,252 @@
+/*!
+	-----------------------------------------------------------------------------
+
+	8.0 - Admin
+			# Extra
+
+	-----------------------------------------------------------------------------
+	*/
+
+/*  Admin
+	================================================ */
+// .admin
+// 	align-items: center
+// 	background-color: rgba(green,.3)
+// 	display: flex
+// 	justify-content: center
+// 	position: relative
+// 	.admin-cont
+// 		background-color: #EFFAFF
+// 		+border-radius(6px)
+// 		padding: 22px 38px
+// 		position: relative
+// 		.admin-cont-form
+// 			position: relative
+
+.modal-admin
+	overflow: hidden
+	.modal-content
+		overflow-y: auto
+		max-height: 90vh
+		// Close
+		.modal-close
+			align-items: center
+			background-color: $secundary-color
+			+border-radius(50%)
+			display: flex
+			justify-content: center
+			height: 24px
+			opacity: .75
+			position: absolute
+			right: 10px
+			text-align: center
+			top: 10px
+			width: 24px
+			i
+				color: $white
+				font-size: 1em
+			&:hover
+				opacity: 1
+		// Header
+		.modal-admin-header
+			align-items: center
+			// background-color: red
+			display: flex
+			justify-content: space-between
+			// Title
+			.modal-admin-cont-title
+				font-size: 1.375em
+				font-weight: 900
+				span
+					font-weight: 300
+			// Btn Guardar
+			.modal-admin-cont-btn-guardar
+				background-color: $secundary-color
+				border-color: $secundary-color
+				color: $white
+				&:hover
+					color: $white
+					background-color: $secundary-color-light
+					border-color: $secundary-color-light
+				&:focus
+					color: $white
+					background-color: $secundary-color-dark
+					border-color: $secundary-color-dark
+		// Form
+		.modal-admin-form
+			padding: 40px 0 0
+			input[type="text"]
+				+placeholder
+					color: #252B31
+					&:focus,
+					&:hover
+						opacity: 1
+			// Título
+			.modal-admin-form-titulo
+				background-color: transparent
+				border: none
+				color: #252B31
+				display: block
+				font-family: 'Fira Sans', sans-serif
+				font-size: 2.813em
+				font-weight: 500
+				opacity: .21
+				+transition(all 0.22s ease-in)
+				&:focus,
+				&:hover
+					color: #252B31
+					opacity: 1
+					outline: none
+			// Calenadrio
+			.component-calendar
+				margin: 50px auto
+				border: 1px solid #dedede
+				display: table
+				border-collapse: separate
+				.calendar-date
+					display: table-cell
+					border: none
+					padding: 10px
+				input[type=text]
+					&:focus,
+					&:active 
+						outline: none
+				.calendar-icon
+					display: table-cell
+					background-color: #ededed
+					padding: 0 10px
+			// Calenadrio
+			.modal-admin-form-datepiker
+				align-items: center
+				display: flex
+				justify-content: flex-start
+				margin: 20px auto
+				width: 100%
+				label
+					margin-right: 30px
+				input
+					background-color: transparent
+					border: none
+					&:focus,
+					&:hover
+						outline: none
+			// Header
+			.modal-admin-form-header
+				align-items: center
+				// background-color: red
+				display: flex
+				border: 1px dashed #979797
+				justify-content: center
+				height: 130px
+				margin-bottom: 30px
+				width: 100%
+				span
+					color: #979797
+					display: block
+					font-size: 1.6em
+				&:focus,
+				&:hover
+					outline: none
+			// Texto
+			textarea
+				background-color: rgba($black,.2)!important
+				height: 30px
+				padding-top: 4px
+				resize: none
+				&:focus,
+				&:hover
+					height: auto
+				+placeholder
+					color: #252B31
+					&:focus,
+					&:hover
+						opacity: 1
+			// Texto [textarea - label]
+			.modal-admin-form-texto
+				background-color: transparent
+				border: none
+				color: #252B31
+				display: block
+				font-family: 'Fira Sans', sans-serif
+				font-size: 1.15em
+				font-weight: 300
+				opacity: .21
+				+transition(all 0.22s ease-in)
+				width: 100%
+				&:focus,
+				&:hover
+					color: #252B31
+					opacity: 1
+					outline: none
+			// Controlers
+			.modal-admin-form-controlers
+				display: flex
+				justify-content: flex-end
+				margin: 40px auto 0
+				.modal-admin-form-controlers-btn-circle
+					align-items: center
+					// background-color: $secundary-color
+					// border-color: $secundary-color
+					border: none
+					+border-radius(50%)
+					color: $white
+					display: flex
+					justify-content: center
+					height: 30px
+					margin-left: 12px
+					position: relative
+					width: 30px
+					i
+						font-size: 1em
+					// &:hover
+					// 	color: $white
+					// 	background-color: $secundary-color-light
+					// 	border-color: $secundary-color-light
+					// &:focus
+					// 	color: $white
+					// 	background-color: $secundary-color-dark
+					// 	border-color: $secundary-color-dark
+					&.modal-admin-form-controlers-btn-circle-texto
+						background-color: $pink-color
+						border-color: $pink-color
+						&:hover
+							background-color: $pink-color-light
+							border-color: $pink-color-light
+						&:focus
+							background-color: $pink-color-light
+							border-color: $pink-color-light
+					&.modal-admin-form-controlers-btn-circle-imagen
+						background-color: $green-color
+						border-color: $green-color
+						&:hover
+							background-color: $green-color-light
+							border-color: $green-color-light
+						&:focus
+							background-color: $green-color-light
+							border-color: $green-color-light
+
+// Btn Circle
+.admin-agregar-btn-circle
+	align-items: center
+	background-color: $secundary-color
+	bottom: 50px
+	border-color: $secundary-color
+	border: none
+	+border-radius(50%)
+	color: $white
+	display: flex
+	justify-content: center
+	height: 50px
+	position: fixed
+	right: 40px
+	width: 50px
+	i
+		font-size: 1.5em
+	&:hover
+		color: $white
+		background-color: $secundary-color-light
+		border-color: $secundary-color-light
+	&:focus
+		color: $white
+		background-color: $secundary-color-dark
+		border-color: $secundary-color-dark
