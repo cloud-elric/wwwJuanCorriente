@@ -29,6 +29,7 @@ class AppAsset extends AssetBundle
         'webAssets/plugins/ladda/js/spin.min.js',
         'webAssets/plugins/ladda/js/ladda.min.js',
         'webAssets/js/juanCorriente.js',
+    	'js/site.js'	
     ];
     public $depends = [
         'yii\web\YiiAsset',
