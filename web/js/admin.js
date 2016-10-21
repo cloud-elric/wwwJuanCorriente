@@ -43,4 +43,9 @@ $(document).ready(function(){
 	$('#js-nombre-capitulo').on('DOMSubtreeModified',function() {
 		console.log('Se cambio');
 	});
+	
+	$('#js-nombre-capitulo').on('click',function() {
+		var text = $(this).text();
+	});
+	
 });

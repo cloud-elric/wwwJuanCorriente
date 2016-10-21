@@ -123,7 +123,7 @@ $this->registerJsFile('@web/js/admin.js',['depends' => [\app\assets\AppAsset::cl
 		<!-- .modal-admin-form-datepiker -->
 		<div class="modal-admin-form-datepiker">
 			<label for="datepicker">Selecciona una fecha de Publicación</label> <input
-				type="text" id="datepicker" placeholder="20 - octubre - 2016">
+				type="text" id="datepicker" placeholder="20-oct-2016">
 		</div>
 		<!-- end - .modal-admin-form-datepiker -->
 
