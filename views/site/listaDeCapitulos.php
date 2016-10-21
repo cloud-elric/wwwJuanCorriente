@@ -93,14 +93,11 @@ $this->registerJsFile('@web/js/admin.js',['depends' => [\app\assets\AppAsset::cl
 			<!-- end - .modal-admin-cont-title -->
 
 			<!-- .modal-admin-cont-btn-guardar -->
-<<<<<<< HEAD
-			<button id="modal-agregar-post-open"
-				class="btn modal-admin-cont-btn-guardar">Guardar</button>
-=======
+
 			<button id="modal-agregar-post-guardar" class="btn modal-admin-cont-btn-guardar ladda-button" data-style="zoom-out">
 				<span class="ladda-label">Guardar</span>
 			</button>
->>>>>>> e59b842772f7751a123d43e2c097e43108292e8f
+
 			<!-- end - .modal-admin-cont-btn-guardar -->
 		</div>
 		<!-- end - .modal-admin-header -->
