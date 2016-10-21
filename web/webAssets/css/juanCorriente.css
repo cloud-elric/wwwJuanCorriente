@@ -205,6 +205,7 @@ hr {
   padding: .5rem 1rem;
   font-size: 1rem;
   border-radius: .25rem;
+  box-shadow: 0 1px 3px rgba(47, 47, 47, 0.12), 0 1px 2px rgba(47, 47, 47, 0.24);
 }
 
 .btn.active.focus,
@@ -219,6 +220,7 @@ hr {
 
 .btn:focus,
 .btn:hover {
+  box-shadow: 0 3px 6px rgba(47, 47, 47, 0.16), 0 3px 6px rgba(47, 47, 47, 0.23);
   text-decoration: none;
 }
 
@@ -453,6 +455,10 @@ footer .social-media a {
 
 footer .social-media a:last-child {
   margin-right: 0;
+}
+
+footer .social-media a:hover {
+  color: #326fd4;
 }
 
 /*!

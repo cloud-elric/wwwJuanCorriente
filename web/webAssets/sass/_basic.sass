@@ -137,21 +137,22 @@ hr
 /*  Btn
     ================================================ */
 .btn
-    display: inline-block
-    font-weight: 400
-    line-height: 1.25
-    text-align: center
-    white-space: nowrap
-    vertical-align: middle
-    cursor: pointer
-    -webkit-user-select: none
-    -moz-user-select: none
-    -ms-user-select: none
-    user-select: none
-    border: 1px solid transparent
-    padding: .5rem 1rem
-    font-size: 1rem
-    border-radius: .25rem
+	display: inline-block
+	font-weight: 400
+	line-height: 1.25
+	text-align: center
+	white-space: nowrap
+	vertical-align: middle
+	cursor: pointer
+	-webkit-user-select: none
+	-moz-user-select: none
+	-ms-user-select: none
+	user-select: none
+	border: 1px solid transparent
+	padding: .5rem 1rem
+	font-size: 1rem
+	border-radius: .25rem
+	+box-shadow(1)
 
 .btn.active.focus,
 .btn.active:focus,
@@ -159,73 +160,74 @@ hr
 .btn:active.focus,
 .btn:active:focus,
 .btn:focus 
-    outline: none
-    outline-offset: -2px
+	outline: none
+	outline-offset: -2px
 
 .btn:focus,
-.btn:hover 
-    text-decoration: none
+.btn:hover
+	+box-shadow(2)
+	text-decoration: none
 
 .btn.focus 
-    text-decoration: none
+	text-decoration: none
 
 .btn.active,
 .btn:active 
-    background-image: none
-    outline: 0
+	background-image: none
+	outline: 0
 
 .btn.disabled,
 .btn:disabled 
-    cursor: not-allowed
-    opacity: .65
+	cursor: not-allowed
+	opacity: .65
 
 // Primary
 .btn-primary 
-    color: $white
-    background-color: $primary-color
-    border-color: $primary-color
+	color: $white
+	background-color: $primary-color
+	border-color: $primary-color
 
 .btn-primary:hover 
-    color: $white
-    background-color: $primary-color-light
-    border-color: $primary-color-light
+	color: $white
+	background-color: $primary-color-light
+	border-color: $primary-color-light
 
 .btn-primary.focus,
 .btn-primary:focus 
-    color: $white
-    background-color: $primary-color-dark
-    border-color: $primary-color-dark
+	color: $white
+	background-color: $primary-color-dark
+	border-color: $primary-color-dark
 
 .btn-primary.active,
 .btn-primary:active
-    color: $white
-    background-color: $primary-color-dark
-    border-color: $primary-color-dark
-    background-image: none
+	color: $white
+	background-color: $primary-color-dark
+	border-color: $primary-color-dark
+	background-image: none
 
 // Secundary
 .btn-secundary 
-    color: $white
-    background-color: $secundary-color
-    border-color: $secundary-color
+	color: $white
+	background-color: $secundary-color
+	border-color: $secundary-color
 
 .btn-secundary:hover 
-    color: $white
-    background-color: $secundary-color-light
-    border-color: $secundary-color-light
+	color: $white
+	background-color: $secundary-color-light
+	border-color: $secundary-color-light
 
 .btn-secundary.focus,
 .btn-secundary:focus 
-    color: $white
-    background-color: $secundary-color-dark
-    border-color: $secundary-color-dark
+	color: $white
+	background-color: $secundary-color-dark
+	border-color: $secundary-color-dark
 
 .btn-secundary.active,
 .btn-secundary:active
-    color: $white
-    background-color: $secundary-color-dark
-    border-color: $secundary-color-dark
-    background-image: none
+	color: $white
+	background-color: $secundary-color-dark
+	border-color: $secundary-color-dark
+	background-image: none
 
 /*  Modal
     ================================================ */
