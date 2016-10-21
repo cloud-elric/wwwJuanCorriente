@@ -93,8 +93,14 @@ $this->registerJsFile('@web/js/admin.js',['depends' => [\app\assets\AppAsset::cl
 			<!-- end - .modal-admin-cont-title -->
 
 			<!-- .modal-admin-cont-btn-guardar -->
+<<<<<<< HEAD
 			<button id="modal-agregar-post-open"
 				class="btn modal-admin-cont-btn-guardar">Guardar</button>
+=======
+			<button id="modal-agregar-post-guardar" class="btn modal-admin-cont-btn-guardar ladda-button" data-style="zoom-out">
+				<span class="ladda-label">Guardar</span>
+			</button>
+>>>>>>> e59b842772f7751a123d43e2c097e43108292e8f
 			<!-- end - .modal-admin-cont-btn-guardar -->
 		</div>
 		<!-- end - .modal-admin-header -->
@@ -131,17 +137,20 @@ $this->registerJsFile('@web/js/admin.js',['depends' => [\app\assets\AppAsset::cl
 		<!-- <div class="modal-admin-form-header">
 				<span>Agregar Header</span>
 			</div> -->
-		<!-- end - .modal-admin-form-header -->
-
-		<input class="modal-admin-form-header" type="file"
-			placeholder="Agregar Header">
-
-		<!-- Texto -->
-		<!-- <label class="modal-admin-form-texto" for="modal-admin-form-texto">Dame un parrafo...</label>
+			<!-- end - .modal-admin-form-header -->
+			
+			<!-- File Header -->
+			<input type="file" class="modal-admin-form-header">
+			
+			<!-- Texto -->
+			<!-- <label class="modal-admin-form-texto" for="modal-admin-form-texto">Dame un parrafo...</label>
 			<textarea class="modal-admin-form-texto" id="modal-admin-form-texto" placeholder="Dame un parrafo..."></textarea> -->
 
-		<!-- Texto -->
-		<p class="modal-admin-form-texto" contentEditable="true"></p>
+			<!-- Texto -->
+			<p class="modal-admin-form-texto" contentEditable="true">Dame un parrafo...</p>
+			
+			<!-- File Imagen -->
+			<input type="file" class="modal-admin-form-imagen">
 
 		<!-- .modal-admin-form-controlers -->
 		<div class="modal-admin-form-controlers">
@@ -170,6 +179,7 @@ $this->registerJsFile('@web/js/admin.js',['depends' => [\app\assets\AppAsset::cl
 	<!-- end - .modal-content -->
 
 </div>
+<<<<<<< HEAD
 <!-- end - .modal -->
 
 <!-- .admin -->
@@ -183,3 +193,6 @@ $this->registerJsFile('@web/js/admin.js',['depends' => [\app\assets\AppAsset::cl
 	<!-- end - .admin-cont -->
 </div>
 <!-- end - .admin -->
+=======
+<!-- end - .modal -->
+>>>>>>> e59b842772f7751a123d43e2c097e43108292e8f

@@ -51,7 +51,8 @@ use yii\helpers\Url;
 						</p>
 				</div>
 			</div>
-			<a class="btn btn-primary home-article-button ladda-button" data-style="zoom-out" href="<?=Url::base()?>/site/lista-de-capitulos?token=<?=$historia->txt_token?>"><span class="ladda-label">Comenzar a leer</span></a>
+			<a class="btn btn-primary home-article-button ladda-button"
+				href="<?=Url::base()?>/site/lista-de-capitulos?token=<?=$historia->txt_token?>" data-style="zoom-out"><span class="ladda-label">Comenzar a leer</span></a>
 		</article>
 		<?php
 		$active ++;

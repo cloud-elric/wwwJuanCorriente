@@ -37,7 +37,7 @@ function readURL(input) {
 
 $(document).ready(function(){
 	$('#js-nombre-capitulo').focusout(function() {
-		console.log('Se dejo ');
+		var text = $(this).text();
 	});
 	
 	$('#js-nombre-capitulo').on('DOMSubtreeModified',function() {
@@ -49,3 +49,11 @@ $(document).ready(function(){
 	});
 	
 });
+
+/**
+ * 
+ */
+function guardarCapitulo(){
+	
+	
+}

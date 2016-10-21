@@ -1,0 +1,68 @@
+/*!
+	-----------------------------------------------------------------------------
+
+	9.0 - Login
+			# Extra
+
+	-----------------------------------------------------------------------------
+	*/
+
+/*  Login
+	================================================ */
+.login
+	align-items: center
+	display: flex
+	height: 100vh
+	justify-content: center
+	width: 100%
+	.login-cont
+		background-color: $white
+		+border-radius(4px)
+		padding: 50px 20px
+		max-width: 380px
+		// Logo
+		h1
+			// color: $white
+			font-size: 1.406em
+			margin-bottom: 20px
+			text-align: center
+		// Form
+		.form-login
+			padding-top: 10px
+			width: 100%
+			// Inputs
+			input[type="password"],
+			input[type="text"]
+				background-color: $white
+				border: 1px solid #CCC
+				font-family: $font-base
+				font-size: 1.1em
+				font-weight: 300
+				margin-top: 14px
+				padding: 12px 20px
+				width: 100%
+				&:focus
+					border: 1px solid #DDD
+					outline: none
+			// Erro
+			.help-block.help-block-error,
+			.help-block-error
+				color: #f23648
+				font-size: .85em
+				margin: 4px auto 10px
+				text-align: center
+			// Button
+			.login-form-btn
+				background-color: $secundary-color
+				border-color: $secundary-color
+				color: $white
+				margin-top: 20px
+				width: 100%
+				&:hover
+					color: $white
+					background-color: $secundary-color-light
+					border-color: $secundary-color-light
+				&:focus
+					color: $white
+					background-color: $secundary-color-dark
+					border-color: $secundary-color-dark

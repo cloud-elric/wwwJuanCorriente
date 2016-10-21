@@ -21,6 +21,7 @@
 	6.0 - Listado
 	7.0 - Ver Capítulo
 	8.0 - Admin
+	9.0 - Login
 	--------------------------------------------------------
 	*/
 /*!
@@ -204,6 +205,7 @@ hr {
   padding: .5rem 1rem;
   font-size: 1rem;
   border-radius: .25rem;
+  box-shadow: 0 1px 3px rgba(47, 47, 47, 0.12), 0 1px 2px rgba(47, 47, 47, 0.24);
 }
 
 .btn.active.focus,
@@ -218,6 +220,7 @@ hr {
 
 .btn:focus,
 .btn:hover {
+  box-shadow: 0 3px 6px rgba(47, 47, 47, 0.16), 0 3px 6px rgba(47, 47, 47, 0.23);
   text-decoration: none;
 }
 
@@ -356,6 +359,36 @@ hr {
   }
 }
 
+.delay-1 {
+  -webkit-animation-delay: 0.15s;
+  animation-delay: 0.15s;
+}
+
+.delay-2 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.25s;
+}
+
+.delay-3 {
+  -webkit-animation-delay: 0.35s;
+  animation-delay: 0.35s;
+}
+
+.delay-4 {
+  -webkit-animation-delay: 0.45s;
+  animation-delay: 0.45s;
+}
+
+.delay-5 {
+  -webkit-animation-delay: 0.55s;
+  animation-delay: 0.55s;
+}
+
+.delay-6 {
+  -webkit-animation-delay: 0.65s;
+  animation-delay: 0.65s;
+}
+
 /*!
 	-----------------------------------------------------------------------------
 
@@ -424,6 +457,10 @@ footer .social-media a:last-child {
   margin-right: 0;
 }
 
+footer .social-media a:hover {
+  color: #326fd4;
+}
+
 /*!
 	-----------------------------------------------------------------------------
 
@@ -441,6 +478,7 @@ footer .social-media a:last-child {
 .home .home-categorias {
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 @media screen and (max-width: 768px) {
@@ -644,6 +682,13 @@ footer .social-media a:last-child {
   width: 26%;
 }
 
+.listado .listado-articles .listado-articles-item:hover {
+  box-shadow: 0 14px 28px rgba(153, 153, 153, 0.25), 0 10px 10px rgba(153, 153, 153, 0.22);
+  -ms-transform: scale(1.003, 1.003);
+  -webkit-transform: scale(1.003, 1.003);
+  transform: scale(1.003, 1.003);
+}
+
 .listado .listado-articles .listado-articles-item:nth-child(4n+4) {
   margin-right: 0;
 }
@@ -843,6 +888,12 @@ footer .social-media a:last-child {
   max-height: 90vh;
 }
 
+@media screen and (max-width: 768px) {
+  .modal-admin .modal-content {
+    padding: 22px 20px;
+  }
+}
+
 .modal-admin .modal-content .modal-close {
   align-items: center;
   background-color: #6779EF;
@@ -885,6 +936,12 @@ footer .social-media a:last-child {
   font-weight: 300;
 }
 
+@media screen and (max-width: 544px) {
+  .modal-admin .modal-content .modal-admin-header .modal-admin-cont-title {
+    width: 100%;
+  }
+}
+
 .modal-admin .modal-content .modal-admin-header .modal-admin-cont-btn-guardar {
   background-color: #6779EF;
   border-color: #6779EF;
@@ -901,6 +958,14 @@ footer .social-media a:last-child {
   color: #FFF;
   background-color: #95a2f4;
   border-color: #95a2f4;
+}
+
+@media screen and (max-width: 544px) {
+  .modal-admin .modal-content .modal-admin-header .modal-admin-cont-btn-guardar {
+    padding: .5rem .4rem;
+    max-width: 116px;
+    width: 50%;
+  }
 }
 
 .modal-admin .modal-content .modal-admin-form {
@@ -944,7 +1009,7 @@ footer .social-media a:last-child {
   border: none;
   color: #252B31;
   display: block;
-  font-family: 'Fira Sans', sans-serif;
+  font-family: "Fira Sans", sans-serif;
   font-size: 2.813em;
   font-weight: 500;
   opacity: .21;
@@ -958,6 +1023,12 @@ footer .social-media a:last-child {
   color: #252B31;
   opacity: 1;
   outline: none;
+}
+
+@media screen and (max-width: 768px) {
+  .modal-admin .modal-content .modal-admin-form .modal-admin-form-titulo {
+    font-size: 1.7em;
+  }
 }
 
 .modal-admin .modal-content .modal-admin-form .component-calendar {
@@ -995,6 +1066,19 @@ footer .social-media a:last-child {
   margin-right: 30px;
 }
 
+@media screen and (max-width: 768px) {
+  .modal-admin .modal-content .modal-admin-form .modal-admin-form-datepiker label {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 544px) {
+  .modal-admin .modal-content .modal-admin-form .modal-admin-form-datepiker label {
+    margin-right: 10px;
+    width: calc(50% - 118px);
+  }
+}
+
 .modal-admin .modal-content .modal-admin-form .modal-admin-form-datepiker input {
   background-color: transparent;
   border: none;
@@ -1004,24 +1088,106 @@ footer .social-media a:last-child {
   outline: none;
 }
 
-.modal-admin .modal-content .modal-admin-form .modal-admin-form-header {
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-datepiker input::-webkit-input-placeholder {
+  color: #252B31;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 500;
+}
+
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-datepiker input:-moz-placeholder {
+  color: #252B31;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 500;
+}
+
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-datepiker input::-moz-placeholder {
+  color: #252B31;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 500;
+}
+
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-datepiker input:-ms-input-placeholder {
+  color: #252B31;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 768px) {
+  .modal-admin .modal-content .modal-admin-form .modal-admin-form-datepiker input {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 544px) {
+  .modal-admin .modal-content .modal-admin-form .modal-admin-form-datepiker input {
+    width: 118px;
+  }
+}
+
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-header,
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-imagen {
   align-items: center;
   display: flex;
-  border: 1px dashed #979797;
+  border: 1px dashed #C4CFD4;
   justify-content: center;
-  height: 130px;
+  height: 160px;
   margin-bottom: 30px;
+  overflow: hidden;
+  position: relative;
   width: 100%;
 }
 
-.modal-admin .modal-content .modal-admin-form .modal-admin-form-header span {
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-header span,
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-imagen span {
   color: #979797;
   display: block;
   font-size: 1.6em;
 }
 
-.modal-admin .modal-content .modal-admin-form .modal-admin-form-header:focus, .modal-admin .modal-content .modal-admin-form .modal-admin-form-header:hover {
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-header:focus, .modal-admin .modal-content .modal-admin-form .modal-admin-form-header:hover,
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-imagen:focus,
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-imagen:hover {
+  border: 1px dashed #979797;
   outline: none;
+}
+
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-header:focus:after, .modal-admin .modal-content .modal-admin-form .modal-admin-form-header:hover:after,
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-imagen:focus:after,
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-imagen:hover:after {
+  color: #979797;
+}
+
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-header:after,
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-imagen:after {
+  align-items: center;
+  background-color: #EFFAFF;
+  bottom: 0;
+  content: "Agregar Header";
+  color: #C4CFD4;
+  cursor: pointer;
+  display: flex;
+  font-family: "Fira Sans", sans-serif;
+  font-size: 1.95em;
+  font-weight: 500;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-header.modal-admin-form-imagen,
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-imagen.modal-admin-form-imagen {
+  height: 100px;
+}
+
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-header.modal-admin-form-imagen:after,
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-imagen.modal-admin-form-imagen:after {
+  content: "Agregar Imagen";
+  font-size: 1.3em;
+  font-weight: 400;
 }
 
 .modal-admin .modal-content .modal-admin-form textarea {
@@ -1072,10 +1238,11 @@ footer .social-media a:last-child {
   border: none;
   color: #252B31;
   display: block;
-  font-family: 'Fira Sans', sans-serif;
+  font-family: "Fira Sans", sans-serif;
   font-size: 1.15em;
   font-weight: 300;
-  opacity: .21;
+  opacity: .51;
+  margin-bottom: 30px;
   -ms-transition: all 0.22s ease-in;
   -moz-transition: all 0.22s ease-in;
   -webkit-transition: all 0.22s ease-in;
@@ -1175,6 +1342,91 @@ footer .social-media a:last-child {
 }
 
 .admin-agregar-btn-circle:focus {
+  color: #FFF;
+  background-color: #95a2f4;
+  border-color: #95a2f4;
+}
+
+/*!
+	-----------------------------------------------------------------------------
+
+	9.0 - Login
+			# Extra
+
+	-----------------------------------------------------------------------------
+	*/
+/*  Login
+	@mixin =============================================== */
+.login {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100%;
+}
+
+.login .login-cont {
+  background-color: #FFF;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  padding: 50px 20px;
+  max-width: 380px;
+}
+
+.login .login-cont h1 {
+  font-size: 1.406em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.login .login-cont .form-login {
+  padding-top: 10px;
+  width: 100%;
+}
+
+.login .login-cont .form-login input[type="password"],
+.login .login-cont .form-login input[type="text"] {
+  background-color: #FFF;
+  border: 1px solid #CCC;
+  font-family: "Fira Sans", sans-serif;
+  font-size: 1.1em;
+  font-weight: 300;
+  margin-top: 14px;
+  padding: 12px 20px;
+  width: 100%;
+}
+
+.login .login-cont .form-login input[type="password"]:focus,
+.login .login-cont .form-login input[type="text"]:focus {
+  border: 1px solid #DDD;
+  outline: none;
+}
+
+.login .login-cont .form-login .help-block.help-block-error,
+.login .login-cont .form-login .help-block-error {
+  color: #f23648;
+  font-size: .85em;
+  margin: 4px auto 10px;
+  text-align: center;
+}
+
+.login .login-cont .form-login .login-form-btn {
+  background-color: #6779EF;
+  border-color: #6779EF;
+  color: #FFF;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.login .login-cont .form-login .login-form-btn:hover {
+  color: #FFF;
+  background-color: #485eec;
+  border-color: #485eec;
+}
+
+.login .login-cont .form-login .login-form-btn:focus {
   color: #FFF;
   background-color: #95a2f4;
   border-color: #95a2f4;

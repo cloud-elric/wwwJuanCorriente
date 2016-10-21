@@ -28,6 +28,8 @@
 	.modal-content
 		overflow-y: auto
 		max-height: 90vh
+		+respond-to(xs)
+			padding: 22px 20px
 		// Close
 		.modal-close
 			align-items: center
@@ -53,12 +55,18 @@
 			// background-color: red
 			display: flex
 			justify-content: space-between
+			// .modal-admin-cont-title,
+			// .modal-admin-cont-btn-guardar
+			// 	+respond-to(xx)
+			// 		width: 100%
 			// Title
 			.modal-admin-cont-title
 				font-size: 1.375em
 				font-weight: 900
 				span
 					font-weight: 300
+				+respond-to(xx)
+					width: 100%
 			// Btn Guardar
 			.modal-admin-cont-btn-guardar
 				background-color: $secundary-color
@@ -72,6 +80,10 @@
 					color: $white
 					background-color: $secundary-color-dark
 					border-color: $secundary-color-dark
+				+respond-to(xx)
+					padding: .5rem .4rem
+					max-width: 116px
+					width: 50%
 		// Form
 		.modal-admin-form
 			padding: 40px 0 0
@@ -87,7 +99,7 @@
 				border: none
 				color: #252B31
 				display: block
-				font-family: 'Fira Sans', sans-serif
+				font-family: $font-base
 				font-size: 2.813em
 				font-weight: 500
 				opacity: .21
@@ -97,6 +109,8 @@
 					color: #252B31
 					opacity: 1
 					outline: none
+				+respond-to(xs)
+					font-size: 1.7em
 			// Calenadrio
 			.component-calendar
 				margin: 50px auto
@@ -124,21 +138,37 @@
 				width: 100%
 				label
 					margin-right: 30px
+					+respond-to(xs)
+						width: 70%
+					+respond-to(xx)
+						margin-right: 10px
+						width: calc(50% - 118px)
 				input
 					background-color: transparent
 					border: none
 					&:focus,
 					&:hover
 						outline: none
-			// Header
-			.modal-admin-form-header
+					+placeholder
+						color: #252B31
+						font-family: $font-base
+						font-weight: 500
+					+respond-to(xs)
+						width: 40%
+					+respond-to(xx)
+						width: 118px
+			// File Imagen Header & Imagen Post
+			.modal-admin-form-header,
+			.modal-admin-form-imagen
 				align-items: center
 				// background-color: red
 				display: flex
-				border: 1px dashed #979797
+				border: 1px dashed #C4CFD4
 				justify-content: center
-				height: 130px
+				height: 160px
 				margin-bottom: 30px
+				overflow: hidden
+				position: relative
 				width: 100%
 				span
 					color: #979797
@@ -146,7 +176,34 @@
 					font-size: 1.6em
 				&:focus,
 				&:hover
+					border: 1px dashed #979797
 					outline: none
+					&:after
+						color: #979797
+				&:after
+					align-items: center
+					background-color: #EFFAFF
+					bottom: 0
+					content: "Agregar Header"
+					color: #C4CFD4
+					cursor: pointer
+					display: flex
+					font-family: $font-base
+					font-size: 1.95em
+					font-weight: 500
+					height: 100%
+					justify-content: center
+					left: 0
+					position: absolute
+					right: 0
+					top: 0
+					width: 100%
+				&.modal-admin-form-imagen
+					height: 100px
+					&:after
+						content: "Agregar Imagen"
+						font-size: 1.3em
+						font-weight: 400
 			// Texto
 			textarea
 				background-color: rgba($black,.2)!important
@@ -167,10 +224,11 @@
 				border: none
 				color: #252B31
 				display: block
-				font-family: 'Fira Sans', sans-serif
+				font-family: $font-base
 				font-size: 1.15em
 				font-weight: 300
-				opacity: .21
+				opacity: .51
+				margin-bottom: 30px
 				+transition(all 0.22s ease-in)
 				width: 100%
 				&:focus,

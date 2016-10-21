@@ -42,13 +42,20 @@ $(document).ready(function(){
 	/**
 	 * Ladda
 	 */
+
 	$('.home-article-button').click(function(e){
-		
+
 		var l = Ladda.create(this);
 		l.start();
 	});
-	$('#ladda-2').click(function(e){
+	// Modal - Btn de Guardar
+	$('#modal-agregar-post-guardar').click(function(e){
 		e.preventDefault();
+		var l = Ladda.create(this);
+		l.start();
+	});
+	// Modal - Btn de Login
+	$('.login-form-btn').click(function(){
 		var l = Ladda.create(this);
 		l.start();
 	});
@@ -65,6 +72,15 @@ $(document).ready(function(){
 	 * Datepicker
 	 */
 	$( "#datepicker" ).datepicker();
+
+	/**
+	 * Animate - Login elementos
+	 */
+	
+	$(".login-cont .animated").animate({ "opacity": "0" }, 0, function() {
+		$(".login-cont").show();
+		$(".login-cont .animated").each(function(index) {$( this ).addClass("delay-"+(index)+" fadeInUp");});
+	});
 
 }); // end - READY
 
