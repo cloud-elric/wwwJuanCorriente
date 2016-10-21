@@ -478,6 +478,7 @@ footer .social-media a:hover {
 .home .home-categorias {
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 @media screen and (max-width: 768px) {
