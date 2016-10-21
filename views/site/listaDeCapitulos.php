@@ -179,20 +179,3 @@ $this->registerJsFile('@web/js/admin.js',['depends' => [\app\assets\AppAsset::cl
 	<!-- end - .modal-content -->
 
 </div>
-<<<<<<< HEAD
-<!-- end - .modal -->
-
-<!-- .admin -->
-<div class="admin">
-	<!-- .admin-cont -->
-	<div class="admin-cont">
-		<!-- .admin-cont-form -->
-		<div class="admin-cont-form">d</div>
-		<!-- end - .admin-cont-form -->
-	</div>
-	<!-- end - .admin-cont -->
-</div>
-<!-- end - .admin -->
-=======
-<!-- end - .modal -->
->>>>>>> e59b842772f7751a123d43e2c097e43108292e8f
