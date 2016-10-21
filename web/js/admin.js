@@ -1,7 +1,3 @@
-var contenedorElementos = $('#form-agregar-capitulo');
-
-var tituloElementoInput=$('<input type="text" id="entcapitulos-txt_nombre" class="form-control" name="EntCapitulos[txt_nombre]" maxlength="200"  onchange="finalizarEditarTitulo()">');
-var tituloLabel = $("#js-titulo-capitulo");
 
 function agregarElemento(tipoElemento) {
 	var elementoTemplate;
@@ -39,23 +35,12 @@ function readURL(input) {
     }
 }
 
-function editarTitulo(){
-	
-	var text = tituloLabel.text();
-
-	tituloElementoInput.val(text);
-	tituloLabel.replaceWith(tituloElementoInput);
-	
-} 
-
-function finalizarEditarTitulo(){
-	var val = tituloElementoInput.val()
-	tituloLabel.text(val);
-	tituloElementoInput.replaceWith(tituloLabel);
-	
-} 
-
-
 $(document).ready(function(){
+	$('#js-nombre-capitulo').focusout(function() {
+		console.log('Se dejo ');
+	});
 	
+	$('#js-nombre-capitulo').on('DOMSubtreeModified',function() {
+		console.log('Se cambio');
+	});
 });

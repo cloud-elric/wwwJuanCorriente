@@ -22,6 +22,6 @@ class EntHistoriasExtend extends \yii\db\ActiveRecord {
 			return false;
 		}
 		
-		return $thistoria;
+		return $historia;
 	}
 }

@@ -20,7 +20,7 @@ use yii\helpers\Url;
 					$class = 'active';
 				}
 				?>
-				<div class="home-categorias-item <?=$class?>"
+				<div class="home-categorias-item <?=$class?> home-categorias-item-<?=$historia->txt_token?>"
 				data-token="<?=$historia->txt_token ?>"><?=$historia->txt_nombre?></div>
 			<?php
 				$active ++;
@@ -37,7 +37,7 @@ use yii\helpers\Url;
 				$class = 'active';
 			}
 			?>
-			<article class="home-article animsition-effect <?=$class?>">
+			<article class="home-article animsition-effect-<?=$historia->txt_token?> animsition-effect <?=$class?>">
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 home-article-col">
 					<img class="home-article-imagen"
@@ -51,8 +51,7 @@ use yii\helpers\Url;
 						</p>
 				</div>
 			</div>
-			<a class="btn btn-primary home-article-button"
-				href="<?=Url::base()?>/site/lista-de-capitulos">Comenzar a leer</a>
+			<a class="btn btn-primary home-article-button ladda-button" data-style="zoom-out" href="<?=Url::base()?>/site/lista-de-capitulos?token=<?=$historia->txt_token?>"><span class="ladda-label">Comenzar a leer</span></a>
 		</article>
 		<?php
 		$active ++;

@@ -11,7 +11,6 @@ use app\models\ContactForm;
 use app\models\EntHistorias;
 use app\models\EntHistoriasExtend;
 
-
 class SiteController extends Controller {
 	/**
 	 * @inheritdoc
@@ -72,7 +71,6 @@ class SiteController extends Controller {
 		$historias = EntHistorias::find ()->where ( [ 
 				'b_habilitado' => 1 
 		] )->all ();
-		
 		
 		return $this->render ( 'index', [ 
 				'historias' => $historias 
@@ -141,10 +139,11 @@ class SiteController extends Controller {
 	 * @param string $token        	
 	 */
 	public function actionListaDeCapitulos($token = null) {
+		$historia = $this->getHistoriaByToken ( $token );
 		
-		$historia = $this->getHistoriaByToken($token);
-		
-		return $this->render ( 'listaDeCapitulos' );
+		return $this->render ( 'listaDeCapitulos', [ 
+				'historia' => $historia 
+		] );
 	}
 	
 	/**
@@ -153,25 +152,24 @@ class SiteController extends Controller {
 	 * @param string $token        	
 	 */
 	public function actionVerCapitulo($token = null) {
-		$this->layout='headerPost';
-		$historia = $this->getHistoriaByToken($token);
+		$this->layout = 'headerPost';
+		$historia = $this->getHistoriaByToken ( $token );
 		
 		return $this->render ( 'verCapitulo' );
 	}
 	
 	/**
 	 * Busca la historia por el token
-	 * @param unknown $token
+	 * 
+	 * @param unknown $token        	
 	 * @throws NotFoundHttpException
 	 * @return boolean|\app\models\EntHistorias
 	 */
-	private function getHistoriaByToken($token){
+	private function getHistoriaByToken($token) {
 		if (($historia = EntHistoriasExtend::getHistoriaByToken ( $token )) !== null) {
 			return $historia;
 		} else {
 			throw new NotFoundHttpException ( 'The requested page does not exist.' );
 		}
 	}
-	
-
 }

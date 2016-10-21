@@ -58,7 +58,7 @@ class EntHistorias extends \yii\db\ActiveRecord
      */
     public function getEntCapitulos()
     {
-        return $this->hasMany(EntCapitulos::className(), ['id_historia' => 'id_historia']);
+        return $this->hasMany(EntCapitulos::className(), ['id_historia' => 'id_historia'])->where('fch_publicacion <=NOW() AND b_habilitado=1')->orderBy('fch_publicacion');
     }
 
     /**

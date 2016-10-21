@@ -43,7 +43,7 @@ $(document).ready(function(){
 	 * Ladda
 	 */
 	$('.home-article-button').click(function(e){
-		e.preventDefault();
+		
 		var l = Ladda.create(this);
 		l.start();
 	});
