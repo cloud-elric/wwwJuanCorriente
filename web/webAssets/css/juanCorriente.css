@@ -682,6 +682,13 @@ footer .social-media a:hover {
   width: 26%;
 }
 
+.listado .listado-articles .listado-articles-item:hover {
+  box-shadow: 0 14px 28px rgba(153, 153, 153, 0.25), 0 10px 10px rgba(153, 153, 153, 0.22);
+  -ms-transform: scale(1.003, 1.003);
+  -webkit-transform: scale(1.003, 1.003);
+  transform: scale(1.003, 1.003);
+}
+
 .listado .listado-articles .listado-articles-item:nth-child(4n+4) {
   margin-right: 0;
 }
