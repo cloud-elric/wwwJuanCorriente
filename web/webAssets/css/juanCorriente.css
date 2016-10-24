@@ -918,7 +918,7 @@ footer.footer-white .social-media a:hover {
 }
 
 .ver-capitulo.ver-capitulo-full {
-  overflow-y: auto;
+  overflow-y: auto !important;
   width: 100%;
 }
 
