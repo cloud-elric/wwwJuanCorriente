@@ -47,9 +47,9 @@ $this->registerJsFile ( '@web/js/admin.js', [
 		<!-- .ver-capitulo-post -->
 		<div class="ver-capitulo-post">
 			<!-- 
-			<img class="home-article-imagen" src="<?=Url::base()?>/webAssets/images/portada.jpg" alt="Article">
-			
-			<img class="home-article-imagen" src="<?=Url::base()?>/webAssets/images/portada.jpg" alt="Article">
+			<div class="ver-capitulo-post-imagen">
+				<img src="<?=Url::base()?>/webAssets/images/monkey.png" alt="Article">
+			</div>
 			-->
 		</div>
 		<!-- end - .ver-capitulo-post -->

@@ -900,9 +900,14 @@ footer.footer-white .social-media a:hover {
   text-align: justify;
 }
 
-.ver-capitulo .ver-capitulo-post img {
+.ver-capitulo .ver-capitulo-post .ver-capitulo-post-imagen {
+  text-align: center;
+}
+
+.ver-capitulo .ver-capitulo-post .ver-capitulo-post-imagen img {
   margin: 0 auto 22px;
-  width: 100%;
+  max-width: 100%;
+  width: auto;
 }
 
 .ver-capitulo.ver-capitulo-white .ver-capitulo-post p {
@@ -926,38 +931,12 @@ footer.footer-white .social-media a:hover {
   background-color: transparent;
 }
 
-/* Changing something in the body */
 :-webkit-full-screen {
   background-color: transparent;
 }
 
 :-moz-full-screen {
   background-color: transparent;
-}
-
-/* normal state */
-.my-container {
-  width: 640px;
-  height: 360px;
-}
-
-/* Mozilla proposal (dash) */
-.my-container:full-screen {
-  width: 100%;
-  height: 100%;
-}
-
-/* W3C proposal (no dash) */
-.my-container:fullscreen {
-  width: 100%;
-  height: 100%;
-}
-
-/* currently working vendor prefixes */
-.ver-capitulo:-webkit-full-screen,
-.ver-capitulo:-moz-full-screen {
-  width: 100%;
-  height: 100%;
 }
 
 /*!
