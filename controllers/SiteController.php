@@ -10,6 +10,8 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\EntHistorias;
 use app\models\EntHistoriasExtend;
+use app\models\EntCapitulos;
+use yii\web\NotFoundHttpException;
 
 class SiteController extends Controller {
 	/**
@@ -107,31 +109,6 @@ class SiteController extends Controller {
 		return $this->goHome ();
 	}
 	
-	/**
-	 * Displays contact page.
-	 *
-	 * @return string
-	 */
-	public function actionContact() {
-		$model = new ContactForm ();
-		if ($model->load ( Yii::$app->request->post () ) && $model->contact ( Yii::$app->params ['adminEmail'] )) {
-			Yii::$app->session->setFlash ( 'contactFormSubmitted' );
-			
-			return $this->refresh ();
-		}
-		return $this->render ( 'contact', [ 
-				'model' => $model 
-		] );
-	}
-	
-	/**
-	 * Displays about page.
-	 *
-	 * @return string
-	 */
-	public function actionAbout() {
-		return $this->render ( 'about' );
-	}
 	
 	/**
 	 * Lista de capitulos por historia
@@ -141,8 +118,10 @@ class SiteController extends Controller {
 	public function actionListaDeCapitulos($token = null) {
 		$historia = $this->getHistoriaByToken ( $token );
 		
+		$capituloForm = new EntCapitulos();
 		return $this->render ( 'listaDeCapitulos', [ 
-				'historia' => $historia 
+				'historia' => $historia,
+				'capituloForm'=>$capituloForm
 		] );
 	}
 	
@@ -151,7 +130,7 @@ class SiteController extends Controller {
 	 *
 	 * @param string $token        	
 	 */
-	public function actionVerCapitulo($token = null) {
+	public function actionVerCapitulo($token = null, $capitulo = null) {
 		$this->layout = 'headerPost';
 		$historia = $this->getHistoriaByToken ( $token );
 		
@@ -166,10 +145,10 @@ class SiteController extends Controller {
 	 * @return boolean|\app\models\EntHistorias
 	 */
 	private function getHistoriaByToken($token) {
-		if (($historia = EntHistoriasExtend::getHistoriaByToken ( $token )) !== null) {
+		if (($historia = EntHistoriasExtend::getHistoriaByToken ( $token ))) {
 			return $historia;
 		} else {
-			throw new NotFoundHttpException ( 'The requested page does not exist.' );
+			throw new NotFoundHttpException( 'The requested page does not exist.' );
 		}
 	}
 }

@@ -35,7 +35,7 @@ class EntCapitulos extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_historia', 'txt_nombre', 'txt_imagen', 'txt_token'], 'required'],
+            [['id_historia', 'txt_nombre', 'txt_token'], 'required'],
             [['id_historia', 'b_habilitado'], 'integer'],
             [['fch_creacion', 'fch_publicacion'], 'safe'],
             [['txt_nombre', 'txt_imagen'], 'string', 'max' => 200],

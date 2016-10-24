@@ -19,6 +19,25 @@ class Utils {
 	}
 	
 	/**
+	 * Cambia el formato de la fecha
+	 *
+	 * @param unknown $string
+	 */
+	public static function changeFormatDate($string) {
+		$date = date_create ($string );
+		return date_format ( $date, "d-M-Y" );
+	}
+	
+	/**
+	 * Cambia el formato de la fecha del input al adecuado para la base de datos
+	 * @param unknown $string
+	 */
+	public static function changeFormatDateInput($string){
+		$date = date_create ($string );
+		return date_format ( $date, "Y-m-d H:i:s" );
+	}
+	
+	/**
 	 * Genera un token para guardarlo en la base de datos
 	 *
 	 * @param string $pre        	

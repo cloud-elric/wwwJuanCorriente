@@ -48,12 +48,7 @@ $(document).ready(function(){
 		var l = Ladda.create(this);
 		l.start();
 	});
-	// Modal - Btn de Guardar
-	$('#modal-agregar-post-guardar').click(function(e){
-		e.preventDefault();
-		var l = Ladda.create(this);
-		l.start();
-	});
+	
 	// Modal - Btn de Login
 	$('.login-form-btn').click(function(){
 		var l = Ladda.create(this);
@@ -67,11 +62,6 @@ $(document).ready(function(){
 	$(modalOpen).on("click", function(){
 		modal.style.display = "flex";
 	});
-
-	/**
-	 * Datepicker
-	 */
-	$( "#datepicker" ).datepicker();
 
 	/**
 	 * Animate - Login elementos

@@ -19,7 +19,7 @@ class EntHistoriasExtend extends \yii\db\ActiveRecord {
 		] )->one ();
 		
 		if (empty ( $historia )) {
-			return false;
+			return '';
 		}
 		
 		return $historia;

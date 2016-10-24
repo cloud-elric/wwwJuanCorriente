@@ -4,8 +4,13 @@
 $this->title = 'Listado';
 use yii\helpers\Url;
 use yii\bootstrap\ActiveForm;
+use app\modules\ModUsuarios\models\Utils;
 
-$this->registerJsFile('@web/js/admin.js',['depends' => [\app\assets\AppAsset::className()]]);
+$this->registerJsFile ( '@web/js/admin.js', [ 
+		'depends' => [ 
+				\app\assets\AppAsset::className () 
+		] 
+] );
 ?>
 
 <!-- .listado -->
@@ -35,7 +40,7 @@ $this->registerJsFile('@web/js/admin.js',['depends' => [\app\assets\AppAsset::cl
 			
 			<!-- .listado-articles-item -->
 			<a class="listado-articles-item"
-				href="<?=Url::base()?>/site/ver-capitulo"> <!-- .listado-articles-item-imagen -->
+				href="<?=Url::base()?>/site/ver-capitulo?token=<?=$historia->txt_token?>&capitulo=<?=$capitulo->txt_token?>"> <!-- .listado-articles-item-imagen -->
 				<div class="listado-articles-item-imagen" style="background-image:url('<?=Url::base()?>/webAssets/uploads/<?=$capitulo->txt_imagen?>')">
 					<div class="listado-articles-item-capitulo">
 						<h4>Capitulo <?=$numCapitulo?></h4>
@@ -92,14 +97,6 @@ $this->registerJsFile('@web/js/admin.js',['depends' => [\app\assets\AppAsset::cl
 			</h2>
 			<!-- end - .modal-admin-cont-title -->
 
-			<!-- .modal-admin-cont-btn-guardar -->
-
-			<button id="modal-agregar-post-guardar" class="btn modal-admin-cont-btn-guardar ladda-button" data-style="zoom-out">
-				<span class="ladda-label">Guardar</span>
-			</button>
-
-
-			<!-- end - .modal-admin-cont-btn-guardar -->
 		</div>
 		<!-- end - .modal-admin-header -->
 
@@ -114,57 +111,36 @@ $this->registerJsFile('@web/js/admin.js',['depends' => [\app\assets\AppAsset::cl
 				'layout' => 'horizontal',
 				'id' => 'form-agregar-capitulo' 
 		] );
-		
+		$capituloForm->fch_publicacion= Utils::changeFormatDate(Utils::getFechaActual());
+		echo $form->field ( $capituloForm, 'txt_nombre' )->hiddenInput ()->label ( false );
 		?>
+		<input type="hidden" data-historia="<?=$historia->txt_token?>" id="js-historia" />
 			<!-- Título -->
 		<!-- <label class="modal-admin-form-titulo" for="modal-admin-form-titulo">Dame un título...</label>
 			<input class="modal-admin-form-titulo" type="text" id="modal-admin-form-titulo" placeholder="Dame un título..."> -->
 
 		<!-- Título -->
-		<h3 class="modal-admin-form-titulo" contentEditable="true" data-new="true" id="js-nombre-capitulo">Dame un
-			título...</h3>
+		<h3 class="modal-admin-form-titulo" contentEditable="true"
+			data-new="esNuevo" id="js-nombre-capitulo">Dame un título...</h3>
 
 		<!-- .modal-admin-form-datepiker -->
 		<div class="modal-admin-form-datepiker">
-			<label for="datepicker">Selecciona una fecha de Publicación</label> <input
-				type="text" id="datepicker" placeholder="20-oct-2016">
+			<label for="datepicker">Selecciona una fecha de Publicación</label> 
+			<?php echo $form->field ( $capituloForm, 'fch_publicacion' )->textInput(['class'=>'datepicker','placeholder'=>'10-Oct-2016'])->label ( false );?>
+			
 		</div>
 		<!-- end - .modal-admin-form-datepiker -->
 
-		<!-- .modal-admin-form-header -->
-		<!-- <div class="modal-admin-form-header">
-				<span>Agregar Header</span>
-			</div> -->
-			<!-- end - .modal-admin-form-header -->
-			
-			<!-- File Header -->
-			<input type="file" class="modal-admin-form-header">
-			
-			<!-- Texto -->
-			<!-- <label class="modal-admin-form-texto" for="modal-admin-form-texto">Dame un parrafo...</label>
-			<textarea class="modal-admin-form-texto" id="modal-admin-form-texto" placeholder="Dame un parrafo..."></textarea> -->
+		<!-- .modal-admin-cont-btn-guardar -->
 
-			<!-- Texto -->
-			<p class="modal-admin-form-texto" contentEditable="true">Dame un parrafo...</p>
-			
-			<!-- File Imagen -->
-			<input type="file" class="modal-admin-form-imagen">
-
-		<!-- .modal-admin-form-controlers -->
-		<div class="modal-admin-form-controlers">
-
-			<button id="modal-agregar-post-open"
-				class="btn modal-admin-form-controlers-btn-circle modal-admin-form-controlers-btn-circle-texto">
-				<i class="ion ion-document-text"></i>
+			<button id="modal-agregar-post-guardar"
+				class="btn modal-admin-cont-btn-guardar ladda-button"
+				data-style="zoom-out">
+				<span class="ladda-label">Guardar</span>
 			</button>
 
-			<button id="modal-agregar-post-open"
-				class="btn modal-admin-form-controlers-btn-circle modal-admin-form-controlers-btn-circle-imagen">
-				<i class="ion ion-image"></i>
-			</button>
 
-		</div>
-		<!-- end - .modal-admin-form-controlers -->
+			<!-- end - .modal-admin-cont-btn-guardar -->
 
 		<?php
 		
