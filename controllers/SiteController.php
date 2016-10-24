@@ -109,7 +109,6 @@ class SiteController extends Controller {
 		return $this->goHome ();
 	}
 	
-	
 	/**
 	 * Lista de capitulos por historia
 	 *
@@ -118,10 +117,10 @@ class SiteController extends Controller {
 	public function actionListaDeCapitulos($token = null) {
 		$historia = $this->getHistoriaByToken ( $token );
 		
-		$capituloForm = new EntCapitulos();
+		$capituloForm = new EntCapitulos ();
 		return $this->render ( 'listaDeCapitulos', [ 
 				'historia' => $historia,
-				'capituloForm'=>$capituloForm
+				'capituloForm' => $capituloForm 
 		] );
 	}
 	
@@ -134,12 +133,16 @@ class SiteController extends Controller {
 		$this->layout = 'headerPost';
 		$historia = $this->getHistoriaByToken ( $token );
 		
-		return $this->render ( 'verCapitulo' );
+		$capitulo = $this->getCapituloByToken ( $capitulo );
+		
+		return $this->render ( 'verCapitulo', [ 
+				'capitulo' => $capitulo 
+		] );
 	}
 	
 	/**
 	 * Busca la historia por el token
-	 * 
+	 *
 	 * @param unknown $token        	
 	 * @throws NotFoundHttpException
 	 * @return boolean|\app\models\EntHistorias
@@ -148,7 +151,22 @@ class SiteController extends Controller {
 		if (($historia = EntHistoriasExtend::getHistoriaByToken ( $token ))) {
 			return $historia;
 		} else {
-			throw new NotFoundHttpException( 'The requested page does not exist.' );
+			throw new NotFoundHttpException ( 'The requested page does not exist.' );
+		}
+	}
+	
+	/**
+	 * Busca la historia por el token
+	 *
+	 * @param unknown $token
+	 * @throws NotFoundHttpException
+	 * @return boolean|\app\models\EntHistorias
+	 */
+	private function getCapituloByToken($token) {
+		if (($capitulo = EntCapitulos::find()->where(['txt_token'=>$token])->one())) {
+			return $capitulo;
+		} else {
+			throw new NotFoundHttpException ( 'The requested page does not exist.' );
 		}
 	}
 }

@@ -100,6 +100,10 @@ class AdminPanelController extends Controller {
 		return ['status'=>'error'];
 	}
 	
+	public function actionGuardarElementoCapitulo(){
+		
+	}
+	
 	public function validarCapitulo($capitulo) {
 		if (Yii::$app->request->isAjax && $capitulo->load ( Yii::$app->request->post () )) {
 			Yii::$app->response->format = Response::FORMAT_JSON;

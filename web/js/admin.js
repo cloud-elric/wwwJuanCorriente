@@ -47,6 +47,26 @@ function agregarTarjeta() {
 					+ '</a>';
 }
 
+$(document).on({
+    'focus': function () {
+    	var esNuevo = $(this).data('new');
+		if (esNuevo == 'esNuevo') {
+			$(this).text('');
+		}
+    },
+    'focusout': function () {
+    	if (($(this).text()).trim() == '') {
+			$(this).text('Agregar texto');
+			$(this).data('new', 'esNuevo');
+		} else {
+				
+		}
+    },
+    'DOMSubtreeModified':function(){
+    	$(this).data('new', 'noNuevo');
+    }
+}, '.js-elemento-editable');
+
 $(document).ready(
 		function() {
 
@@ -54,6 +74,16 @@ $(document).ready(
 			 * Elemento de la fecha
 			 */
 			$(".datepicker").datepicker();
+			
+			/**
+			 * Agrega un nuevo elemento del tipo texto
+			 */
+			$(".js-texto").on("click", function(){
+				var template = "<p class='js-elemento-editable' contentEditable='true' data-new='esNuevo'>Agregar texto</p>";
+				
+				$('.ver-capitulo-post').append(template);
+			});
+					
 
 			$('#js-nombre-capitulo').focusout(function() {
 
