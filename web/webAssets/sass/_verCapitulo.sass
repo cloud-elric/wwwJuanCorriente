@@ -82,19 +82,149 @@
 		margin: 0 auto
 		max-width: 600px
 		width: 90%
-		p
-			color: #AAF5F5
-			font-size: .9em
-			line-height: 1.250em
-			margin-bottom: 22px
-			text-align: justify
+		// Descripción
+		.ver-capitulo-post-desc
+			p
+				border: 1px solid transparent
+				color: #AAF5F5
+				font-size: .9em
+				line-height: 1.250em
+				margin-bottom: 22px
+				padding: 4px
+				text-align: justify
+				&:focus
+					border: 1px solid rgba($white,.1)
+					outline: none
 		// Imagen
 		.ver-capitulo-post-imagen
 			text-align: center
 			img
+				border: 1px solid transparent
 				margin: 0 auto 22px
 				max-width: 100%
 				width: auto
+				&:focus
+					border: 1px solid rgba($white,.1)
+					outline: none
+		// Hover Close
+		.ver-capitulo-post-hover-close
+			// background-color: rgba(red,.3)
+			position: relative
+			.ver-capitulo-post-hover-close-btn
+				+border-radius(50%)
+				align-items: center
+				background-color: red
+				color: $white
+				cursor: pointer
+				display: none
+				height: 24px
+				justify-content: center
+				opacity: .9
+				position: absolute
+				right: -12px
+				top: -12px
+				width: 24px
+				i
+					font-size: 1em
+				&:hover
+					opacity: 1
+			&:hover
+				// border: 1px solid rgba($white,.1)
+				.ver-capitulo-post-hover-close-btn
+					display: flex
+			// &:focus
+			// 	border: 1px solid rgba($white,.1)
+			// 	outline: none
+		// File Imagen Post
+		.modal-admin-form-imagen
+			align-items: center
+			background-color: $black
+			display: flex
+			border: 1px dashed #C4CFD4
+			justify-content: center
+			height: 100px
+			margin-bottom: 30px
+			overflow: hidden
+			position: relative
+			width: 100%
+			span
+				color: #979797
+				display: block
+				font-size: 1.6em
+			&:focus,
+			&:hover
+				border: 1px dashed #979797
+				outline: none
+				&:after
+					color: #979797
+			&:after
+				align-items: center
+				background-color: $black
+				bottom: 0
+				content: "Agregar Imagen"
+				color: #C4CFD4
+				cursor: pointer
+				display: flex
+				font-family: $font-base
+				font-size: 1.3em
+				font-weight: 400
+				height: 100%
+				justify-content: center
+				left: 0
+				position: absolute
+				right: 0
+				top: 0
+				width: 100%
+	// Controles
+	.ver-capitulo-controlers
+		// background-color: teal
+		display: flex
+		justify-content: flex-end
+		margin: 40px auto 0
+		bottom: 50px
+		position: fixed
+		right: 40px
+		.ver-capitulo-controlers-btn-circle
+			align-items: center
+			// background-color: $secundary-color
+			// border-color: $secundary-color
+			border: none
+			+border-radius(50%)
+			color: $white
+			display: flex
+			justify-content: center
+			height: 50px
+			margin-left: 12px
+			position: relative
+			width: 50px
+			i
+				font-size: 1.5em
+			// &:hover
+			// 	color: $white
+			// 	background-color: $secundary-color-light
+			// 	border-color: $secundary-color-light
+			// &:focus
+			// 	color: $white
+			// 	background-color: $secundary-color-dark
+			// 	border-color: $secundary-color-dark
+			&.ver-capitulo-controlers-btn-circle-texto
+				background-color: $pink-color
+				border-color: $pink-color
+				&:hover
+					background-color: $pink-color-light
+					border-color: $pink-color-light
+				&:focus
+					background-color: $pink-color-light
+					border-color: $pink-color-light
+			&.ver-capitulo-controlers-btn-circle-imagen
+				background-color: $green-color
+				border-color: $green-color
+				&:hover
+					background-color: $green-color-light
+					border-color: $green-color-light
+				&:focus
+					background-color: $green-color-light
+					border-color: $green-color-light
 	// Ver capítulo - white
 	&.ver-capitulo-white
 		// background-color: red

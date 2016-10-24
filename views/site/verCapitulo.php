@@ -51,28 +51,42 @@ $this->registerJsFile ( '@web/js/admin.js', [
 				<img src="<?=Url::base()?>/webAssets/images/monkey.png" alt="Article">
 			</div>
 			-->
+
+			<div class="ver-capitulo-post-desc ver-capitulo-post-hover-close">
+				<p contenteditable="true">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis exercitationem modi reiciendis, dignissimos culpa sequi eveniet ab nesciunt commodi soluta, quia ipsum reprehenderit vero magnam, tempora aut atque neque perferendis.
+				</p>
+				<span class="ver-capitulo-post-hover-close-btn"><i class="ion ion-close-round"></i></span>
+			</div>
+
+			<div class="ver-capitulo-post-imagen ver-capitulo-post-hover-close">
+				<img src="<?=Url::base()?>/webAssets/images/monkey.png" alt="Article" contenteditable="true">
+				<span class="ver-capitulo-post-hover-close-btn"><i class="ion ion-close-round"></i></span>
+			</div>
+
+			<input type="file" class="modal-admin-form-imagen">
+
 		</div>
 		<!-- end - .ver-capitulo-post -->
 
 	</div>
 	<!-- end - .container -->
+
+
+	<!-- .ver-capitulo-controlers -->
+	<div class="ver-capitulo-controlers">
+
+		<button class="btn ver-capitulo-controlers-btn-circle ver-capitulo-controlers-btn-circle-texto">
+			<i class="ion ion-document-text"></i>
+		</button>
+
+		<button class="btn ver-capitulo-controlers-btn-circle ver-capitulo-controlers-btn-circle-imagen">
+			<i class="ion ion-image"></i>
+		</button>
+
+	</div>
+	<!-- end - .ver-capitulo-controlers -->
+
 </div>
 <!-- end - .ver-capitulo -->
 
-<!-- <input type="button" value="Go Fullscreen" id="fsbutton" /> -->
-
-		<!-- .modal-admin-form-controlers -->
-		<div class="modal-admin-form-controlers">
-
-			<button 
-				class="btn modal-admin-form-controlers-btn-circle modal-admin-form-controlers-btn-circle-texto js-texto">
-				<i class="ion ion-document-text"></i>
-			</button>
-
-			<button 
-				class="btn modal-admin-form-controlers-btn-circle modal-admin-form-controlers-btn-circle-imagen">
-				<i class="ion ion-image"></i>
-			</button>
-
-		</div>
-		<!-- end - .modal-admin-form-controlers -->

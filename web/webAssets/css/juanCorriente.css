@@ -892,12 +892,19 @@ footer.footer-white .social-media a:hover {
   width: 90%;
 }
 
-.ver-capitulo .ver-capitulo-post p {
+.ver-capitulo .ver-capitulo-post .ver-capitulo-post-desc p {
+  border: 1px solid transparent;
   color: #AAF5F5;
   font-size: .9em;
   line-height: 1.250em;
   margin-bottom: 22px;
+  padding: 4px;
   text-align: justify;
+}
+
+.ver-capitulo .ver-capitulo-post .ver-capitulo-post-desc p:focus {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  outline: none;
 }
 
 .ver-capitulo .ver-capitulo-post .ver-capitulo-post-imagen {
@@ -905,9 +912,157 @@ footer.footer-white .social-media a:hover {
 }
 
 .ver-capitulo .ver-capitulo-post .ver-capitulo-post-imagen img {
+  border: 1px solid transparent;
   margin: 0 auto 22px;
   max-width: 100%;
   width: auto;
+}
+
+.ver-capitulo .ver-capitulo-post .ver-capitulo-post-imagen img:focus {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  outline: none;
+}
+
+.ver-capitulo .ver-capitulo-post .ver-capitulo-post-hover-close {
+  position: relative;
+}
+
+.ver-capitulo .ver-capitulo-post .ver-capitulo-post-hover-close .ver-capitulo-post-hover-close-btn {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  align-items: center;
+  background-color: red;
+  color: #FFF;
+  cursor: pointer;
+  display: none;
+  height: 24px;
+  justify-content: center;
+  opacity: .9;
+  position: absolute;
+  right: -12px;
+  top: -12px;
+  width: 24px;
+}
+
+.ver-capitulo .ver-capitulo-post .ver-capitulo-post-hover-close .ver-capitulo-post-hover-close-btn i {
+  font-size: 1em;
+}
+
+.ver-capitulo .ver-capitulo-post .ver-capitulo-post-hover-close .ver-capitulo-post-hover-close-btn:hover {
+  opacity: 1;
+}
+
+.ver-capitulo .ver-capitulo-post .ver-capitulo-post-hover-close:hover .ver-capitulo-post-hover-close-btn {
+  display: flex;
+}
+
+.ver-capitulo .ver-capitulo-post .modal-admin-form-imagen {
+  align-items: center;
+  background-color: #2F2F2F;
+  display: flex;
+  border: 1px dashed #C4CFD4;
+  justify-content: center;
+  height: 100px;
+  margin-bottom: 30px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.ver-capitulo .ver-capitulo-post .modal-admin-form-imagen span {
+  color: #979797;
+  display: block;
+  font-size: 1.6em;
+}
+
+.ver-capitulo .ver-capitulo-post .modal-admin-form-imagen:focus, .ver-capitulo .ver-capitulo-post .modal-admin-form-imagen:hover {
+  border: 1px dashed #979797;
+  outline: none;
+}
+
+.ver-capitulo .ver-capitulo-post .modal-admin-form-imagen:focus:after, .ver-capitulo .ver-capitulo-post .modal-admin-form-imagen:hover:after {
+  color: #979797;
+}
+
+.ver-capitulo .ver-capitulo-post .modal-admin-form-imagen:after {
+  align-items: center;
+  background-color: #2F2F2F;
+  bottom: 0;
+  content: "Agregar Imagen";
+  color: #C4CFD4;
+  cursor: pointer;
+  display: flex;
+  font-family: "Fira Sans", sans-serif;
+  font-size: 1.3em;
+  font-weight: 400;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+
+.ver-capitulo .ver-capitulo-controlers {
+  display: flex;
+  justify-content: flex-end;
+  margin: 40px auto 0;
+  bottom: 50px;
+  position: fixed;
+  right: 40px;
+}
+
+.ver-capitulo .ver-capitulo-controlers .ver-capitulo-controlers-btn-circle {
+  align-items: center;
+  border: none;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  color: #FFF;
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  margin-left: 12px;
+  position: relative;
+  width: 50px;
+}
+
+.ver-capitulo .ver-capitulo-controlers .ver-capitulo-controlers-btn-circle i {
+  font-size: 1.5em;
+}
+
+.ver-capitulo .ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-texto {
+  background-color: #F461A5;
+  border-color: #F461A5;
+}
+
+.ver-capitulo .ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-texto:hover {
+  background-color: #f24193;
+  border-color: #f24193;
+}
+
+.ver-capitulo .ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-texto:focus {
+  background-color: #f24193;
+  border-color: #f24193;
+}
+
+.ver-capitulo .ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-imagen {
+  background-color: #83EB91;
+  border-color: #83EB91;
+}
+
+.ver-capitulo .ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-imagen:hover {
+  background-color: #66e677;
+  border-color: #66e677;
+}
+
+.ver-capitulo .ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-imagen:focus {
+  background-color: #66e677;
+  border-color: #66e677;
 }
 
 .ver-capitulo.ver-capitulo-white .ver-capitulo-post p {
@@ -1194,72 +1349,6 @@ footer.footer-white .social-media a:hover {
   }
 }
 
-.modal-admin .modal-content .modal-admin-form .modal-admin-form-header,
-.modal-admin .modal-content .modal-admin-form .modal-admin-form-imagen {
-  align-items: center;
-  display: flex;
-  border: 1px dashed #C4CFD4;
-  justify-content: center;
-  height: 160px;
-  margin-bottom: 30px;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-}
-
-.modal-admin .modal-content .modal-admin-form .modal-admin-form-header span,
-.modal-admin .modal-content .modal-admin-form .modal-admin-form-imagen span {
-  color: #979797;
-  display: block;
-  font-size: 1.6em;
-}
-
-.modal-admin .modal-content .modal-admin-form .modal-admin-form-header:focus, .modal-admin .modal-content .modal-admin-form .modal-admin-form-header:hover,
-.modal-admin .modal-content .modal-admin-form .modal-admin-form-imagen:focus,
-.modal-admin .modal-content .modal-admin-form .modal-admin-form-imagen:hover {
-  border: 1px dashed #979797;
-  outline: none;
-}
-
-.modal-admin .modal-content .modal-admin-form .modal-admin-form-header:focus:after, .modal-admin .modal-content .modal-admin-form .modal-admin-form-header:hover:after,
-.modal-admin .modal-content .modal-admin-form .modal-admin-form-imagen:focus:after,
-.modal-admin .modal-content .modal-admin-form .modal-admin-form-imagen:hover:after {
-  color: #979797;
-}
-
-.modal-admin .modal-content .modal-admin-form .modal-admin-form-header:after,
-.modal-admin .modal-content .modal-admin-form .modal-admin-form-imagen:after {
-  align-items: center;
-  background-color: #EFFAFF;
-  bottom: 0;
-  content: "Agregar Header";
-  color: #C4CFD4;
-  cursor: pointer;
-  display: flex;
-  font-family: "Fira Sans", sans-serif;
-  font-size: 1.95em;
-  font-weight: 500;
-  height: 100%;
-  justify-content: center;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 100%;
-}
-
-.modal-admin .modal-content .modal-admin-form .modal-admin-form-header.modal-admin-form-imagen,
-.modal-admin .modal-content .modal-admin-form .modal-admin-form-imagen.modal-admin-form-imagen {
-  height: 100px;
-}
-
-.modal-admin .modal-content .modal-admin-form .modal-admin-form-header.modal-admin-form-imagen:after,
-.modal-admin .modal-content .modal-admin-form .modal-admin-form-imagen.modal-admin-form-imagen:after {
-  content: "Agregar Imagen";
-  font-size: 1.3em;
-  font-weight: 400;
-}
-
 .modal-admin .modal-content .modal-admin-form textarea {
   background-color: rgba(47, 47, 47, 0.2) !important;
   height: 30px;
@@ -1324,62 +1413,6 @@ footer.footer-white .social-media a:hover {
   color: #252B31;
   opacity: 1;
   outline: none;
-}
-
-.modal-admin .modal-content .modal-admin-form .modal-admin-form-controlers {
-  display: flex;
-  justify-content: flex-end;
-  margin: 40px auto 0;
-}
-
-.modal-admin .modal-content .modal-admin-form .modal-admin-form-controlers .modal-admin-form-controlers-btn-circle {
-  align-items: center;
-  border: none;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  border-radius: 50%;
-  color: #FFF;
-  display: flex;
-  justify-content: center;
-  height: 30px;
-  margin-left: 12px;
-  position: relative;
-  width: 30px;
-}
-
-.modal-admin .modal-content .modal-admin-form .modal-admin-form-controlers .modal-admin-form-controlers-btn-circle i {
-  font-size: 1em;
-}
-
-.modal-admin .modal-content .modal-admin-form .modal-admin-form-controlers .modal-admin-form-controlers-btn-circle.modal-admin-form-controlers-btn-circle-texto {
-  background-color: #F461A5;
-  border-color: #F461A5;
-}
-
-.modal-admin .modal-content .modal-admin-form .modal-admin-form-controlers .modal-admin-form-controlers-btn-circle.modal-admin-form-controlers-btn-circle-texto:hover {
-  background-color: #f24193;
-  border-color: #f24193;
-}
-
-.modal-admin .modal-content .modal-admin-form .modal-admin-form-controlers .modal-admin-form-controlers-btn-circle.modal-admin-form-controlers-btn-circle-texto:focus {
-  background-color: #f24193;
-  border-color: #f24193;
-}
-
-.modal-admin .modal-content .modal-admin-form .modal-admin-form-controlers .modal-admin-form-controlers-btn-circle.modal-admin-form-controlers-btn-circle-imagen {
-  background-color: #83EB91;
-  border-color: #83EB91;
-}
-
-.modal-admin .modal-content .modal-admin-form .modal-admin-form-controlers .modal-admin-form-controlers-btn-circle.modal-admin-form-controlers-btn-circle-imagen:hover {
-  background-color: #66e677;
-  border-color: #66e677;
-}
-
-.modal-admin .modal-content .modal-admin-form .modal-admin-form-controlers .modal-admin-form-controlers-btn-circle.modal-admin-form-controlers-btn-circle-imagen:focus {
-  background-color: #66e677;
-  border-color: #66e677;
 }
 
 .admin-agregar-btn-circle {
