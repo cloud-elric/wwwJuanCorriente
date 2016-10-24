@@ -66,6 +66,10 @@ body {
   color: #2F2F2F;
 }
 
+body.body-white {
+  background-color: #FFF;
+}
+
 /* a */
 a {
   color: #4E83DA;
@@ -359,6 +363,8 @@ hr {
   }
 }
 
+/*  Delay
+	@mixin =============================================== */
 .delay-1 {
   -webkit-animation-delay: 0.15s;
   animation-delay: 0.15s;
@@ -458,6 +464,18 @@ footer .social-media a:last-child {
 }
 
 footer .social-media a:hover {
+  color: #326fd4;
+}
+
+footer.footer-white h6 {
+  color: #2F2F2F;
+}
+
+footer.footer-white .social-media a {
+  color: #2F2F2F;
+}
+
+footer.footer-white .social-media a:hover {
   color: #326fd4;
 }
 
@@ -828,7 +846,19 @@ footer .social-media a:hover {
   z-index: 3;
 }
 
-.ver-capitulo .ver-capitulo-header .ver-capitulo-full-screen {
+.ver-capitulo .ver-capitulo-header .ver-capitulo-leer-full {
+  color: #8EF0EF;
+  cursor: pointer;
+  display: none;
+  font-size: 1.250em;
+  left: 30px;
+  position: absolute;
+  top: 44px;
+  z-index: 3;
+}
+
+.ver-capitulo .ver-capitulo-header .ver-capitulo-full-screen,
+.ver-capitulo .ver-capitulo-header .ver-capitulo-close-screen {
   align-items: center;
   color: #8EF0EF;
   cursor: pointer;
@@ -840,14 +870,20 @@ footer .social-media a:hover {
   z-index: 3;
 }
 
-.ver-capitulo .ver-capitulo-header .ver-capitulo-full-screen span {
+.ver-capitulo .ver-capitulo-header .ver-capitulo-full-screen span,
+.ver-capitulo .ver-capitulo-header .ver-capitulo-close-screen span {
   font-size: 0.7em;
   margin-right: 8px;
   text-transform: uppercase;
 }
 
-.ver-capitulo .ver-capitulo-header .ver-capitulo-full-screen i {
+.ver-capitulo .ver-capitulo-header .ver-capitulo-full-screen i,
+.ver-capitulo .ver-capitulo-header .ver-capitulo-close-screen i {
   font-size: 0.85em;
+}
+
+.ver-capitulo .ver-capitulo-header .ver-capitulo-close-screen {
+  display: none;
 }
 
 .ver-capitulo .ver-capitulo-post {
@@ -867,6 +903,61 @@ footer .social-media a:hover {
 .ver-capitulo .ver-capitulo-post img {
   margin: 0 auto 22px;
   width: 100%;
+}
+
+.ver-capitulo.ver-capitulo-white .ver-capitulo-post p {
+  color: #2F2F2F;
+}
+
+.ver-capitulo.ver-capitulo-white-full {
+  background-color: #FFF;
+}
+
+.ver-capitulo.ver-capitulo-white-full .ver-capitulo-post p {
+  color: #2F2F2F;
+}
+
+.ver-capitulo.ver-capitulo-full {
+  overflow-y: auto;
+  width: 100%;
+}
+
+.ver-capitulo:fullscreen, .ver-capitulo:-webkit-full-screen, .ver-capitulo:-moz-full-screen {
+  background-color: transparent;
+}
+
+/* Changing something in the body */
+:-webkit-full-screen {
+  background-color: transparent;
+}
+
+:-moz-full-screen {
+  background-color: transparent;
+}
+
+/* normal state */
+.my-container {
+  width: 640px;
+  height: 360px;
+}
+
+/* Mozilla proposal (dash) */
+.my-container:full-screen {
+  width: 100%;
+  height: 100%;
+}
+
+/* W3C proposal (no dash) */
+.my-container:fullscreen {
+  width: 100%;
+  height: 100%;
+}
+
+/* currently working vendor prefixes */
+.ver-capitulo:-webkit-full-screen,
+.ver-capitulo:-moz-full-screen {
+  width: 100%;
+  height: 100%;
 }
 
 /*!

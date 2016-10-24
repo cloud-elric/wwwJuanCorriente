@@ -7,7 +7,7 @@ use yii\helpers\Url;
 ?>
 
 <!-- .ver-capitulo -->
-<div class="ver-capitulo">
+<div class="ver-capitulo" id="specialstuff">
 
 	<!-- .ver-capitulo-header -->
 	<div class="ver-capitulo-header">
@@ -19,9 +19,17 @@ use yii\helpers\Url;
 		<!-- Leer de día o noche -->
 		<i class="ion ion-ios-book ver-capitulo-leer"></i>
 
+		<!-- Leer de día o noche -->
+		<i class="ion ion-ios-book ver-capitulo-leer-full"></i>
+
 		<!-- FullScreen -->
-		<div class="ver-capitulo-full-screen">
+		<div class="ver-capitulo-full-screen" id="full-screen">
 			<span>FullScreen</span> <i class="ion ion-arrow-expand"></i>
+		</div>
+
+		<!-- CloseScreen -->
+		<div class="ver-capitulo-close-screen" id="close-screen">
+			<span>Exit Screen</span> <i class="ion ion-arrow-shrink"></i>
 		</div>
 	</div>
 	<!-- end - .ver-capitulo-header -->
@@ -58,3 +66,5 @@ use yii\helpers\Url;
 	<!-- end - .container -->
 </div>
 <!-- end - .ver-capitulo -->
+
+<!-- <input type="button" value="Go Fullscreen" id="fsbutton" /> -->
