@@ -17,9 +17,11 @@ $header = EntElementos::find ()->where ( [
 		'b_header' => 1,
 		'id_tipo_elemento' => ConstantesWeb::TIPO_ELEMENTO_HEADER 
 ] )->one ();
+
 $editable = '';
 $classEditable = '';
 $isAdmin = true;
+
 if ($isAdmin) {
 	$editable = " contentEditable='true' data-new='noNuevo'  data-progress='noProceso' ";
 	$classEditable = ' js-elemento-editable';
@@ -63,26 +65,23 @@ if ($isAdmin) {
 		<?php
 		foreach ( $elementos as $elemento ) {
 			if (! $elemento->b_header) {
+				$closeButton = '';
+				if($isAdmin){
+					$closeButton = '<span class="ver-capitulo-post-hover-close-btn js-remove-element" data-token="'.$elemento->txt_token.'"><i class="ion ion-close-round"></i></span>';
+				}
+				
 				?>
-		<div class='<?=$classEditable?>' <?=$editable?>
-				data-token="<?=$elemento->txt_token?>"><?=$elemento->txt_valor?></div>
+		<div class="ver-capitulo-post-desc ver-capitulo-post-hover-close js-elemento-leer" id="js-elemento-<?=$elemento->txt_token?>">
+				<div class="ver-capitulo-post-desc-text <?=$classEditable?>" <?=$editable?> data-token="<?=$elemento->txt_token?>">
+					<?=$elemento->txt_valor?>
+				</div>
+				<?=$closeButton?>
+			</div>		
 		
 		<?php
 			}
 		}
 		?>
-			<!-- 
-			<div class="ver-capitulo-post-imagen">
-				<img src="<?=Url::base()?>/webAssets/images/monkey.png" alt="Article">
-			</div>
-			-->
-
-			<div class="ver-capitulo-post-desc ver-capitulo-post-hover-close">
-				<div class="ver-capitulo-post-desc-text" contenteditable="true">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis exercitationem modi reiciendis, dignissimos culpa sequi eveniet ab nesciunt commodi soluta, quia ipsum reprehenderit vero magnam, tempora aut atque neque perferendis.
-				</div>
-				<span class="ver-capitulo-post-hover-close-btn"><i class="ion ion-close-round"></i></span>
-			</div>
 
 			<div class="ver-capitulo-post-imagen ver-capitulo-post-hover-close">
 				<img src="<?=Url::base()?>/webAssets/images/monkey.png" alt="Article" contenteditable="true">

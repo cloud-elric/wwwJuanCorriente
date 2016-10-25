@@ -25,6 +25,21 @@ function agregarTarjeta() {
 			+ '<h3 class="listado-articles-item-title">The chain</h3>' + '</a>';
 }
 
+// Metodo para eliminar elemento
+$(document).on({
+	'click' : function() {
+		var token = $(this).data('token');
+		var proceso = $(this).data('progress');
+		
+		if(proceso=='enProceso'){
+			alert();
+		}else{
+			$('#js-elemento-' + token).remove();
+		}
+		
+	}
+}, '.js-remove-element');
+
 // Metodo para guardar al elemento
 $(document).on(
 		{
@@ -49,37 +64,31 @@ $(document).on(
 					if (element.data('progress') == 'noProceso') {
 						element.data('progress', 'enProceso');
 						var valor = element.html();
-						
-						
+
 						$.ajax({
 							url : url,
 							data : {
 								valor : valor,
-								index:index,
-								token:tokenElemento
+								index : index,
+								token : tokenElemento
 							},
 							method : "POST",
 							success : function(response) {
 								element.data('token', response.tk);
+								element.parents('.js-elemento-leer').attr('id', "js-elemento-"+response.tk);
+								element.next().data('token', response.tk);
 								element.data('progress', 'noProceso');
 							}
 						});
-					}else if (element.data('progress') == 'enProceso') {
+					} else if (element.data('progress') == 'enProceso') {
 						element.addClass('sinGuardar');
 					}
 				}
 			},
 			'DOMSubtreeModified' : function() {
 				$(this).data('new', 'noNuevo');
-			},'keydown':function(e){
-				if (e.keyCode == 13) {
-				      // insert 2 br tags (if only one br tag is inserted the cursor won't go to the second line)
-//				      document.execCommand('insertHTML', false, '<br><br>');
-//				      // prevent the default behaviour of return key pressed
-//				      return false;
-				    }
 			}
-			
+
 		}, '.js-elemento-editable');
 
 $(document)
@@ -98,7 +107,12 @@ $(document)
 							.on(
 									"click",
 									function() {
-										var template = "<div class='js-elemento-editable' contentEditable='true' data-new='esNuevo' data-token data-progress='noProceso'>Agregar texto</div>";
+										var template = '<div class="ver-capitulo-post-desc ver-capitulo-post-hover-close js-elemento-leer">'
+												+ '<div class="ver-capitulo-post-desc-text  js-elemento-editable" contenteditable="true" data-new="esNuevo" data-progress="noProceso" data-token>'
+													+'Agregar texto'
+												+ '</div>'
+												+ '<span class="ver-capitulo-post-hover-close-btn js-remove-element" data-token><i class="ion ion-close-round"></i></span>'
+												+ '</div>';
 
 										$('.ver-capitulo-post')
 												.append(template);
@@ -159,24 +173,24 @@ $(document)
 													url : basePath
 															+ 'admin-panel/guardar-capitulo?token='
 															+ token,// url para
-																	// peticion
+													// peticion
 													type : 'post', // Metodo en
-																	// el que se
-																	// enviara
-																	// la
+													// el que se
+													// enviara
+													// la
 													// informacion
 													data : new FormData(this), // La
-																				// informacion
-																				// a
+													// informacion
+													// a
 													// mandar
 													dataType : 'json', // Tipo
-																		// de
-																		// respuesta
+													// de
+													// respuesta
 													cache : false, // sin cache
 													contentType : false,
 													processData : false,
 													success : function(response) { // Cuando
-																					// la
+														// la
 														// peticion sea
 														// exitosamente se
 														// ejecutara la
