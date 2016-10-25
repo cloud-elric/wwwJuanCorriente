@@ -33,10 +33,11 @@ if ($isAdmin) {
 	$classEditable = ' js-elemento-editable';
 }
 ?>
-<input type="hidden" data-token="<?=$capitulo->txt_token?>"
-	id="js-capitulo" />
+
+<input type="hidden" data-token="<?=$capitulo->txt_token?>" id="js-capitulo" />
+
 <!-- .ver-capitulo -->
-<div class="ver-capitulo" id="specialstuff">
+<div class="ver-capitulo ver-capitulo-admin" id="specialstuff">
 
 	<!-- .ver-capitulo-header -->
 	<div class="ver-capitulo-header" style="background-image: url(<?=Url::base().(empty($header)?'/webAssets/images/portada.jpg':$header->txt_valor)?>)">
@@ -103,9 +104,11 @@ if ($isAdmin) {
 				<input type="file" class="modal-admin-form-imagen" onchange="uploadImage($(this),this)"> 
 				 -->
 				
-				<div class="js-container-image">
-					<input type="file" class="modal-admin-form-imagen" onchange="uploadImage($(this),this)">
-				</div>
+			
+			<div class="ver-capitulo-post-hover-close js-container-image">
+				<input type="file" class="modal-admin-form-imagen" onchange="uploadImage($(this),this)">
+				<span class="ver-capitulo-post-hover-close-btn"><i class="ion ion-close-round"></i></span>
+			</div>
 
 		</div>
 		<!-- end - .ver-capitulo-post -->
@@ -114,11 +117,10 @@ if ($isAdmin) {
 	<!-- end - .container -->
 
 
-<?php
-if ($isAdmin) {
+	<?php
+	if ($isAdmin) {
 	?>
-
-<!-- .ver-capitulo-controlers -->
+	<!-- .ver-capitulo-controlers -->
 	<div class="ver-capitulo-controlers">
 
 		<button
@@ -133,7 +135,10 @@ if ($isAdmin) {
 
 	</div>
 	<!-- end - .ver-capitulo-controlers -->
-<?php
-}
-?>		
 
+	<?php
+	}
+	?>
+	
+</div>	
+<!-- end - .ver-capitulo -->

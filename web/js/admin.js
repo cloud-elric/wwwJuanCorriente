@@ -298,9 +298,9 @@ function uploadImage(input, jav) {
 		return false;
 	}
 	
-	guardarImagen(input, file);
+	guardarImagen(input, jav);
 	
-	readURL(jav, input);
+	//readURL(jav, input);
 	
 	
 
@@ -325,12 +325,13 @@ function guardarImagen(input, file){
 	$.ajax({
         url: basePath+"admin-panel/guardar-imagen-elemento?capitulo="+tokenCapitulo,
         type: "POST",
-        data: file,
+        data: {'file':jav.files[0]},
         processData: false, //Work around #1
-        contentType: jav.type, //Work around #2
+        contentType: false, //Work around #2
         success: function(){
             
         },
+        cache:false,
         error: function(){alert("Failed");},
         //Work around #3
         xhr: function() {
