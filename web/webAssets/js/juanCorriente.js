@@ -114,6 +114,9 @@ $(document).ready(function(){
 		$(".ver-capitulo-leer-full").fadeOut();
 		$(".ver-capitulo-leer").fadeIn();
 
+		$('body').removeClass("body-white");
+		$('footer').removeClass("footer-white");
+
 		$(".ver-capitulo").removeClass("ver-capitulo-white-full");
 
 	});
@@ -129,6 +132,8 @@ $(document).ready(function(){
 			$.fullscreen.exit();
 			$(".ver-capitulo-leer-full").fadeOut();
 			$(".ver-capitulo-leer").fadeIn();
+			$('body').removeClass("body-white");
+			$('footer').removeClass("footer-white");
 			$(".ver-capitulo").removeClass("ver-capitulo-white");
 			$(".ver-capitulo").removeClass("ver-capitulo-white-full");
 		}

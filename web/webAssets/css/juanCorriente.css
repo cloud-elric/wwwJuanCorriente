@@ -702,9 +702,6 @@ footer.footer-white .social-media a:hover {
 
 .listado .listado-articles .listado-articles-item:hover {
   box-shadow: 0 14px 28px rgba(153, 153, 153, 0.25), 0 10px 10px rgba(153, 153, 153, 0.22);
-  -ms-transform: scale(1.003, 1.003);
-  -webkit-transform: scale(1.003, 1.003);
-  transform: scale(1.003, 1.003);
 }
 
 .listado .listado-articles .listado-articles-item:nth-child(4n+4) {
@@ -893,7 +890,6 @@ footer.footer-white .social-media a:hover {
 }
 
 .ver-capitulo .ver-capitulo-post .ver-capitulo-post-desc .ver-capitulo-post-desc-text {
-  border: 1px solid transparent;
   color: #AAF5F5;
   font-size: .9em;
   line-height: 1.250em;
@@ -902,60 +898,14 @@ footer.footer-white .social-media a:hover {
   text-align: justify;
 }
 
-.ver-capitulo .ver-capitulo-post .ver-capitulo-post-desc .ver-capitulo-post-desc-text:focus {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  outline: none;
-}
-
 .ver-capitulo .ver-capitulo-post .ver-capitulo-post-imagen {
   text-align: center;
 }
 
 .ver-capitulo .ver-capitulo-post .ver-capitulo-post-imagen img {
-  border: 1px solid transparent;
   margin: 0 auto 22px;
   max-width: 100%;
   width: auto;
-}
-
-.ver-capitulo .ver-capitulo-post .ver-capitulo-post-imagen img:focus {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  outline: none;
-}
-
-.ver-capitulo .ver-capitulo-post .ver-capitulo-post-hover-close {
-  position: relative;
-}
-
-.ver-capitulo .ver-capitulo-post .ver-capitulo-post-hover-close .ver-capitulo-post-hover-close-btn {
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  border-radius: 50%;
-  align-items: center;
-  background-color: red;
-  color: #FFF;
-  cursor: pointer;
-  display: none;
-  height: 24px;
-  justify-content: center;
-  opacity: .9;
-  position: absolute;
-  right: -12px;
-  top: -12px;
-  width: 24px;
-}
-
-.ver-capitulo .ver-capitulo-post .ver-capitulo-post-hover-close .ver-capitulo-post-hover-close-btn i {
-  font-size: 1em;
-}
-
-.ver-capitulo .ver-capitulo-post .ver-capitulo-post-hover-close .ver-capitulo-post-hover-close-btn:hover {
-  opacity: 1;
-}
-
-.ver-capitulo .ver-capitulo-post .ver-capitulo-post-hover-close:hover .ver-capitulo-post-hover-close-btn {
-  display: flex;
 }
 
 .ver-capitulo .ver-capitulo-post .modal-admin-form-imagen {
@@ -1074,7 +1024,7 @@ footer.footer-white .social-media a:hover {
   color: #2F2F2F;
 }
 
-.ver-capitulo.ver-capitulo-white .ver-capitulo-post .ver-capitulo-post-desc .ver-capitulo-post-desc-text:focus {
+.ver-capitulo.ver-capitulo-white .ver-capitulo-post .ver-capitulo-post-desc .ver-capitulo-post-desc-text:focus, .ver-capitulo.ver-capitulo-white .ver-capitulo-post .ver-capitulo-post-desc .ver-capitulo-post-desc-text:hover {
   border: 1px solid rgba(47, 47, 47, 0.1);
 }
 
@@ -1100,11 +1050,116 @@ footer.footer-white .social-media a:hover {
   color: #2F2F2F;
 }
 
-.ver-capitulo.ver-capitulo-white-full .ver-capitulo-post .ver-capitulo-post-desc .ver-capitulo-post-desc-text:focus {
+.ver-capitulo.ver-capitulo-white-full .ver-capitulo-post .ver-capitulo-post-desc .ver-capitulo-post-desc-text:focus, .ver-capitulo.ver-capitulo-white-full .ver-capitulo-post .ver-capitulo-post-desc .ver-capitulo-post-desc-text:hover {
   border: 1px solid rgba(47, 47, 47, 0.1);
 }
 
 .ver-capitulo.ver-capitulo-white-full .modal-admin-form-imagen:after {
+  background-color: #FFF;
+}
+
+.ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-desc .ver-capitulo-post-desc-text {
+  border: 1px solid transparent;
+}
+
+.ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-desc .ver-capitulo-post-desc-text:focus, .ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-desc .ver-capitulo-post-desc-text:hover {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  outline: none;
+}
+
+.ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-imagen img {
+  border: 1px solid transparent;
+}
+
+.ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-imagen img:focus, .ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-imagen img:hover {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  outline: none;
+}
+
+.ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-hover-close {
+  position: relative;
+}
+
+.ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-hover-close .ver-capitulo-post-hover-close-btn {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  align-items: center;
+  background-color: red;
+  color: #FFF;
+  cursor: pointer;
+  display: none;
+  height: 24px;
+  justify-content: center;
+  opacity: .9;
+  position: absolute;
+  right: -12px;
+  top: -12px;
+  width: 24px;
+}
+
+.ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-hover-close .ver-capitulo-post-hover-close-btn i {
+  font-size: 1em;
+}
+
+.ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-hover-close .ver-capitulo-post-hover-close-btn:hover {
+  opacity: 1;
+}
+
+.ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-hover-close:hover .ver-capitulo-post-hover-close-btn {
+  display: flex;
+}
+
+.ver-capitulo.ver-capitulo-admin.ver-capitulo-white {
+  background-color: #FFF;
+}
+
+.ver-capitulo.ver-capitulo-admin.ver-capitulo-white .ver-capitulo-post .ver-capitulo-post-desc .ver-capitulo-post-desc-text {
+  border: 1px solid transparent;
+  color: #2F2F2F;
+}
+
+.ver-capitulo.ver-capitulo-admin.ver-capitulo-white .ver-capitulo-post .ver-capitulo-post-desc .ver-capitulo-post-desc-text:focus, .ver-capitulo.ver-capitulo-admin.ver-capitulo-white .ver-capitulo-post .ver-capitulo-post-desc .ver-capitulo-post-desc-text:hover {
+  border: 1px solid rgba(47, 47, 47, 0.1);
+}
+
+.ver-capitulo.ver-capitulo-admin.ver-capitulo-white .ver-capitulo-post-imagen img {
+  border: 1px solid transparent;
+}
+
+.ver-capitulo.ver-capitulo-admin.ver-capitulo-white .ver-capitulo-post-imagen img:focus, .ver-capitulo.ver-capitulo-admin.ver-capitulo-white .ver-capitulo-post-imagen img:hover {
+  border: 1px solid rgba(47, 47, 47, 0.1);
+  outline: none;
+}
+
+.ver-capitulo.ver-capitulo-admin.ver-capitulo-white .ver-capitulo-post-imagen:after {
+  background-color: #FFF;
+}
+
+.ver-capitulo.ver-capitulo-admin.ver-capitulo-white-full, .ver-capitulo.ver-capitulo-admin.ver-capitulo-white {
+  background-color: #FFF;
+}
+
+.ver-capitulo.ver-capitulo-admin.ver-capitulo-white-full .ver-capitulo-post .ver-capitulo-post-desc .ver-capitulo-post-desc-text, .ver-capitulo.ver-capitulo-admin.ver-capitulo-white .ver-capitulo-post .ver-capitulo-post-desc .ver-capitulo-post-desc-text {
+  border: 1px solid transparent;
+  color: #2F2F2F;
+}
+
+.ver-capitulo.ver-capitulo-admin.ver-capitulo-white-full .ver-capitulo-post .ver-capitulo-post-desc .ver-capitulo-post-desc-text:focus, .ver-capitulo.ver-capitulo-admin.ver-capitulo-white-full .ver-capitulo-post .ver-capitulo-post-desc .ver-capitulo-post-desc-text:hover, .ver-capitulo.ver-capitulo-admin.ver-capitulo-white .ver-capitulo-post .ver-capitulo-post-desc .ver-capitulo-post-desc-text:focus, .ver-capitulo.ver-capitulo-admin.ver-capitulo-white .ver-capitulo-post .ver-capitulo-post-desc .ver-capitulo-post-desc-text:hover {
+  border: 1px solid rgba(47, 47, 47, 0.1);
+}
+
+.ver-capitulo.ver-capitulo-admin.ver-capitulo-white-full .ver-capitulo-post-imagen img, .ver-capitulo.ver-capitulo-admin.ver-capitulo-white .ver-capitulo-post-imagen img {
+  border: 1px solid transparent;
+}
+
+.ver-capitulo.ver-capitulo-admin.ver-capitulo-white-full .ver-capitulo-post-imagen img:focus, .ver-capitulo.ver-capitulo-admin.ver-capitulo-white-full .ver-capitulo-post-imagen img:hover, .ver-capitulo.ver-capitulo-admin.ver-capitulo-white .ver-capitulo-post-imagen img:focus, .ver-capitulo.ver-capitulo-admin.ver-capitulo-white .ver-capitulo-post-imagen img:hover {
+  border: 1px solid rgba(47, 47, 47, 0.1);
+  outline: none;
+}
+
+.ver-capitulo.ver-capitulo-admin.ver-capitulo-white-full .ver-capitulo-post-imagen:after, .ver-capitulo.ver-capitulo-admin.ver-capitulo-white .ver-capitulo-post-imagen:after {
   background-color: #FFF;
 }
 

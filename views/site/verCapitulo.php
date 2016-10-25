@@ -13,8 +13,9 @@ $this->registerJsFile ( '@web/js/admin.js', [
 
 ?>
 <input type="hidden" data-historia="<?=$capitulo->txt_token?>" id="js-capitulo" />
+
 <!-- .ver-capitulo -->
-<div class="ver-capitulo" id="specialstuff">
+<div class="ver-capitulo ver-capitulo-admin" id="specialstuff">
 
 	<!-- .ver-capitulo-header -->
 	<div class="ver-capitulo-header">
@@ -63,8 +64,11 @@ $this->registerJsFile ( '@web/js/admin.js', [
 				<img src="<?=Url::base()?>/webAssets/images/monkey.png" alt="Article" contenteditable="true">
 				<span class="ver-capitulo-post-hover-close-btn"><i class="ion ion-close-round"></i></span>
 			</div>
-
-			<input type="file" class="modal-admin-form-imagen">
+			
+			<div class="ver-capitulo-post-hover-close">
+				<input type="file" class="modal-admin-form-imagen">
+				<span class="ver-capitulo-post-hover-close-btn"><i class="ion ion-close-round"></i></span>
+			</div>
 
 		</div>
 		<!-- end - .ver-capitulo-post -->
@@ -89,4 +93,3 @@ $this->registerJsFile ( '@web/js/admin.js', [
 
 </div>
 <!-- end - .ver-capitulo -->
-

@@ -85,53 +85,28 @@
 		// Descripción
 		.ver-capitulo-post-desc
 			.ver-capitulo-post-desc-text
-				border: 1px solid transparent
+				// border: 1px solid transparent
 				color: #AAF5F5
 				font-size: .9em
 				line-height: 1.250em
 				margin-bottom: 22px
 				padding: 4px
 				text-align: justify
-				&:focus
-					border: 1px solid rgba($white,.1)
-					outline: none
+				// &:focus
+				// 	border: 1px solid rgba($white,.1)
+				// 	outline: none
 		// Imagen
 		.ver-capitulo-post-imagen
 			text-align: center
 			img
-				border: 1px solid transparent
+				// border: 1px solid transparent
 				margin: 0 auto 22px
 				max-width: 100%
 				width: auto
-				&:focus
-					border: 1px solid rgba($white,.1)
-					outline: none
-		// Hover Close
-		.ver-capitulo-post-hover-close
-			// background-color: rgba(red,.3)
-			position: relative
-			.ver-capitulo-post-hover-close-btn
-				+border-radius(50%)
-				align-items: center
-				background-color: red
-				color: $white
-				cursor: pointer
-				display: none
-				height: 24px
-				justify-content: center
-				opacity: .9
-				position: absolute
-				right: -12px
-				top: -12px
-				width: 24px
-				i
-					font-size: 1em
-				&:hover
-					opacity: 1
-			&:hover
-				// border: 1px solid rgba($white,.1)
-				.ver-capitulo-post-hover-close-btn
-					display: flex
+				// &:focus
+				// 	border: 1px solid rgba($white,.1)
+				// 	outline: none
+		
 			// &:focus
 			// 	border: 1px solid rgba($white,.1)
 			// 	outline: none
@@ -235,7 +210,8 @@
 				.ver-capitulo-post-desc-text
 					border: 1px solid transparent
 					color: $text-base
-					&:focus
+					&:focus,
+					&:hover
 						border: 1px solid rgba($black,.1)
 		// Imagen
 		.modal-admin-form-imagen
@@ -261,12 +237,107 @@
 				.ver-capitulo-post-desc-text
 					border: 1px solid transparent
 					color: $black
-					&:focus
+					&:focus,
+					&:hover
 						border: 1px solid rgba($black,.1)
 		// Imagen
 		.modal-admin-form-imagen
 			&:after
 				background-color: $white
+	// Ver capítulo - Admin
+	&.ver-capitulo-admin
+		// Post
+		.ver-capitulo-post
+			// Descripción
+			.ver-capitulo-post-desc
+				.ver-capitulo-post-desc-text
+					border: 1px solid transparent
+					&:focus,
+					&:hover
+						border: 1px solid rgba($white,.1)
+						outline: none
+			// Imagen
+			.ver-capitulo-post-imagen
+				img
+					border: 1px solid transparent
+					&:focus,
+					&:hover
+						border: 1px solid rgba($white,.1)
+						outline: none
+			// Hover Close
+			.ver-capitulo-post-hover-close
+				// background-color: rgba(red,.3)
+				position: relative
+				.ver-capitulo-post-hover-close-btn
+					+border-radius(50%)
+					align-items: center
+					background-color: red
+					color: $white
+					cursor: pointer
+					display: none
+					height: 24px
+					justify-content: center
+					opacity: .9
+					position: absolute
+					right: -12px
+					top: -12px
+					width: 24px
+					i
+						font-size: 1em
+					&:hover
+						opacity: 1
+				&:hover
+					// border: 1px solid rgba($white,.1)
+					.ver-capitulo-post-hover-close-btn
+						display: flex
+		// Ver capítulo - white
+		&.ver-capitulo-white
+			background-color: $white
+			// Post
+			.ver-capitulo-post
+				// background-color: pink
+				.ver-capitulo-post-desc
+					.ver-capitulo-post-desc-text
+						border: 1px solid transparent
+						color: $text-base
+						&:focus,
+						&:hover
+							border: 1px solid rgba($black,.1)
+			// Imagen
+			.ver-capitulo-post-imagen
+				img
+					border: 1px solid transparent
+					&:focus,
+					&:hover
+						border: 1px solid rgba($black,.1)
+						outline: none
+				&:after
+					background-color: $white
+		// Ver capítulo - white full
+		&.ver-capitulo-white-full,
+		&.ver-capitulo-white
+			background-color: $white
+			// Post
+			.ver-capitulo-post
+				// background-color: pink
+				.ver-capitulo-post-desc
+					.ver-capitulo-post-desc-text
+						border: 1px solid transparent
+						color: $text-base
+						&:focus,
+						&:hover
+							border: 1px solid rgba($black,.1)
+			// Imagen
+			.ver-capitulo-post-imagen
+				img
+					border: 1px solid transparent
+					&:focus,
+					&:hover
+						border: 1px solid rgba($black,.1)
+						outline: none
+				&:after
+					background-color: $white
+	// Etiquetas para full screen
 	&:fullscreen,
 	&:-webkit-full-screen,
 	&:-moz-full-screen
