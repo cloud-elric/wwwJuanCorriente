@@ -1,17 +1,5 @@
 var basePath = 'http://localhost/wwwJuanCorriente/web/';
 
-function readURL(input) {
-	if (input.files && input.files[0]) {
-		var reader = new FileReader();
-
-		reader.onload = function(e) {
-			$('#imagen').attr('src', e.target.result);
-		}
-
-		reader.readAsDataURL(input.files[0]);
-	}
-}
-
 function agregarTarjeta() {
 	var template = '<a class="listado-articles-item" href="/wwwJuanCorriente/web/site/ver-capitulo">'
 			+ '<div class="listado-articles-item-imagen" style="background-image:url(\'/wwwJuanCorriente/web/webAssets/uploads/chain_pg002.jpg\')">'
@@ -25,20 +13,57 @@ function agregarTarjeta() {
 			+ '<h3 class="listado-articles-item-title">The chain</h3>' + '</a>';
 }
 
-// Metodo para eliminar elemento
-$(document).on({
-	'click' : function() {
-		var token = $(this).data('token');
-		var proceso = $(this).data('progress');
-		
-		if(proceso=='enProceso'){
-			alert();
-		}else{
-			$('#js-elemento-' + token).remove();
+function eliminarElemento(token){
+	var tokenCapitulo = $("#js-capitulo").data('token');
+	var url = basePath
+	+ 'admin-panel/eliminar-elemento-capitulo?capitulo='
+	+ tokenCapitulo;
+	
+	$.ajax({
+		url:url,
+		data: {
+			token : token
+		},
+		method:'POST',
+		success:function(response){
+			
 		}
-		
-	}
-}, '.js-remove-element');
+	})
+}
+
+// Revisa lo que hay que borrar
+setInterval(function(){ 
+	$('.pendienteEliminar').each(function(index){
+		var token = $(this).data('token');
+		eliminarElemento(token, $(this));
+		$(this).parent().remove();
+	}); 
+}, 1000);
+
+// Metodo para eliminar elemento
+$(document)
+		.on(
+				{
+					'click' : function() {
+						var token = $(this).data('token');
+						var proceso = $(this).data('progress');
+
+						if(!token){
+							var parent = $(this).parents('.js-elemento-leer');
+							parent.css('display','none');
+							parent.find('.js-elemento-editable').addClass('pendienteEliminar');
+						}
+						
+						if (proceso == 'enProceso') {
+
+						} else {
+							$('#js-elemento-' + token).remove();
+
+							eliminarElemento(token);
+						}
+
+					}
+				}, '.js-remove-element');
 
 // Metodo para guardar al elemento
 $(document).on(
@@ -75,7 +100,8 @@ $(document).on(
 							method : "POST",
 							success : function(response) {
 								element.data('token', response.tk);
-								element.parents('.js-elemento-leer').attr('id', "js-elemento-"+response.tk);
+								element.parents('.js-elemento-leer').attr('id',
+										"js-elemento-" + response.tk);
 								element.next().data('token', response.tk);
 								element.data('progress', 'noProceso');
 							}
@@ -109,7 +135,7 @@ $(document)
 									function() {
 										var template = '<div class="ver-capitulo-post-desc ver-capitulo-post-hover-close js-elemento-leer">'
 												+ '<div class="ver-capitulo-post-desc-text  js-elemento-editable" contenteditable="true" data-new="esNuevo" data-progress="noProceso" data-token>'
-													+'Agregar texto'
+												+ 'Agregar texto'
 												+ '</div>'
 												+ '<span class="ver-capitulo-post-hover-close-btn js-remove-element" data-token><i class="ion ion-close-round"></i></span>'
 												+ '</div>';
@@ -118,6 +144,12 @@ $(document)
 												.append(template);
 									});
 
+					$('.js-imagen').on('click', function(e){
+						var template = '<input type="file" class="modal-admin-form-imagen">';
+						$('.ver-capitulo-post').append(template);
+						$(template).trigger('click');
+					});
+					
 					$('#js-nombre-capitulo').focusout(function() {
 
 						if (($(this).text()).trim() == '') {
@@ -238,9 +270,88 @@ $(document)
 
 				});
 
-/**
- * e
- */
-function guardarCapitulo() {
+// Carga la imagen
+function uploadImage(input, jav) {
 
+	var file = jav.files[0];
+
+	if (!file) {
+
+		return false;
+	}
+
+	var imagefile = file.type;
+	
+	var filename = input.val();
+	
+	if (filename.substring(3, 11) == 'fakepath') {
+		filename = filename.substring(12);
+	}// remove c:\fake at beginning from localhost chrome
+	// var url = base+'usrUsuarios/guardarFotosCompetencia';
+
+	var match = [ "image/jpeg", "image/jpg", 'image/png' ];
+
+	if (!((imagefile == match[0]) || (imagefile == match[1]) || (imagefile == match[2]))) {
+		
+		alert('Archivo no valido');
+
+		return false;
+	}
+	
+	guardarImagen(input, file);
+	
+	readURL(jav, input);
+	
+	
+
+}
+
+function readURL(input, element) {
+	if (input.files && input.files[0]) {
+		var reader = new FileReader();
+
+		reader.onload = function(e) {
+			element.parents('.js-container-image').css('background-image','url('+e.target.result+')');
+		}
+
+		reader.readAsDataURL(input.files[0]);
+	}
+}
+
+function guardarImagen(input, file){
+	
+	var tokenCapitulo = $("#js-capitulo").data('token');
+	
+	$.ajax({
+        url: basePath+"admin-panel/guardar-imagen-elemento?capitulo="+tokenCapitulo,
+        type: "POST",
+        data: file,
+        processData: false, //Work around #1
+        contentType: jav.type, //Work around #2
+        success: function(){
+            
+        },
+        error: function(){alert("Failed");},
+        //Work around #3
+        xhr: function() {
+        	var xhr = new window.XMLHttpRequest();
+            //Upload progress
+            xhr.upload.addEventListener("progress", function(evt){
+              if (evt.lengthComputable) {
+                var percentComplete = evt.loaded / evt.total;
+                //Do something with upload progress
+                console.log('upload'+percentComplete);
+              }
+            }, false);
+            //Download progress
+            xhr.addEventListener("progress", function(evt){
+              if (evt.lengthComputable) {
+                var percentComplete = evt.loaded / evt.total;
+                //Do something with download progress
+                console.log('download'+percentComplete);
+              }
+            }, false);
+            return xhr;
+        }
+    });
 }

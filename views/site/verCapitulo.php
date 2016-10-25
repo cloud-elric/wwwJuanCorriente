@@ -12,6 +12,12 @@ $this->registerJsFile ( '@web/js/admin.js', [
 		] 
 ] );
 
+$this->registerJsFile ( '@web/js/jquery.form.js', [ 
+		'depends' => [ 
+				\app\assets\AppAsset::className () 
+		] 
+] );
+
 $header = EntElementos::find ()->where ( [ 
 		'id_capitulo' => $capitulo->id_capitulo,
 		'b_header' => 1,
@@ -62,17 +68,21 @@ if ($isAdmin) {
 
 		<!-- .ver-capitulo-post -->
 		<div class="ver-capitulo-post">
+			
 		<?php
 		foreach ( $elementos as $elemento ) {
 			if (! $elemento->b_header) {
 				$closeButton = '';
-				if($isAdmin){
-					$closeButton = '<span class="ver-capitulo-post-hover-close-btn js-remove-element" data-token="'.$elemento->txt_token.'"><i class="ion ion-close-round"></i></span>';
+				if ($isAdmin) {
+					$closeButton = '<span class="ver-capitulo-post-hover-close-btn js-remove-element" data-token="' . $elemento->txt_token . '"><i class="ion ion-close-round"></i></span>';
 				}
 				
 				?>
-		<div class="ver-capitulo-post-desc ver-capitulo-post-hover-close js-elemento-leer" id="js-elemento-<?=$elemento->txt_token?>">
-				<div class="ver-capitulo-post-desc-text <?=$classEditable?>" <?=$editable?> data-token="<?=$elemento->txt_token?>">
+		<div
+					class="ver-capitulo-post-desc ver-capitulo-post-hover-close js-elemento-leer"
+					id="js-elemento-<?=$elemento->txt_token?>">
+					<div class="ver-capitulo-post-desc-text <?=$classEditable?>"
+						<?=$editable?> data-token="<?=$elemento->txt_token?>">
 					<?=$elemento->txt_valor?>
 				</div>
 				<?=$closeButton?>
@@ -83,12 +93,19 @@ if ($isAdmin) {
 		}
 		?>
 
-			<div class="ver-capitulo-post-imagen ver-capitulo-post-hover-close">
-				<img src="<?=Url::base()?>/webAssets/images/monkey.png" alt="Article" contenteditable="true">
-				<span class="ver-capitulo-post-hover-close-btn"><i class="ion ion-close-round"></i></span>
-			</div>
+			<!-- <div class="ver-capitulo-post-imagen ver-capitulo-post-hover-close">
+					<img src="<?=Url::base()?>/webAssets/images/monkey.png"
+						alt="Article"> <span class="ver-capitulo-post-hover-close-btn"><i
+						class="ion ion-close-round"></i></span>
+				</div>
 
-			<input type="file" class="modal-admin-form-imagen">
+			
+				<input type="file" class="modal-admin-form-imagen" onchange="uploadImage($(this),this)"> 
+				 -->
+				
+				<div class="js-container-image">
+					<input type="file" class="modal-admin-form-imagen" onchange="uploadImage($(this),this)">
+				</div>
 
 		</div>
 		<!-- end - .ver-capitulo-post -->
@@ -100,21 +117,22 @@ if ($isAdmin) {
 <?php
 if ($isAdmin) {
 	?>
-<!-- .modal-admin-form-controlers -->
-<div class="modal-admin-form-controlers">
 
-	<button
-		class="btn modal-admin-form-controlers-btn-circle modal-admin-form-controlers-btn-circle-texto js-texto">
-		<i class="ion ion-document-text"></i>
-	</button>
+<!-- .ver-capitulo-controlers -->
+	<div class="ver-capitulo-controlers">
 
-	<button
-		class="btn modal-admin-form-controlers-btn-circle modal-admin-form-controlers-btn-circle-imagen">
-		<i class="ion ion-image"></i>
-	</button>
+		<button
+			class="btn ver-capitulo-controlers-btn-circle ver-capitulo-controlers-btn-circle-texto js-texto">
+			<i class="ion ion-document-text"></i>
+		</button>
 
-</div>
-<!-- end - .modal-admin-form-controlers -->
+		<button
+			class="btn ver-capitulo-controlers-btn-circle ver-capitulo-controlers-btn-circle-imagen js-imagen">
+			<i class="ion ion-image"></i>
+		</button>
+
+	</div>
+	<!-- end - .ver-capitulo-controlers -->
 <?php
 }
 ?>		
