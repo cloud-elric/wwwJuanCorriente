@@ -12,7 +12,7 @@ $this->registerJsFile ( '@web/js/admin.js', [
 ] );
 
 ?>
-<input type="hidden" data-historia="<?=$capitulo->txt_token?>" id="js-capitulo" />
+<input type="hidden" data-token="<?=$capitulo->txt_token?>" id="js-capitulo" />
 <!-- .ver-capitulo -->
 <div class="ver-capitulo" id="specialstuff">
 
@@ -46,6 +46,16 @@ $this->registerJsFile ( '@web/js/admin.js', [
 
 		<!-- .ver-capitulo-post -->
 		<div class="ver-capitulo-post">
+		<?php 
+		foreach($elementos as $elemento){
+			if(!$elemento->b_header){
+			?>
+		<div class='js-elemento-editable' contentEditable='true' data-new='noNuevo' data-token="<?=$elemento->txt_token?>" data-progress='noProceso'><?=$elemento->txt_valor?></div>
+		
+		<?php 
+			}
+		}
+		?>
 			<!-- 
 			<div class="ver-capitulo-post-imagen">
 				<img src="<?=Url::base()?>/webAssets/images/monkey.png" alt="Article">

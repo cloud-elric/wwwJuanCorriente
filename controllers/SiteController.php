@@ -12,6 +12,7 @@ use app\models\EntHistorias;
 use app\models\EntHistoriasExtend;
 use app\models\EntCapitulos;
 use yii\web\NotFoundHttpException;
+use app\models\EntElementos;
 
 class SiteController extends Controller {
 	/**
@@ -135,8 +136,11 @@ class SiteController extends Controller {
 		
 		$capitulo = $this->getCapituloByToken ( $capitulo );
 		
+		$elementos = EntElementos::find()->where(['id_capitulo'=>$capitulo->id_capitulo,'id_historia'=>$historia->id_historia])->orderBy('num_orden')->all();
+		
 		return $this->render ( 'verCapitulo', [ 
-				'capitulo' => $capitulo 
+				'capitulo' => $capitulo,
+				'elementos'=>$elementos
 		] );
 	}
 	
