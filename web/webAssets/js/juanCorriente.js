@@ -85,6 +85,8 @@ $(document).ready(function(){
 	 */
 	$('.ver-capitulo-full-screen').on("click", function(){
 
+		$(".ver-capitulo").removeClass("ver-capitulo-white");
+
 		$('.ver-capitulo-full-screen').fadeOut();
 		$('.ver-capitulo-close-screen').fadeIn();
 		$('.ver-capitulo').fullscreen();
@@ -92,6 +94,9 @@ $(document).ready(function(){
 
 		$(".ver-capitulo-leer").fadeOut();
 		$(".ver-capitulo-leer-full").fadeIn();
+
+		$('body').toggleClass("body-white");
+		$('footer').toggleClass("footer-white");
 
 	});
 
@@ -109,6 +114,8 @@ $(document).ready(function(){
 		$(".ver-capitulo-leer-full").fadeOut();
 		$(".ver-capitulo-leer").fadeIn();
 
+		$(".ver-capitulo").removeClass("ver-capitulo-white-full");
+
 	});
 
 	/**
@@ -122,6 +129,8 @@ $(document).ready(function(){
 			$.fullscreen.exit();
 			$(".ver-capitulo-leer-full").fadeOut();
 			$(".ver-capitulo-leer").fadeIn();
+			$(".ver-capitulo").removeClass("ver-capitulo-white");
+			$(".ver-capitulo").removeClass("ver-capitulo-white-full");
 		}
 	});
 

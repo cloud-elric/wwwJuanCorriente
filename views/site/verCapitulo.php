@@ -76,13 +76,27 @@ if ($isAdmin) {
 				<img src="<?=Url::base()?>/webAssets/images/monkey.png" alt="Article">
 			</div>
 			-->
+
+			<div class="ver-capitulo-post-desc ver-capitulo-post-hover-close">
+				<div class="ver-capitulo-post-desc-text" contenteditable="true">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis exercitationem modi reiciendis, dignissimos culpa sequi eveniet ab nesciunt commodi soluta, quia ipsum reprehenderit vero magnam, tempora aut atque neque perferendis.
+				</div>
+				<span class="ver-capitulo-post-hover-close-btn"><i class="ion ion-close-round"></i></span>
+			</div>
+
+			<div class="ver-capitulo-post-imagen ver-capitulo-post-hover-close">
+				<img src="<?=Url::base()?>/webAssets/images/monkey.png" alt="Article" contenteditable="true">
+				<span class="ver-capitulo-post-hover-close-btn"><i class="ion ion-close-round"></i></span>
+			</div>
+
+			<input type="file" class="modal-admin-form-imagen">
+
 		</div>
 		<!-- end - .ver-capitulo-post -->
 
 	</div>
 	<!-- end - .container -->
-</div>
-<!-- end - .ver-capitulo -->
+
 
 <?php
 if ($isAdmin) {
@@ -105,3 +119,4 @@ if ($isAdmin) {
 <?php
 }
 ?>		
+
