@@ -12,6 +12,7 @@ use app\models\EntHistoriasExtend;
 use yii\web\Response;
 use app\modules\ModUsuarios\models\Utils;
 use yii\web\NotFoundHttpException;
+use app\models\EntElementos;
 
 class AdminPanelController extends Controller {
 	
@@ -75,6 +76,21 @@ class AdminPanelController extends Controller {
 	}
 	
 	/**
+	 * Busca la historia por el token
+	 *
+	 * @param unknown $token
+	 * @throws NotFoundHttpException
+	 * @return boolean|\app\models\EntHistorias
+	 */
+	private function getCapituloByToken($token) {
+		if (($capitulo = EntCapitulos::find()->where(['txt_token'=>$token])->one())) {
+			return $capitulo;
+		} else {
+			throw new NotFoundHttpException ( 'The requested page does not exist.' );
+		}
+	}
+	
+	/**
 	 * Guarda los elementos basicos de un capitulo
 	 * @param unknown $token
 	 */
@@ -100,8 +116,29 @@ class AdminPanelController extends Controller {
 		return ['status'=>'error'];
 	}
 	
-	public function actionGuardarElementoCapitulo(){
+	public function actionGuardarElementoCapitulo($capitulo){
 		
+		
+		$capitulo = $this->getCapituloByToken($capitulo);
+		
+		if(array_key_exists('token', $_POST) && !empty($_POST['token'])){
+			$elemento = EntElementos::find()->where(['txt_token'=>$_POST['token']])->one();
+		}else{
+			$elemento = new EntElementos();
+			$elemento->id_tipo_elemento = 3;
+			$elemento->b_header = 0;
+			$elemento->txt_token = Utils::generateToken('ele_');
+		}
+		
+		$elemento->id_capitulo = $capitulo->id_capitulo;
+		$elemento->id_historia = $capitulo->id_historia;
+		$elemento->txt_valor = nl2br($_POST['valor']);
+		$elemento->num_orden = $_POST['index'];
+		
+		$elemento->save();
+		Yii::$app->response->format = Response::FORMAT_JSON;
+		
+		return ['status'=>'success','tk'=>$elemento->txt_token];
 	}
 	
 	public function validarCapitulo($capitulo) {
