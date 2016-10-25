@@ -892,7 +892,7 @@ footer.footer-white .social-media a:hover {
   width: 90%;
 }
 
-.ver-capitulo .ver-capitulo-post .ver-capitulo-post-desc p {
+.ver-capitulo .ver-capitulo-post .ver-capitulo-post-desc .ver-capitulo-post-desc-text {
   border: 1px solid transparent;
   color: #AAF5F5;
   font-size: .9em;
@@ -902,7 +902,7 @@ footer.footer-white .social-media a:hover {
   text-align: justify;
 }
 
-.ver-capitulo .ver-capitulo-post .ver-capitulo-post-desc p:focus {
+.ver-capitulo .ver-capitulo-post .ver-capitulo-post-desc .ver-capitulo-post-desc-text:focus {
   border: 1px solid rgba(255, 255, 255, 0.1);
   outline: none;
 }
@@ -1065,21 +1065,47 @@ footer.footer-white .social-media a:hover {
   border-color: #66e677;
 }
 
-.ver-capitulo.ver-capitulo-white .ver-capitulo-post p {
+.ver-capitulo.ver-capitulo-white {
+  background-color: #FFF;
+}
+
+.ver-capitulo.ver-capitulo-white .ver-capitulo-post .ver-capitulo-post-desc .ver-capitulo-post-desc-text {
+  border: 1px solid transparent;
   color: #2F2F2F;
+}
+
+.ver-capitulo.ver-capitulo-white .ver-capitulo-post .ver-capitulo-post-desc .ver-capitulo-post-desc-text:focus {
+  border: 1px solid rgba(47, 47, 47, 0.1);
+}
+
+.ver-capitulo.ver-capitulo-white .modal-admin-form-imagen:after {
+  background-color: #FFF;
+}
+
+.ver-capitulo.ver-capitulo-full {
+  overflow-y: auto !important;
+  width: 100%;
+}
+
+.ver-capitulo.ver-capitulo-full .modal-admin-form-imagen:after {
+  background-color: #000;
 }
 
 .ver-capitulo.ver-capitulo-white-full {
   background-color: #FFF;
 }
 
-.ver-capitulo.ver-capitulo-white-full .ver-capitulo-post p {
+.ver-capitulo.ver-capitulo-white-full .ver-capitulo-post .ver-capitulo-post-desc .ver-capitulo-post-desc-text {
+  border: 1px solid transparent;
   color: #2F2F2F;
 }
 
-.ver-capitulo.ver-capitulo-full {
-  overflow-y: auto !important;
-  width: 100%;
+.ver-capitulo.ver-capitulo-white-full .ver-capitulo-post .ver-capitulo-post-desc .ver-capitulo-post-desc-text:focus {
+  border: 1px solid rgba(47, 47, 47, 0.1);
+}
+
+.ver-capitulo.ver-capitulo-white-full .modal-admin-form-imagen:after {
+  background-color: #FFF;
 }
 
 .ver-capitulo:fullscreen, .ver-capitulo:-webkit-full-screen, .ver-capitulo:-moz-full-screen {

@@ -53,9 +53,9 @@ $this->registerJsFile ( '@web/js/admin.js', [
 			-->
 
 			<div class="ver-capitulo-post-desc ver-capitulo-post-hover-close">
-				<p contenteditable="true">
+				<div class="ver-capitulo-post-desc-text" contenteditable="true">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis exercitationem modi reiciendis, dignissimos culpa sequi eveniet ab nesciunt commodi soluta, quia ipsum reprehenderit vero magnam, tempora aut atque neque perferendis.
-				</p>
+				</div>
 				<span class="ver-capitulo-post-hover-close-btn"><i class="ion ion-close-round"></i></span>
 			</div>
 

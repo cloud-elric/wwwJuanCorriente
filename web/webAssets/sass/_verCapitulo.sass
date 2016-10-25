@@ -84,7 +84,7 @@
 		width: 90%
 		// Descripción
 		.ver-capitulo-post-desc
-			p
+			.ver-capitulo-post-desc-text
 				border: 1px solid transparent
 				color: #AAF5F5
 				font-size: .9em
@@ -227,25 +227,46 @@
 					border-color: $green-color-light
 	// Ver capítulo - white
 	&.ver-capitulo-white
-		// background-color: red
+		background-color: $white
 		// Post
 		.ver-capitulo-post
 			// background-color: pink
-			p
-				color: $text-base
-	// Ver capítulo - white
+			.ver-capitulo-post-desc
+				.ver-capitulo-post-desc-text
+					border: 1px solid transparent
+					color: $text-base
+					&:focus
+						border: 1px solid rgba($black,.1)
+		// Imagen
+		.modal-admin-form-imagen
+			&:after
+				background-color: $white
+	// Ver capítulo - Full
+	&.ver-capitulo-full
+		// background-color: $black
+		// background-color: transparent
+		overflow-y: auto !important
+		width: 100%
+		// Imagen
+		.modal-admin-form-imagen
+			&:after
+				background-color: #000
+	// Ver capítulo - white full
 	&.ver-capitulo-white-full
 		background-color: $white
 		// Post
 		.ver-capitulo-post
 			// background-color: pink
-			p
-				color: $text-base
-	// Ver capítulo - Full
-	&.ver-capitulo-full
-		// background-color: transparent
-		overflow-y: auto !important
-		width: 100%
+			.ver-capitulo-post-desc
+				.ver-capitulo-post-desc-text
+					border: 1px solid transparent
+					color: $black
+					&:focus
+						border: 1px solid rgba($black,.1)
+		// Imagen
+		.modal-admin-form-imagen
+			&:after
+				background-color: $white
 	&:fullscreen,
 	&:-webkit-full-screen,
 	&:-moz-full-screen
