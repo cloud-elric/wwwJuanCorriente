@@ -89,9 +89,11 @@ if ($isAdmin) {
 				<span class="ver-capitulo-post-hover-close-btn"><i class="ion ion-close-round"></i></span>
 			</div>
 			
-			<div class="ver-capitulo-post-hover-close">
-				<input type="file" class="modal-admin-form-imagen">
-				<span class="ver-capitulo-post-hover-close-btn"><i class="ion ion-close-round"></i></span>
+			<div class="ver-capitulo-post-image ver-capitulo-post-hover-close">
+				<div class="ver-capitulo-post-image-item">
+					<input type="file" class="modal-admin-form-imagen">
+					<span class="ver-capitulo-post-hover-close-btn"><i class="ion ion-close-round"></i></span>
+				</div>
 			</div>
 
 		</div>
@@ -123,6 +125,6 @@ if ($isAdmin) {
 	<?php
 	}
 	?>
-	
+
 </div>	
 <!-- end - .ver-capitulo -->
