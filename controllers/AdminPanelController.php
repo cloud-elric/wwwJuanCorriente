@@ -13,6 +13,7 @@ use yii\web\Response;
 use app\modules\ModUsuarios\models\Utils;
 use yii\web\NotFoundHttpException;
 use app\models\EntElementos;
+use yii\web\UploadedFile;
 
 class AdminPanelController extends Controller {
 	
@@ -139,6 +140,42 @@ class AdminPanelController extends Controller {
 		Yii::$app->response->format = Response::FORMAT_JSON;
 		
 		return ['status'=>'success','tk'=>$elemento->txt_token];
+	}
+	
+	/**
+	 * Elimina el elemento de la base de datos
+	 * @param unknown $capitulo
+	 * @return string[]
+	 */
+	public function actionEliminarElementoCapitulo($capitulo){
+		Yii::$app->response->format = Response::FORMAT_JSON;
+		
+		$capitulo = $this->getCapituloByToken($capitulo);
+		
+		if(array_key_exists('token', $_POST) && !empty($_POST['token'])){
+			$elemento = EntElementos::find()->where(['txt_token'=>$_POST['token']])->one();
+			
+			if($elemento){
+				$elemento->delete();
+			}
+			
+			return ['status'=>'success'];
+		}else{
+			return ['status'=>'error'];
+		}
+		
+	}
+	
+	/**
+	 * 
+	 */
+	public function actionGuardarImagenElemento($capitulo){
+		$capitulo = $this->getCapituloByToken($capitulo);
+		
+		$file = UploadedFile::getInstanceByName('fileUpload');
+		
+		print_r($file);
+		
 	}
 	
 	public function validarCapitulo($capitulo) {

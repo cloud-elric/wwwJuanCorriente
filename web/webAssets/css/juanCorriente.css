@@ -904,14 +904,77 @@ footer.footer-white .social-media a:hover {
 }
 
 .ver-capitulo .ver-capitulo-post .ver-capitulo-post-image {
-  background-color: red;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 20px;
+  position: relative;
+}
+
+.ver-capitulo .ver-capitulo-post .ver-capitulo-post-image .ver-capitulo-post-image-item {
   align-items: center;
   display: flex;
   justify-content: center;
 }
 
-.ver-capitulo .ver-capitulo-post .ver-capitulo-post-image .ver-capitulo-post-image-item {
-  background-color: yellow;
+.ver-capitulo .ver-capitulo-post .ver-capitulo-post-image .ver-capitulo-post-image-item.ver-capitulo-post-image-item-file .inputfile + label {
+  box-shadow: 0 3px 6px rgba(47, 47, 47, 0.16), 0 3px 6px rgba(47, 47, 47, 0.23);
+  left: 50%;
+  margin-left: -78px;
+  margin-top: -22.5px;
+  position: absolute;
+  top: 50%;
+}
+
+.ver-capitulo .ver-capitulo-post .ver-capitulo-post-image .ver-capitulo-post-image-item .inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.ver-capitulo .ver-capitulo-post .ver-capitulo-post-image .ver-capitulo-post-image-item .inputfile + label {
+  align-items: center;
+  background-color: #2F2F2F;
+  border: 1px dashed #C4CFD4;
+  color: #FFF;
+  display: flex;
+  justify-content: center;
+  font-family: "Fira Sans", sans-serif;
+  font-size: 1.2em;
+  font-weight: 300;
+  min-height: 30px;
+  overflow: hidden;
+  padding: 10px;
+  position: relative;
+  width: 156px;
+}
+
+.ver-capitulo .ver-capitulo-post .ver-capitulo-post-image .ver-capitulo-post-image-item .inputfile:focus + label,
+.ver-capitulo .ver-capitulo-post .ver-capitulo-post-image .ver-capitulo-post-image-item .inputfile + label:hover {
+  background-color: rgba(47, 47, 47, 0.8);
+}
+
+.ver-capitulo .ver-capitulo-post .ver-capitulo-post-image .ver-capitulo-post-image-item .inputfile + label {
+  cursor: pointer;
+}
+
+.ver-capitulo .ver-capitulo-post .ver-capitulo-post-image .ver-capitulo-post-image-item .inputfile:focus + label {
+  outline: 1px dotted #000;
+  outline: -webkit-focus-ring-color auto 5px;
+}
+
+.ver-capitulo .ver-capitulo-post .ver-capitulo-post-image .ver-capitulo-post-image-item .inputfile + label * {
+  pointer-events: none;
+}
+
+.ver-capitulo .ver-capitulo-post .ver-capitulo-post-image .ver-capitulo-post-image-item img {
+  display: none;
+  margin: 0 auto 22px;
+  max-width: 100%;
+  width: auto;
 }
 
 .ver-capitulo .ver-capitulo-post .ver-capitulo-post-imagen {
