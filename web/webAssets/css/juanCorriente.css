@@ -514,12 +514,17 @@ footer.footer-white .social-media a:hover {
   border-radius: 4px;
   cursor: pointer;
   margin-right: 49px;
+  opacity: .45;
   padding: 10px 8px;
   position: relative;
 }
 
 .home .home-categorias .home-categorias-item:last-child {
   margin-right: 0;
+}
+
+.home .home-categorias .home-categorias-item.active {
+  opacity: 1;
 }
 
 .home .home-categorias .home-categorias-item.active:before {
@@ -762,7 +767,6 @@ footer.footer-white .social-media a:hover {
 .listado .listado-articles .listado-articles-item .listado-articles-item-imagen .listado-articles-item-new {
   color: #FFF;
   height: 76px;
-  overflow: hidden;
   padding: 10px;
   position: absolute;
   right: 0;
@@ -772,6 +776,7 @@ footer.footer-white .social-media a:hover {
 
 .listado .listado-articles .listado-articles-item .listado-articles-item-imagen .listado-articles-item-new span {
   background-color: #29CEED;
+  box-shadow: 0 3px 6px rgba(47, 47, 47, 0.16), 0 3px 6px rgba(47, 47, 47, 0.23);
   display: block;
   font-size: .8em;
   padding: 4px 0;
