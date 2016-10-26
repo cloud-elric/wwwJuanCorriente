@@ -108,7 +108,7 @@ if ($isAdmin) {
 			
 				<input type="file" class="modal-admin-form-imagen" onchange="uploadImage($(this),this)"> 
 				 -->
-			
+
 			<!-- .ver-capitulo-post-image -->
 			<div class="ver-capitulo-post-image ver-capitulo-post-hover-close">
 				<div class="ver-capitulo-post-image-item js-container-image">
@@ -117,7 +117,7 @@ if ($isAdmin) {
 					<!-- Label -->
 					<label for="file">Agregar Imagen</label>
 					<!-- Progress Bar -->
-					<div class="ver-capitulo-post-progress">
+					<div class="ver-capitulo-post-progress ver-capitulo-post-progress-middle">
 						<div id="js-progress-bar" class="ver-capitulo-post-progress-bar"></div>
 						<span id="js-progress-bar-texto" class="w3-center w3-text-white">0%</span>
 					</div>
