@@ -97,8 +97,15 @@ if ($isAdmin) {
 				</div> <!-- end - .listado-articles-item-imagen --> <!-- .listado-articles-item-title -->
 				<h3 class="listado-articles-item-title"><?=$capitulo->txt_nombre?></h3>
 
+				<?php
+				if ($isAdmin) {
+					?>
 				<!-- Btn de Close -->
-				<span class="listado-articles-item-hover-close-btn"><i class="ion ion-close-round"></i></span>
+				<span class="listado-articles-item-hover-close-btn" style="display:none;"><i class="ion ion-close-round"></i></span>
+				
+				<?php 
+				}
+				?>
 			</a>
 			<!-- end - .listado-articles-item -->
 			

@@ -33,6 +33,9 @@ function habilitarEdicion() {
 		$(this).attr('href', 'javascript:void(0)');
 		$(this).data('url', url);
 	});
+	
+	$('#modal-agregar-post-open').css('display', 'none');
+	$('.listado-articles-item-hover-close-btn').css('display', 'flex');
 }
 
 function desHabilitarEdicion() {
@@ -45,6 +48,9 @@ function desHabilitarEdicion() {
 		$(this).attr('href', url);
 		$(this).data('url', '');
 	});
+	
+	$('#modal-agregar-post-open').css('display', 'block');
+	$('.listado-articles-item-hover-close-btn').css('display', 'none');
 }
 
 // Click para cada item
