@@ -184,12 +184,13 @@ class AdminPanelController extends Controller {
 	
 	/**
 	 */
+
 	public function actionGuardarImagenElemento($capitulo) {
 		$capitulo = $this->getCapituloByToken ( $capitulo );
 		
 		$file = UploadedFile::getInstanceByName ( 'fileUpload' );
 		
-		print_r ( $file );
+	
 	}
 	public function validarCapitulo($capitulo) {
 		if (Yii::$app->request->isAjax && $capitulo->load ( Yii::$app->request->post () )) {

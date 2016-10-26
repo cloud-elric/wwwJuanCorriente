@@ -202,7 +202,7 @@ function uploadImage(input, jav) {
 	
 	guardarImagen(input, jav);
 	
-	readURL(jav, input);
+	//readURL(jav, input);
 	
 	
 
@@ -225,17 +225,12 @@ function readURL(input, element) {
 
 function guardarImagen(input, file){
 	
-	console.log(file.files[0]);
 	var tokenCapitulo = $("#js-capitulo").data('token');
 	
-	// Create a formdata object and add the files
-    var data = new FormData();
-    
-    data.append('fileUpload', file.files[0]);
 	$.ajax({
         url: basePath+"admin-panel/guardar-imagen-elemento?capitulo="+tokenCapitulo,
         type: "POST",
-        data: data,
+        data: {'file':jav.files[0]},
         processData: false, //Work around #1
         contentType: false, //Work around #2
         success: function(){
