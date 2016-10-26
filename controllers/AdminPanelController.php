@@ -187,6 +187,7 @@ class AdminPanelController extends Controller {
 
 	public function actionGuardarImagenElemento($capitulo) {
 		$capitulo = $this->getCapituloByToken ( $capitulo );
+
 		
 		$file = UploadedFile::getInstanceByName ( 'fileUpload' );
 		
