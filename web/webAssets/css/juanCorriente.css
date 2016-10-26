@@ -998,15 +998,6 @@ footer.footer-white .social-media a:hover {
   width: 100%;
 }
 
-.listado-modal-image .listado-modal-image-item.listado-modal-image-item-file .inputfile + label {
-  box-shadow: 0 3px 6px rgba(47, 47, 47, 0.16), 0 3px 6px rgba(47, 47, 47, 0.23);
-  left: 50%;
-  margin-left: -78px;
-  margin-top: -22.5px;
-  position: absolute;
-  top: 50%;
-}
-
 .listado-modal-image .listado-modal-image-item .inputfile {
   width: 0.1px;
   height: 0.1px;
@@ -1057,6 +1048,35 @@ footer.footer-white .social-media a:hover {
   margin: 0 auto 22px;
   max-width: 100%;
   width: auto;
+}
+
+.listado-modal-image .listado-modal-image-item.listado-modal-image-item-file .inputfile + label {
+  background-color: #2F2F2F;
+  border: 1px dashed #C4CFD4;
+  box-shadow: 0 3px 6px rgba(47, 47, 47, 0.16), 0 3px 6px rgba(47, 47, 47, 0.23);
+  color: #FFF;
+  left: 50%;
+  margin-left: -78px;
+  margin-top: -22.5px;
+  opacity: .8;
+  position: absolute;
+  top: 50%;
+  padding: 10px;
+  width: 156px;
+}
+
+.listado-modal-image .listado-modal-image-item.listado-modal-image-item-file .inputfile + label:focus + label,
+.listado-modal-image .listado-modal-image-item.listado-modal-image-item-file .inputfile + label + label:hover {
+  background-color: rgba(47, 47, 47, 0.8);
+  opacity: 1;
+  outline: none;
+}
+
+.listado-modal-image .listado-modal-image-item.listado-modal-image-item-file .inputfile + label:focus + label {
+  color: #8EF0EF;
+  border: 1px dashed #8EF0EF;
+  opacity: 1;
+  outline: none;
 }
 
 /*!

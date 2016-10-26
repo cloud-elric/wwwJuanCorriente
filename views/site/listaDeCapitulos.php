@@ -184,8 +184,6 @@ if ($isAdmin) {
 			</div>
 
 			<div class="col-xs-12 col-md-4">
-				
-				<!-- <img class="modal-admin-form-imagen" src="<?=Url::base()?>/webAssets/images/portada.jpg" alt="Article"> -->
 
 				<!-- .listado-modal-image -->
 				<div class="listado-modal-image">
@@ -201,6 +199,25 @@ if ($isAdmin) {
 						</div>
 						<!-- Imagen -->
 						<img src="" alt="">
+					</div>
+				</div>
+				<!-- end .listado-modal-image -->
+
+				<!-- .listado-modal-image -->
+				<div class="listado-modal-image">
+					<div class="listado-modal-image-item listado-modal-image-item-file">
+						<!-- Input -->
+						<input type="file" id="file-modal" class="inputfile modal-admin-form-imagen">
+						<!-- Label -->
+						<label for="file">Agregar Imagen</label>
+						<!-- Progress Bar -->
+						<div class="ver-capitulo-post-progress ver-capitulo-post-progress-middle">
+							<div id="js-progress-bar" class="ver-capitulo-post-progress-bar"></div>
+							<span id="js-progress-bar-texto" class="w3-center w3-text-white">0%</span>
+						</div>
+						<!-- Imagen -->
+						<img src="" alt="">
+						<img class="modal-admin-form-imagen" src="<?=Url::base()?>/webAssets/images/portada.jpg" alt="Article" style="display: block;">
 					</div>
 				</div>
 				<!-- end .listado-modal-image -->
