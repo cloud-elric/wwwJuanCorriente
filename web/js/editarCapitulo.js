@@ -32,7 +32,9 @@ function desHabilitarEdicion(){
 $(document).ready(function(){
 	$('#js-edicion-capitulos').on("click", function(){
 		if(!enEdicion){
-			
+			enEdicion = true;
+		}else{
+			enEdicion = false;
 		}
 	});
 });
