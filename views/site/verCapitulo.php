@@ -109,7 +109,6 @@ if ($isAdmin) {
 				<input type="file" class="modal-admin-form-imagen" onchange="uploadImage($(this),this)"> 
 				 -->
 
-			<!-- .ver-capitulo-post-image -->
 			<div class="ver-capitulo-post-image ver-capitulo-post-hover-close">
 				<div class="ver-capitulo-post-image-item js-container-image">
 					<!-- Input -->
@@ -117,7 +116,7 @@ if ($isAdmin) {
 					<!-- Label -->
 					<label for="file">Agregar Imagen</label>
 					<!-- Progress Bar -->
-					<div class="ver-capitulo-post-progress ver-capitulo-post-progress-middle">
+					<div class="ver-capitulo-post-progress">
 						<div id="js-progress-bar" class="ver-capitulo-post-progress-bar"></div>
 						<span id="js-progress-bar-texto" class="w3-center w3-text-white">0%</span>
 					</div>
@@ -127,9 +126,7 @@ if ($isAdmin) {
 					<span class="ver-capitulo-post-hover-close-btn"><i class="ion ion-close-round"></i></span>
 				</div>
 			</div>
-			<!-- end .ver-capitulo-post-image -->
-			
-			<!-- .ver-capitulo-post-image -->
+
 			<div class="ver-capitulo-post-image ver-capitulo-post-hover-close">
 				<div class="ver-capitulo-post-image-item js-container-image ver-capitulo-post-image-item-file">
 					<input type="file" id="file" class="inputfile modal-admin-form-imagen" onchange="uploadImage($(this),this)">
@@ -138,7 +135,6 @@ if ($isAdmin) {
 					<span class="ver-capitulo-post-hover-close-btn"><i class="ion ion-close-round"></i></span>
 				</div>
 			</div>
-			<!-- end - .ver-capitulo-post-image -->
 
 		</div>
 		<!-- end - .ver-capitulo-post -->

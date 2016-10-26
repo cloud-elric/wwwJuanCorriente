@@ -46,7 +46,6 @@ class AdminPanelController extends Controller {
 	// ];
 	// }
 	public function actionIndex($pre) {
-		
 		echo $pre . md5 ( uniqid ( $pre ) ) . uniqid ();
 	}
 	public function actionFormularioAgregar() {
@@ -57,7 +56,7 @@ class AdminPanelController extends Controller {
 		
 		return $this->render ( 'agregarCapitulo', [ 
 				'capitulo' => $capitulo,
-				'tiposElementos'=>$tiposElementos
+				'tiposElementos' => $tiposElementos 
 		] );
 	}
 	
@@ -72,19 +71,21 @@ class AdminPanelController extends Controller {
 		if (($historia = EntHistoriasExtend::getHistoriaByToken ( $token ))) {
 			return $historia;
 		} else {
-			throw new NotFoundHttpException( 'The requested page does not exist.' );
+			throw new NotFoundHttpException ( 'The requested page does not exist.' );
 		}
 	}
 	
 	/**
 	 * Busca la historia por el token
 	 *
-	 * @param unknown $token
+	 * @param unknown $token        	
 	 * @throws NotFoundHttpException
 	 * @return boolean|\app\models\EntHistorias
 	 */
 	private function getCapituloByToken($token) {
-		if (($capitulo = EntCapitulos::find()->where(['txt_token'=>$token])->one())) {
+		if (($capitulo = EntCapitulos::find ()->where ( [ 
+				'txt_token' => $token 
+		] )->one ())) {
 			return $capitulo;
 		} else {
 			throw new NotFoundHttpException ( 'The requested page does not exist.' );
@@ -93,95 +94,134 @@ class AdminPanelController extends Controller {
 	
 	/**
 	 * Guarda los elementos basicos de un capitulo
-	 * @param unknown $token
+	 *
+	 * @param unknown $token        	
 	 */
-	public function actionGuardarCapitulo($token=null){
+	public function actionGuardarCapitulo($token = null) {
+		$historia = $this->getHistoriaByToken ( $token );
 		
-		$historia = $this->getHistoriaByToken($token);
-		
-		$capitulo = new EntCapitulos();
+		$capitulo = new EntCapitulos ();
 		$capitulo->id_historia = $historia->id_historia;
-		$capitulo->txt_token = Utils::generateToken('cap_');
+		$capitulo->txt_token = Utils::generateToken ( 'cap_' );
 		
-		if($validacion = $this->validarCapitulo($capitulo)){
+		if ($validacion = $this->validarCapitulo ( $capitulo )) {
 			return $validacion;
 		}
 		
-		$capitulo->fch_creacion = Utils::getFechaActual();
-		$capitulo->fch_publicacion = Utils::changeFormatDateInput($capitulo->fch_publicacion);
+		$capitulo->fch_creacion = Utils::getFechaActual ();
+		$capitulo->fch_publicacion = Utils::changeFormatDateInput ( $capitulo->fch_publicacion );
 		
-		if($capitulo->save()){
-			return ['status'=>'success'];	
+		if ($capitulo->save ()) {
+			return [ 
+					'status' => 'success',
+					'tk' => $capitulo->txt_token,
+					'i' => $capitulo->txt_imagen ? $capitulo->txt_imagen : 'noImage.jpg',
+					'n' => $capitulo->txt_nombre 
+			];
 		}
 		
-		return ['status'=>'error'];
+		return [ 
+				'status' => 'error' 
+		];
 	}
-	
-	public function actionGuardarElementoCapitulo($capitulo){
+	public function actionGuardarElementoCapitulo($capitulo) {
+		$capitulo = $this->getCapituloByToken ( $capitulo );
 		
-		
-		$capitulo = $this->getCapituloByToken($capitulo);
-		
-		if(array_key_exists('token', $_POST) && !empty($_POST['token'])){
-			$elemento = EntElementos::find()->where(['txt_token'=>$_POST['token']])->one();
-		}else{
-			$elemento = new EntElementos();
+		if (array_key_exists ( 'token', $_POST ) && ! empty ( $_POST ['token'] )) {
+			$elemento = EntElementos::find ()->where ( [ 
+					'txt_token' => $_POST ['token'] 
+			] )->one ();
+		} else {
+			$elemento = new EntElementos ();
 			$elemento->id_tipo_elemento = 3;
 			$elemento->b_header = 0;
-			$elemento->txt_token = Utils::generateToken('ele_');
+			$elemento->txt_token = Utils::generateToken ( 'ele_' );
 		}
 		
 		$elemento->id_capitulo = $capitulo->id_capitulo;
 		$elemento->id_historia = $capitulo->id_historia;
-		$elemento->txt_valor = nl2br($_POST['valor']);
-		$elemento->num_orden = $_POST['index'];
+		$elemento->txt_valor = nl2br ( $_POST ['valor'] );
+		$elemento->num_orden = $_POST ['index'];
 		
-		$elemento->save();
+		$elemento->save ();
 		Yii::$app->response->format = Response::FORMAT_JSON;
 		
-		return ['status'=>'success','tk'=>$elemento->txt_token];
+		return [ 
+				'status' => 'success',
+				'tk' => $elemento->txt_token 
+		];
 	}
 	
 	/**
 	 * Elimina el elemento de la base de datos
-	 * @param unknown $capitulo
+	 *
+	 * @param unknown $capitulo        	
 	 * @return string[]
 	 */
-	public function actionEliminarElementoCapitulo($capitulo){
+	public function actionEliminarElementoCapitulo($capitulo) {
 		Yii::$app->response->format = Response::FORMAT_JSON;
 		
-		$capitulo = $this->getCapituloByToken($capitulo);
+		$capitulo = $this->getCapituloByToken ( $capitulo );
 		
-		if(array_key_exists('token', $_POST) && !empty($_POST['token'])){
-			$elemento = EntElementos::find()->where(['txt_token'=>$_POST['token']])->one();
+		if (array_key_exists ( 'token', $_POST ) && ! empty ( $_POST ['token'] )) {
+			$elemento = EntElementos::find ()->where ( [ 
+					'txt_token' => $_POST ['token'] 
+			] )->one ();
 			
-			if($elemento){
-				$elemento->delete();
+			if ($elemento) {
+				$elemento->delete ();
 			}
 			
-			return ['status'=>'success'];
-		}else{
-			return ['status'=>'error'];
+			return [ 
+					'status' => 'success' 
+			];
+		} else {
+			return [ 
+					'status' => 'error' 
+			];
 		}
-		
 	}
 	
 	/**
-	 * 
 	 */
-	public function actionGuardarImagenElemento($capitulo){
-		$capitulo = $this->getCapituloByToken($capitulo);
+	public function actionGuardarImagenElemento($capitulo) {
+		$capitulo = $this->getCapituloByToken ( $capitulo );
 		
-		$file = UploadedFile::getInstanceByName('fileUpload');
-		
-		print_r($file);
-		
+		$file = UploadedFile::getInstanceByName ( 'fileUpload' );
 	}
 	
+	/**
+	 * Guarda la imagen
+	 */
+	public function actionGuardarImagenCapitulo($historia, $capitulo) {
+		Yii::$app->response->format = Response::FORMAT_JSON;
+		
+		$historiaF = $this->getHistoriaByToken ( $historia );
+		
+		$capituloF = $this->getCapituloByToken ( $capitulo );
+		
+		$file = UploadedFile::getInstanceByName ( 'fileCapitulo' );
+		
+		if ($file) {
+			$capituloF->txt_imagen = Utils::generateToken ( 'imc_' ).'.'.$file->extension;
+			
+			if ($capituloF->save ()) {
+				$file->saveAs ( 'webAssets/uploads/'.$capituloF->txt_imagen );
+				
+				return [ 
+						'status' => 'success' 
+				];
+			}
+		} else {
+			return [ 
+					'status' => 'error' 
+			];
+		}
+	}
 	public function validarCapitulo($capitulo) {
 		if (Yii::$app->request->isAjax && $capitulo->load ( Yii::$app->request->post () )) {
 			Yii::$app->response->format = Response::FORMAT_JSON;
-				
+			
 			return ActiveForm::validate ( $capitulo );
 		}
 	}

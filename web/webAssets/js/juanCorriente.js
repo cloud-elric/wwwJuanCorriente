@@ -49,12 +49,6 @@ $(document).ready(function(){
 		l.start();
 	});
 	
-	// Modal - Btn de Login
-	$('.login-form-btn').click(function(){
-		var l = Ladda.create(this);
-		l.start();
-	});
-
 	/**
 	 * Modal
 	 */

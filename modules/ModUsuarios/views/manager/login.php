@@ -3,15 +3,21 @@
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model app\models\LoginForm */
-
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
 $this->title = 'Login';
-$this->params['breadcrumbs'][] = $this->title;
+$this->params ['breadcrumbs'] [] = $this->title;
 
-if(Yii::$app->params ['modUsuarios'] ['facebook'] ['usarLoginFacebook']){
-?>
+$this->registerJsFile ( '@web/js/login.js', [
+		'depends' => [
+				\app\assets\AppAsset::className ()
+		]
+] );
+
+
+if (Yii::$app->params ['modUsuarios'] ['facebook'] ['usarLoginFacebook']) {
+	?>
 <script>
 
 logInWithFacebook = function() {
@@ -131,24 +137,31 @@ window.fbAsyncInit = function() {
 		<h1 class="animated">Historias de México</h1>
 		<?php # Html::encode($this->title) ?>
 
-		<?php $form = ActiveForm::begin([
-		'id' => 'login-form',
-		'options' => ['class' => 'form-horizontal form-login'],
-		'fieldConfig' => [
-		'template' => "<div class=\"col-lg-12 animated\">{input}</div>\n<div class=\"col-lg-12\">{error}</div>",
-		'labelOptions' => ['class' => 'col-lg-1 control-label'],
-		],
-		]); ?>
+		<?php
+		
+$form = ActiveForm::begin ( [ 
+				'id' => 'login-form',
+				'options' => [ 
+						'class' => 'form-horizontal form-login' 
+				],
+				'fieldConfig' => [ 
+						'template' => "<div class=\"col-lg-12 animated\">{input}</div>\n<div class=\"col-lg-12\">{error}</div>",
+						'labelOptions' => [ 
+								'class' => 'col-lg-1 control-label' 
+						] 
+				] 
+		] );
+		?>
 
-			<?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+			<?= $form->field($model, 'username')->textInput(['autofocus' => true])?>
 
-			<?= $form->field($model, 'password')->passwordInput() ?>
+			<?= $form->field($model, 'password')->passwordInput()?>
 
 			<div class="form-group">
-				<div class="col-lg-12">
-					<?= Html::submitButton('<span class="ladda-label">Login</span>', ['class' => 'btn login-form-btn ladda-button animated', 'name' => 'login-button']) ?>
+			<div class="col-lg-12">
+					<?= Html::submitButton('<span class="ladda-label">Login</span>', ['class' => 'btn login-form-btn ladda-button animated', 'name' => 'login-button', 'id'=>'js-login-submit','data-style'=>'zoom-in'])?>
 				</div>
-			</div>
+		</div>
 
 		<?php ActiveForm::end(); ?>			
 
