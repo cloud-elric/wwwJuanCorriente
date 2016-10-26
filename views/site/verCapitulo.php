@@ -45,11 +45,16 @@ if ($isAdmin) {
 		<h1>Historias de México</h1>
 
 		<h2><?=$capitulo->txt_nombre?></h2>
+		
+		<!-- Btn to Back -->
+		<a href="javascript: history.back(1)" class="ver-capitulo-back">
+			<i class="ion ion-android-arrow-back"></i>
+		</a>
 
 		<!-- Leer de día o noche -->
 		<i class="ion ion-ios-book ver-capitulo-leer"></i>
 
-		<!-- Leer de día o noche -->
+		<!-- Leer de día o noche FullScreen -->
 		<i class="ion ion-ios-book ver-capitulo-leer-full"></i>
 
 		<!-- FullScreen -->
@@ -106,21 +111,30 @@ if ($isAdmin) {
 
 			<div class="ver-capitulo-post-image ver-capitulo-post-hover-close">
 				<div class="ver-capitulo-post-image-item js-container-image">
+					<!-- Input -->
 					<input type="file" id="file" class="inputfile modal-admin-form-imagen" onchange="uploadImage($(this),this)">
+					<!-- Label -->
 					<label for="file">Agregar Imagen</label>
+					<!-- Progress Bar -->
+					<div class="ver-capitulo-post-progress">
+						<div id="js-progress-bar" class="ver-capitulo-post-progress-bar"></div>
+						<span id="js-progress-bar-texto" class="w3-center w3-text-white">0%</span>
+					</div>
+					<!-- Imagen -->
 					<img src="" alt="">
+					<!-- Btn de Close -->
 					<span class="ver-capitulo-post-hover-close-btn"><i class="ion ion-close-round"></i></span>
 				</div>
 			</div>
 
-			<div class="ver-capitulo-post-image ver-capitulo-post-hover-close">
+			<!-- <div class="ver-capitulo-post-image ver-capitulo-post-hover-close">
 				<div class="ver-capitulo-post-image-item js-container-image ver-capitulo-post-image-item-file">
 					<input type="file" id="file" class="inputfile modal-admin-form-imagen" onchange="uploadImage($(this),this)">
 					<label for="file">Agregar Imagen</label>
 					<img src="<?=Url::base()?>/webAssets/images/portada.jpg" alt="Article" style="display: block;">
 					<span class="ver-capitulo-post-hover-close-btn"><i class="ion ion-close-round"></i></span>
 				</div>
-			</div>
+			</div> -->
 
 		</div>
 		<!-- end - .ver-capitulo-post -->

@@ -38,18 +38,31 @@
 			font-weight: 400
 			margin-top: 140px
 			text-align: center
+		// Btn to Back
+		.ver-capitulo-back
+			color: $white
+			cursor: pointer
+			font-size: 1.3em
+			left: 60px
+			position: absolute
+			top: 42px
+			z-index: 3
+			&:hover
+				color: $teal
 		// Leer de día o noche
 		.ver-capitulo-leer
-			color: #8EF0EF
+			color: $teal
 			cursor: pointer
 			font-size: 1.250em
 			left: 30px
 			position: absolute
 			top: 44px
 			z-index: 3
+			&:hover
+				color: $white
 		// Leer de día o noche - Full
 		.ver-capitulo-leer-full
-			color: #8EF0EF
+			color: $teal
 			cursor: pointer
 			display: none
 			font-size: 1.250em
@@ -57,11 +70,13 @@
 			position: absolute
 			top: 44px
 			z-index: 3
+			&:hover
+				color: $white
 		// FullScreen
 		.ver-capitulo-full-screen,
 		.ver-capitulo-close-screen
 			align-items: center
-			color: #8EF0EF
+			color: $teal
 			cursor: pointer
 			display: flex
 			justify-content: center
@@ -141,14 +156,18 @@
 						padding: 10px
 						position: relative
 						width: 156px
+						// &:focus
+						// 	outline: none
 					&:focus + label,
 					+ label:hover
 						background-color: rgba($black,.8)
 					+ label
 						cursor: pointer
 					&:focus + label
-						outline: 1px dotted #000
-						outline: -webkit-focus-ring-color auto 5px
+						// outline: 1px dotted #000
+						// outline: -webkit-focus-ring-color auto 5px
+						color: $teal
+						border: 1px dashed $teal
 					+ label *
 						pointer-events: none
 				img
@@ -403,8 +422,50 @@
 	&:-moz-full-screen
 		background-color: transparent
 
-// FullScreen 
+
+/*  FullScreen
+	================================================ */
 :-webkit-full-screen
 	background-color: transparent
 :-moz-full-screen
 	background-color: transparent
+
+
+/*  Progress Bar
+	================================================ */
+.ver-capitulo-post-progress
+	background-color: #f1f1f1
+	+border-radius(20px)
+	display: none
+	height: 1.1em
+	// left: 50%
+	// margin-left: -22.5%
+	margin: 0 auto
+	padding: 2px
+	position: absolute
+	top: calc(50% + 30px)
+	width: 45%
+	&.ver-capitulo-post-progress-anim
+		display: block
+	// Bar
+	.ver-capitulo-post-progress-bar
+		background-color: #87D37C
+		+border-radius(20px)
+		height: calc(100% - 4px)
+		line-height: inherit
+		position: absolute
+		width: 0%
+	// Texto
+	span
+		// background-color: red
+		color: #1E824C
+		font-size: .75em
+		font-weight: 500
+		left: 50%
+		margin-left: -25px
+		margin-top: -7px
+		max-width: 50px
+		position: absolute
+		text-align: center
+		top: 50%
+		width: 90%

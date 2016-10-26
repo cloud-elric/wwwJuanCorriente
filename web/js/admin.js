@@ -314,6 +314,7 @@ function readURL(input, element) {
 			// element.parents('.js-container-image').css('background-image','url('+e.target.result+')');
 			$('.js-container-image').addClass("ver-capitulo-post-image-item-file");
 			$('.js-container-image img').show().attr("src", e.target.result);
+			progressBar();
 		}
 
 		reader.readAsDataURL(input.files[0]);
@@ -362,4 +363,23 @@ function guardarImagen(input, file){
             return xhr;
         }
     });
+}
+
+// Function - Progress Bar [Cargar Imagen]
+function progressBar(){
+	var elem = document.getElementById("js-progress-bar");
+	var width = 0;
+	var id = setInterval(frame, 10);
+
+	$(".ver-capitulo-post-progress").addClass("ver-capitulo-post-progress-anim");
+
+	function frame() {
+		if (width >= 100) {
+			clearInterval(id);
+		} else {
+			width++;
+			elem.style.width = 'calc(' + width + '% - 4px)';
+			document.getElementById("js-progress-bar-texto").innerHTML = width * 1  + '%';
+		}
+	}
 }

@@ -146,7 +146,6 @@ $(document).ready(function(){
 		$('.ver-capitulo').toggleClass("ver-capitulo-white-full");
 	});
 
-
 }); // end - READY
 
 /**
