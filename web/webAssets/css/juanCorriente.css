@@ -677,6 +677,7 @@ footer.footer-white .social-media a:hover {
 
 .listado .listado-articles {
   display: flex;
+  flex-wrap: wrap;
 }
 
 @media (min-width: 769px) and (max-width: 991px) {
@@ -702,7 +703,7 @@ footer.footer-white .social-media a:hover {
   display: block;
   margin-right: 2%;
   overflow: hidden;
-  width: 26%;
+  width: 23%;
 }
 
 .listado .listado-articles .listado-articles-item:hover {
