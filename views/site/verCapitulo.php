@@ -108,7 +108,8 @@ if ($isAdmin) {
 			
 				<input type="file" class="modal-admin-form-imagen" onchange="uploadImage($(this),this)"> 
 				 -->
-
+			
+			<!-- .ver-capitulo-post-image -->
 			<div class="ver-capitulo-post-image ver-capitulo-post-hover-close">
 				<div class="ver-capitulo-post-image-item js-container-image">
 					<!-- Input -->
@@ -126,7 +127,9 @@ if ($isAdmin) {
 					<span class="ver-capitulo-post-hover-close-btn"><i class="ion ion-close-round"></i></span>
 				</div>
 			</div>
-
+			<!-- end .ver-capitulo-post-image -->
+			
+			<!-- .ver-capitulo-post-image -->
 			<div class="ver-capitulo-post-image ver-capitulo-post-hover-close">
 				<div class="ver-capitulo-post-image-item js-container-image ver-capitulo-post-image-item-file">
 					<input type="file" id="file" class="inputfile modal-admin-form-imagen" onchange="uploadImage($(this),this)">
@@ -135,6 +138,7 @@ if ($isAdmin) {
 					<span class="ver-capitulo-post-hover-close-btn"><i class="ion ion-close-round"></i></span>
 				</div>
 			</div>
+			<!-- end - .ver-capitulo-post-image -->
 
 		</div>
 		<!-- end - .ver-capitulo-post -->
