@@ -313,3 +313,59 @@ hr
 .delay-6 
 	-webkit-animation-delay: 0.65s
 	animation-delay: 0.65s
+
+
+/*  Datepicker
+	================================================ */
+.ui-datepicker
+	background-color: $white
+	+box-shadow(2)
+	.ui-datepicker-header
+		background-color: $secundary-color
+		// Arrow
+		.ui-datepicker-prev,
+		.ui-datepicker-next
+			align-items: center
+			background-color: rgba($black,.16)
+			border: 1px solid $secundary-color
+			color: $white
+			cursor: pointer
+			display: flex
+			justify-content: center
+			span
+				background-image: none
+				display: none
+		.ui-state-hover
+			top: 2px
+		.ui-datepicker-prev-hover
+			left: 2px
+		.ui-datepicker-next-hover
+			right: 2px
+		.ui-datepicker-prev
+			&:after
+				content: "\f124"
+				font-family: "Ionicons"
+			// &:hover
+			// 	background-color: yellow
+		.ui-datepicker-next
+			&:after
+				content: "\f125"
+				font-family: "Ionicons"
+		// Title
+		.ui-datepicker-title
+			color: $white
+
+// Default Style - Datepicker
+.ui-state-default,
+.ui-widget-content .ui-state-default
+	border: 1px solid transparent
+
+.ui-state-highlight,
+.ui-widget-content .ui-state-highlight,
+.ui-widget-header .ui-state-highlight
+	background-color: rgba($secundary-color,.9)
+	color: $white
+
+.ui-datepicker-calendar
+	thead
+		color: $text-base

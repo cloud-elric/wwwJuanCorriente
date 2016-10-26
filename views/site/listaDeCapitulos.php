@@ -149,33 +149,50 @@ $this->registerJsFile ( '@web/js/admin.js', [
 		$capituloForm->fch_publicacion= Utils::changeFormatDate(Utils::getFechaActual());
 		echo $form->field ( $capituloForm, 'txt_nombre' )->hiddenInput ()->label ( false );
 		?>
+		<div class="row">
+			<div class="col-xs-12 col-md-8">
+				
+
+				<!-- Título -->
+				<h3 class="modal-admin-form-titulo" contentEditable="true"
+					data-new="esNuevo" id="js-nombre-capitulo">Dame un título...</h3>
+
+				<!-- .modal-admin-form-datepiker -->
+				<div class="modal-admin-form-datepiker">
+					<label for="datepicker">Selecciona una fecha de Publicación</label> 
+					<?php echo $form->field ( $capituloForm, 'fch_publicacion' )->textInput(['class'=>'datepicker','placeholder'=>'10-Oct-2016'])->label ( false );?>
+					
+				</div>
+				<!-- end - .modal-admin-form-datepiker -->
+
+
+			</div>
+
+			<div class="col-xs-12 col-md-4">
+				
+				<img class="modal-admin-form-imagen" src="<?=Url::base()?>/webAssets/images/portada.jpg" alt="Article">
+
+			</div>
+
+		</div>
+
 		<input type="hidden" data-historia="<?=$historia->txt_token?>" id="js-historia" />
 			<!-- Título -->
 		<!-- <label class="modal-admin-form-titulo" for="modal-admin-form-titulo">Dame un título...</label>
 			<input class="modal-admin-form-titulo" type="text" id="modal-admin-form-titulo" placeholder="Dame un título..."> -->
 
-		<!-- Título -->
-		<h3 class="modal-admin-form-titulo" contentEditable="true"
-			data-new="esNuevo" id="js-nombre-capitulo">Dame un título...</h3>
-
-		<!-- .modal-admin-form-datepiker -->
-		<div class="modal-admin-form-datepiker">
-			<label for="datepicker">Selecciona una fecha de Publicación</label> 
-			<?php echo $form->field ( $capituloForm, 'fch_publicacion' )->textInput(['class'=>'datepicker','placeholder'=>'10-Oct-2016'])->label ( false );?>
-			
-		</div>
-		<!-- end - .modal-admin-form-datepiker -->
-
-		<!-- .modal-admin-cont-btn-guardar -->
-
+				
+		<!-- .modal-admin-footer -->
+		<div class="modal-admin-footer">
+			<!-- .modal-admin-cont-btn-guardar -->
 			<button id="modal-agregar-post-guardar"
 				class="btn modal-admin-cont-btn-guardar ladda-button"
 				data-style="zoom-out">
 				<span class="ladda-label">Guardar</span>
 			</button>
-
-
 			<!-- end - .modal-admin-cont-btn-guardar -->
+		</div>
+		<!-- end - .modal-admin-footer -->
 
 		<?php
 		
