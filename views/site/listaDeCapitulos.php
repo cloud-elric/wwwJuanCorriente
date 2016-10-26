@@ -6,11 +6,21 @@ use yii\helpers\Url;
 use yii\bootstrap\ActiveForm;
 use app\modules\ModUsuarios\models\Utils;
 
-$this->registerJsFile ( '@web/js/admin.js', [ 
-		'depends' => [ 
-				\app\assets\AppAsset::className () 
-		] 
-] );
+$isAdmin = ! Yii::$app->user->isGuest;
+
+if ($isAdmin) {
+	$this->registerJsFile ( '@web/js/admin.js', [ 
+			'depends' => [ 
+					\app\assets\AppAsset::className () 
+			] 
+	] );
+	
+	$this->registerJsFile ( '@web/js/editarCapitulo.js', [ 
+			'depends' => [ 
+					\app\assets\AppAsset::className () 
+			] 
+	] );
+}
 ?>
 
 <!-- .listado -->
@@ -40,7 +50,8 @@ $this->registerJsFile ( '@web/js/admin.js', [
 			
 			<!-- .listado-articles-item -->
 			<a class="listado-articles-item"
-				href="<?=Url::base()?>/site/ver-capitulo?token=<?=$historia->txt_token?>&capitulo=<?=$capitulo->txt_token?>"> <!-- .listado-articles-item-imagen -->
+				href="<?=Url::base()?>/site/ver-capitulo?token=<?=$historia->txt_token?>&capitulo=<?=$capitulo->txt_token?>">
+				<!-- .listado-articles-item-imagen -->
 				<div class="listado-articles-item-imagen" style="background-image:url('<?=Url::base()?>/webAssets/uploads/<?=$capitulo->txt_imagen?>')">
 					<div class="listado-articles-item-capitulo">
 						<h4>Capitulo <?=$numCapitulo?></h4>
@@ -94,6 +105,8 @@ $this->registerJsFile ( '@web/js/admin.js', [
 </div>
 <!-- end - .listado -->
 
+
+<?php if($isAdmin){?>
 <!-- Btn Mostar Modal -->
 <button id="modal-agregar-post-open"
 	class="btn admin-agregar-btn-circle">
@@ -131,11 +144,12 @@ $this->registerJsFile ( '@web/js/admin.js', [
 				'layout' => 'horizontal',
 				'id' => 'form-agregar-capitulo' 
 		] );
-		$capituloForm->fch_publicacion= Utils::changeFormatDate(Utils::getFechaActual());
+		$capituloForm->fch_publicacion = Utils::changeFormatDate ( Utils::getFechaActual () );
 		echo $form->field ( $capituloForm, 'txt_nombre' )->hiddenInput ()->label ( false );
 		?>
-		<input type="hidden" data-historia="<?=$historia->txt_token?>" id="js-historia" />
-			<!-- Título -->
+		<input type="hidden" data-historia="<?=$historia->txt_token?>"
+			id="js-historia" />
+		<!-- Título -->
 		<!-- <label class="modal-admin-form-titulo" for="modal-admin-form-titulo">Dame un título...</label>
 			<input class="modal-admin-form-titulo" type="text" id="modal-admin-form-titulo" placeholder="Dame un título..."> -->
 
@@ -153,14 +167,14 @@ $this->registerJsFile ( '@web/js/admin.js', [
 
 		<!-- .modal-admin-cont-btn-guardar -->
 
-			<button id="modal-agregar-post-guardar"
-				class="btn modal-admin-cont-btn-guardar ladda-button"
-				data-style="zoom-out">
-				<span class="ladda-label">Guardar</span>
-			</button>
+		<button id="modal-agregar-post-guardar"
+			class="btn modal-admin-cont-btn-guardar ladda-button"
+			data-style="zoom-out">
+			<span class="ladda-label">Guardar</span>
+		</button>
 
 
-			<!-- end - .modal-admin-cont-btn-guardar -->
+		<!-- end - .modal-admin-cont-btn-guardar -->
 
 		<?php
 		
@@ -173,3 +187,7 @@ $this->registerJsFile ( '@web/js/admin.js', [
 	<!-- end - .modal-content -->
 
 </div>
+
+<?php 
+}
+?>
