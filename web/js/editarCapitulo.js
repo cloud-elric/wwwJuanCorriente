@@ -4,16 +4,17 @@
 var enEdicion = false;
 
 function agregarTarjetaCapitulo(json) {
-	var template = '<a class="listado-articles-item" href="/wwwJuanCorriente/web/site/ver-capitulo">'
-			+ '<div class="listado-articles-item-imagen" style="background-image:url(\'/wwwJuanCorriente/web/webAssets/uploads/chain_pg002.jpg\')">'
-			+ '<div class="listado-articles-item-capitulo">'
-			+ '<h4>Capitulo 2</h4>'
-			+ '</div>'
-			+ '<div class="listado-articles-item-new">'
-			+ '<span>Nuevo</span>'
-			+ '</div>'
-			+ '</div>'
-			+ '<h3 class="listado-articles-item-title">The chain</h3>' + '</a>';
+	var numeroCap = $('.listado-articles-item').length;
+	var template = '<a class="listado-articles-item" href="'+basePath+'site/ver-capitulo?token=hit_a4266c5404adf0a5d30156a245d5dee85807aa6e08540&amp;capitulo=cap_0fa10729da2e014a82aff88e0ab03ce8580920e80c5bd">'+
+						'<div class="listado-articles-item-imagen" style="background-image:url(\''+basePath+'webAssets/uploads/'+json.i+'\')">'+
+							'<div class="listado-articles-item-capitulo">'+
+								'<h4>Capitulo '+(numeroCap+1)+'</h4>'+
+							'</div>'+
+						'</div> '+
+						'<h3 class="listado-articles-item-title">The fall</h3>'+
+					'</a>';
+	
+	$('.listado-articles').append(template);
 }
 
 $('body').on(
@@ -44,7 +45,7 @@ $('body').on(
 						
 						document.getElementById("form-agregar-capitulo")
 								.reset();
-
+						agregarTarjetaCapitulo(response);
 						$(modal).trigger('click');
 					} else {
 						
