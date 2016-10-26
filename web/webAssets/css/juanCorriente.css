@@ -1142,65 +1142,6 @@ footer.footer-white .social-media a:hover {
   width: 100%;
 }
 
-.ver-capitulo .ver-capitulo-controlers {
-  display: flex;
-  justify-content: flex-end;
-  margin: 40px auto 0;
-  bottom: 50px;
-  position: fixed;
-  right: 40px;
-}
-
-.ver-capitulo .ver-capitulo-controlers .ver-capitulo-controlers-btn-circle {
-  align-items: center;
-  border: none;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  border-radius: 50%;
-  color: #FFF;
-  display: flex;
-  justify-content: center;
-  height: 50px;
-  margin-left: 12px;
-  position: relative;
-  width: 50px;
-}
-
-.ver-capitulo .ver-capitulo-controlers .ver-capitulo-controlers-btn-circle i {
-  font-size: 1.5em;
-}
-
-.ver-capitulo .ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-texto {
-  background-color: #F461A5;
-  border-color: #F461A5;
-}
-
-.ver-capitulo .ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-texto:hover {
-  background-color: #f24193;
-  border-color: #f24193;
-}
-
-.ver-capitulo .ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-texto:focus {
-  background-color: #f24193;
-  border-color: #f24193;
-}
-
-.ver-capitulo .ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-imagen {
-  background-color: #83EB91;
-  border-color: #83EB91;
-}
-
-.ver-capitulo .ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-imagen:hover {
-  background-color: #66e677;
-  border-color: #66e677;
-}
-
-.ver-capitulo .ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-imagen:focus {
-  background-color: #66e677;
-  border-color: #66e677;
-}
-
 .ver-capitulo.ver-capitulo-white {
   background-color: #FFF;
 }
@@ -1361,6 +1302,125 @@ footer.footer-white .social-media a:hover {
 
 :-moz-full-screen {
   background-color: transparent;
+}
+
+/*  Controles
+	@mixin =============================================== */
+.ver-capitulo-controlers,
+.listado-controlers {
+  display: flex;
+  justify-content: flex-end;
+  margin: 40px auto 0;
+  bottom: 50px;
+  position: fixed;
+  right: 40px;
+}
+
+.ver-capitulo-controlers .ver-capitulo-controlers-btn-circle,
+.ver-capitulo-controlers .listado-controlers-btn-circle,
+.listado-controlers .ver-capitulo-controlers-btn-circle,
+.listado-controlers .listado-controlers-btn-circle {
+  align-items: center;
+  border: none;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  color: #FFF;
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  margin-left: 12px;
+  position: relative;
+  width: 50px;
+}
+
+.ver-capitulo-controlers .ver-capitulo-controlers-btn-circle i,
+.ver-capitulo-controlers .listado-controlers-btn-circle i,
+.listado-controlers .ver-capitulo-controlers-btn-circle i,
+.listado-controlers .listado-controlers-btn-circle i {
+  font-size: 1.5em;
+}
+
+.ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-texto,
+.ver-capitulo-controlers .listado-controlers-btn-circle.ver-capitulo-controlers-btn-circle-texto,
+.listado-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-texto,
+.listado-controlers .listado-controlers-btn-circle.ver-capitulo-controlers-btn-circle-texto {
+  background-color: #F461A5;
+  border-color: #F461A5;
+}
+
+.ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-texto:hover,
+.ver-capitulo-controlers .listado-controlers-btn-circle.ver-capitulo-controlers-btn-circle-texto:hover,
+.listado-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-texto:hover,
+.listado-controlers .listado-controlers-btn-circle.ver-capitulo-controlers-btn-circle-texto:hover {
+  background-color: #f24193;
+  border-color: #f24193;
+}
+
+.ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-texto:focus,
+.ver-capitulo-controlers .listado-controlers-btn-circle.ver-capitulo-controlers-btn-circle-texto:focus,
+.listado-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-texto:focus,
+.listado-controlers .listado-controlers-btn-circle.ver-capitulo-controlers-btn-circle-texto:focus {
+  background-color: #f24193;
+  border-color: #f24193;
+}
+
+.ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-imagen, .ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.listado-controlers-btn-circle-editar,
+.ver-capitulo-controlers .listado-controlers-btn-circle.ver-capitulo-controlers-btn-circle-imagen,
+.ver-capitulo-controlers .listado-controlers-btn-circle.listado-controlers-btn-circle-editar,
+.listado-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-imagen,
+.listado-controlers .ver-capitulo-controlers-btn-circle.listado-controlers-btn-circle-editar,
+.listado-controlers .listado-controlers-btn-circle.ver-capitulo-controlers-btn-circle-imagen,
+.listado-controlers .listado-controlers-btn-circle.listado-controlers-btn-circle-editar {
+  background-color: #83EB91;
+  border-color: #83EB91;
+}
+
+.ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-imagen:hover, .ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.listado-controlers-btn-circle-editar:hover,
+.ver-capitulo-controlers .listado-controlers-btn-circle.ver-capitulo-controlers-btn-circle-imagen:hover,
+.ver-capitulo-controlers .listado-controlers-btn-circle.listado-controlers-btn-circle-editar:hover,
+.listado-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-imagen:hover,
+.listado-controlers .ver-capitulo-controlers-btn-circle.listado-controlers-btn-circle-editar:hover,
+.listado-controlers .listado-controlers-btn-circle.ver-capitulo-controlers-btn-circle-imagen:hover,
+.listado-controlers .listado-controlers-btn-circle.listado-controlers-btn-circle-editar:hover {
+  background-color: #66e677;
+  border-color: #66e677;
+}
+
+.ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-imagen:focus, .ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.listado-controlers-btn-circle-editar:focus,
+.ver-capitulo-controlers .listado-controlers-btn-circle.ver-capitulo-controlers-btn-circle-imagen:focus,
+.ver-capitulo-controlers .listado-controlers-btn-circle.listado-controlers-btn-circle-editar:focus,
+.listado-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-imagen:focus,
+.listado-controlers .ver-capitulo-controlers-btn-circle.listado-controlers-btn-circle-editar:focus,
+.listado-controlers .listado-controlers-btn-circle.ver-capitulo-controlers-btn-circle-imagen:focus,
+.listado-controlers .listado-controlers-btn-circle.listado-controlers-btn-circle-editar:focus {
+  background-color: #66e677;
+  border-color: #66e677;
+}
+
+.ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.listado-controlers-btn-circle-agregar,
+.ver-capitulo-controlers .listado-controlers-btn-circle.listado-controlers-btn-circle-agregar,
+.listado-controlers .ver-capitulo-controlers-btn-circle.listado-controlers-btn-circle-agregar,
+.listado-controlers .listado-controlers-btn-circle.listado-controlers-btn-circle-agregar {
+  background-color: #6779EF;
+  border-color: #6779EF;
+}
+
+.ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.listado-controlers-btn-circle-agregar:hover,
+.ver-capitulo-controlers .listado-controlers-btn-circle.listado-controlers-btn-circle-agregar:hover,
+.listado-controlers .ver-capitulo-controlers-btn-circle.listado-controlers-btn-circle-agregar:hover,
+.listado-controlers .listado-controlers-btn-circle.listado-controlers-btn-circle-agregar:hover {
+  background-color: #485eec;
+  border-color: #485eec;
+}
+
+.ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.listado-controlers-btn-circle-agregar:focus,
+.ver-capitulo-controlers .listado-controlers-btn-circle.listado-controlers-btn-circle-agregar:focus,
+.listado-controlers .ver-capitulo-controlers-btn-circle.listado-controlers-btn-circle-agregar:focus,
+.listado-controlers .listado-controlers-btn-circle.listado-controlers-btn-circle-agregar:focus {
+  background-color: #95a2f4;
+  border-color: #95a2f4;
 }
 
 /*  Progress Bar

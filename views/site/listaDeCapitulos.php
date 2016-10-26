@@ -94,11 +94,26 @@ $this->registerJsFile ( '@web/js/admin.js', [
 </div>
 <!-- end - .listado -->
 
-<!-- Btn Mostar Modal -->
-<button id="modal-agregar-post-open"
-	class="btn admin-agregar-btn-circle">
-	<i class="ion ion-wand"></i>
-</button>
+
+
+
+	
+	<!-- .listado-controlers -->
+	<div class="listado-controlers">
+		
+		<!-- Btn Mostar Modal -->
+		<button id="modal-agregar-post-open"
+			class="btn ver-capitulo-controlers-btn-circle listado-controlers-btn-circle-agregar">
+			<i class="ion ion-wand"></i>
+		</button>
+
+		<button
+			class="btn ver-capitulo-controlers-btn-circle listado-controlers-btn-circle-editar">
+			<i class="ion ion-android-create"></i>
+		</button>
+
+	</div>
+	<!-- end - .listado-controlers -->
 
 <!-- .modal -->
 <div id="modal-agregar-post" class="modal modal-admin">
