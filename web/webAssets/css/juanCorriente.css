@@ -395,6 +395,77 @@ hr {
   animation-delay: 0.65s;
 }
 
+/*  Datepicker
+	@mixin =============================================== */
+.ui-datepicker {
+  background-color: #FFF;
+  box-shadow: 0 3px 6px rgba(47, 47, 47, 0.16), 0 3px 6px rgba(47, 47, 47, 0.23);
+}
+
+.ui-datepicker .ui-datepicker-header {
+  background-color: #6779EF;
+}
+
+.ui-datepicker .ui-datepicker-header .ui-datepicker-prev,
+.ui-datepicker .ui-datepicker-header .ui-datepicker-next {
+  align-items: center;
+  background-color: rgba(47, 47, 47, 0.16);
+  border: 1px solid #6779EF;
+  color: #FFF;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+
+.ui-datepicker .ui-datepicker-header .ui-datepicker-prev span,
+.ui-datepicker .ui-datepicker-header .ui-datepicker-next span {
+  background-image: none;
+  display: none;
+}
+
+.ui-datepicker .ui-datepicker-header .ui-state-hover {
+  top: 2px;
+}
+
+.ui-datepicker .ui-datepicker-header .ui-datepicker-prev-hover {
+  left: 2px;
+}
+
+.ui-datepicker .ui-datepicker-header .ui-datepicker-next-hover {
+  right: 2px;
+}
+
+.ui-datepicker .ui-datepicker-header .ui-datepicker-prev:after {
+  content: "\f124";
+  font-family: "Ionicons";
+}
+
+.ui-datepicker .ui-datepicker-header .ui-datepicker-next:after {
+  content: "\f125";
+  font-family: "Ionicons";
+}
+
+.ui-datepicker .ui-datepicker-header .ui-datepicker-title {
+  color: #FFF;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default {
+  border: 1px solid transparent;
+  text-align: center;
+}
+
+.ui-state-highlight,
+.ui-widget-content .ui-state-highlight,
+.ui-widget-header .ui-state-highlight {
+  background-color: rgba(103, 121, 239, 0.9);
+  color: #FFF;
+}
+
+.ui-datepicker-calendar thead {
+  color: #2F2F2F;
+}
+
 /*!
 	-----------------------------------------------------------------------------
 
@@ -1063,65 +1134,6 @@ footer.footer-white .social-media a:hover {
   width: 100%;
 }
 
-.ver-capitulo .ver-capitulo-controlers {
-  display: flex;
-  justify-content: flex-end;
-  margin: 40px auto 0;
-  bottom: 50px;
-  position: fixed;
-  right: 40px;
-}
-
-.ver-capitulo .ver-capitulo-controlers .ver-capitulo-controlers-btn-circle {
-  align-items: center;
-  border: none;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  border-radius: 50%;
-  color: #FFF;
-  display: flex;
-  justify-content: center;
-  height: 50px;
-  margin-left: 12px;
-  position: relative;
-  width: 50px;
-}
-
-.ver-capitulo .ver-capitulo-controlers .ver-capitulo-controlers-btn-circle i {
-  font-size: 1.5em;
-}
-
-.ver-capitulo .ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-texto {
-  background-color: #F461A5;
-  border-color: #F461A5;
-}
-
-.ver-capitulo .ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-texto:hover {
-  background-color: #f24193;
-  border-color: #f24193;
-}
-
-.ver-capitulo .ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-texto:focus {
-  background-color: #f24193;
-  border-color: #f24193;
-}
-
-.ver-capitulo .ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-imagen {
-  background-color: #83EB91;
-  border-color: #83EB91;
-}
-
-.ver-capitulo .ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-imagen:hover {
-  background-color: #66e677;
-  border-color: #66e677;
-}
-
-.ver-capitulo .ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-imagen:focus {
-  background-color: #66e677;
-  border-color: #66e677;
-}
-
 .ver-capitulo.ver-capitulo-white {
   background-color: #FFF;
 }
@@ -1284,6 +1296,125 @@ footer.footer-white .social-media a:hover {
   background-color: transparent;
 }
 
+/*  Controles
+	@mixin =============================================== */
+.ver-capitulo-controlers,
+.listado-controlers {
+  display: flex;
+  justify-content: flex-end;
+  margin: 40px auto 0;
+  bottom: 50px;
+  position: fixed;
+  right: 40px;
+}
+
+.ver-capitulo-controlers .ver-capitulo-controlers-btn-circle,
+.ver-capitulo-controlers .listado-controlers-btn-circle,
+.listado-controlers .ver-capitulo-controlers-btn-circle,
+.listado-controlers .listado-controlers-btn-circle {
+  align-items: center;
+  border: none;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  color: #FFF;
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  margin-left: 12px;
+  position: relative;
+  width: 50px;
+}
+
+.ver-capitulo-controlers .ver-capitulo-controlers-btn-circle i,
+.ver-capitulo-controlers .listado-controlers-btn-circle i,
+.listado-controlers .ver-capitulo-controlers-btn-circle i,
+.listado-controlers .listado-controlers-btn-circle i {
+  font-size: 1.5em;
+}
+
+.ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-texto,
+.ver-capitulo-controlers .listado-controlers-btn-circle.ver-capitulo-controlers-btn-circle-texto,
+.listado-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-texto,
+.listado-controlers .listado-controlers-btn-circle.ver-capitulo-controlers-btn-circle-texto {
+  background-color: #F461A5;
+  border-color: #F461A5;
+}
+
+.ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-texto:hover,
+.ver-capitulo-controlers .listado-controlers-btn-circle.ver-capitulo-controlers-btn-circle-texto:hover,
+.listado-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-texto:hover,
+.listado-controlers .listado-controlers-btn-circle.ver-capitulo-controlers-btn-circle-texto:hover {
+  background-color: #f24193;
+  border-color: #f24193;
+}
+
+.ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-texto:focus,
+.ver-capitulo-controlers .listado-controlers-btn-circle.ver-capitulo-controlers-btn-circle-texto:focus,
+.listado-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-texto:focus,
+.listado-controlers .listado-controlers-btn-circle.ver-capitulo-controlers-btn-circle-texto:focus {
+  background-color: #f24193;
+  border-color: #f24193;
+}
+
+.ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-imagen, .ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.listado-controlers-btn-circle-editar,
+.ver-capitulo-controlers .listado-controlers-btn-circle.ver-capitulo-controlers-btn-circle-imagen,
+.ver-capitulo-controlers .listado-controlers-btn-circle.listado-controlers-btn-circle-editar,
+.listado-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-imagen,
+.listado-controlers .ver-capitulo-controlers-btn-circle.listado-controlers-btn-circle-editar,
+.listado-controlers .listado-controlers-btn-circle.ver-capitulo-controlers-btn-circle-imagen,
+.listado-controlers .listado-controlers-btn-circle.listado-controlers-btn-circle-editar {
+  background-color: #83EB91;
+  border-color: #83EB91;
+}
+
+.ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-imagen:hover, .ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.listado-controlers-btn-circle-editar:hover,
+.ver-capitulo-controlers .listado-controlers-btn-circle.ver-capitulo-controlers-btn-circle-imagen:hover,
+.ver-capitulo-controlers .listado-controlers-btn-circle.listado-controlers-btn-circle-editar:hover,
+.listado-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-imagen:hover,
+.listado-controlers .ver-capitulo-controlers-btn-circle.listado-controlers-btn-circle-editar:hover,
+.listado-controlers .listado-controlers-btn-circle.ver-capitulo-controlers-btn-circle-imagen:hover,
+.listado-controlers .listado-controlers-btn-circle.listado-controlers-btn-circle-editar:hover {
+  background-color: #66e677;
+  border-color: #66e677;
+}
+
+.ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-imagen:focus, .ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.listado-controlers-btn-circle-editar:focus,
+.ver-capitulo-controlers .listado-controlers-btn-circle.ver-capitulo-controlers-btn-circle-imagen:focus,
+.ver-capitulo-controlers .listado-controlers-btn-circle.listado-controlers-btn-circle-editar:focus,
+.listado-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-imagen:focus,
+.listado-controlers .ver-capitulo-controlers-btn-circle.listado-controlers-btn-circle-editar:focus,
+.listado-controlers .listado-controlers-btn-circle.ver-capitulo-controlers-btn-circle-imagen:focus,
+.listado-controlers .listado-controlers-btn-circle.listado-controlers-btn-circle-editar:focus {
+  background-color: #66e677;
+  border-color: #66e677;
+}
+
+.ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.listado-controlers-btn-circle-agregar,
+.ver-capitulo-controlers .listado-controlers-btn-circle.listado-controlers-btn-circle-agregar,
+.listado-controlers .ver-capitulo-controlers-btn-circle.listado-controlers-btn-circle-agregar,
+.listado-controlers .listado-controlers-btn-circle.listado-controlers-btn-circle-agregar {
+  background-color: #6779EF;
+  border-color: #6779EF;
+}
+
+.ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.listado-controlers-btn-circle-agregar:hover,
+.ver-capitulo-controlers .listado-controlers-btn-circle.listado-controlers-btn-circle-agregar:hover,
+.listado-controlers .ver-capitulo-controlers-btn-circle.listado-controlers-btn-circle-agregar:hover,
+.listado-controlers .listado-controlers-btn-circle.listado-controlers-btn-circle-agregar:hover {
+  background-color: #485eec;
+  border-color: #485eec;
+}
+
+.ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.listado-controlers-btn-circle-agregar:focus,
+.ver-capitulo-controlers .listado-controlers-btn-circle.listado-controlers-btn-circle-agregar:focus,
+.listado-controlers .ver-capitulo-controlers-btn-circle.listado-controlers-btn-circle-agregar:focus,
+.listado-controlers .listado-controlers-btn-circle.listado-controlers-btn-circle-agregar:focus {
+  background-color: #95a2f4;
+  border-color: #95a2f4;
+}
+
 /*  Progress Bar
 	@mixin =============================================== */
 .ver-capitulo-post-progress {
@@ -1341,6 +1472,8 @@ footer.footer-white .social-media a:hover {
 	*/
 /*  Admin
 	@mixin =============================================== */
+/*  Modal Admin
+	@mixin =============================================== */
 .modal-admin {
   overflow: hidden;
 }
@@ -1348,6 +1481,7 @@ footer.footer-white .social-media a:hover {
 .modal-admin .modal-content {
   overflow-y: auto;
   max-height: 90vh;
+  max-width: 900px;
 }
 
 @media screen and (max-width: 768px) {
@@ -1386,7 +1520,7 @@ footer.footer-white .social-media a:hover {
 .modal-admin .modal-content .modal-admin-header {
   align-items: center;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .modal-admin .modal-content .modal-admin-header .modal-admin-cont-title {
@@ -1401,32 +1535,6 @@ footer.footer-white .social-media a:hover {
 @media screen and (max-width: 544px) {
   .modal-admin .modal-content .modal-admin-header .modal-admin-cont-title {
     width: 100%;
-  }
-}
-
-.modal-admin .modal-content .modal-admin-header .modal-admin-cont-btn-guardar {
-  background-color: #6779EF;
-  border-color: #6779EF;
-  color: #FFF;
-}
-
-.modal-admin .modal-content .modal-admin-header .modal-admin-cont-btn-guardar:hover {
-  color: #FFF;
-  background-color: #485eec;
-  border-color: #485eec;
-}
-
-.modal-admin .modal-content .modal-admin-header .modal-admin-cont-btn-guardar:focus {
-  color: #FFF;
-  background-color: #95a2f4;
-  border-color: #95a2f4;
-}
-
-@media screen and (max-width: 544px) {
-  .modal-admin .modal-content .modal-admin-header .modal-admin-cont-btn-guardar {
-    padding: .5rem .4rem;
-    max-width: 116px;
-    width: 50%;
   }
 }
 
@@ -1652,39 +1760,40 @@ footer.footer-white .social-media a:hover {
   outline: none;
 }
 
-.admin-agregar-btn-circle {
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-imagen {
+  width: 100%;
+}
+
+.modal-admin .modal-content .modal-admin-footer {
   align-items: center;
-  background-color: #6779EF;
-  bottom: 50px;
-  border-color: #6779EF;
-  border: none;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  border-radius: 50%;
-  color: #FFF;
   display: flex;
   justify-content: center;
-  height: 50px;
-  position: fixed;
-  right: 40px;
-  width: 50px;
 }
 
-.admin-agregar-btn-circle i {
-  font-size: 1.5em;
+.modal-admin .modal-content .modal-admin-footer .modal-admin-cont-btn-guardar {
+  background-color: #6779EF;
+  border-color: #6779EF;
+  color: #FFF;
 }
 
-.admin-agregar-btn-circle:hover {
+.modal-admin .modal-content .modal-admin-footer .modal-admin-cont-btn-guardar:hover {
   color: #FFF;
   background-color: #485eec;
   border-color: #485eec;
 }
 
-.admin-agregar-btn-circle:focus {
+.modal-admin .modal-content .modal-admin-footer .modal-admin-cont-btn-guardar:focus {
   color: #FFF;
   background-color: #95a2f4;
   border-color: #95a2f4;
+}
+
+@media screen and (max-width: 544px) {
+  .modal-admin .modal-content .modal-admin-footer .modal-admin-cont-btn-guardar {
+    padding: .5rem .4rem;
+    max-width: 116px;
+    width: 50%;
+  }
 }
 
 /*!

@@ -229,56 +229,7 @@
 				right: 0
 				top: 0
 				width: 100%
-	// Controles
-	.ver-capitulo-controlers
-		// background-color: teal
-		display: flex
-		justify-content: flex-end
-		margin: 40px auto 0
-		bottom: 50px
-		position: fixed
-		right: 40px
-		.ver-capitulo-controlers-btn-circle
-			align-items: center
-			// background-color: $secundary-color
-			// border-color: $secundary-color
-			border: none
-			+border-radius(50%)
-			color: $white
-			display: flex
-			justify-content: center
-			height: 50px
-			margin-left: 12px
-			position: relative
-			width: 50px
-			i
-				font-size: 1.5em
-			// &:hover
-			// 	color: $white
-			// 	background-color: $secundary-color-light
-			// 	border-color: $secundary-color-light
-			// &:focus
-			// 	color: $white
-			// 	background-color: $secundary-color-dark
-			// 	border-color: $secundary-color-dark
-			&.ver-capitulo-controlers-btn-circle-texto
-				background-color: $pink-color
-				border-color: $pink-color
-				&:hover
-					background-color: $pink-color-light
-					border-color: $pink-color-light
-				&:focus
-					background-color: $pink-color-light
-					border-color: $pink-color-light
-			&.ver-capitulo-controlers-btn-circle-imagen
-				background-color: $green-color
-				border-color: $green-color
-				&:hover
-					background-color: $green-color-light
-					border-color: $green-color-light
-				&:focus
-					background-color: $green-color-light
-					border-color: $green-color-light
+	
 	// Ver capítulo - white
 	&.ver-capitulo-white
 		background-color: $white
@@ -429,6 +380,69 @@
 	background-color: transparent
 :-moz-full-screen
 	background-color: transparent
+
+
+
+/*  Controles
+	================================================ */
+.ver-capitulo-controlers,
+.listado-controlers
+	// background-color: teal
+	display: flex
+	justify-content: flex-end
+	margin: 40px auto 0
+	bottom: 50px
+	position: fixed
+	right: 40px
+	.ver-capitulo-controlers-btn-circle,
+	.listado-controlers-btn-circle
+		align-items: center
+		// background-color: $secundary-color
+		// border-color: $secundary-color
+		border: none
+		+border-radius(50%)
+		color: $white
+		display: flex
+		justify-content: center
+		height: 50px
+		margin-left: 12px
+		position: relative
+		width: 50px
+		i
+			font-size: 1.5em
+		// Btn Ver capítulo - Texto
+		&.ver-capitulo-controlers-btn-circle-texto
+			background-color: $pink-color
+			border-color: $pink-color
+			&:hover
+				background-color: $pink-color-light
+				border-color: $pink-color-light
+			&:focus
+				background-color: $pink-color-light
+				border-color: $pink-color-light
+		// Btn Ver capítulo - Imagen
+		&.ver-capitulo-controlers-btn-circle-imagen,
+		&.listado-controlers-btn-circle-editar
+			background-color: $green-color
+			border-color: $green-color
+			&:hover
+				background-color: $green-color-light
+				border-color: $green-color-light
+			&:focus
+				background-color: $green-color-light
+				border-color: $green-color-light
+		// Btn Listado - Crear
+		&.listado-controlers-btn-circle-agregar
+			background-color: $secundary-color
+			border-color: $secundary-color
+			&:hover
+				// color: $white
+				background-color: $secundary-color-light
+				border-color: $secundary-color-light
+			&:focus
+				// color: $white
+				background-color: $secundary-color-dark
+				border-color: $secundary-color-dark
 
 
 /*  Progress Bar

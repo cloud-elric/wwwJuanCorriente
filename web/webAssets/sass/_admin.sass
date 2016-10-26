@@ -23,11 +23,15 @@
 // 		.admin-cont-form
 // 			position: relative
 
+/*  Modal Admin
+	================================================ */
 .modal-admin
 	overflow: hidden
 	.modal-content
 		overflow-y: auto
 		max-height: 90vh
+		max-width: 900px
+		// width: 90%
 		+respond-to(xs)
 			padding: 22px 20px
 		// Close
@@ -54,11 +58,7 @@
 			align-items: center
 			// background-color: red
 			display: flex
-			justify-content: space-between
-			// .modal-admin-cont-title,
-			// .modal-admin-cont-btn-guardar
-			// 	+respond-to(xx)
-			// 		width: 100%
+			justify-content: flex-start
 			// Title
 			.modal-admin-cont-title
 				font-size: 1.375em
@@ -67,23 +67,6 @@
 					font-weight: 300
 				+respond-to(xx)
 					width: 100%
-			// Btn Guardar
-			.modal-admin-cont-btn-guardar
-				background-color: $secundary-color
-				border-color: $secundary-color
-				color: $white
-				&:hover
-					color: $white
-					background-color: $secundary-color-light
-					border-color: $secundary-color-light
-				&:focus
-					color: $white
-					background-color: $secundary-color-dark
-					border-color: $secundary-color-dark
-				+respond-to(xx)
-					padding: .5rem .4rem
-					max-width: 116px
-					width: 50%
 		// Form
 		.modal-admin-form
 			padding: 40px 0 0
@@ -236,30 +219,54 @@
 					color: #252B31
 					opacity: 1
 					outline: none
-			
+			// Imagen
+			.modal-admin-form-imagen
+				width: 100%
+		// Modal Footer
+		.modal-admin-footer
+			align-items: center
+			display: flex
+			justify-content: center
+			// Btn Guardar
+			.modal-admin-cont-btn-guardar
+				background-color: $secundary-color
+				border-color: $secundary-color
+				color: $white
+				&:hover
+					color: $white
+					background-color: $secundary-color-light
+					border-color: $secundary-color-light
+				&:focus
+					color: $white
+					background-color: $secundary-color-dark
+					border-color: $secundary-color-dark
+				+respond-to(xx)
+					padding: .5rem .4rem
+					max-width: 116px
+					width: 50%
 
 // Btn Circle
-.admin-agregar-btn-circle
-	align-items: center
-	background-color: $secundary-color
-	bottom: 50px
-	border-color: $secundary-color
-	border: none
-	+border-radius(50%)
-	color: $white
-	display: flex
-	justify-content: center
-	height: 50px
-	position: fixed
-	right: 40px
-	width: 50px
-	i
-		font-size: 1.5em
-	&:hover
-		color: $white
-		background-color: $secundary-color-light
-		border-color: $secundary-color-light
-	&:focus
-		color: $white
-		background-color: $secundary-color-dark
-		border-color: $secundary-color-dark
+// .admin-agregar-btn-circle
+// 	align-items: center
+// 	background-color: $secundary-color
+// 	bottom: 50px
+// 	border-color: $secundary-color
+// 	border: none
+// 	+border-radius(50%)
+// 	color: $white
+// 	display: flex
+// 	justify-content: center
+// 	height: 50px
+// 	position: fixed
+// 	right: 40px
+// 	width: 50px
+// 	i
+// 		font-size: 1.5em
+// 	&:hover
+// 		color: $white
+// 		background-color: $secundary-color-light
+// 		border-color: $secundary-color-light
+// 	&:focus
+// 		color: $white
+// 		background-color: $secundary-color-dark
+// 		border-color: $secundary-color-dark
