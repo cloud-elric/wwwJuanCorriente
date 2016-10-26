@@ -813,6 +813,41 @@ footer.footer-white .social-media a:hover {
   }
 }
 
+.listado .listado-articles .listado-articles-item.listado-articles-item-hover-close {
+  position: relative;
+}
+
+.listado .listado-articles .listado-articles-item.listado-articles-item-hover-close .listado-articles-item-hover-close-btn {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  align-items: center;
+  background-color: red;
+  color: #FFF;
+  cursor: pointer;
+  display: none;
+  height: 24px;
+  justify-content: center;
+  opacity: .9;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 24px;
+}
+
+.listado .listado-articles .listado-articles-item.listado-articles-item-hover-close .listado-articles-item-hover-close-btn i {
+  font-size: 1em;
+}
+
+.listado .listado-articles .listado-articles-item.listado-articles-item-hover-close .listado-articles-item-hover-close-btn:hover {
+  opacity: 1;
+}
+
+.listado .listado-articles .listado-articles-item.listado-articles-item-hover-close:hover .listado-articles-item-hover-close-btn {
+  display: flex;
+}
+
 .listado .listado-articles .listado-articles-item .listado-articles-item-imagen {
   background-image: url(../images/portada.jpg);
   background-position: 50%;
@@ -894,7 +929,7 @@ footer.footer-white .social-media a:hover {
   margin-left: -78px;
   margin-top: -22.5px;
   position: absolute;
-  top: 50%;
+  top: 50;
 }
 
 .listado-image .listado-image-item .inputfile {
@@ -942,6 +977,82 @@ footer.footer-white .social-media a:hover {
 }
 
 .listado-image .listado-image-item img {
+  display: none;
+  margin: 0 auto 22px;
+  max-width: 100%;
+  width: auto;
+}
+
+.listado-modal-image {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 20px;
+  position: relative;
+}
+
+.listado-modal-image .listado-modal-image-item {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.listado-modal-image .listado-modal-image-item.listado-modal-image-item-file .inputfile + label {
+  box-shadow: 0 3px 6px rgba(47, 47, 47, 0.16), 0 3px 6px rgba(47, 47, 47, 0.23);
+  left: 50%;
+  margin-left: -78px;
+  margin-top: -22.5px;
+  position: absolute;
+  top: 50%;
+}
+
+.listado-modal-image .listado-modal-image-item .inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.listado-modal-image .listado-modal-image-item .inputfile + label {
+  align-items: center;
+  background-color: transparent;
+  border: 1px dashed #2F2F2F;
+  color: #2F2F2F;
+  display: flex;
+  justify-content: center;
+  font-family: "Fira Sans", sans-serif;
+  font-size: 1.2em;
+  font-weight: 300;
+  min-height: 30px;
+  opacity: .41;
+  overflow: hidden;
+  padding: 20px 10px;
+  position: relative;
+  width: 100%;
+}
+
+.listado-modal-image .listado-modal-image-item .inputfile:focus + label,
+.listado-modal-image .listado-modal-image-item .inputfile + label:hover {
+  background-color: transparent;
+  opacity: 1;
+}
+
+.listado-modal-image .listado-modal-image-item .inputfile + label {
+  cursor: pointer;
+}
+
+.listado-modal-image .listado-modal-image-item .inputfile:focus + label {
+  opacity: 1;
+}
+
+.listado-modal-image .listado-modal-image-item .inputfile + label * {
+  pointer-events: none;
+}
+
+.listado-modal-image .listado-modal-image-item img {
   display: none;
   margin: 0 auto 22px;
   max-width: 100%;
@@ -1660,6 +1771,10 @@ footer.footer-white .social-media a:hover {
   opacity: 1;
 }
 
+.modal-admin .modal-content .modal-admin-form .row {
+  align-items: center;
+}
+
 .modal-admin .modal-content .modal-admin-form .modal-admin-form-titulo {
   background-color: transparent;
   border: none;
@@ -1735,9 +1850,15 @@ footer.footer-white .social-media a:hover {
   }
 }
 
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-datepiker .form-group,
+.modal-admin .modal-content .modal-admin-form .modal-admin-form-datepiker .field-entcapitulos-fch_publicacion {
+  cursor: pointer;
+}
+
 .modal-admin .modal-content .modal-admin-form .modal-admin-form-datepiker input {
   background-color: transparent;
   border: none;
+  cursor: pointer;
 }
 
 .modal-admin .modal-content .modal-admin-form .modal-admin-form-datepiker input:focus, .modal-admin .modal-content .modal-admin-form .modal-admin-form-datepiker input:hover {
@@ -1854,6 +1975,7 @@ footer.footer-white .social-media a:hover {
   align-items: center;
   display: flex;
   justify-content: center;
+  margin-top: 16px;
 }
 
 .modal-admin .modal-content .modal-admin-footer .modal-admin-cont-btn-guardar {

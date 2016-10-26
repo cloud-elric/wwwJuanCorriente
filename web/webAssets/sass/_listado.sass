@@ -95,6 +95,32 @@
 			+respond-to(xx)
 				margin-right: 0
 				width: 100%
+			// Hover Close
+			&.listado-articles-item-hover-close
+				// background-color: rgba(red,.3)
+				position: relative
+				.listado-articles-item-hover-close-btn
+					+border-radius(50%)
+					align-items: center
+					background-color: red
+					color: $white
+					cursor: pointer
+					display: none
+					height: 24px
+					justify-content: center
+					opacity: .9
+					position: absolute
+					right: 0
+					top: 0
+					width: 24px
+					i
+						font-size: 1em
+					&:hover
+						opacity: 1
+				&:hover
+					// border: 1px solid rgba($white,.1)
+					.listado-articles-item-hover-close-btn
+						display: flex
 			// Imagen 
 			.listado-articles-item-imagen
 				background-image: url(../images/portada.jpg)
@@ -169,7 +195,7 @@
 					margin-left: -78px
 					margin-top: -22.5px
 					position: absolute
-					top: 50%
+					top: 50
 		.inputfile
 			width: 0.1px
 			height: 0.1px
@@ -206,6 +232,76 @@
 				// outline: -webkit-focus-ring-color auto 5px
 				color: $teal
 				border: 1px dashed $teal
+			+ label *
+				pointer-events: none
+		img
+			display: none
+			margin: 0 auto 22px
+			max-width: 100%
+			width: auto
+
+// Listado - Modal Imagem
+.listado-modal-image
+	// background-color: red
+	align-items: center
+	display: flex
+	justify-content: center
+	margin: 0 auto 20px
+	position: relative
+	.listado-modal-image-item
+		align-items: center
+		// background-color: yellow
+		display: flex
+		justify-content: center
+		width: 100%
+		&.listado-modal-image-item-file
+			.inputfile
+				+ label
+					+box-shadow(2)
+					left: 50%
+					margin-left: -78px
+					margin-top: -22.5px
+					position: absolute
+					top: 50%
+		.inputfile
+			width: 0.1px
+			height: 0.1px
+			opacity: 0
+			overflow: hidden
+			position: absolute
+			z-index: -1
+			// display: none
+			// visibility: hidden
+			+ label
+				align-items: center
+				background-color: transparent
+				border: 1px dashed $black
+				color: $black
+				display: flex
+				justify-content: center
+				font-family: $font-base
+				font-size: 1.2em
+				font-weight: 300
+				min-height: 30px
+				opacity: .41
+				overflow: hidden
+				padding: 20px 10px
+				position: relative
+				width: 100%
+				// &:focus
+				// 	outline: none
+			&:focus + label,
+			+ label:hover
+				background-color: transparent
+				opacity: 1
+			+ label
+				cursor: pointer
+			&:focus + label
+				// outline: 1px dotted #000
+				// outline: -webkit-focus-ring-color auto 5px
+				// color: $teal
+				// border: 1px dashed $teal
+				opacity: 1
 			+ label *
 				pointer-events: none
 		img

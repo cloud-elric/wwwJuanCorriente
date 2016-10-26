@@ -49,7 +49,7 @@ if ($isAdmin) {
 				?>
 			
 			<!-- .listado-articles-item -->
-			<a class="listado-articles-item"
+			<a class="listado-articles-item listado-articles-item-hover-close"
 				href="<?=Url::base()?>/site/ver-capitulo?token=<?=$historia->txt_token?>&capitulo=<?=$capitulo->txt_token?>">
 				<!-- .listado-articles-item-imagen -->
 				<div class="listado-articles-item-imagen" style="background-image:url('<?=Url::base()?>/webAssets/uploads/<?=$capitulo->txt_imagen?>')">
@@ -87,6 +87,9 @@ if ($isAdmin) {
 
 				</div> <!-- end - .listado-articles-item-imagen --> <!-- .listado-articles-item-title -->
 				<h3 class="listado-articles-item-title"><?=$capitulo->txt_nombre?></h3>
+
+				<!-- Btn de Close -->
+				<span class="listado-articles-item-hover-close-btn"><i class="ion ion-close-round"></i></span>
 			</a>
 			<!-- end - .listado-articles-item -->
 			
@@ -182,7 +185,25 @@ if ($isAdmin) {
 
 			<div class="col-xs-12 col-md-4">
 				
-				<img class="modal-admin-form-imagen" src="<?=Url::base()?>/webAssets/images/portada.jpg" alt="Article">
+				<!-- <img class="modal-admin-form-imagen" src="<?=Url::base()?>/webAssets/images/portada.jpg" alt="Article"> -->
+
+				<!-- .listado-modal-image -->
+				<div class="listado-modal-image">
+					<div class="listado-modal-image-item">
+						<!-- Input -->
+						<input type="file" id="file-modal" class="inputfile modal-admin-form-imagen">
+						<!-- Label -->
+						<label for="file">Agregar Imagen</label>
+						<!-- Progress Bar -->
+						<div class="ver-capitulo-post-progress ver-capitulo-post-progress-middle">
+							<div id="js-progress-bar" class="ver-capitulo-post-progress-bar"></div>
+							<span id="js-progress-bar-texto" class="w3-center w3-text-white">0%</span>
+						</div>
+						<!-- Imagen -->
+						<img src="" alt="">
+					</div>
+				</div>
+				<!-- end .listado-modal-image -->
 
 			</div>
 

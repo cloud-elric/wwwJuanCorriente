@@ -76,6 +76,9 @@
 					&:focus,
 					&:hover
 						opacity: 1
+			// Row - Align Center
+			.row
+				align-items: center
 			// Título
 			.modal-admin-form-titulo
 				background-color: transparent
@@ -126,9 +129,13 @@
 					+respond-to(xx)
 						margin-right: 10px
 						width: calc(50% - 118px)
+				.form-group,
+				.field-entcapitulos-fch_publicacion
+					cursor: pointer
 				input
 					background-color: transparent
 					border: none
+					cursor: pointer
 					&:focus,
 					&:hover
 						outline: none
@@ -227,6 +234,7 @@
 			align-items: center
 			display: flex
 			justify-content: center
+			margin-top: 16px
 			// Btn Guardar
 			.modal-admin-cont-btn-guardar
 				background-color: $secundary-color
