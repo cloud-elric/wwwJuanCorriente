@@ -65,26 +65,6 @@ if ($isAdmin) {
 					<?php
 				}
 				?>
-
-
-
-					<!-- .listado-image -->
-					<div class="listado-image">
-						<div class="listado-image-item">
-							<!-- Input -->
-							<input type="file" id="file" class="inputfile modal-admin-form-imagen">
-							<!-- Label -->
-							<label for="file">Cambiar Imagen</label>
-							<!-- Progress Bar -->
-							<div class="ver-capitulo-post-progress ver-capitulo-post-progress-full ver-capitulo-post-progress-anim">
-								<div id="js-progress-bar" class="ver-capitulo-post-progress-bar"></div>
-								<span id="js-progress-bar-texto" class="w3-center w3-text-white">0%</span>
-							</div>
-						</div>
-					</div>
-					<!-- end .listado-image -->
-
-
 				</div> <!-- end - .listado-articles-item-imagen --> <!-- .listado-articles-item-title -->
 				<h3 class="listado-articles-item-title"><?=$capitulo->txt_nombre?></h3>
 			</a>
