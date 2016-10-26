@@ -127,14 +127,14 @@ if ($isAdmin) {
 				</div>
 			</div>
 
-			<!-- <div class="ver-capitulo-post-image ver-capitulo-post-hover-close">
+			<div class="ver-capitulo-post-image ver-capitulo-post-hover-close">
 				<div class="ver-capitulo-post-image-item js-container-image ver-capitulo-post-image-item-file">
 					<input type="file" id="file" class="inputfile modal-admin-form-imagen" onchange="uploadImage($(this),this)">
 					<label for="file">Agregar Imagen</label>
 					<img src="<?=Url::base()?>/webAssets/images/portada.jpg" alt="Article" style="display: block;">
 					<span class="ver-capitulo-post-hover-close-btn"><i class="ion ion-close-round"></i></span>
 				</div>
-			</div> -->
+			</div>
 
 		</div>
 		<!-- end - .ver-capitulo-post -->

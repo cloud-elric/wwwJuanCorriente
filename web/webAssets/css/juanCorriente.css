@@ -848,7 +848,7 @@ footer.footer-white .social-media a:hover {
   color: #FFF;
   cursor: pointer;
   font-size: 1.3em;
-  left: 60px;
+  left: 30px;
   position: absolute;
   top: 42px;
   z-index: 3;
@@ -862,7 +862,7 @@ footer.footer-white .social-media a:hover {
   color: #8EF0EF;
   cursor: pointer;
   font-size: 1.250em;
-  left: 30px;
+  left: 60px;
   position: absolute;
   top: 44px;
   z-index: 3;
@@ -877,7 +877,7 @@ footer.footer-white .social-media a:hover {
   cursor: pointer;
   display: none;
   font-size: 1.250em;
-  left: 30px;
+  left: 60px;
   position: absolute;
   top: 44px;
   z-index: 3;
