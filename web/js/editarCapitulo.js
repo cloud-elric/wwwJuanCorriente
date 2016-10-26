@@ -3,6 +3,10 @@
  */
 var enEdicion = false;
 
+/**
+ * Agrega tarjeta del nuevo capitulo
+ * @param json
+ */
 function agregarTarjetaCapitulo(json) {
 	var numeroCap = $('.listado-articles-item').length;
 	var template = '<a class="listado-articles-item" href="'+basePath+'site/ver-capitulo?token=hit_a4266c5404adf0a5d30156a245d5dee85807aa6e08540&amp;capitulo=cap_0fa10729da2e014a82aff88e0ab03ce8580920e80c5bd">'+
@@ -11,11 +15,27 @@ function agregarTarjetaCapitulo(json) {
 								'<h4>Capitulo '+(numeroCap+1)+'</h4>'+
 							'</div>'+
 						'</div> '+
-						'<h3 class="listado-articles-item-title">The fall</h3>'+
+						'<h3 class="listado-articles-item-title">'+json.n+'</h3>'+
 					'</a>';
 	
 	$('.listado-articles').append(template);
 }
+
+function habilitarEdicion(){
+	
+}
+
+function desHabilitarEdicion(){
+	
+}
+
+$(document).ready(function(){
+	$('#js-edicion-capitulos').on("click", function(){
+		if(!enEdicion){
+			
+		}
+	});
+});
 
 $('body').on(
 		'beforeSubmit',
