@@ -202,7 +202,7 @@ function uploadImage(input, jav) {
 	
 	guardarImagen(input, jav);
 	
-	//readURL(jav, input);
+	readURL(jav, input);
 	
 	
 

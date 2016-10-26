@@ -94,7 +94,7 @@ class AdminPanelController extends Controller {
 	
 	/**
 	 * Guarda los elementos basicos de un capitulo
-	 * 
+	 *
 	 * @param unknown $token        	
 	 */
 	public function actionGuardarCapitulo($token = null) {
@@ -115,7 +115,7 @@ class AdminPanelController extends Controller {
 			return [ 
 					'status' => 'success',
 					'tk' => $capitulo->txt_token,
-					'i' => $capitulo->txt_imagen?$capitulo->txt_imagen:'noImage.jpg',
+					'i' => $capitulo->txt_imagen ? $capitulo->txt_imagen : 'noImage.jpg',
 					'n' => $capitulo->txt_nombre 
 			];
 		}
@@ -154,7 +154,7 @@ class AdminPanelController extends Controller {
 	
 	/**
 	 * Elimina el elemento de la base de datos
-	 * 
+	 *
 	 * @param unknown $capitulo        	
 	 * @return string[]
 	 */
@@ -184,15 +184,39 @@ class AdminPanelController extends Controller {
 	
 	/**
 	 */
-
-	public function actionGuardarImagenElemento($capitulo){
-		$capitulo = $this->getCapituloByToken($capitulo);
-		
-	
+	public function actionGuardarImagenElemento($capitulo) {
+		$capitulo = $this->getCapituloByToken ( $capitulo );
 		
 		$file = UploadedFile::getInstanceByName ( 'fileUpload' );
-		
+	}
 	
+	/**
+	 * Guarda la imagen
+	 */
+	public function actionGuardarImagenCapitulo($historia, $capitulo) {
+		Yii::$app->response->format = Response::FORMAT_JSON;
+		
+		$historiaF = $this->getHistoriaByToken ( $historia );
+		
+		$capituloF = $this->getCapituloByToken ( $capitulo );
+		
+		$file = UploadedFile::getInstanceByName ( 'fileCapitulo' );
+		
+		if ($file) {
+			$capituloF->txt_imagen = Utils::generateToken ( 'imc_' ).'.'.$file->extension;
+			
+			if ($capituloF->save ()) {
+				$file->saveAs ( 'webAssets/uploads/'.$capituloF->txt_imagen );
+				
+				return [ 
+						'status' => 'success' 
+				];
+			}
+		} else {
+			return [ 
+					'status' => 'error' 
+			];
+		}
 	}
 	public function validarCapitulo($capitulo) {
 		if (Yii::$app->request->isAjax && $capitulo->load ( Yii::$app->request->post () )) {
