@@ -6,7 +6,8 @@ use yii\helpers\Url;
 use yii\bootstrap\ActiveForm;
 use app\modules\ModUsuarios\models\Utils;
 
-$isAdmin = ! Yii::$app->user->isGuest;
+# $isAdmin = ! Yii::$app->user->isGuest;
+$isAdmin = Yii::$app->user->isGuest;
 
 if ($isAdmin) {
 	$this->registerJsFile ( '@web/js/admin.js', [ 
@@ -259,3 +260,41 @@ if ($isAdmin) {
 
 </div>
 <?php }?>
+
+
+<!-- Btn Mostar Modal -->
+<button id="modal-mensaje-open" class="btn admin-agregar-btn-circle"><i class="ion ion-wand"></i></button>
+
+<!-- .modal -->
+<div id="modal-mensaje" class="modal modal-mensaje">
+
+	<!-- .modal-content -->
+	<div class="modal-content">
+
+		<!-- Btn Close -->
+		<span class="modal-close modal-mensaje-close"><i class="ion ion-close-round"></i></span>
+
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, itaque nisi quae. Quis id sequi, culpa enim reprehenderit, illum.
+		</p>
+		
+		<!-- .modal-footer -->
+		<div class="modal-footer">
+			
+			<!-- Btn Mostar Modal -->
+			<button class="btn btn-modal-mensaje modal-mensaje-close">
+				Cancelar
+			</button>
+
+			<button class="btn btn-secundary">
+				Si, Confirmar
+			</button>
+
+		</div>
+		<!-- end - .modal-footer -->
+
+	</div>
+	<!-- end - .modal-content -->
+
+</div>
+<!-- end - .modal -->
