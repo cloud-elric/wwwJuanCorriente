@@ -366,13 +366,12 @@ hr {
 }
 
 .modal.modal-mensaje .modal-content .modal-footer .btn-modal-mensaje {
-  background-color: transparent;
-  box-shadow: none;
-  text-decoration: underline;
+  background-color: rgba(78, 131, 218, 0.4);
+  margin-right: 10px;
 }
 
 .modal.modal-mensaje .modal-content .modal-footer .btn-modal-mensaje:focus, .modal.modal-mensaje .modal-content .modal-footer .btn-modal-mensaje:hover {
-  color: rgba(47, 47, 47, 0.8);
+  background-color: rgba(78, 131, 218, 0.6);
 }
 
 -webkit-keyframes animatetop from {
