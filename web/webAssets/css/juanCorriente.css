@@ -342,6 +342,39 @@ hr {
   cursor: pointer;
 }
 
+.modal.modal-mensaje .modal-content {
+  max-width: 400px;
+  padding: 22px;
+}
+
+.modal.modal-mensaje .modal-content .modal-close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.modal.modal-mensaje .modal-content p {
+  margin-top: 30px;
+  text-align: justify;
+}
+
+.modal.modal-mensaje .modal-content .modal-footer {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 36px;
+}
+
+.modal.modal-mensaje .modal-content .modal-footer .btn-modal-mensaje {
+  background-color: transparent;
+  box-shadow: none;
+  text-decoration: underline;
+}
+
+.modal.modal-mensaje .modal-content .modal-footer .btn-modal-mensaje:focus, .modal.modal-mensaje .modal-content .modal-footer .btn-modal-mensaje:hover {
+  color: rgba(47, 47, 47, 0.8);
+}
+
 -webkit-keyframes animatetop from {
   top: -300px;
   opacity: 0;
@@ -901,7 +934,10 @@ footer.footer-white .social-media a:hover {
   background-color: #C6E5B5;
   color: #201D2D;
   font-size: 1.125em;
+  overflow: hidden;
   padding: 14px 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /*  File Imagen
@@ -1639,13 +1675,6 @@ footer.footer-white .social-media a:hover {
   padding: 2px;
   position: absolute;
   top: calc(50% + 30px);
-}
-
-.ver-capitulo-post-progress.ver-capitulo-post-progress-full {
-  width: 100%;
-}
-
-.ver-capitulo-post-progress.ver-capitulo-post-progress-middle {
   width: 45%;
 }
 

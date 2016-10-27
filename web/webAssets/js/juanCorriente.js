@@ -15,11 +15,15 @@
  *
  */
 
-// Modal
+// Modal - Agregar
 var modal = document.getElementById('modal-agregar-post');
 var modalOpen = document.getElementById("modal-agregar-post-open");
 // var modalClose = document.getElementById("modal-agregar-post-close");
 
+// Modal - Mensaje
+var modalMensaje = document.getElementById('modal-mensaje');
+var modalOpenMensaje = document.getElementById("modal-mensaje-open");
+var modalCloseMensaje = document.getElementsByClassName("modal-mensaje-close");
 
 /**
  * ----------------------------
@@ -140,6 +144,18 @@ $(document).ready(function(){
 		$('.ver-capitulo').toggleClass("ver-capitulo-white-full");
 	});
 
+	/**
+	 * Modal - Mensaje
+	 */
+	// Open Modal
+	$(modalOpenMensaje).on("click", function(){
+		modalMensaje.style.display = "flex";
+	});
+	// Close Modal
+	$(modalCloseMensaje).on("click", function(){
+		modalMensaje.style.display = "none";
+	});
+
 }); // end - READY
 
 /**
@@ -173,8 +189,12 @@ $(document).on("scroll", function(){
  *
  */
 window.onclick = function(event) {
-	// Modal - Close
+	// Modal Agregar - Close
 	if (event.target == modal) {
 		modal.style.display = "none";
+	}
+	// Modal Mensaje - Close
+	if (event.target == modalMensaje) {
+		modalMensaje.style.display = "none";
 	}
 }
