@@ -1,56 +1,53 @@
 var basePath = 'http://localhost/wwwJuanCorriente/web/';
 
-function eliminarElemento(token){
+function eliminarElemento(token) {
 	var tokenCapitulo = $("#js-capitulo").data('token');
-	var url = basePath
-	+ 'admin-panel/eliminar-elemento-capitulo?capitulo='
-	+ tokenCapitulo;
-	
+	var url = basePath + 'admin-panel/eliminar-elemento-capitulo?capitulo='
+			+ tokenCapitulo;
+
 	$.ajax({
-		url:url,
-		data: {
+		url : url,
+		data : {
 			token : token
 		},
-		method:'POST',
-		success:function(response){
-			
+		method : 'POST',
+		success : function(response) {
+
 		}
 	})
 }
 
 // Revisa lo que hay que borrar
-setInterval(function(){ 
-	$('.pendienteEliminar').each(function(index){
+setInterval(function() {
+	$('.pendienteEliminar').each(function(index) {
 		var token = $(this).data('token');
 		eliminarElemento(token, $(this));
 		$(this).parent().remove();
-	}); 
+	});
 }, 1000);
 
 // Metodo para eliminar elemento
-$(document)
-		.on(
-				{
-					'click' : function() {
-						var token = $(this).data('token');
-						var proceso = $(this).data('progress');
+$(document).on({
+	'click' : function() {
+		var token = $(this).data('token');
+		var proceso = $(this).data('progress');
 
-						if(!token){
-							var parent = $(this).parents('.js-elemento-leer');
-							parent.css('display','none');
-							parent.find('.js-elemento-editable').addClass('pendienteEliminar');
-						}
-						
-						if (proceso == 'enProceso') {
+		if (!token) {
+			var parent = $(this).parents('.js-elemento-leer');
+			parent.css('display', 'none');
+			parent.find('.js-elemento-editable').addClass('pendienteEliminar');
+		}
 
-						} else {
-							$('#js-elemento-' + token).remove();
+		if (proceso == 'enProceso') {
 
-							eliminarElemento(token);
-						}
+		} else {
+			$('#js-elemento-' + token).remove();
 
-					}
-				}, '.js-remove-element');
+			eliminarElemento(token);
+		}
+
+	}
+}, '.js-remove-element');
 
 // Metodo para guardar al elemento
 $(document).on(
@@ -131,12 +128,27 @@ $(document)
 												.append(template);
 									});
 
-					$('.js-imagen').on('click', function(e){
-						var template = '<input type="file" class="modal-admin-form-imagen">';
-						$('.ver-capitulo-post').append(template);
-						$(template).trigger('click');
-					});
-					
+					$('.js-imagen')
+							.on(
+									'click',
+									function(e) {
+										var template = '<div class="ver-capitulo-post-image ver-capitulo-post-hover-close">'+
+										'<div class="ver-capitulo-post-image-item js-container-image">'+
+										'<input type="file" id="file" class="inputfile modal-admin-form-imagen" onchange="uploadImage($(this),this)">'+
+										'<label for="file">Agregar Imagen</label>'+
+										'<div class="ver-capitulo-post-progress">'+
+										'<div id="js-progress-bar" class="ver-capitulo-post-progress-bar"></div>'+
+										'<span id="js-progress-bar-texto" class="w3-center w3-text-white">0%</span>'+
+										'</div>'+
+										'<img src="" alt="">'+
+										'<span class="ver-capitulo-post-hover-close-btn"><i class="ion ion-close-round"></i></span>'+
+										'</div>'+
+										'</div>';
+										$('.ver-capitulo-post')
+												.append(template);
+										$(template).find('input').trigger('click');
+									});
+
 					$('#js-nombre-capitulo').focusout(function() {
 
 						if (($(this).text()).trim() == '') {
@@ -168,8 +180,6 @@ $(document)
 						var text = $(this).text();
 					});
 
-					
-
 				});
 
 // Carga la imagen
@@ -183,9 +193,9 @@ function uploadImage(input, jav) {
 	}
 
 	var imagefile = file.type;
-	
+
 	var filename = input.val();
-	
+
 	if (filename.substring(3, 11) == 'fakepath') {
 		filename = filename.substring(12);
 	}// remove c:\fake at beginning from localhost chrome
@@ -194,17 +204,15 @@ function uploadImage(input, jav) {
 	var match = [ "image/jpeg", "image/jpg", 'image/png' ];
 
 	if (!((imagefile == match[0]) || (imagefile == match[1]) || (imagefile == match[2]))) {
-		
+
 		alert('Archivo no valido');
 
 		return false;
 	}
-	
+
 	guardarImagen(input, jav);
-	
+
 	readURL(jav, input);
-	
-	
 
 }
 
@@ -214,8 +222,10 @@ function readURL(input, element) {
 
 		reader.onload = function(e) {
 			// element.parents('.js-container-image').css('background-image','url('+e.target.result+')');
-			$('.js-container-image').addClass("ver-capitulo-post-image-item-file");
-			$('.js-container-image img').show().attr("src", e.target.result);
+			element.parents('.js-container-image').addClass(
+					"ver-capitulo-post-image-item-file");
+			element.parents('.js-container-image').find('img').attr("src",
+					e.target.result);
 			progressBar();
 		}
 
@@ -223,53 +233,57 @@ function readURL(input, element) {
 	}
 }
 
-function guardarImagen(input, file){
-	
+function guardarImagen(input, file) {
+
 	var tokenCapitulo = $("#js-capitulo").data('token');
 	var data = new FormData();
-	data.append('fileCapitulo',file.files[0]);
+	data.append('fileCapitulo', file.files[0]);
 	$.ajax({
-        url: basePath+"admin-panel/guardar-imagen-elemento?capitulo="+tokenCapitulo,
-        type: "POST",
-        data: data,
-        processData: false, //Work around #1
-        contentType: false, //Work around #2
-        success: function(){
-            
-        },
-        cache:false,
-        error: function(){alert("Failed");},
-        //Work around #3
-        xhr: function() {
-        	var xhr = new window.XMLHttpRequest();
-            //Upload progress
-            xhr.upload.addEventListener("progress", function(evt){
-              if (evt.lengthComputable) {
-                var percentComplete = evt.loaded / evt.total;
-                //Do something with upload progress
-                console.log('upload'+percentComplete);
-              }
-            }, false);
-            //Download progress
-            xhr.addEventListener("progress", function(evt){
-              if (evt.lengthComputable) {
-                var percentComplete = evt.loaded / evt.total;
-                //Do something with download progress
-                console.log('download'+percentComplete);
-              }
-            }, false);
-            return xhr;
-        }
-    });
+		url : basePath + "admin-panel/guardar-imagen-elemento?capitulo="
+				+ tokenCapitulo,
+		type : "POST",
+		data : data,
+		processData : false, // Work around #1
+		contentType : false, // Work around #2
+		success : function() {
+
+		},
+		cache : false,
+		error : function() {
+			alert("Failed");
+		},
+		// Work around #3
+		xhr : function() {
+			var xhr = new window.XMLHttpRequest();
+			// Upload progress
+			xhr.upload.addEventListener("progress", function(evt) {
+				if (evt.lengthComputable) {
+					var percentComplete = evt.loaded / evt.total;
+					// Do something with upload progress
+					console.log('upload' + percentComplete);
+				}
+			}, false);
+			// Download progress
+			xhr.addEventListener("progress", function(evt) {
+				if (evt.lengthComputable) {
+					var percentComplete = evt.loaded / evt.total;
+					// Do something with download progress
+					console.log('download' + percentComplete);
+				}
+			}, false);
+			return xhr;
+		}
+	});
 }
 
 // Function - Progress Bar [Cargar Imagen]
-function progressBar(){
+function progressBar() {
 	var elem = document.getElementById("js-progress-bar");
 	var width = 0;
 	var id = setInterval(frame, 10);
 
-	$(".ver-capitulo-post-progress").addClass("ver-capitulo-post-progress-anim");
+	$(".ver-capitulo-post-progress")
+			.addClass("ver-capitulo-post-progress-anim");
 
 	function frame() {
 		if (width >= 100) {
@@ -277,7 +291,8 @@ function progressBar(){
 		} else {
 			width++;
 			elem.style.width = 'calc(' + width + '% - 4px)';
-			document.getElementById("js-progress-bar-texto").innerHTML = width * 1  + '%';
+			document.getElementById("js-progress-bar-texto").innerHTML = width
+					* 1 + '%';
 		}
 	}
 }
