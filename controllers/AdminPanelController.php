@@ -111,7 +111,16 @@ class AdminPanelController extends Controller {
 		$capitulo->fch_creacion = Utils::getFechaActual ();
 		$capitulo->fch_publicacion = Utils::changeFormatDateInput ( $capitulo->fch_publicacion );
 		
+		// Guarda la imagen
+		$file = UploadedFile::getInstanceByName ( 'imageCapitulo' );
+		
+		if($file){
+			$capitulo->txt_imagen = Utils::generateToken('imgC_').'.'.$file->extension;
+			$file->saveAs ( 'webAssets/uploads/'.$capitulo->txt_imagen );
+		}
+		
 		if ($capitulo->save ()) {
+			
 			return [ 
 					'status' => 'success',
 					'tk' => $capitulo->txt_token,
@@ -183,11 +192,18 @@ class AdminPanelController extends Controller {
 	}
 	
 	/**
+	 * Guarda una imagen del usuario
+	 * @param unknown $capitulo
 	 */
 	public function actionGuardarImagenElemento($capitulo) {
+		Yii::$app->response->format = Response::FORMAT_JSON;
 		$capitulo = $this->getCapituloByToken ( $capitulo );
 		
 		$file = UploadedFile::getInstanceByName ( 'fileUpload' );
+		
+		if($file){
+			
+		}
 	}
 	
 	/**
@@ -223,6 +239,25 @@ class AdminPanelController extends Controller {
 			Yii::$app->response->format = Response::FORMAT_JSON;
 			
 			return ActiveForm::validate ( $capitulo );
+		}
+	}
+	
+	/**
+	 * Actualiza la informacion
+	 * @param unknown $token
+	 */
+	public function actionGuardarNombre($token){
+		Yii::$app->response->format = Response::FORMAT_JSON;
+		$capitulo = $this->getCapituloByToken($token);
+		
+		if(array_key_exists('text', $_POST) && !empty($_POST['text'])){
+			
+			$capitulo->txt_nombre = $_POST['text'];
+			$capitulo->save();
+			
+			return ['status'=>'success', 'text'=>$capitulo->txt_nombre];
+		}else{
+			return ['status'=>'error', 'text'=>$capitulo->txt_nombre];
 		}
 	}
 }

@@ -54,7 +54,7 @@ if ($isAdmin) {
 
 				href="<?=Url::base()?>/site/ver-capitulo?token=<?=$historia->txt_token?>&capitulo=<?=$capitulo->txt_token?>">
 				<!-- .listado-articles-item-imagen -->
-				<div class="listado-articles-item-imagen" style="background-image:url('<?=Url::base()?>/webAssets/uploads/<?=$capitulo->txt_imagen?>')">
+				<div class="listado-articles-item-imagen" style="background-image:url('<?=Url::base()?>/webAssets/uploads/<?=empty($capitulo->txt_imagen)?'noImage.jpg':$capitulo->txt_imagen?>')">
 					<div class="listado-articles-item-capitulo">
 						<h4>Capitulo <?=$numCapitulo?></h4>
 					</div>
@@ -77,7 +77,7 @@ if ($isAdmin) {
 						<div class="listado-image-item">
 							<!-- Input -->
 							<input type="file" 
-								class="inputfile modal-admin-form-imagen">
+								class="inputfile modal-admin-form-imagen inputFileCard">
 							<!-- Label -->
 							<label class="js-label">Cambiar Imagen</label>
 							<!-- Progress Bar -->
@@ -205,41 +205,21 @@ if ($isAdmin) {
 
 				<!-- .listado-modal-image -->
 				<div class="listado-modal-image">
-					<div class="listado-modal-image-item">
+					<div class="listado-modal-image-item" id="js-contenedor-image-cap">
 						<!-- Input -->
-						<input type="file" id="file-modal" class="inputfile modal-admin-form-imagen">
+						<input type="file" id="file-modal" name="imageCapitulo" class="inputfile modal-admin-form-imagen inputFileCapitulo">
 						<!-- Label -->
-						<label for="file">Agregar Imagen</label>
+						<label class="js-label-image-cap">Agregar Imagen</label>
 						<!-- Progress Bar -->
 						<div class="ver-capitulo-post-progress ver-capitulo-post-progress-middle">
 							<div id="js-progress-bar" class="ver-capitulo-post-progress-bar"></div>
 							<span id="js-progress-bar-texto" class="w3-center w3-text-white">0%</span>
 						</div>
 						<!-- Imagen -->
-						<img src="" alt="">
+						
 					</div>
 				</div>
 				<!-- end .listado-modal-image -->
-
-				<!-- .listado-modal-image -->
-				<div class="listado-modal-image">
-					<div class="listado-modal-image-item listado-modal-image-item-file">
-						<!-- Input -->
-						<input type="file" id="file-modal" class="inputfile modal-admin-form-imagen">
-						<!-- Label -->
-						<label for="file">Agregar Imagen</label>
-						<!-- Progress Bar -->
-						<div class="ver-capitulo-post-progress ver-capitulo-post-progress-middle">
-							<div id="js-progress-bar" class="ver-capitulo-post-progress-bar"></div>
-							<span id="js-progress-bar-texto" class="w3-center w3-text-white">0%</span>
-						</div>
-						<!-- Imagen -->
-						<img src="" alt="">
-						<img class="modal-admin-form-imagen" src="<?=Url::base()?>/webAssets/images/portada.jpg" alt="Article" style="display: block;">
-					</div>
-				</div>
-				<!-- end .listado-modal-image -->
-
 
 			</div>
 

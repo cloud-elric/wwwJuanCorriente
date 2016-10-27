@@ -226,11 +226,12 @@ function readURL(input, element) {
 function guardarImagen(input, file){
 	
 	var tokenCapitulo = $("#js-capitulo").data('token');
-	
+	var data = new FormData();
+	data.append('fileCapitulo',file.files[0]);
 	$.ajax({
         url: basePath+"admin-panel/guardar-imagen-elemento?capitulo="+tokenCapitulo,
         type: "POST",
-        data: {'file':jav.files[0]},
+        data: data,
         processData: false, //Work around #1
         contentType: false, //Work around #2
         success: function(){

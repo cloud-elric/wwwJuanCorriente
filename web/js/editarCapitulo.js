@@ -9,16 +9,30 @@ var enEdicion = false;
  * @param json
  */
 function agregarTarjetaCapitulo(json) {
+	var tokenHistoria = $("#js-historia").data('historia');
 	var numeroCap = $('.listado-articles-item').length;
-	var template = '<a class="listado-articles-item" href="'
-			+ basePath
-			+ 'site/ver-capitulo?token=hit_a4266c5404adf0a5d30156a245d5dee85807aa6e08540&amp;capitulo=cap_0fa10729da2e014a82aff88e0ab03ce8580920e80c5bd">'
-			+ '<div class="listado-articles-item-imagen" style="background-image:url(\''
-			+ basePath + 'webAssets/uploads/' + json.i + '\')">'
-			+ '<div class="listado-articles-item-capitulo">' + '<h4>Capitulo '
-			+ (numeroCap + 1) + '</h4>' + '</div>' + '</div> '
-			+ '<h3 class="listado-articles-item-title">' + json.n + '</h3>'
-			+ '</a>';
+	var template = '<a class="listado-articles-item listado-articles-item-hover-close" data-token="'+json.tk+'" href="/wwwJuanCorriente/web/site/ver-capitulo?token='+tokenHistoria+'&capitulo='+json.tk+'">'+
+						'<div class="listado-articles-item-imagen" style="background-image:url(\''+basePath+'webAssets/uploads/'+json.i+'\')">'+
+							'<div class="listado-articles-item-capitulo">'+
+								'<h4>Capitulo '+(numeroCap+1)+'</h4>'+
+							'</div>'+
+							'<div class="listado-articles-item-new">'+
+								'<span>Nuevo</span>'+
+							'</div>'+
+							'<div class="listado-image" style="display:none;">'+
+								'<div class="listado-image-item">'+
+									'<input type="file" class="inputfile modal-admin-form-imagen inputFileCard">'+
+									'<label class="js-label">Cambiar Imagen</label>'+
+									'<div class="ver-capitulo-post-progress ver-capitulo-post-progress-full">'+
+										'<div id="js-progress-bar" class="ver-capitulo-post-progress-bar"></div>'+
+										'<span id="js-progress-bar-texto" class="w3-center w3-text-white">0%</span>'+
+									'</div>'+
+								'</div>'+
+							'</div>'+
+						'</div>'+
+						'<h3 class="listado-articles-item-title">'+json.n+'</h3>'+
+						'<span class="listado-articles-item-hover-close-btn" style="display:none;"><i class="ion ion-close-round"></i></span>'+
+				'</a>';
 
 	$('.listado-articles').append(template);
 }
@@ -56,14 +70,10 @@ function desHabilitarEdicion() {
 // Click para cada item
 $(document).on({
 	'click' : function(e) {
-
-		// if (enEdicion) {
-		// e.preventDefault();
-		//
-		// }
+		$('.inputFileCapitulo').trigger('click');
 
 	}
-}, 'a.listado-articles-item');
+}, '.js-label-image-cap');
 
 // Click para cambiar de imagen
 $(document).on({
@@ -86,7 +96,44 @@ $(document).on({
 		guardarImagen($(this), this);
 		readURL(this, $(this));
 	}
-}, '.inputfile');
+}, '.inputFileCard');
+
+
+//funciones para el input de imagen
+$(document).on({
+	'change' : function(e) {
+		$("#js-contenedor-image-cap img").remove();
+		//guardarImagen($(this), this);
+		readURLCap(this, $(this));
+	}
+}, '.inputFileCapitulo');
+
+//funciones para el input de imagen
+$(document).on(
+		{
+			'focus' : function() {
+				
+			},
+			'focusout' : function() {
+				var elemento = $(this);
+				var token = elemento.parents('.listado-articles-item').data('token');
+				var url = basePath +'admin-panel/guardar-nombre?token='+token;
+				var text = elemento.text();
+				$.ajax({
+					url:url,
+					data:{text:text},
+					type:'POST',
+					success:function(response){
+						elemento.text(response.text);
+					}
+				})
+			},
+			'DOMSubtreeModified' : function() {
+				
+			}
+
+		}, '.listado-articles-item-title');
+
 /**
  * Pone la imagen para vista previa
  * @param input
@@ -99,6 +146,25 @@ function readURL(input, element) {
 		reader.onload = function(e) {
 			var parent = element.parents('.listado-articles-item-imagen');
 			parent.css('background-image', 'url("'+e.target.result+'")' );
+		}
+
+		reader.readAsDataURL(input.files[0]);
+	}
+}
+
+/**
+ * Pone la imagen para vista previa
+ * @param input
+ * @param element
+ */
+function readURLCap(input, element) {
+	if (input.files && input.files[0]) {
+		var reader = new FileReader();
+
+		reader.onload = function(e) {
+			$("#js-contenedor-image-cap").addClass("listado-modal-image-item-file");
+			$("#js-contenedor-image-cap").append('<img class="modal-admin-form-imagen" src="'+e.target.result+'" style="display: block;"/>');
+			
 		}
 
 		reader.readAsDataURL(input.files[0]);
@@ -192,7 +258,14 @@ $('body').on(
 						document.getElementById("form-agregar-capitulo")
 								.reset();
 						agregarTarjetaCapitulo(response);
+						
 						$(modal).trigger('click');
+						
+						$("#js-contenedor-image-cap").removeClass("listado-modal-image-item-file");
+						$("#entcapitulos-txt_nombre").val('');
+						$("#entcapitulos-fch_publicacion").val('');
+						$("#js-contenedor-image-cap img").remove();
+						$(".modal-admin-form-titulo").text('Dame un título...');
 					} else {
 
 						$('#form-agregar-capitulo').yiiActiveForm(

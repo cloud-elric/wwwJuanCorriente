@@ -12,12 +12,6 @@ $this->registerJsFile ( '@web/js/admin.js', [
 		] 
 ] );
 
-$this->registerJsFile ( '@web/js/jquery.form.js', [ 
-		'depends' => [ 
-				\app\assets\AppAsset::className () 
-		] 
-] );
-
 $header = EntElementos::find ()->where ( [ 
 		'id_capitulo' => $capitulo->id_capitulo,
 		'b_header' => 1,
@@ -40,7 +34,7 @@ if ($isAdmin) {
 <div class="ver-capitulo ver-capitulo-admin" id="specialstuff">
 
 	<!-- .ver-capitulo-header -->
-	<div class="ver-capitulo-header" style="background-image: url(<?=Url::base().(empty($header)?'/webAssets/images/portada.jpg':$header->txt_valor)?>)">
+	<div class="ver-capitulo-header" style="background-image: url(<?=Url::base().'/webAssets/uploads/'.(empty($header)?'portada.jpg':$header->txt_valor)?>)">
 
 		<h1>Historias de México</h1>
 
