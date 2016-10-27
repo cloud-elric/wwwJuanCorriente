@@ -80,7 +80,7 @@ if ($isAdmin) {
 			if (! $elemento->b_header) {
 				$closeButton = '';
 				if ($isAdmin) {
-					$closeButton = '<span class="ver-capitulo-post-hover-close-btn js-remove-element" data-token="' . $elemento->txt_token . '"><i class="ion ion-close-round"></i></span>';
+					$closeButton = '<span class="ver-capitulo-post-hover-close-btn js-remove-element" data-token="' . $elemento->txt_token . '"><i class="ion ion-close-round"></i></span><span class="ver-capitulo-post-hover-mover-btn"><i class="ion ion-arrow-move"></i></span>';
 				}
 				
 				?>
@@ -124,6 +124,8 @@ if ($isAdmin) {
 					<img src="" alt="">
 					<!-- Btn de Close -->
 					<span class="ver-capitulo-post-hover-close-btn"><i class="ion ion-close-round"></i></span>
+					<!-- Btn de Mover -->
+					<span class="ver-capitulo-post-hover-mover-btn"><i class="ion ion-arrow-move"></i></span>
 				</div>
 			</div>
 
@@ -133,6 +135,8 @@ if ($isAdmin) {
 					<label for="file">Agregar Imagen</label>
 					<img src="<?=Url::base()?>/webAssets/images/portada.jpg" alt="Article" style="display: block;">
 					<span class="ver-capitulo-post-hover-close-btn"><i class="ion ion-close-round"></i></span>
+					<!-- Btn de Mover -->
+					<span class="ver-capitulo-post-hover-mover-btn"><i class="ion ion-arrow-move"></i></span>
 				</div>
 			</div>
 

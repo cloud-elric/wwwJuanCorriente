@@ -1471,7 +1471,35 @@ footer.footer-white .social-media a:hover {
   opacity: 1;
 }
 
-.ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-hover-close:hover .ver-capitulo-post-hover-close-btn {
+.ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-hover-close .ver-capitulo-post-hover-mover-btn {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  align-items: center;
+  background-color: #4E83DA;
+  color: #FFF;
+  cursor: pointer;
+  display: none;
+  height: 24px;
+  justify-content: center;
+  opacity: .9;
+  position: absolute;
+  right: 18px;
+  top: -12px;
+  width: 24px;
+}
+
+.ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-hover-close .ver-capitulo-post-hover-mover-btn i {
+  font-size: 1em;
+}
+
+.ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-hover-close .ver-capitulo-post-hover-mover-btn:hover {
+  opacity: 1;
+}
+
+.ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-hover-close:hover .ver-capitulo-post-hover-close-btn,
+.ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-hover-close:hover .ver-capitulo-post-hover-mover-btn {
   display: flex;
 }
 
