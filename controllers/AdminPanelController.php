@@ -122,6 +122,20 @@ class AdminPanelController extends Controller {
 		
 		if ($capitulo->save ()) {
 			
+			$elemento = new EntElementos ();
+			$elemento->id_tipo_elemento = ConstantesWeb::TIPO_ELEMENTO_HEADER;
+			$elemento->b_header = 1;
+			$elemento->txt_token = Utils::generateToken ( 'ele_' );
+			
+			
+			$elemento->id_capitulo = $capitulo->id_capitulo;
+			$elemento->id_historia = $capitulo->id_historia;
+			$elemento->txt_valor = 'portada.jpg';
+			$elemento->num_orden = '0';
+			
+			$elemento->save ();
+			
+			
 			return [ 
 					'status' => 'success',
 					'tk' => $capitulo->txt_token,
@@ -194,7 +208,7 @@ class AdminPanelController extends Controller {
 	
 	/**
 	 * Guarda una imagen del usuario
-	 * 
+	 *
 	 * @param unknown $capitulo        	
 	 */
 	public function actionGuardarImagenElemento($capitulo) {
@@ -209,9 +223,9 @@ class AdminPanelController extends Controller {
 				$elemento = EntElementos::find ()->where ( [ 
 						'txt_token' => $_POST ['token'] 
 				] )->one ();
-			} 
+			}
 			
-			if(empty($elemento)){
+			if (empty ( $elemento )) {
 				$elemento = new EntElementos ();
 				$elemento->id_tipo_elemento = ConstantesWeb::TIPO_ELEMENTO_IMAGEN;
 				$elemento->b_header = 0;
@@ -220,12 +234,12 @@ class AdminPanelController extends Controller {
 			
 			$elemento->id_capitulo = $capitulo->id_capitulo;
 			$elemento->id_historia = $capitulo->id_historia;
-			$elemento->txt_valor= Utils::generateToken ( 'imgC_' ) . '.' . $file->extension;
+			$elemento->txt_valor = Utils::generateToken ( 'imgC_' ) . '.' . $file->extension;
 			$elemento->num_orden = $_POST ['index'];
 			
 			$elemento->save ();
 			
-			$file->saveAs ( 'webAssets/uploads/' . $elemento->txt_valor);
+			$file->saveAs ( 'webAssets/uploads/' . $elemento->txt_valor );
 			
 			return [ 
 					'status' => 'success',
@@ -233,8 +247,8 @@ class AdminPanelController extends Controller {
 			];
 		}
 		
-		return [
-				'status' => 'error'
+		return [ 
+				'status' => 'error' 
 		];
 	}
 	
@@ -276,7 +290,7 @@ class AdminPanelController extends Controller {
 	
 	/**
 	 * Actualiza la informacion
-	 * 
+	 *
 	 * @param unknown $token        	
 	 */
 	public function actionGuardarNombre($token) {
@@ -317,5 +331,71 @@ class AdminPanelController extends Controller {
 		return [ 
 				'status' => 'error' 
 		];
+	}
+	
+	/**
+	 * Actualiza el index en la base de datoss
+	 */
+	public function actionUpdateIndex($capitulo) {
+		Yii::$app->response->format = Response::FORMAT_JSON;
+		
+		if (array_key_exists ( 'index', $_POST )) {
+			
+			$elemento = EntElementos::find ()->where ( [ 
+					'txt_token' => $capitulo 
+			] )->one ();
+			
+			if (! empty ( $elemento )) {
+				
+				$elemento->num_orden = $_POST ['index'];
+				$elemento->save ();
+				
+				return [ 
+						'status' => 'success' 
+				];
+			}
+		} else {
+			return [ 
+					'status' => 'error'
+			];
+		}
+	}
+	
+	/**
+	 * 
+	 */
+	public function actionGuardarImagenHeader($capitulo){
+		
+		Yii::$app->response->format = Response::FORMAT_JSON;
+		
+		
+		
+		$capituloF = $this->getCapituloByToken ( $capitulo );
+		
+		$elemento = EntElementos::find ()->where ( [
+				'id_capitulo' => $capituloF->id_capitulo,
+				'b_header'=>1
+		] )->one ();
+		
+		
+		$file = UploadedFile::getInstanceByName ( 'fileUpload' );
+		
+		if ($file && !empty($elemento)) {
+			$elemento->txt_valor = Utils::generateToken ( 'imc_' ) . '.' . $file->extension;
+				
+			if ($elemento->save ()) {
+				$file->saveAs ( 'webAssets/uploads/' . $elemento->txt_valor );
+		
+				return [
+						'status' => 'success'
+				];
+			}
+		} else {
+			return [
+					'status' => 'error'
+			];
+		}
+		
+		
 	}
 }
