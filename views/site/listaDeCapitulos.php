@@ -7,7 +7,7 @@ use yii\bootstrap\ActiveForm;
 use app\modules\ModUsuarios\models\Utils;
 
 # $isAdmin = ! Yii::$app->user->isGuest;
-$isAdmin = Yii::$app->user->isGuest;
+$isAdmin = !Yii::$app->user->isGuest;
 
 if ($isAdmin) {
 	$this->registerJsFile ( '@web/js/admin.js', [ 
@@ -51,7 +51,7 @@ if ($isAdmin) {
 			
 			<!-- .listado-articles-item -->
 
-			<a class="listado-articles-item listado-articles-item-hover-close" data-token="<?=$capitulo->txt_token?>"
+			<a class="listado-articles-item listado-articles-item-hover-close" data-token="<?=$capitulo->txt_token?>" id="js-element-cap-<?=$capitulo->txt_token?>"
 
 				href="<?=Url::base()?>/site/ver-capitulo?token=<?=$historia->txt_token?>&capitulo=<?=$capitulo->txt_token?>">
 				<!-- .listado-articles-item-imagen -->
@@ -259,11 +259,8 @@ if ($isAdmin) {
 	<!-- end - .modal-content -->
 
 </div>
-<?php }?>
 
 
-<!-- Btn Mostar Modal -->
-<button id="modal-mensaje-open" class="btn admin-agregar-btn-circle"><i class="ion ion-wand"></i></button>
 
 <!-- .modal -->
 <div id="modal-mensaje" class="modal modal-mensaje">
@@ -275,7 +272,7 @@ if ($isAdmin) {
 		<span class="modal-close modal-mensaje-close"><i class="ion ion-close-round"></i></span>
 
 		<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, itaque nisi quae. Quis id sequi, culpa enim reprehenderit, illum.
+			Esta a punto de eliminar un capítulo con todo su contendio ¿Estas seguro de continuar?
 		</p>
 		
 		<!-- .modal-footer -->
@@ -283,11 +280,11 @@ if ($isAdmin) {
 			
 			<!-- Btn Mostar Modal -->
 			<button class="btn btn-modal-mensaje modal-mensaje-close">
-				Cancelar
+				No
 			</button>
 
-			<button class="btn btn-secundary">
-				Si, Confirmar
+			<button class="btn btn-secundary" id="js-eliminar-capitulo" data-eliminar >
+				Si, borrar capítulo
 			</button>
 
 		</div>
@@ -298,3 +295,5 @@ if ($isAdmin) {
 
 </div>
 <!-- end - .modal -->
+
+<?php }?>

@@ -28,7 +28,8 @@ if ($isAdmin) {
 }
 ?>
 
-<input type="hidden" data-token="<?=$capitulo->txt_token?>" id="js-capitulo" />
+<input type="hidden" data-token="<?=$capitulo->txt_token?>"
+	id="js-capitulo" />
 
 <!-- .ver-capitulo -->
 <div class="ver-capitulo ver-capitulo-admin" id="specialstuff">
@@ -39,10 +40,10 @@ if ($isAdmin) {
 		<h1>Historias de México</h1>
 
 		<h2><?=$capitulo->txt_nombre?></h2>
-		
+
 		<!-- Btn to Back -->
-		<a href="javascript: history.back(1)" class="ver-capitulo-back">
-			<i class="ion ion-android-arrow-back"></i>
+		<a href="javascript: history.back(1)" class="ver-capitulo-back"> <i
+			class="ion ion-android-arrow-back"></i>
 		</a>
 
 		<!-- Leer de día o noche -->
@@ -77,18 +78,42 @@ if ($isAdmin) {
 					$closeButton = '<span class="ver-capitulo-post-hover-close-btn js-remove-element" data-token="' . $elemento->txt_token . '"><i class="ion ion-close-round"></i></span>';
 				}
 				
+				if($elemento->id_tipo_elemento ==ConstantesWeb::TIPO_ELEMENTO_TEXTO){
 				?>
 		<div
-					class="ver-capitulo-post-desc ver-capitulo-post-hover-close js-elemento-leer"
-					id="js-elemento-<?=$elemento->txt_token?>">
-					<div class="ver-capitulo-post-desc-text <?=$classEditable?>"
-						<?=$editable?> data-token="<?=$elemento->txt_token?>">
+				class="ver-capitulo-post-desc ver-capitulo-post-hover-close js-elemento-leer"
+				id="js-elemento-<?=$elemento->txt_token?>">
+				<div class="ver-capitulo-post-desc-text <?=$classEditable?>"
+					<?=$editable?> data-token="<?=$elemento->txt_token?>">
 					<?=$elemento->txt_valor?>
 				</div>
 				<?=$closeButton?>
 			</div>		
 		
 		<?php
+				}else if($elemento->id_tipo_elemento ==ConstantesWeb::TIPO_ELEMENTO_IMAGEN){
+					?>
+				<div class="ver-capitulo-post-image ver-capitulo-post-hover-close" id="js-elemento-<?=$elemento->txt_token?>">
+				<div class="ver-capitulo-post-image-item js-container-image ver-capitulo-post-image-item-file">
+					<!-- Input -->
+					<input type="file" class="inputfile modal-admin-form-imagen" onchange="uploadImage($(this),this)" data-token="<?=$elemento->txt_token?>">
+					<!-- Label -->
+					<label class="js-imagen-trigger">Cambiar</label>
+					<!-- Progress Bar -->
+					<div class="ver-capitulo-post-progress">
+						<div id="js-progress-bar" class="ver-capitulo-post-progress-bar"></div>
+						<span id="js-progress-bar-texto" class="w3-center w3-text-white">0%</span>
+					</div>
+					<!-- Imagen -->
+					<img class="js-element-img" src="<?=Url::base().'/webAssets/uploads/'.$elemento->txt_valor?>" alt="" style="display: block;">
+					<!-- Btn de Close -->
+					<?=$closeButton?>
+				</div>
+			</div>
+
+				<?php 
+				
+				}
 			}
 		}
 		?>
@@ -103,7 +128,7 @@ if ($isAdmin) {
 
 	<?php
 	if ($isAdmin) {
-	?>
+		?>
 	<!-- .ver-capitulo-controlers -->
 	<div class="ver-capitulo-controlers">
 
@@ -124,5 +149,5 @@ if ($isAdmin) {
 	}
 	?>
 
-</div>	
+</div>
 <!-- end - .ver-capitulo -->

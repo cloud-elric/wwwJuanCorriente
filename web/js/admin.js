@@ -49,6 +49,34 @@ $(document).on({
 	}
 }, '.js-remove-element');
 
+// Metodo para eliminar elemento
+$(document).on({
+	'paste' : function(e) {
+
+		e.preventDefault();
+		var text = '';
+		if (e.clipboardData || e.originalEvent.clipboardData) {
+			text = (e.originalEvent || e).clipboardData.getData('text/plain');
+		} else if (window.clipboardData) {
+			text = window.clipboardData.getData('Text');
+		}
+		if (document.queryCommandSupported('insertText')) {
+			document.execCommand('insertText', false, text);
+		} else {
+			document.execCommand('paste', false, text);
+		}
+	}
+}, '.ver-capitulo-post-desc-text');
+
+// Metodo para eliminar elemento
+$(document).on({
+	'click' : function(e) {
+
+		var padre = $(this).parents('.ver-capitulo-post-image');
+		padre.find('input').trigger('click');
+	}
+}, '.js-imagen-trigger');
+
 // Metodo para guardar al elemento
 $(document).on(
 		{
@@ -132,21 +160,22 @@ $(document)
 							.on(
 									'click',
 									function(e) {
-										var template = '<div class="ver-capitulo-post-image ver-capitulo-post-hover-close">'+
-										'<div class="ver-capitulo-post-image-item js-container-image">'+
-										'<input type="file" id="file" class="inputfile modal-admin-form-imagen" onchange="uploadImage($(this),this)">'+
-										'<label for="file">Agregar Imagen</label>'+
-										'<div class="ver-capitulo-post-progress">'+
-										'<div id="js-progress-bar" class="ver-capitulo-post-progress-bar"></div>'+
-										'<span id="js-progress-bar-texto" class="w3-center w3-text-white">0%</span>'+
-										'</div>'+
-										'<img src="" alt="">'+
-										'<span class="ver-capitulo-post-hover-close-btn"><i class="ion ion-close-round"></i></span>'+
-										'</div>'+
-										'</div>';
+										var template = '<div class="ver-capitulo-post-image ver-capitulo-post-hover-close">'
+															+ '<div class="ver-capitulo-post-image-item js-container-image">'
+																+ '<input type="file" class="inputfile modal-admin-form-imagen" onchange="uploadImage($(this),this)" data-token>'
+																+ '<label class="js-imagen-trigger">Cambiar</label>'
+																+ '<div class="ver-capitulo-post-progress">'
+																	+ '<div id="js-progress-bar" class="ver-capitulo-post-progress-bar"></div>'
+																	+ '<span id="js-progress-bar-texto" class="w3-center w3-text-white">0%</span>'
+																+ '</div>'
+																+ '<img class="js-element-img" alt="">'
+																+ '<span class="ver-capitulo-post-hover-close-btn js-remove-element" data-token><i class="ion ion-close-round"></i></span>'
+																+'</div>'
+															+ '</div>';
 										$('.ver-capitulo-post')
 												.append(template);
-										$(template).find('input').trigger('click');
+										$(template).find('input').trigger(
+												'click');
 									});
 
 					$('#js-nombre-capitulo').focusout(function() {
@@ -210,23 +239,29 @@ function uploadImage(input, jav) {
 		return false;
 	}
 
+	readURL(jav, input);
 	guardarImagen(input, jav);
 
-	readURL(jav, input);
+	
 
 }
 
 function readURL(input, element) {
+	
+	
 	if (input.files && input.files[0]) {
 		var reader = new FileReader();
 
 		reader.onload = function(e) {
 			// element.parents('.js-container-image').css('background-image','url('+e.target.result+')');
-			element.parents('.js-container-image').addClass(
-					"ver-capitulo-post-image-item-file");
-			element.parents('.js-container-image').find('img').attr("src",
-					e.target.result);
-			progressBar();
+			var padre = element.parents('.js-container-image');
+			
+			padre.addClass("ver-capitulo-post-image-item-file");
+			var img = padre.find('.js-element-img');
+			
+			img.attr("src", e.target.result);
+		
+			//progressBar();
 		}
 
 		reader.readAsDataURL(input.files[0]);
@@ -237,7 +272,18 @@ function guardarImagen(input, file) {
 
 	var tokenCapitulo = $("#js-capitulo").data('token');
 	var data = new FormData();
-	data.append('fileCapitulo', file.files[0]);
+	var index = $(".js-elemento-leer").index();
+
+	if(index<=0){
+		index = 1;
+	}
+	
+	var tokenElemento = input.data('token');
+
+	data.append('fileUpload', file.files[0]);
+	data.append('index', index);
+	data.append('token', tokenElemento);
+
 	$.ajax({
 		url : basePath + "admin-panel/guardar-imagen-elemento?capitulo="
 				+ tokenCapitulo,
@@ -246,7 +292,8 @@ function guardarImagen(input, file) {
 		processData : false, // Work around #1
 		contentType : false, // Work around #2
 		success : function() {
-
+			
+			
 		},
 		cache : false,
 		error : function() {

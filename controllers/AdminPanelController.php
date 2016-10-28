@@ -14,6 +14,7 @@ use app\modules\ModUsuarios\models\Utils;
 use yii\web\NotFoundHttpException;
 use app\models\EntElementos;
 use yii\web\UploadedFile;
+use app\models\ConstantesWeb;
 
 class AdminPanelController extends Controller {
 	
@@ -114,9 +115,9 @@ class AdminPanelController extends Controller {
 		// Guarda la imagen
 		$file = UploadedFile::getInstanceByName ( 'imageCapitulo' );
 		
-		if($file){
-			$capitulo->txt_imagen = Utils::generateToken('imgC_').'.'.$file->extension;
-			$file->saveAs ( 'webAssets/uploads/'.$capitulo->txt_imagen );
+		if ($file) {
+			$capitulo->txt_imagen = Utils::generateToken ( 'imgC_' ) . '.' . $file->extension;
+			$file->saveAs ( 'webAssets/uploads/' . $capitulo->txt_imagen );
 		}
 		
 		if ($capitulo->save ()) {
@@ -193,7 +194,8 @@ class AdminPanelController extends Controller {
 	
 	/**
 	 * Guarda una imagen del usuario
-	 * @param unknown $capitulo
+	 * 
+	 * @param unknown $capitulo        	
 	 */
 	public function actionGuardarImagenElemento($capitulo) {
 		Yii::$app->response->format = Response::FORMAT_JSON;
@@ -201,9 +203,39 @@ class AdminPanelController extends Controller {
 		
 		$file = UploadedFile::getInstanceByName ( 'fileUpload' );
 		
-		if($file){
+		if ($file) {
+			$elemento = null;
+			if (array_key_exists ( 'token', $_POST ) && ! empty ( $_POST ['token'] )) {
+				$elemento = EntElementos::find ()->where ( [ 
+						'txt_token' => $_POST ['token'] 
+				] )->one ();
+			} 
 			
+			if(empty($elemento)){
+				$elemento = new EntElementos ();
+				$elemento->id_tipo_elemento = ConstantesWeb::TIPO_ELEMENTO_IMAGEN;
+				$elemento->b_header = 0;
+				$elemento->txt_token = Utils::generateToken ( 'ele_' );
+			}
+			
+			$elemento->id_capitulo = $capitulo->id_capitulo;
+			$elemento->id_historia = $capitulo->id_historia;
+			$elemento->txt_valor= Utils::generateToken ( 'imgC_' ) . '.' . $file->extension;
+			$elemento->num_orden = $_POST ['index'];
+			
+			$elemento->save ();
+			
+			$file->saveAs ( 'webAssets/uploads/' . $elemento->txt_valor);
+			
+			return [ 
+					'status' => 'success',
+					'tk' => $elemento->txt_token 
+			];
 		}
+		
+		return [
+				'status' => 'error'
+		];
 	}
 	
 	/**
@@ -219,10 +251,10 @@ class AdminPanelController extends Controller {
 		$file = UploadedFile::getInstanceByName ( 'fileCapitulo' );
 		
 		if ($file) {
-			$capituloF->txt_imagen = Utils::generateToken ( 'imc_' ).'.'.$file->extension;
+			$capituloF->txt_imagen = Utils::generateToken ( 'imc_' ) . '.' . $file->extension;
 			
 			if ($capituloF->save ()) {
-				$file->saveAs ( 'webAssets/uploads/'.$capituloF->txt_imagen );
+				$file->saveAs ( 'webAssets/uploads/' . $capituloF->txt_imagen );
 				
 				return [ 
 						'status' => 'success' 
@@ -244,20 +276,46 @@ class AdminPanelController extends Controller {
 	
 	/**
 	 * Actualiza la informacion
-	 * @param unknown $token
+	 * 
+	 * @param unknown $token        	
 	 */
-	public function actionGuardarNombre($token){
+	public function actionGuardarNombre($token) {
 		Yii::$app->response->format = Response::FORMAT_JSON;
-		$capitulo = $this->getCapituloByToken($token);
+		$capitulo = $this->getCapituloByToken ( $token );
 		
-		if(array_key_exists('text', $_POST) && !empty($_POST['text'])){
+		if (array_key_exists ( 'text', $_POST ) && ! empty ( $_POST ['text'] )) {
 			
-			$capitulo->txt_nombre = $_POST['text'];
-			$capitulo->save();
+			$capitulo->txt_nombre = $_POST ['text'];
+			$capitulo->save ();
 			
-			return ['status'=>'success', 'text'=>$capitulo->txt_nombre];
-		}else{
-			return ['status'=>'error', 'text'=>$capitulo->txt_nombre];
+			return [ 
+					'status' => 'success',
+					'text' => $capitulo->txt_nombre 
+			];
+		} else {
+			return [ 
+					'status' => 'error',
+					'text' => $capitulo->txt_nombre 
+			];
 		}
+	}
+	
+	/**
+	 *
+	 * @param unknown $token        	
+	 */
+	public function actionEliminarCapitulo($token) {
+		Yii::$app->response->format = Response::FORMAT_JSON;
+		$capitulo = $this->getCapituloByToken ( $token );
+		
+		if ($capitulo->delete ()) {
+			return [ 
+					'status' => 'success' 
+			];
+		}
+		
+		return [ 
+				'status' => 'error' 
+		];
 	}
 }
