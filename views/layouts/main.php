@@ -31,7 +31,7 @@ AppAsset::register($this);
         <div class="animsition">
                 
             <?php if(!Yii::$app->user->isGuest){?>
-                <a class="btn btn-primary cerrar-sesion" href="site/salir">Salir</a>
+                <a class="btn btn-primary cerrar-sesion" href="salir">Salir</a>
             <?php }?>
             
             <!-- header -->
