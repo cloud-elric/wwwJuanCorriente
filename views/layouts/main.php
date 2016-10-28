@@ -25,7 +25,10 @@ AppAsset::register($this);
     </head>
 
     <body>
-
+ <?php
+    if(!Yii::$app->user->isGuest){?>
+<a href="site/salir">Salir</a>
+<?php }?>
         <?php $this->beginBody() ?>
         <!-- .animsition -->
         <div class="animsition">

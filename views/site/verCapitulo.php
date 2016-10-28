@@ -6,17 +6,7 @@ use yii\helpers\Url;
 use app\models\EntElementos;
 use app\models\ConstantesWeb;
 
-$this->registerJsFile ( '@web/js/admin.js', [ 
-		'depends' => [ 
-				\app\assets\AppAsset::className () 
-		] 
-] );
 
-$this->registerJsFile ( '@web/js/jquery.form.js', [ 
-		'depends' => [ 
-				\app\assets\AppAsset::className () 
-		] 
-] );
 
 $header = EntElementos::find ()->where ( [ 
 		'id_capitulo' => $capitulo->id_capitulo,
@@ -26,29 +16,60 @@ $header = EntElementos::find ()->where ( [
 
 $editable = '';
 $classEditable = '';
-$isAdmin = true;
+$isAdmin = !Yii::$app->user->isGuest;
 
 if ($isAdmin) {
 	$editable = " contentEditable='true' data-new='noNuevo'  data-progress='noProceso' ";
 	$classEditable = ' js-elemento-editable';
+	
+	$this->registerJsFile ( 'https://code.jquery.com/ui/1.12.1/jquery-ui.js', [
+			'depends' => [
+					\app\assets\AppAsset::className ()
+			]
+	] );
+	
+	$this->registerJsFile ( '@web/js/admin.js', [
+			'depends' => [
+					\app\assets\AppAsset::className ()
+			]
+	] );
 }
 ?>
 
-<input type="hidden" data-token="<?=$capitulo->txt_token?>" id="js-capitulo" />
+<input type="hidden" data-token="<?=$capitulo->txt_token?>"
+	id="js-capitulo" />
 
 <!-- .ver-capitulo -->
-<div class="ver-capitulo ver-capitulo-admin" id="specialstuff">
+<div class="ver-capitulo <?=$isAdmin?'ver-capitulo-admin':''?>" id="specialstuff">
 
 	<!-- .ver-capitulo-header -->
-	<div class="ver-capitulo-header" style="background-image: url(<?=Url::base().(empty($header)?'/webAssets/images/portada.jpg':$header->txt_valor)?>)">
-
+	<div class="ver-capitulo-header" data-token='<?=empty($header)?'':$header->txt_valor?>' style="background-image: url(<?=Url::base().'/webAssets/uploads/'.(empty($header)?'portada.jpg':$header->txt_valor)?>)">
+	<?php if($isAdmin){?>
+<div class="listado-image">
+						<div class="listado-image-item">
+							<!-- Input -->
+							<input type="file" 
+								class="inputfile modal-admin-form-imagen inputFileCard" onchange='uploadImageHeader($(this), this)' id="js-header-img">
+							<!-- Label -->
+							<label for="js-header-img" class="js-label-header">Cambiar header</label>
+							<!-- Progress Bar -->
+							<div
+								class="ver-capitulo-post-progress ver-capitulo-post-progress-full">
+<!-- 							class="ver-capitulo-post-progress ver-capitulo-post-progress-full ver-capitulo-post-progress-anim"> -->
+								<div id="js-progress-bar" class="ver-capitulo-post-progress-bar"></div>
+								<span id="js-progress-bar-texto" class="w3-center w3-text-white">0%</span>
+							</div>
+						</div>
+					</div>
+					<!-- end .listado-image -->
+<?php }?>
 		<h1>Historias de México</h1>
 
 		<h2><?=$capitulo->txt_nombre?></h2>
-		
+
 		<!-- Btn to Back -->
-		<a href="javascript: history.back(1)" class="ver-capitulo-back">
-			<i class="ion ion-android-arrow-back"></i>
+		<a href="javascript: history.back(1)" class="ver-capitulo-back"> <i
+			class="ion ion-android-arrow-back"></i>
 		</a>
 
 		<!-- Leer de día o noche -->
@@ -73,72 +94,56 @@ if ($isAdmin) {
 	<div class="container">
 
 		<!-- .ver-capitulo-post -->
-		<div class="ver-capitulo-post">
+		<div class="ver-capitulo-post" id="sortable">
 			
 		<?php
 		foreach ( $elementos as $elemento ) {
 			if (! $elemento->b_header) {
 				$closeButton = '';
 				if ($isAdmin) {
-					$closeButton = '<span class="ver-capitulo-post-hover-close-btn js-remove-element" data-token="' . $elemento->txt_token . '"><i class="ion ion-close-round"></i></span><span class="ver-capitulo-post-hover-mover-btn"><i class="ion ion-arrow-move"></i></span>';
+					$closeButton = '<span class="ver-capitulo-post-hover-close-btn js-remove-element" data-token="' . $elemento->txt_token . '"><i class="ion ion-close-round"></i></span><span class="ver-capitulo-post-hover-mover-btn js-mover-elemento"><i class="ion ion-arrow-move"></i></span>';
 				}
 				
+				if($elemento->id_tipo_elemento ==ConstantesWeb::TIPO_ELEMENTO_TEXTO){
 				?>
 		<div
-					class="ver-capitulo-post-desc ver-capitulo-post-hover-close js-elemento-leer"
-					id="js-elemento-<?=$elemento->txt_token?>">
-					<div class="ver-capitulo-post-desc-text <?=$classEditable?>"
-						<?=$editable?> data-token="<?=$elemento->txt_token?>">
+				class="ver-capitulo-post-desc ver-capitulo-post-hover-close js-elemento-leer"
+				id="js-elemento-<?=$elemento->txt_token?>" data-token="<?=$elemento->txt_token?>">
+				<div class="ver-capitulo-post-desc-text <?=$classEditable?>"
+					<?=$editable?> data-token="<?=$elemento->txt_token?>">
 					<?=$elemento->txt_valor?>
 				</div>
 				<?=$closeButton?>
 			</div>		
 		
 		<?php
-			}
-		}
-		?>
-
-			<!-- <div class="ver-capitulo-post-imagen ver-capitulo-post-hover-close">
-					<img src="<?=Url::base()?>/webAssets/images/monkey.png"
-						alt="Article"> <span class="ver-capitulo-post-hover-close-btn"><i
-						class="ion ion-close-round"></i></span>
-				</div>
-
-			
-				<input type="file" class="modal-admin-form-imagen" onchange="uploadImage($(this),this)"> 
-				 -->
-
-			<div class="ver-capitulo-post-image ver-capitulo-post-hover-close">
-				<div class="ver-capitulo-post-image-item js-container-image">
+				}else if($elemento->id_tipo_elemento ==ConstantesWeb::TIPO_ELEMENTO_IMAGEN){
+					?>
+				<div data-token="<?=$elemento->txt_token?>" class="ver-capitulo-post-image ver-capitulo-post-hover-close js-elemento-leer" id="js-elemento-<?=$elemento->txt_token?>">
+				<div class="ver-capitulo-post-image-item js-container-image ver-capitulo-post-image-item-file">
 					<!-- Input -->
-					<input type="file" id="file" class="inputfile modal-admin-form-imagen" onchange="uploadImage($(this),this)">
+					<input type="file" class="inputfile modal-admin-form-imagen" onchange="uploadImage($(this),this)" data-token="<?=$elemento->txt_token?>">
 					<!-- Label -->
-					<label for="file">Agregar Imagen</label>
+					<label class="js-imagen-trigger">Cambiar</label>
 					<!-- Progress Bar -->
 					<div class="ver-capitulo-post-progress">
 						<div id="js-progress-bar" class="ver-capitulo-post-progress-bar"></div>
 						<span id="js-progress-bar-texto" class="w3-center w3-text-white">0%</span>
 					</div>
 					<!-- Imagen -->
-					<img src="" alt="">
+					<img class="js-element-img" src="<?=Url::base().'/webAssets/uploads/'.$elemento->txt_valor?>" alt="" style="display: block;">
 					<!-- Btn de Close -->
-					<span class="ver-capitulo-post-hover-close-btn"><i class="ion ion-close-round"></i></span>
-					<!-- Btn de Mover -->
-					<span class="ver-capitulo-post-hover-mover-btn"><i class="ion ion-arrow-move"></i></span>
+					<?=$closeButton?>
 				</div>
 			</div>
 
-			<div class="ver-capitulo-post-image ver-capitulo-post-hover-close">
-				<div class="ver-capitulo-post-image-item js-container-image ver-capitulo-post-image-item-file">
-					<input type="file" id="file" class="inputfile modal-admin-form-imagen" onchange="uploadImage($(this),this)">
-					<label for="file">Agregar Imagen</label>
-					<img src="<?=Url::base()?>/webAssets/images/portada.jpg" alt="Article" style="display: block;">
-					<span class="ver-capitulo-post-hover-close-btn"><i class="ion ion-close-round"></i></span>
-					<!-- Btn de Mover -->
-					<span class="ver-capitulo-post-hover-mover-btn"><i class="ion ion-arrow-move"></i></span>
-				</div>
-			</div>
+				<?php 
+				
+				}
+			}
+		}
+		?>
+
 
 		</div>
 		<!-- end - .ver-capitulo-post -->
@@ -149,7 +154,7 @@ if ($isAdmin) {
 
 	<?php
 	if ($isAdmin) {
-	?>
+		?>
 	<!-- .ver-capitulo-controlers -->
 	<div class="ver-capitulo-controlers">
 
@@ -170,5 +175,5 @@ if ($isAdmin) {
 	}
 	?>
 
-</div>	
+</div>
 <!-- end - .ver-capitulo -->

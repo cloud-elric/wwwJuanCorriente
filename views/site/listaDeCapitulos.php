@@ -7,7 +7,7 @@ use yii\bootstrap\ActiveForm;
 use app\modules\ModUsuarios\models\Utils;
 
 # $isAdmin = ! Yii::$app->user->isGuest;
-$isAdmin = Yii::$app->user->isGuest;
+$isAdmin = !Yii::$app->user->isGuest;
 
 if ($isAdmin) {
 	$this->registerJsFile ( '@web/js/admin.js', [ 
@@ -51,11 +51,11 @@ if ($isAdmin) {
 			
 			<!-- .listado-articles-item -->
 
-			<a class="listado-articles-item listado-articles-item-hover-close" data-token="<?=$capitulo->txt_token?>"
+			<a class="listado-articles-item listado-articles-item-hover-close" data-token="<?=$capitulo->txt_token?>" id="js-element-cap-<?=$capitulo->txt_token?>"
 
 				href="<?=Url::base()?>/site/ver-capitulo?token=<?=$historia->txt_token?>&capitulo=<?=$capitulo->txt_token?>">
 				<!-- .listado-articles-item-imagen -->
-				<div class="listado-articles-item-imagen" style="background-image:url('<?=Url::base()?>/webAssets/uploads/<?=$capitulo->txt_imagen?>')">
+				<div class="listado-articles-item-imagen" style="background-image:url('<?=Url::base()?>/webAssets/uploads/<?=empty($capitulo->txt_imagen)?'noImage.jpg':$capitulo->txt_imagen?>')">
 					<div class="listado-articles-item-capitulo">
 						<h4>Capitulo <?=$numCapitulo?></h4>
 					</div>
@@ -78,7 +78,7 @@ if ($isAdmin) {
 						<div class="listado-image-item">
 							<!-- Input -->
 							<input type="file" 
-								class="inputfile modal-admin-form-imagen">
+								class="inputfile modal-admin-form-imagen inputFileCard">
 							<!-- Label -->
 							<label class="js-label">Cambiar Imagen</label>
 							<!-- Progress Bar -->
@@ -206,41 +206,21 @@ if ($isAdmin) {
 
 				<!-- .listado-modal-image -->
 				<div class="listado-modal-image">
-					<div class="listado-modal-image-item">
+					<div class="listado-modal-image-item" id="js-contenedor-image-cap">
 						<!-- Input -->
-						<input type="file" id="file-modal" class="inputfile modal-admin-form-imagen">
+						<input type="file" id="file-modal" name="imageCapitulo" class="inputfile modal-admin-form-imagen inputFileCapitulo">
 						<!-- Label -->
-						<label for="file">Agregar Imagen</label>
+						<label class="js-label-image-cap">Agregar Imagen</label>
 						<!-- Progress Bar -->
 						<div class="ver-capitulo-post-progress ver-capitulo-post-progress-middle">
 							<div id="js-progress-bar" class="ver-capitulo-post-progress-bar"></div>
 							<span id="js-progress-bar-texto" class="w3-center w3-text-white">0%</span>
 						</div>
 						<!-- Imagen -->
-						<img src="" alt="">
+						
 					</div>
 				</div>
 				<!-- end .listado-modal-image -->
-
-				<!-- .listado-modal-image -->
-				<div class="listado-modal-image">
-					<div class="listado-modal-image-item listado-modal-image-item-file">
-						<!-- Input -->
-						<input type="file" id="file-modal" class="inputfile modal-admin-form-imagen">
-						<!-- Label -->
-						<label for="file">Agregar Imagen</label>
-						<!-- Progress Bar -->
-						<div class="ver-capitulo-post-progress ver-capitulo-post-progress-middle">
-							<div id="js-progress-bar" class="ver-capitulo-post-progress-bar"></div>
-							<span id="js-progress-bar-texto" class="w3-center w3-text-white">0%</span>
-						</div>
-						<!-- Imagen -->
-						<img src="" alt="">
-						<img class="modal-admin-form-imagen" src="<?=Url::base()?>/webAssets/images/portada.jpg" alt="Article" style="display: block;">
-					</div>
-				</div>
-				<!-- end .listado-modal-image -->
-
 
 			</div>
 
@@ -279,11 +259,8 @@ if ($isAdmin) {
 	<!-- end - .modal-content -->
 
 </div>
-<?php }?>
 
 
-<!-- Btn Mostar Modal -->
-<button id="modal-mensaje-open" class="btn admin-agregar-btn-circle"><i class="ion ion-wand"></i></button>
 
 <!-- .modal -->
 <div id="modal-mensaje" class="modal modal-mensaje">
@@ -295,7 +272,7 @@ if ($isAdmin) {
 		<span class="modal-close modal-mensaje-close"><i class="ion ion-close-round"></i></span>
 
 		<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, itaque nisi quae. Quis id sequi, culpa enim reprehenderit, illum.
+			Esta a punto de eliminar un capítulo con todo su contendio ¿Estas seguro de continuar?
 		</p>
 		
 		<!-- .modal-footer -->
@@ -303,11 +280,11 @@ if ($isAdmin) {
 			
 			<!-- Btn Mostar Modal -->
 			<button class="btn btn-modal-mensaje modal-mensaje-close">
-				Cancelar
+				No
 			</button>
 
-			<button class="btn btn-secundary">
-				Si, Confirmar
+			<button class="btn btn-secundary" id="js-eliminar-capitulo" data-eliminar >
+				Si, borrar capítulo
 			</button>
 
 		</div>
@@ -318,3 +295,5 @@ if ($isAdmin) {
 
 </div>
 <!-- end - .modal -->
+
+<?php }?>

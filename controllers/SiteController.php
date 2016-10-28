@@ -176,5 +176,7 @@ class SiteController extends Controller {
 	
 	public function actionSalir(){
 		Yii::$app->user->logout ();
+		
+		return $this->goHome ();
 	}
 }
