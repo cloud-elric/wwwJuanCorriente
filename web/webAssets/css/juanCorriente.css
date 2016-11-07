@@ -160,6 +160,7 @@ hr {
 /* Page */
 .page {
   display: block;
+  min-height: calc(100vh - 223px);
 }
 
 /* Contenedor */
@@ -496,6 +497,14 @@ hr {
 
 .ui-datepicker-calendar thead {
   color: #2F2F2F;
+}
+
+.cerrar-sesion {
+  cursor: pointer;
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  z-index: 4;
 }
 
 /*!

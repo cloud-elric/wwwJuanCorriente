@@ -5,6 +5,7 @@ $this->title = 'Listado';
 use yii\helpers\Url;
 use yii\bootstrap\ActiveForm;
 use app\modules\ModUsuarios\models\Utils;
+use app\models\ConstantesWeb;
 
 # $isAdmin = ! Yii::$app->user->isGuest;
 $isAdmin = !Yii::$app->user->isGuest;
@@ -43,8 +44,14 @@ if ($isAdmin) {
 			
 
 			<?php
+			
+			if(array_key_exists('q', $_GET)){
+				$capitulos = $historia->getEntCapitulos($_GET['q'])->all();
+			}else{
+				$capitulos = $historia->entCapitulos;	
+			}
+			
 			$numCapitulo = 1;
-			$capitulos = $historia->entCapitulos;
 			$numCapitulos = count ( $capitulos );
 			foreach ( $capitulos as $capitulo ) {
 				?>
@@ -55,7 +62,7 @@ if ($isAdmin) {
 
 				href="<?=Url::base()?>/site/ver-capitulo?token=<?=$historia->txt_token?>&capitulo=<?=$capitulo->txt_token?>">
 				<!-- .listado-articles-item-imagen -->
-				<div class="listado-articles-item-imagen" style="background-image:url('<?=Url::base()?>/webAssets/uploads/<?=empty($capitulo->txt_imagen)?'noImage.jpg':$capitulo->txt_imagen?>')">
+				<div class="listado-articles-item-imagen" style="background-image:url('<?=Url::base()?>/webAssets/uploads/<?=empty($capitulo->txt_imagen)?'noImage.jpg':ConstantesWeb::PREX_IMG.$capitulo->txt_imagen?>')">
 					<div class="listado-articles-item-capitulo">
 						<h4>Capitulo <?=$numCapitulo?></h4>
 					</div>

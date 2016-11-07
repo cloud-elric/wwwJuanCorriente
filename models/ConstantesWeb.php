@@ -8,5 +8,7 @@ class ConstantesWeb {
 	const TIPO_ELEMENTO_HEADER = 1;
 	const TIPO_ELEMENTO_IMAGEN = 2;
 	const TIPO_ELEMENTO_TEXTO = 3;
+	
+	const PREX_IMG = 'min_';
 }
 

@@ -25,13 +25,14 @@ AppAsset::register($this);
     </head>
 
     <body>
- <?php
-    if(!Yii::$app->user->isGuest){?>
-<a href="site/salir">Salir</a>
-<?php }?>
+
         <?php $this->beginBody() ?>
         <!-- .animsition -->
         <div class="animsition">
+            
+            <?php if(!Yii::$app->user->isGuest){?>
+                <a class="btn btn-primary cerrar-sesion" href="salir">Salir</a>
+            <?php }?>
             
             <!-- header -->
             <header class="header-admin">

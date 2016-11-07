@@ -127,14 +127,12 @@ class AdminPanelController extends Controller {
 			$elemento->b_header = 1;
 			$elemento->txt_token = Utils::generateToken ( 'ele_' );
 			
-			
 			$elemento->id_capitulo = $capitulo->id_capitulo;
 			$elemento->id_historia = $capitulo->id_historia;
 			$elemento->txt_valor = 'portada.jpg';
 			$elemento->num_orden = '0';
 			
 			$elemento->save ();
-			
 			
 			return [ 
 					'status' => 'success',
@@ -218,6 +216,7 @@ class AdminPanelController extends Controller {
 		$file = UploadedFile::getInstanceByName ( 'fileUpload' );
 		
 		if ($file) {
+			
 			$elemento = null;
 			if (array_key_exists ( 'token', $_POST ) && ! empty ( $_POST ['token'] )) {
 				$elemento = EntElementos::find ()->where ( [ 
@@ -239,7 +238,17 @@ class AdminPanelController extends Controller {
 			
 			$elemento->save ();
 			
-			$file->saveAs ( 'webAssets/uploads/' . $elemento->txt_valor );
+			$file->saveAs ( 'webAssets/uploads/' . $elemento->txt_valor, false );
+			
+			$raw_file_name = $file->tempName;
+				
+			// Valida que sea una imagen
+			$size = getimagesize ( $raw_file_name );
+			list ( $width, $height, $otro, $wh ) = getimagesize ( $raw_file_name );
+			$basePath = 'webAssets/uploads/';
+			
+			$this->rezisePicture ( $basePath.$elemento->txt_valor, $width, $height, $width, $basePath.'min_'.$elemento->txt_valor, $file->extension);
+			
 			
 			return [ 
 					'status' => 'success',
@@ -265,10 +274,20 @@ class AdminPanelController extends Controller {
 		$file = UploadedFile::getInstanceByName ( 'fileCapitulo' );
 		
 		if ($file) {
+			
 			$capituloF->txt_imagen = Utils::generateToken ( 'imc_' ) . '.' . $file->extension;
 			
 			if ($capituloF->save ()) {
-				$file->saveAs ( 'webAssets/uploads/' . $capituloF->txt_imagen );
+				$file->saveAs ( 'webAssets/uploads/' . $capituloF->txt_imagen, false );
+				
+				$raw_file_name = $file->tempName;
+					
+				// Valida que sea una imagen
+				$size = getimagesize ( $raw_file_name );
+				list ( $width, $height, $otro, $wh ) = getimagesize ( $raw_file_name );
+				$basePath = 'webAssets/uploads/';
+				
+				$this->rezisePicture ( $basePath.$capituloF->txt_imagen, $width, $height, $width, $basePath.'min_'.$capituloF->txt_imagen, $file->extension);
 				
 				return [ 
 						'status' => 'success' 
@@ -356,46 +375,115 @@ class AdminPanelController extends Controller {
 			}
 		} else {
 			return [ 
-					'status' => 'error'
+					'status' => 'error' 
 			];
 		}
 	}
 	
 	/**
-	 * 
 	 */
-	public function actionGuardarImagenHeader($capitulo){
-		
+	public function actionGuardarImagenHeader($capitulo) {
 		Yii::$app->response->format = Response::FORMAT_JSON;
-		
-		
 		
 		$capituloF = $this->getCapituloByToken ( $capitulo );
 		
-		$elemento = EntElementos::find ()->where ( [
+		$elemento = EntElementos::find ()->where ( [ 
 				'id_capitulo' => $capituloF->id_capitulo,
-				'b_header'=>1
+				'b_header' => 1 
 		] )->one ();
-		
 		
 		$file = UploadedFile::getInstanceByName ( 'fileUpload' );
 		
-		if ($file && !empty($elemento)) {
+		if ($file && ! empty ( $elemento )) {
 			$elemento->txt_valor = Utils::generateToken ( 'imc_' ) . '.' . $file->extension;
-				
+			
 			if ($elemento->save ()) {
-				$file->saveAs ( 'webAssets/uploads/' . $elemento->txt_valor );
-		
-				return [
-						'status' => 'success'
+				$file->saveAs ( 'webAssets/uploads/' . $elemento->txt_valor, false );
+				
+				$raw_file_name = $file->tempName;
+				
+				// Valida que sea una imagen
+				$size = getimagesize ( $raw_file_name );
+				list ( $width, $height, $otro, $wh ) = getimagesize ( $raw_file_name );
+				$basePath = 'webAssets/uploads/';
+					
+				$this->rezisePicture ( $basePath.$elemento->txt_valor, $width, $height, $width, $basePath.'min_'.$elemento->txt_valor, $file->extension);
+				
+				return [ 
+						'status' => 'success' 
 				];
 			}
 		} else {
-			return [
-					'status' => 'error'
+			return [ 
+					'status' => 'error' 
 			];
 		}
+	}
+	
+	/**
+	 * Metodo para cambiar el tamaño de una imagen
+	 *
+	 * @param unknown $file        	
+	 * @param unknown $ancho        	
+	 * @param unknown $alto        	
+	 * @param unknown $nuevo_ancho        	
+	 * @param unknown $nuevo_alto        	
+	 */
+	private function rezisePicture($file, $ancho, $alto, $redimencionar, $nombreNuevo,$extension) {
+		// Factor para el redimensionamiento
+		$factor = $this->calcularFactor ( $ancho, $alto, $redimencionar );
+		
+		$nuevo_ancho = $ancho * $factor;
+		$nuevo_alto = $alto * $factor;
+		
+		// Cargar
+		$thumb = imagecreatetruecolor ( $nuevo_ancho, $nuevo_alto );
+		
+		// preserve transparency
+		if($extension == "gif" || $extension == "png"){
+			imagecolortransparent($thumb, imagecolorallocatealpha($thumb, 0, 0, 0, 127));
+			imagealphablending($thumb, false);
+			imagesavealpha($thumb, true);
+		}
+		
+		if($extension=='jpg' || $extension=='jpeg'){
+			$origen = imagecreatefromjpeg ( $file );
+			// Cambiar el tamaño
+			imagecopyresampled ( $thumb, $origen, 0, 0, 0, 0, $nuevo_ancho, $nuevo_alto, $ancho, $alto );
+			
+			imagejpeg ( $thumb, $nombreNuevo );
+		}else if($extension=='png'){
+			$origen = imagecreatefrompng( $file );
+			// Cambiar el tamaño
+			imagecopyresampled ( $thumb, $origen, 0, 0, 0, 0, $nuevo_ancho, $nuevo_alto, $ancho, $alto );
+				
+			imagepng( $thumb, $nombreNuevo );
+		}
+// 		else if($extension=='gif'){
+// 			$origen = imagecreatefromgif( $file );
+// 			// Cambiar el tamaño
+// 			imagecopyresampled ( $thumb, $origen, 0, 0, 0, 0, $nuevo_ancho, $nuevo_alto, $ancho, $alto );
+				
+// 			imagegif($thumb, $nombreNuevo );
+// 		}
 		
 		
+	}
+	
+	/**
+	 * Calcula el factor
+	 *
+	 * @param unknown $ancho        	
+	 * @param unknown $alto        	
+	 * @param unknown $redimension        	
+	 */
+	private function calcularFactor($ancho, $alto, $redimension) {
+		if ($ancho >= $alto) {
+			$factor = $redimension / $ancho;
+		} else if ($ancho <= $alto) {
+			$factor = $redimension / $alto;
+		}
+		
+		return $factor;
 	}
 }

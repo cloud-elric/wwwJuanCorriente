@@ -25,3 +25,9 @@ composer.phar
 phpunit.phar
 # local phpunit config
 /phpunit.xml
+
+#Ignorar assets
+/web/assets
+
+#Ignorar uploads
+/web/webAssets/uploads

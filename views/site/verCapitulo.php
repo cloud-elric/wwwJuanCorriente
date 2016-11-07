@@ -43,7 +43,7 @@ if ($isAdmin) {
 <div class="ver-capitulo <?=$isAdmin?'ver-capitulo-admin':''?>" id="specialstuff">
 
 	<!-- .ver-capitulo-header -->
-	<div class="ver-capitulo-header" data-token='<?=empty($header)?'':$header->txt_valor?>' style="background-image: url(<?=Url::base().'/webAssets/uploads/'.(empty($header)?'portada.jpg':$header->txt_valor)?>)">
+	<div class="ver-capitulo-header" data-token='<?=empty($header)?'':$header->txt_valor?>' style="background-image: url(<?=Url::base().'/webAssets/uploads/'.(empty($header)?'portada.jpg':ConstantesWeb::PREX_IMG.$header->txt_valor)?>)">
 	<?php if($isAdmin){?>
 <div class="listado-image">
 						<div class="listado-image-item">
@@ -122,16 +122,18 @@ if ($isAdmin) {
 				<div data-token="<?=$elemento->txt_token?>" class="ver-capitulo-post-image ver-capitulo-post-hover-close js-elemento-leer" id="js-elemento-<?=$elemento->txt_token?>">
 				<div class="ver-capitulo-post-image-item js-container-image ver-capitulo-post-image-item-file">
 					<!-- Input -->
+					<?php if($isAdmin){?>
 					<input type="file" class="inputfile modal-admin-form-imagen" onchange="uploadImage($(this),this)" data-token="<?=$elemento->txt_token?>">
 					<!-- Label -->
 					<label class="js-imagen-trigger">Cambiar</label>
+					<?php }?>
 					<!-- Progress Bar -->
 					<div class="ver-capitulo-post-progress">
 						<div id="js-progress-bar" class="ver-capitulo-post-progress-bar"></div>
 						<span id="js-progress-bar-texto" class="w3-center w3-text-white">0%</span>
 					</div>
 					<!-- Imagen -->
-					<img class="js-element-img" src="<?=Url::base().'/webAssets/uploads/'.$elemento->txt_valor?>" alt="" style="display: block;">
+					<img class="js-element-img" src="<?=Url::base().'/webAssets/uploads/'.ConstantesWeb::PREX_IMG.$elemento->txt_valor?>" alt="" style="display: block;">
 					<!-- Btn de Close -->
 					<?=$closeButton?>
 				</div>
