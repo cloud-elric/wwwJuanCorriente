@@ -115,7 +115,7 @@ class SiteController extends Controller {
 	 *
 	 * @param string $token        	
 	 */
-	public function actionListaDeCapitulos($token = null) {
+	public function actionListaDeCapitulos($token = null, $q=null) {
 		$historia = $this->getHistoriaByToken ( $token );
 		
 		$capituloForm = new EntCapitulos ();
@@ -124,6 +124,7 @@ class SiteController extends Controller {
 				'capituloForm' => $capituloForm 
 		] );
 	}
+	
 	
 	/**
 	 * Visualizacion de capitulo seleccionado
