@@ -41,9 +41,13 @@ if ($isAdmin) {
 
 <!-- .ver-capitulo -->
 <div class="ver-capitulo <?=$isAdmin?'ver-capitulo-admin':''?>" id="specialstuff">
-
+	
 	<!-- .ver-capitulo-header -->
 	<div class="ver-capitulo-header" data-token='<?=empty($header)?'':$header->txt_valor?>' style="background-image: url(<?=Url::base().'/webAssets/uploads/'.(empty($header)?'portada.jpg':ConstantesWeb::PREX_IMG.$header->txt_valor)?>)">
+		
+	</div>
+	<!-- .ver-capitulo-header -->
+	<div class="ver-capitulo-header-textos">
 	<?php if($isAdmin){?>
 <div class="listado-image">
 						<div class="listado-image-item">

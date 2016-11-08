@@ -1145,106 +1145,125 @@ footer.footer-white .social-media a:hover {
   background-size: cover;
   display: flex;
   flex-direction: column;
-  height: 444px;
+  height: 70vh;
+  left: 0;
   justify-content: space-around;
-  margin-bottom: 30px;
-  position: relative;
+  position: fixed;
+  right: 0;
+  top: 0;
   -ms-transition: all 0.3s ease-in;
   -moz-transition: all 0.3s ease-in;
   -webkit-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;
+  z-index: 1;
 }
 
-.ver-capitulo .ver-capitulo-header h1 {
+.ver-capitulo .ver-capitulo-header-textos {
+  height: 70vh;
+  padding: 30px 0;
+  position: relative;
+  text-align: center;
+  z-index: 2;
+}
+
+.ver-capitulo .ver-capitulo-header-textos h1 {
   color: #FFF;
   font-size: 1.406em;
-  margin-top: 30px;
+  margin-top: 0;
 }
 
-.ver-capitulo .ver-capitulo-header h2 {
+.ver-capitulo .ver-capitulo-header-textos h2 {
+  bottom: 30px;
   color: #FFF;
   font-size: 4.063em;
   font-weight: 400;
+  left: 50%;
+  margin-left: -400px;
   margin-top: 140px;
+  position: absolute;
   text-align: center;
+  width: 800px;
 }
 
-.ver-capitulo .ver-capitulo-header .ver-capitulo-back {
+.ver-capitulo .ver-capitulo-header-textos .ver-capitulo-back {
   color: #FFF;
   cursor: pointer;
   font-size: 1.3em;
   left: 30px;
-  position: absolute;
+  position: fixed;
   top: 42px;
   z-index: 3;
 }
 
-.ver-capitulo .ver-capitulo-header .ver-capitulo-back:hover {
+.ver-capitulo .ver-capitulo-header-textos .ver-capitulo-back:hover {
   color: #8EF0EF;
 }
 
-.ver-capitulo .ver-capitulo-header .ver-capitulo-leer {
+.ver-capitulo .ver-capitulo-header-textos .ver-capitulo-leer {
   color: #8EF0EF;
   cursor: pointer;
   font-size: 1.250em;
   left: 60px;
-  position: absolute;
+  position: fixed;
   top: 44px;
   z-index: 3;
 }
 
-.ver-capitulo .ver-capitulo-header .ver-capitulo-leer:hover {
+.ver-capitulo .ver-capitulo-header-textos .ver-capitulo-leer:hover {
   color: #FFF;
 }
 
-.ver-capitulo .ver-capitulo-header .ver-capitulo-leer-full {
+.ver-capitulo .ver-capitulo-header-textos .ver-capitulo-leer-full {
   color: #8EF0EF;
   cursor: pointer;
   display: none;
   font-size: 1.250em;
   left: 60px;
-  position: absolute;
+  position: fixed;
   top: 44px;
   z-index: 3;
 }
 
-.ver-capitulo .ver-capitulo-header .ver-capitulo-leer-full:hover {
+.ver-capitulo .ver-capitulo-header-textos .ver-capitulo-leer-full:hover {
   color: #FFF;
 }
 
-.ver-capitulo .ver-capitulo-header .ver-capitulo-full-screen,
-.ver-capitulo .ver-capitulo-header .ver-capitulo-close-screen {
+.ver-capitulo .ver-capitulo-header-textos .ver-capitulo-full-screen,
+.ver-capitulo .ver-capitulo-header-textos .ver-capitulo-close-screen {
   align-items: center;
   color: #8EF0EF;
   cursor: pointer;
   display: flex;
   justify-content: center;
-  position: absolute;
+  position: fixed;
   right: 20px;
   top: 400px;
   z-index: 3;
 }
 
-.ver-capitulo .ver-capitulo-header .ver-capitulo-full-screen span,
-.ver-capitulo .ver-capitulo-header .ver-capitulo-close-screen span {
+.ver-capitulo .ver-capitulo-header-textos .ver-capitulo-full-screen span,
+.ver-capitulo .ver-capitulo-header-textos .ver-capitulo-close-screen span {
   font-size: 0.7em;
   margin-right: 8px;
   text-transform: uppercase;
 }
 
-.ver-capitulo .ver-capitulo-header .ver-capitulo-full-screen i,
-.ver-capitulo .ver-capitulo-header .ver-capitulo-close-screen i {
+.ver-capitulo .ver-capitulo-header-textos .ver-capitulo-full-screen i,
+.ver-capitulo .ver-capitulo-header-textos .ver-capitulo-close-screen i {
   font-size: 0.85em;
 }
 
-.ver-capitulo .ver-capitulo-header .ver-capitulo-close-screen {
+.ver-capitulo .ver-capitulo-header-textos .ver-capitulo-close-screen {
   display: none;
 }
 
 .ver-capitulo .ver-capitulo-post {
   margin: 0 auto;
   max-width: 600px;
+  padding: 20px 0;
+  position: relative;
   width: 90%;
+  z-index: 2;
 }
 
 .ver-capitulo .ver-capitulo-post .ver-capitulo-post-desc .ver-capitulo-post-desc-text {
