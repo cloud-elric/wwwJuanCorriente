@@ -7,8 +7,8 @@ use yii\bootstrap\ActiveForm;
 use app\modules\ModUsuarios\models\Utils;
 use app\models\ConstantesWeb;
 
-# $isAdmin = ! Yii::$app->user->isGuest;
-$isAdmin = !Yii::$app->user->isGuest;
+// $isAdmin = ! Yii::$app->user->isGuest;
+$isAdmin = ! Yii::$app->user->isGuest;
 
 if ($isAdmin) {
 	$this->registerJsFile ( '@web/js/admin.js', [ 
@@ -32,10 +32,21 @@ if ($isAdmin) {
 
 		<!-- .listado-seach -->
 		<div class="listado-seach">
-			<input type="text">
+		
+		<?php
+		$form = ActiveForm::begin (['method'=>'GET']);
+		
+		?>
+			<input type="text" name="q">
 			<button>
 				<i class="ion ion-ios-search-strong"></i>
 			</button>
+			
+		<?php
+
+		ActiveForm::end ();
+
+		?>
 		</div>
 		<!-- end - .listado-seach -->
 
@@ -45,21 +56,27 @@ if ($isAdmin) {
 
 			<?php
 			
-			if(array_key_exists('q', $_GET)){
-				$capitulos = $historia->getEntCapitulos($_GET['q'])->all();
-			}else{
-				$capitulos = $historia->entCapitulos;	
+			if (array_key_exists ( 'q', $_GET )) {
+				$capitulos = $historia->getEntCapitulos ( $_GET ['q'] )->all ();
+			} else {
+				$capitulos = $historia->entCapitulos;
 			}
 			
 			$numCapitulo = 1;
 			$numCapitulos = count ( $capitulos );
+			
+			if($numCapitulos==0){
+				echo "<h1>No hay capitulos disponibles</h1>";
+			}
+			
 			foreach ( $capitulos as $capitulo ) {
 				?>
 			
 			<!-- .listado-articles-item -->
 
-			<a class="listado-articles-item listado-articles-item-hover-close" data-token="<?=$capitulo->txt_token?>" id="js-element-cap-<?=$capitulo->txt_token?>"
-
+			<a class="listado-articles-item listado-articles-item-hover-close"
+				data-token="<?=$capitulo->txt_token?>"
+				id="js-element-cap-<?=$capitulo->txt_token?>"
 				href="<?=Url::base()?>/site/ver-capitulo?token=<?=$historia->txt_token?>&capitulo=<?=$capitulo->txt_token?>">
 				<!-- .listado-articles-item-imagen -->
 				<div class="listado-articles-item-imagen" style="background-image:url('<?=Url::base()?>/webAssets/uploads/<?=empty($capitulo->txt_imagen)?'noImage.jpg':ConstantesWeb::PREX_IMG.$capitulo->txt_imagen?>')">
@@ -81,17 +98,17 @@ if ($isAdmin) {
 				if ($isAdmin) {
 					?>
 						<!-- .listado-image -->
-					<div class="listado-image" style="display:none;">
+					<div class="listado-image" style="display: none;">
 						<div class="listado-image-item">
 							<!-- Input -->
-							<input type="file" 
+							<input type="file"
 								class="inputfile modal-admin-form-imagen inputFileCard">
 							<!-- Label -->
 							<label class="js-label">Cambiar Imagen</label>
 							<!-- Progress Bar -->
 							<div
 								class="ver-capitulo-post-progress ver-capitulo-post-progress-full">
-<!-- 							class="ver-capitulo-post-progress ver-capitulo-post-progress-full ver-capitulo-post-progress-anim"> -->
+								<!-- 							class="ver-capitulo-post-progress ver-capitulo-post-progress-full ver-capitulo-post-progress-anim"> -->
 								<div id="js-progress-bar" class="ver-capitulo-post-progress-bar"></div>
 								<span id="js-progress-bar-texto" class="w3-center w3-text-white">0%</span>
 							</div>
@@ -108,10 +125,11 @@ if ($isAdmin) {
 				<?php
 				if ($isAdmin) {
 					?>
-				<!-- Btn de Close -->
-				<span class="listado-articles-item-hover-close-btn" style="display:none;"><i class="ion ion-close-round"></i></span>
+				<!-- Btn de Close --> <span
+				class="listado-articles-item-hover-close-btn" style="display: none;"><i
+					class="ion ion-close-round"></i></span>
 				
-				<?php 
+				<?php
 				}
 				?>
 			</a>
@@ -145,8 +163,7 @@ if ($isAdmin) {
 		<i class="ion ion-wand"></i>
 	</button>
 
-	<button
-		id="js-edicion-capitulos"
+	<button id="js-edicion-capitulos"
 		class="btn ver-capitulo-controlers-btn-circle listado-controlers-btn-circle-editar">
 		<i class="ion ion-android-create"></i>
 	</button>
@@ -215,16 +232,18 @@ if ($isAdmin) {
 				<div class="listado-modal-image">
 					<div class="listado-modal-image-item" id="js-contenedor-image-cap">
 						<!-- Input -->
-						<input type="file" id="file-modal" name="imageCapitulo" class="inputfile modal-admin-form-imagen inputFileCapitulo">
+						<input type="file" id="file-modal" name="imageCapitulo"
+							class="inputfile modal-admin-form-imagen inputFileCapitulo">
 						<!-- Label -->
 						<label class="js-label-image-cap">Agregar Imagen</label>
 						<!-- Progress Bar -->
-						<div class="ver-capitulo-post-progress ver-capitulo-post-progress-middle">
+						<div
+							class="ver-capitulo-post-progress ver-capitulo-post-progress-middle">
 							<div id="js-progress-bar" class="ver-capitulo-post-progress-bar"></div>
 							<span id="js-progress-bar-texto" class="w3-center w3-text-white">0%</span>
 						</div>
 						<!-- Imagen -->
-						
+
 					</div>
 				</div>
 				<!-- end .listado-modal-image -->
@@ -276,23 +295,20 @@ if ($isAdmin) {
 	<div class="modal-content">
 
 		<!-- Btn Close -->
-		<span class="modal-close modal-mensaje-close"><i class="ion ion-close-round"></i></span>
+		<span class="modal-close modal-mensaje-close"><i
+			class="ion ion-close-round"></i></span>
 
-		<p>
-			Esta a punto de eliminar un capítulo con todo su contendio ¿Estas seguro de continuar?
-		</p>
-		
+		<p>Esta a punto de eliminar un capítulo con todo su contendio ¿Estas
+			seguro de continuar?</p>
+
 		<!-- .modal-footer -->
 		<div class="modal-footer">
-			
-			<!-- Btn Mostar Modal -->
-			<button class="btn btn-modal-mensaje modal-mensaje-close">
-				No
-			</button>
 
-			<button class="btn btn-secundary" id="js-eliminar-capitulo" data-eliminar >
-				Si, borrar capítulo
-			</button>
+			<!-- Btn Mostar Modal -->
+			<button class="btn btn-modal-mensaje modal-mensaje-close">No</button>
+
+			<button class="btn btn-secundary" id="js-eliminar-capitulo"
+				data-eliminar>Si, borrar capítulo</button>
 
 		</div>
 		<!-- end - .modal-footer -->
