@@ -41,6 +41,8 @@
 			position: relative
 			text-align: center
 			z-index: 2
+			+respond-to(xs)
+				padding: 120px 0 30px
 			// Logo
 			h1
 				color: $white
@@ -58,6 +60,16 @@
 				position: absolute
 				text-align: center
 				width: 800px
+				+respond-to(sm)
+					font-size: 3.7em
+					margin-left: -45%
+					width: 90%
+				+respond-to(xs)
+					font-size: 2.2em
+					margin-left: -45%
+					width: 90%
+				+respond-to(xx)
+					font-size: 1.6em
 			// Btn to Back
 			.ver-capitulo-back
 				color: $white
@@ -67,6 +79,8 @@
 				position: fixed
 				top: 54px
 				z-index: 3
+				+respond-to(xx)
+					left: 20px
 				&:hover
 					color: $teal
 			// Ver capítulos
@@ -74,6 +88,7 @@
 				align-items: center
 				background-color: $black
 				+border-radius(4px)
+				+box-shadow(2)
 				color: $teal
 				cursor: pointer
 				display: flex
@@ -84,11 +99,18 @@
 				position: fixed
 				top: 44px
 				z-index: 3
+				+respond-to(xx)
+					left: 44px
+					padding: 0 12px
 				i
 					font-size: 1.7em
+					+respond-to(xx)
+						font-size: 1.2em
 				span
 					font-size: 1em
 					margin-left: 8px
+					+respond-to(xx)
+						display: none
 				&:hover
 					color: $white
 			// Nav capítulos
@@ -165,10 +187,15 @@
 				top: 44px
 				// width: 150px
 				z-index: 8
-
+				+respond-to(xs)
+					right: 66px
+				+respond-to(xx)
+					right: 64px
+				
 				// option - text
 				.ver-capitulo-options-texto-resize
 					background-color: $black
+					+box-shadow(2)
 					display: flex
 					overflow: hidden
 					+border-radius(4px)
@@ -226,6 +253,7 @@
 					align-items: center
 					background-color: $black
 					+border-radius(4px)
+					+box-shadow(2)
 					color: #fff
 					cursor: pointer
 					display: flex
@@ -233,6 +261,30 @@
 					justify-content: center
 					margin-left: 10px
 					width: 40px
+					+respond-to(xs)
+						margin-left: 8px
+					+respond-to(xx)
+						margin-left: 4px
+					&:hover
+						color: $teal
+				
+				// 
+				.ver-capitulo-options-volume
+					align-items: center
+					background-color: $black
+					+border-radius(4px)
+					+box-shadow(2)
+					color: #fff
+					cursor: pointer
+					display: flex
+					height: 40px
+					justify-content: center
+					margin-left: 10px
+					width: 40px
+					+respond-to(xs)
+						margin-left: 8px
+					+respond-to(xx)
+						margin-left: 4px
 					&:hover
 						color: $teal
 
@@ -247,13 +299,22 @@
 				position: fixed
 				right: 20px
 				top: 400px
-				z-index: 3
+				z-index: 8
+				+respond-to(xx)
+					right: 10px
 				span
 					font-size: 0.7em
 					margin-right: 8px
 					text-transform: uppercase
+					+respond-to(xs)
+						display: none
 				i
 					font-size: 0.85em
+					+respond-to(xs)
+						font-size: 1.8em
+					+respond-to(xx)
+						font-size: 1.6em
+
 			.ver-capitulo-close-screen
 				display: none
 		.container
@@ -634,6 +695,16 @@
 	position: fixed
 	right: 40px
 	z-index: 9
+	+respond-to(sm)
+		// background-color: red
+		flex-direction: column
+	+respond-to(xs)
+		// background-color: yellow
+		flex-direction: column
+		right: 18px
+	+respond-to(xx)
+		// background-color: blue
+		right: 4px
 	.ver-capitulo-controlers-btn-circle,
 	.listado-controlers-btn-circle
 		align-items: center
@@ -648,6 +719,10 @@
 		margin-left: 12px
 		position: relative
 		width: 50px
+		+respond-to(sm)
+			margin-top: 10px
+		+respond-to(xs)
+			margin-top: 10px
 		i
 			font-size: 1.5em
 		// Btn Ver capítulo - Texto

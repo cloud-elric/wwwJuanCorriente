@@ -298,6 +298,13 @@ if ($isAdmin) {
 			</span>
 			<!-- end - .ver-capitulo-options-focus -->
 
+			<!-- .ver-capitulo-options-volume -->
+			<span class="ver-capitulo-options-volume">
+				<i class="ion ion-android-volume-up"></i>
+				<!-- <i class="ion ion-android-volume-off"></i> -->
+			</span>
+			<!-- end - .ver-capitulo-options-volume -->
+
 		</div>
 		<!-- end - .ver-capitulo-options -->
 
