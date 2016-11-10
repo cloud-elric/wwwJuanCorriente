@@ -76,11 +76,194 @@ if ($isAdmin) {
 			class="ion ion-android-arrow-back"></i>
 		</a>
 
-		<!-- Leer de día o noche -->
-		<i class="ion ion-ios-book ver-capitulo-leer"></i>
+		<!-- Ver capítulos -->
+		<p class="ver-capitulos">
+			<i class="ion ion-ios-book "></i>
+			<span>Capítulos</span>
+		</p>
 
-		<!-- Leer de día o noche FullScreen -->
-		<i class="ion ion-ios-book ver-capitulo-leer-full"></i>
+		<!-- .nav-capitulos -->
+		<div class="nav-capitulos nav-scroll" data-options='{"direction": "vertical", "contentSelector": ">", "containerSelector": ">"}'>
+
+			<div>
+				<div>
+
+					<!-- .nav-capitulos-cont -->
+					<div class="nav-capitulos-cont">
+						
+						<!-- .close-nav-capitulos -->
+						<span class="close-nav-capitulos"><i class="ion ion-close-round"></i></span>
+
+						<!-- .nav-capitulos-item -->
+						<div class="nav-capitulos-item">
+
+							<!-- .nav-capitulos-item-capitulo -->
+							<h4 class="nav-capitulos-item-capitulo">Capítulo 1</h4>
+							<!-- end .nav-capitulos-item-capitulo -->
+
+
+							<!-- .nav-capitulos-item-imagen -->
+							<div class="nav-capitulos-item-imagen" style="background-image: url(<?=Url::base()?>/webAssets/images/portada1.jpg);">
+								Imagen
+							</div>
+							<!-- end - .nav-capitulos-item-imagen -->
+							
+							<!-- .nav-capitulos-item-titulo -->
+							<h3 class="nav-capitulos-item-titulo">
+								Título del siguiente capítulo
+							</h3>
+							<!-- end - .nav-capitulos-item-titulo -->
+
+						</div>
+						<!-- end - .nav-capitulos-item -->
+
+						<!-- .nav-capitulos-item -->
+						<div class="nav-capitulos-item">
+
+							<!-- .nav-capitulos-item-capitulo -->
+							<h4 class="nav-capitulos-item-capitulo">Capítulo 1</h4>
+							<!-- end .nav-capitulos-item-capitulo -->
+
+
+							<!-- .nav-capitulos-item-imagen -->
+							<div class="nav-capitulos-item-imagen" style="background-image: url(<?=Url::base()?>/webAssets/images/portada1.jpg);">
+								Imagen
+							</div>
+							<!-- end - .nav-capitulos-item-imagen -->
+							
+							<!-- .nav-capitulos-item-titulo -->
+							<h3 class="nav-capitulos-item-titulo">
+								Título del siguiente capítulo
+							</h3>
+							<!-- end - .nav-capitulos-item-titulo -->
+
+						</div>
+						<!-- end - .nav-capitulos-item -->
+
+						<!-- .nav-capitulos-item -->
+						<div class="nav-capitulos-item">
+
+							<!-- .nav-capitulos-item-capitulo -->
+							<h4 class="nav-capitulos-item-capitulo">Capítulo 1</h4>
+							<!-- end .nav-capitulos-item-capitulo -->
+
+
+							<!-- .nav-capitulos-item-imagen -->
+							<div class="nav-capitulos-item-imagen" style="background-image: url(<?=Url::base()?>/webAssets/images/portada1.jpg);">
+								Imagen
+							</div>
+							<!-- end - .nav-capitulos-item-imagen -->
+							
+							<!-- .nav-capitulos-item-titulo -->
+							<h3 class="nav-capitulos-item-titulo">
+								Título del siguiente capítulo
+							</h3>
+							<!-- end - .nav-capitulos-item-titulo -->
+
+						</div>
+						<!-- end - .nav-capitulos-item -->
+
+						<!-- .nav-capitulos-item -->
+						<div class="nav-capitulos-item">
+
+							<!-- .nav-capitulos-item-capitulo -->
+							<h4 class="nav-capitulos-item-capitulo">Capítulo 1</h4>
+							<!-- end .nav-capitulos-item-capitulo -->
+
+
+							<!-- .nav-capitulos-item-imagen -->
+							<div class="nav-capitulos-item-imagen" style="background-image: url(<?=Url::base()?>/webAssets/images/portada1.jpg);">
+								Imagen
+							</div>
+							<!-- end - .nav-capitulos-item-imagen -->
+							
+							<!-- .nav-capitulos-item-titulo -->
+							<h3 class="nav-capitulos-item-titulo">
+								Título del siguiente capítulo
+							</h3>
+							<!-- end - .nav-capitulos-item-titulo -->
+
+						</div>
+						<!-- end - .nav-capitulos-item -->
+
+						<!-- .nav-capitulos-item -->
+						<div class="nav-capitulos-item">
+
+							<!-- .nav-capitulos-item-capitulo -->
+							<h4 class="nav-capitulos-item-capitulo">Capítulo 1</h4>
+							<!-- end .nav-capitulos-item-capitulo -->
+
+
+							<!-- .nav-capitulos-item-imagen -->
+							<div class="nav-capitulos-item-imagen" style="background-image: url(<?=Url::base()?>/webAssets/images/portada1.jpg);">
+								Imagen
+							</div>
+							<!-- end - .nav-capitulos-item-imagen -->
+							
+							<!-- .nav-capitulos-item-titulo -->
+							<h3 class="nav-capitulos-item-titulo">
+								Título del siguiente capítulo
+							</h3>
+							<!-- end - .nav-capitulos-item-titulo -->
+
+						</div>
+						<!-- end - .nav-capitulos-item -->
+
+						<!-- .nav-capitulos-item -->
+						<div class="nav-capitulos-item">
+
+							<!-- .nav-capitulos-item-capitulo -->
+							<h4 class="nav-capitulos-item-capitulo">Capítulo 1</h4>
+							<!-- end .nav-capitulos-item-capitulo -->
+
+
+							<!-- .nav-capitulos-item-imagen -->
+							<div class="nav-capitulos-item-imagen" style="background-image: url(<?=Url::base()?>/webAssets/images/portada1.jpg);">
+								Imagen
+							</div>
+							<!-- end - .nav-capitulos-item-imagen -->
+							
+							<!-- .nav-capitulos-item-titulo -->
+							<h3 class="nav-capitulos-item-titulo">
+								Título del siguiente capítulo
+							</h3>
+							<!-- end - .nav-capitulos-item-titulo -->
+
+						</div>
+						<!-- end - .nav-capitulos-item -->
+
+						<!-- .nav-capitulos-item -->
+						<div class="nav-capitulos-item">
+
+							<!-- .nav-capitulos-item-capitulo -->
+							<h4 class="nav-capitulos-item-capitulo">Capítulo 1</h4>
+							<!-- end .nav-capitulos-item-capitulo -->
+
+
+							<!-- .nav-capitulos-item-imagen -->
+							<div class="nav-capitulos-item-imagen" style="background-image: url(<?=Url::base()?>/webAssets/images/portada1.jpg);">
+								Imagen
+							</div>
+							<!-- end - .nav-capitulos-item-imagen -->
+							
+							<!-- .nav-capitulos-item-titulo -->
+							<h3 class="nav-capitulos-item-titulo">
+								Título del siguiente capítulo
+							</h3>
+							<!-- end - .nav-capitulos-item-titulo -->
+
+						</div>
+						<!-- end - .nav-capitulos-item -->
+
+
+					</div>
+					<!-- end - .nav-capitulos-cont -->
+
+				</div>
+			</div>
+
+		</div>
+		<!-- end - .nav-capitulos -->
 
 		<!-- FullScreen -->
 		<div class="ver-capitulo-full-screen" id="full-screen">
@@ -91,6 +274,30 @@ if ($isAdmin) {
 		<div class="ver-capitulo-close-screen" id="close-screen">
 			<span>Exit Screen</span> <i class="ion ion-arrow-shrink"></i>
 		</div>
+
+		<!-- .ver-capitulo-options -->
+		<div class="ver-capitulo-options">
+
+			<!-- .ver-capitulo-options-texto-resize -->
+			<div class="ver-capitulo-options-texto-resize">
+				<button class="ver-capitulo-options-texto-resize-icon"><i id="icon-user" class="ion ion-arrow-resize"></i></i></button>
+				<div href="#" class="ver-capitulo-options-texto-resize-slider">
+					<span>a</span>
+					<input type="range" id="my-texto" min="16" max="40" step ="2" value="16">
+					<span>a</span>
+				</div>
+			</div>
+			<!-- end - .ver-capitulo-options-texto-resize -->
+
+			<!-- .ver-capitulo-options-focus -->
+			<span class="ver-capitulo-options-focus">
+				<i class="ion ion-android-bulb"></i>
+			</span>
+			<!-- end - .ver-capitulo-options-focus -->
+
+		</div>
+		<!-- end - .ver-capitulo-options -->
+
 	</div>
 	<!-- end - .ver-capitulo-header -->
 
@@ -153,6 +360,20 @@ if ($isAdmin) {
 
 		</div>
 		<!-- end - .ver-capitulo-post -->
+
+
+<!-- <div style="background-color: pink;">
+	
+
+
+<p id="demo"></p>
+
+<a href="#" class="aumentarFont">[ + aumentar ]</a> 
+<a href="#" class="disminuirFont">[ - disminuir ]</a> 
+<a href="#" class="resetearFont">[ resetear ]</a>
+
+</div> -->
+
 
 	</div>
 	<!-- end - .container -->

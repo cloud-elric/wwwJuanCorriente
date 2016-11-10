@@ -10,6 +10,7 @@
 /*  Ver Capítulo
 	================================================ */
 .ver-capitulo
+	background-color: $black
 	position: relative
 	// Header
 	.ver-capitulo-header
@@ -61,33 +62,168 @@
 			font-size: 1.3em
 			left: 30px
 			position: fixed
-			top: 42px
+			top: 46px
 			z-index: 3
 			&:hover
 				color: $teal
-		// Leer de día o noche
-		.ver-capitulo-leer
+		// Ver capítulos
+		.ver-capitulos
+			align-items: center
+			// background-color: rgba($white,.2)
 			color: $teal
 			cursor: pointer
-			font-size: 1.250em
+			display: flex
+			justify-content: center
 			left: 60px
 			position: fixed
 			top: 44px
 			z-index: 3
+			i
+				font-size: 1.7em
+			span
+				font-size: 1em
+				margin-left: 8px
 			&:hover
 				color: $white
-		// Leer de día o noche - Full
-		.ver-capitulo-leer-full
-			color: $teal
-			cursor: pointer
-			display: none
-			font-size: 1.250em
-			left: 60px
+		// Nav capítulos
+		.nav-capitulos
+			background-color: #222
+			bottom: 0
+			height: 100vh
+			left: 0
 			position: fixed
+			top: 0
+			width: 300px
+			+transition(all 300ms ease-in-out)
+			transform: translateX(-300px)
+			z-index: 4
+			.nav-capitulos-cont
+				// background-color: white
+				height: 100%
+				overflow: hidden
+				padding: 30px 15px
+				position: relative
+				width: 100%
+				.nav-capitulos-item
+					background-color: #1a1a1a
+					margin: 0 auto 30px
+					max-width: 270px
+					text-align: left
+					width: 90%
+					.nav-capitulos-item-capitulo
+						color: $white
+						font-size: .9em
+						font-weight: 300
+						padding: 3px 6px
+					.nav-capitulos-item-imagen
+						background-position: 50%
+						background-repeat: no-repeat
+						background-size: cover
+						height: 300px
+						width: 100%
+					.nav-capitulos-item-titulo
+						background-color: #AAA
+						color: $white
+						font-size: 1.25em
+						padding: 10px 6px
+				// Close
+				.close-nav-capitulos
+					align-items: center
+					background-color: $teal
+					+border-radius(50%)
+					color: $black
+					cursor: pointer
+					display: flex
+					font-size: .76em
+					height: 18px
+					justify-content: center
+					position: fixed
+					right: 8px
+					top: 20px
+					width: 18px
+					z-index: 7
+					i
+						margin-top: 2px
+			// Nav ver capitulo toggle
+			&.nav-capitulos-toggle
+				// +transition(all 300ms ease-in-out)
+				transform: translateX(0)
+		// Options
+		.ver-capitulo-options
+			// background-color: rgba(red,.8)
+			color: $teal
+			display: flex
+			font-size: 1.250em
+			position: fixed
+			right: 20px
 			top: 44px
-			z-index: 3
-			&:hover
-				color: $white
+			// width: 300px
+			z-index: 8
+			// option - text
+			.ver-capitulo-options-texto-resize
+				background-color: $black
+				display: flex
+				overflow: hidden
+				+border-radius(4px)
+				// Iniciar sesión
+				.ver-capitulo-options-texto-resize-slider
+					// background-color: $black
+					border: none
+					font-size: .95em
+					height: 40px
+					margin: 0
+					padding: 0
+					width: 0
+					color: #A9A9A9
+					+transition(width .3s ease-out)
+					+transition(padding .3s ease-out)
+					span
+						color: $teal
+						&:first-child
+							font-size: 1em
+							margin-right: 4px
+						&:last-child
+							font-size: 1.8em
+							margin-left: 4px
+					input[type="range"]
+						background-color: transparent
+					// Iniciar sesión - anim
+					&.ver-capitulo-options-texto-resize-slider-anim
+						align-items: center
+						color: $teal
+						display: flex
+						justify-content: center
+						padding: 0 4px
+						width: 190px
+						+transition(width .2s ease-in)
+				// Icon
+				.ver-capitulo-options-texto-resize-icon
+					background-color: $black
+					border: none
+					color: #fff
+					overflow: hidden
+					cursor: pointer
+					height: 40px
+					width: 40px
+					&:focus
+						outline: none
+					i
+						+transition(all 0.3s ease-in)
+			// option - focus
+			.ver-capitulo-options-focus
+				align-items: center
+				background-color: $black
+				+border-radius(4px)
+				color: #fff
+				cursor: pointer
+				display: flex
+				height: 40px
+				justify-content: center
+				margin-left: 10px
+				width: 40px
+				// &.ver-capitulo-options-focus-active
+
+
 		// FullScreen
 		.ver-capitulo-full-screen,
 		.ver-capitulo-close-screen
@@ -250,171 +386,184 @@
 				top: 0
 				width: 100%
 	
-	// Ver capítulo - white
-	&.ver-capitulo-white
-		background-color: $white
-		// Post
-		.ver-capitulo-post
-			// background-color: pink
-			.ver-capitulo-post-desc
-				.ver-capitulo-post-desc-text
-					border: 1px solid transparent
-					color: $text-base
-					&:focus,
-					&:hover
-						border: 1px solid rgba($black,.1)
-		// Imagen
-		.modal-admin-form-imagen
-			&:after
-				background-color: $white
-	// Ver capítulo - Full
-	&.ver-capitulo-full
-		// background-color: $black
-		// background-color: transparent
-		overflow-y: auto !important
-		width: 100%
-		// Imagen
-		.modal-admin-form-imagen
-			&:after
-				background-color: #000
-	// Ver capítulo - white full
-	&.ver-capitulo-white-full
-		background-color: $white
-		// Post
-		.ver-capitulo-post
-			// background-color: pink
-			.ver-capitulo-post-desc
-				.ver-capitulo-post-desc-text
-					border: 1px solid transparent
-					color: $black
-					&:focus,
-					&:hover
-						border: 1px solid rgba($black,.1)
-		// Imagen
-		.modal-admin-form-imagen
-			&:after
-				background-color: $white
-	// Ver capítulo - Admin
-	&.ver-capitulo-admin
-		// Post
-		.ver-capitulo-post
-			// Descripción
-			.ver-capitulo-post-desc
-				.ver-capitulo-post-desc-text
-					border: 1px solid transparent
-					&:focus,
-					&:hover
-						border: 1px solid rgba($white,.1)
-						outline: none
-			// Imagen
-			.ver-capitulo-post-imagen
-				img
-					border: 1px solid transparent
-					&:focus,
-					&:hover
-						border: 1px solid rgba($white,.1)
-						outline: none
-			// Btn Hover Close
-			.ver-capitulo-post-hover-close
-				// background-color: rgba(red,.3)
-				// cursor: n-resize
-				position: relative
-				// Close
-				.ver-capitulo-post-hover-close-btn
-					+border-radius(50%)
-					align-items: center
-					background-color: red
-					color: $white
-					cursor: pointer
-					display: none
-					height: 24px
-					justify-content: center
-					opacity: .9
-					position: absolute
-					right: -12px
-					top: -12px
-					width: 24px
-					i
-						font-size: 1em
-					&:hover
-						opacity: 1
-				// Mover
-				.ver-capitulo-post-hover-mover-btn
-					+border-radius(50%)
-					align-items: center
-					background-color: $primary-color
-					color: $white
-					cursor: pointer
-					display: none
-					height: 24px
-					justify-content: center
-					opacity: .9
-					position: absolute
-					right: 18px
-					top: -12px
-					width: 24px
-					i
-						font-size: 1em
-					&:hover
-						opacity: 1
-				&:hover
-					// border: 1px solid rgba($white,.1)
-					.ver-capitulo-post-hover-close-btn,
-					.ver-capitulo-post-hover-mover-btn
-						display: flex
-		// Ver capítulo - white
-		&.ver-capitulo-white
-			background-color: $white
-			// Post
-			.ver-capitulo-post
-				// background-color: pink
-				.ver-capitulo-post-desc
-					.ver-capitulo-post-desc-text
-						border: 1px solid transparent
-						color: $text-base
-						&:focus,
-						&:hover
-							border: 1px solid rgba($black,.1)
-			// Imagen
-			.ver-capitulo-post-imagen
-				img
-					border: 1px solid transparent
-					&:focus,
-					&:hover
-						border: 1px solid rgba($black,.1)
-						outline: none
-				&:after
-					background-color: $white
-		// Ver capítulo - white full
-		&.ver-capitulo-white-full,
-		&.ver-capitulo-white
-			background-color: $white
-			// Post
-			.ver-capitulo-post
-				// background-color: pink
-				.ver-capitulo-post-desc
-					.ver-capitulo-post-desc-text
-						border: 1px solid transparent
-						color: $text-base
-						&:focus,
-						&:hover
-							border: 1px solid rgba($black,.1)
-			// Imagen
-			.ver-capitulo-post-imagen
-				img
-					border: 1px solid transparent
-					&:focus,
-					&:hover
-						border: 1px solid rgba($black,.1)
-						outline: none
-				&:after
-					background-color: $white
+	// // Ver capítulo - white
+	// &.ver-capitulo-white
+	// 	background-color: $white
+	// 	// Post
+	// 	.ver-capitulo-post
+	// 		// background-color: pink
+	// 		.ver-capitulo-post-desc
+	// 			.ver-capitulo-post-desc-text
+	// 				border: 1px solid transparent
+	// 				color: $text-base
+	// 				&:focus,
+	// 				&:hover
+	// 					border: 1px solid rgba($black,.1)
+	// 	// Imagen
+	// 	.modal-admin-form-imagen
+	// 		&:after
+	// 			background-color: $white
+	// // Ver capítulo - Full
+	// &.ver-capitulo-full
+	// 	// background-color: $black
+	// 	// background-color: transparent
+	// 	overflow-y: auto !important
+	// 	width: 100%
+	// 	// Imagen
+	// 	.modal-admin-form-imagen
+	// 		&:after
+	// 			background-color: #000
+	// // Ver capítulo - white full
+	// &.ver-capitulo-white-full
+	// 	background-color: $white
+	// 	// Post
+	// 	.ver-capitulo-post
+	// 		// background-color: pink
+	// 		.ver-capitulo-post-desc
+	// 			.ver-capitulo-post-desc-text
+	// 				border: 1px solid transparent
+	// 				color: $black
+	// 				&:focus,
+	// 				&:hover
+	// 					border: 1px solid rgba($black,.1)
+	// 	// Imagen
+	// 	.modal-admin-form-imagen
+	// 		&:after
+	// 			background-color: $white
+	// // Ver capítulo - Admin
+	// &.ver-capitulo-admin
+	// 	// Post
+	// 	.ver-capitulo-post
+	// 		// Descripción
+	// 		.ver-capitulo-post-desc
+	// 			.ver-capitulo-post-desc-text
+	// 				border: 1px solid transparent
+	// 				&:focus,
+	// 				&:hover
+	// 					border: 1px solid rgba($white,.1)
+	// 					outline: none
+	// 		// Imagen
+	// 		.ver-capitulo-post-imagen
+	// 			img
+	// 				border: 1px solid transparent
+	// 				&:focus,
+	// 				&:hover
+	// 					border: 1px solid rgba($white,.1)
+	// 					outline: none
+	// 		// Btn Hover Close
+	// 		.ver-capitulo-post-hover-close
+	// 			// background-color: rgba(red,.3)
+	// 			// cursor: n-resize
+	// 			position: relative
+	// 			// Close
+	// 			.ver-capitulo-post-hover-close-btn
+	// 				+border-radius(50%)
+	// 				align-items: center
+	// 				background-color: red
+	// 				color: $white
+	// 				cursor: pointer
+	// 				display: none
+	// 				height: 24px
+	// 				justify-content: center
+	// 				opacity: .9
+	// 				position: absolute
+	// 				right: -12px
+	// 				top: -12px
+	// 				width: 24px
+	// 				i
+	// 					font-size: 1em
+	// 				&:hover
+	// 					opacity: 1
+	// 			// Mover
+	// 			.ver-capitulo-post-hover-mover-btn
+	// 				+border-radius(50%)
+	// 				align-items: center
+	// 				background-color: $primary-color
+	// 				color: $white
+	// 				cursor: pointer
+	// 				display: none
+	// 				height: 24px
+	// 				justify-content: center
+	// 				opacity: .9
+	// 				position: absolute
+	// 				right: 18px
+	// 				top: -12px
+	// 				width: 24px
+	// 				i
+	// 					font-size: 1em
+	// 				&:hover
+	// 					opacity: 1
+	// 			&:hover
+	// 				// border: 1px solid rgba($white,.1)
+	// 				.ver-capitulo-post-hover-close-btn,
+	// 				.ver-capitulo-post-hover-mover-btn
+	// 					display: flex
+	// 	// Ver capítulo - white
+	// 	&.ver-capitulo-white
+	// 		background-color: $white
+	// 		// Post
+	// 		.ver-capitulo-post
+	// 			// background-color: pink
+	// 			.ver-capitulo-post-desc
+	// 				.ver-capitulo-post-desc-text
+	// 					border: 1px solid transparent
+	// 					color: $text-base
+	// 					&:focus,
+	// 					&:hover
+	// 						border: 1px solid rgba($black,.1)
+	// 		// Imagen
+	// 		.ver-capitulo-post-imagen
+	// 			img
+	// 				border: 1px solid transparent
+	// 				&:focus,
+	// 				&:hover
+	// 					border: 1px solid rgba($black,.1)
+	// 					outline: none
+	// 			&:after
+	// 				background-color: $white
+	// 	// Ver capítulo - white full
+	// 	&.ver-capitulo-white-full,
+	// 	&.ver-capitulo-white
+	// 		background-color: $white
+	// 		// Post
+	// 		.ver-capitulo-post
+	// 			// background-color: pink
+	// 			.ver-capitulo-post-desc
+	// 				.ver-capitulo-post-desc-text
+	// 					border: 1px solid transparent
+	// 					color: $text-base
+	// 					&:focus,
+	// 					&:hover
+	// 						border: 1px solid rgba($black,.1)
+	// 		// Imagen
+	// 		.ver-capitulo-post-imagen
+	// 			img
+	// 				border: 1px solid transparent
+	// 				&:focus,
+	// 				&:hover
+	// 					border: 1px solid rgba($black,.1)
+	// 					outline: none
+	// 			&:after
+	// 				background-color: $white
 	// Etiquetas para full screen
 	&:fullscreen,
 	&:-webkit-full-screen,
 	&:-moz-full-screen
 		background-color: transparent
 
+	// Ver capítulo FOCUS
+	&.ver-capitulo-focus
+		background-color: $white
+		color: $text-base
+		.ver-capitulo-post
+			.ver-capitulo-post-desc
+				.ver-capitulo-post-desc-text
+					color: $text-base
+	
+	// Ver capítulo - Full
+	&.ver-capitulo-full
+		overflow-y: auto !important
+		width: 100%
 
 /*  FullScreen
 	================================================ */
@@ -525,3 +674,93 @@
 		text-align: center
 		top: 50%
 		width: 90%
+
+
+/*  Input [RANGE]
+	================================================ */
+input[type=range] 
+	-webkit-appearance: none
+	margin: 10px 0
+	width: 100%
+
+input[type=range]:focus 
+	outline: none
+
+input[type=range]::-webkit-slider-runnable-track 
+	width: 100%
+	height: 6px
+	cursor: pointer
+	animate: 0.2s
+	box-shadow: 0px 0px 0px #000000
+	background: rgba($teal,.8)
+	border-radius: 14px
+	border: 0px solid #000000
+
+input[type=range]::-webkit-slider-thumb 
+	box-shadow: 0px 0px 0px #000000
+	border: 0px solid #000000
+	height: 20px
+	width: 20px
+	border-radius: 50px
+	background: #948AF8
+	cursor: pointer
+	-webkit-appearance: none
+	margin-top: -7px
+
+input[type=range]:focus::-webkit-slider-runnable-track 
+	background: rgba($teal,.8)
+
+input[type=range]::-moz-range-track 
+	width: 100%
+	height: 6px
+	cursor: pointer
+	animate: 0.2s
+	box-shadow: 0px 0px 0px #000000
+	background: rgba($teal,.8)
+	border-radius: 14px
+	border: 0px solid #000000
+
+input[type=range]::-moz-range-thumb 
+	box-shadow: 0px 0px 0px #000000
+	border: 0px solid #000000
+	height: 20px
+	width: 20px
+	border-radius: 50px
+	background: #948AF8
+	cursor: pointer
+
+input[type=range]::-ms-track 
+	width: 100%
+	height: 6px
+	cursor: pointer
+	animate: 0.2s
+	background: transparent
+	border-color: transparent
+	color: transparent
+
+input[type=range]::-ms-fill-lower 
+	background: rgba($teal,.8)
+	border: 0px solid #000000
+	border-radius: 28px
+	box-shadow: 0px 0px 0px #000000
+
+input[type=range]::-ms-fill-upper 
+	background: rgba($teal,.8)
+	border: 0px solid #000000
+	border-radius: 28px
+	box-shadow: 0px 0px 0px #000000
+
+input[type=range]::-ms-thumb 
+	box-shadow: 0px 0px 0px #000000
+	border: 0px solid #000000
+	height: 20px
+	width: 20px
+	border-radius: 50px
+	background: #948AF8
+	cursor: pointer
+
+input[type=range]:focus::-ms-fill-lower 
+	background: rgba($teal,.8)
+
+input[type=range]:focus::-ms-fill-upper 
+	background: rgba($teal,.8)

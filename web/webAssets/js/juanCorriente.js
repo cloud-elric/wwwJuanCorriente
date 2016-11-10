@@ -156,6 +156,76 @@ $(document).ready(function(){
 		modalMensaje.style.display = "none";
 	});
 
+
+	/**
+	 * Click - Open Ver Capitulos
+	 */
+	$('.ver-capitulos').click(function(){
+		// $(this).toggleClass('open');
+		$(".nav-capitulos").toggleClass('nav-capitulos-toggle');
+		$("body").css("overflow", "hidden");
+	});
+
+	/**
+	 * Click - Close Ver Capitulos
+	 */
+	$('.close-nav-capitulos').click(function(){
+		// $(this).toggleClass('open');
+		$(".nav-capitulos").toggleClass('nav-capitulos-toggle');
+		$("body").css("overflow", "auto");
+	});
+
+
+	/**
+	 * asScrollbar (init - direction)
+	 */
+	Holder.run();
+	$('.nav-scroll').asScrollable();
+	$('.nav-scroll').on('asScrollable::scrolltop', function(e, api, direction) {
+	console.info('top:' + direction);
+	});
+	$('.nav-scroll').on('asScrollable::scrollend', function(e, api, direction) {
+	console.info('end:' + direction);
+	});
+
+
+	/**
+	 * Click - Variables - Funcion para agrandar div y ver input[RANGE]
+	 */
+	var slider = document.querySelector(".ver-capitulo-options-texto-resize-slider"),
+		estado = true;
+	$(".ver-capitulo-options-texto-resize-icon").on("click", function(){
+
+		if (estado) {
+			slider.classList.add("ver-capitulo-options-texto-resize-slider-anim");
+			$("#icon-user").removeClass("ion-person").addClass("ion-close-round");
+			estado = false;
+		} else {
+			slider.classList.remove("ver-capitulo-options-texto-resize-slider-anim");
+			$("#icon-user").removeClass("ion-close-round").addClass("ion-person");
+			estado = true;
+		}
+
+	});
+
+	/**
+	 * Change - Input[RANGE] optener size y agrandar texto
+	 */
+	$( "#my-texto" ).change(function() {
+		var x = document.getElementById("my-texto").value;
+		$('.ver-capitulo-post-desc').css('font-size', x + "px");
+
+		$('.ver-capitulo-post-desc').animate({fontSize: x + "px"}, 300);
+	});
+
+	/**
+	 * Click - Modo de Lectura (FOCUS)
+	 */
+	$('.ver-capitulo-options-focus').click(function(){
+		$("body").toggleClass('body-focus');
+		$(".ver-capitulo").toggleClass('ver-capitulo-focus');
+	});
+
 }); // end - READY
 
 /**
