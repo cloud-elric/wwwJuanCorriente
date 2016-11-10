@@ -41,11 +41,14 @@ if ($isAdmin) {
 
 <!-- .ver-capitulo -->
 <div class="ver-capitulo <?=$isAdmin?'ver-capitulo-admin':''?>" id="specialstuff">
-	
+
 	<!-- .ver-capitulo-header -->
 	<div class="ver-capitulo-header" data-token='<?=empty($header)?'':$header->txt_valor?>' style="background-image: url(<?=Url::base().'/webAssets/uploads/'.(empty($header)?'portada.jpg':ConstantesWeb::PREX_IMG.$header->txt_valor)?>)">
 		
 	</div>
+
+	<div class="ver-capitulo-cont">
+	
 	<!-- .ver-capitulo-header -->
 	<div class="ver-capitulo-header-textos">
 	<?php if($isAdmin){?>
@@ -280,7 +283,7 @@ if ($isAdmin) {
 
 			<!-- .ver-capitulo-options-texto-resize -->
 			<div class="ver-capitulo-options-texto-resize">
-				<button class="ver-capitulo-options-texto-resize-icon"><i id="icon-user" class="ion ion-arrow-resize"></i></i></button>
+				<button class="ver-capitulo-options-texto-resize-icon"><i id="icon-resize" class="ion ion-arrow-resize"></i></i></button>
 				<div href="#" class="ver-capitulo-options-texto-resize-slider">
 					<span>a</span>
 					<input type="range" id="my-texto" min="16" max="40" step ="2" value="16">
@@ -302,7 +305,7 @@ if ($isAdmin) {
 	<!-- end - .ver-capitulo-header -->
 
 	<!-- .container -->
-	<div class="container">
+	<div class="container popup-gallery">
 
 		<!-- .ver-capitulo-post -->
 		<div class="ver-capitulo-post" id="sortable">
@@ -317,21 +320,20 @@ if ($isAdmin) {
 				
 				if($elemento->id_tipo_elemento ==ConstantesWeb::TIPO_ELEMENTO_TEXTO){
 				?>
-		<div
-				class="ver-capitulo-post-desc ver-capitulo-post-hover-close js-elemento-leer"
-				id="js-elemento-<?=$elemento->txt_token?>" data-token="<?=$elemento->txt_token?>">
-				<div class="ver-capitulo-post-desc-text <?=$classEditable?>"
-					<?=$editable?> data-token="<?=$elemento->txt_token?>">
-					<?=$elemento->txt_valor?>
-				</div>
-				<?=$closeButton?>
-			</div>		
-		
-		<?php
+					<div
+						class="ver-capitulo-post-desc ver-capitulo-post-hover-close js-elemento-leer"
+						id="js-elemento-<?=$elemento->txt_token?>" data-token="<?=$elemento->txt_token?>">
+						<div class="ver-capitulo-post-desc-text <?=$classEditable?>"
+							<?=$editable?> data-token="<?=$elemento->txt_token?>">
+							<?=$elemento->txt_valor?>
+						</div>
+						<?=$closeButton?>
+					</div>
+				<?php
 				}else if($elemento->id_tipo_elemento ==ConstantesWeb::TIPO_ELEMENTO_IMAGEN){
 					?>
 				<div data-token="<?=$elemento->txt_token?>" class="ver-capitulo-post-image ver-capitulo-post-hover-close js-elemento-leer" id="js-elemento-<?=$elemento->txt_token?>">
-				<div class="ver-capitulo-post-image-item js-container-image ver-capitulo-post-image-item-file">
+				<div class="ver-capitulo-post-image-item ver-capitulo-post-image-item-active-zoom js-container-image ver-capitulo-post-image-item-file">
 					<!-- Input -->
 					<?php if($isAdmin){?>
 					<input type="file" class="inputfile modal-admin-form-imagen" onchange="uploadImage($(this),this)" data-token="<?=$elemento->txt_token?>">
@@ -344,7 +346,13 @@ if ($isAdmin) {
 						<span id="js-progress-bar-texto" class="w3-center w3-text-white">0%</span>
 					</div>
 					<!-- Imagen -->
-					<img class="js-element-img" src="<?=Url::base().'/webAssets/uploads/'.ConstantesWeb::PREX_IMG.$elemento->txt_valor?>" alt="" style="display: block;">
+					<img class="ver-capitulo-post-image-imagen js-element-img" src="<?=Url::base().'/webAssets/uploads/'.ConstantesWeb::PREX_IMG.$elemento->txt_valor?>" alt="" style="display: block;">
+					<div class="ver-capitulo-post-image-item-zoom">
+						<a href="<?=Url::base().'/webAssets/uploads/'.ConstantesWeb::PREX_IMG.$elemento->txt_valor?>" title="The Cleaner">
+							<i class="ion ion-arrow-expand"></i>
+						</a>
+					</div>
+
 					<!-- Btn de Close -->
 					<?=$closeButton?>
 				</div>
@@ -375,6 +383,17 @@ if ($isAdmin) {
 </div> -->
 
 
+	<!-- <div class="popup-gallery">
+		<a href="http://farm9.staticflickr.com/8242/8558295633_f34a55c1c6_b.jpg" title="The Cleaner"><img src="http://farm9.staticflickr.com/8242/8558295633_f34a55c1c6_s.jpg" width="75" height="75"></a>
+		<a href="http://farm9.staticflickr.com/8382/8558295631_0f56c1284f_b.jpg" title="Winter Dance"><img src="http://farm9.staticflickr.com/8382/8558295631_0f56c1284f_s.jpg" width="75" height="75"></a>
+		<a href="http://farm9.staticflickr.com/8225/8558295635_b1c5ce2794_b.jpg" title="The Uninvited Guest"><img src="http://farm9.staticflickr.com/8225/8558295635_b1c5ce2794_s.jpg" width="75" height="75"></a>
+		<a href="http://farm9.staticflickr.com/8383/8563475581_df05e9906d_b.jpg" title="Oh no, not again!"><img src="http://farm9.staticflickr.com/8383/8563475581_df05e9906d_s.jpg" width="75" height="75"></a>
+		<a href="http://farm9.staticflickr.com/8235/8559402846_8b7f82e05d_b.jpg" title="Swan Lake"><img src="http://farm9.staticflickr.com/8235/8559402846_8b7f82e05d_s.jpg" width="75" height="75"></a>
+		<a href="http://farm9.staticflickr.com/8235/8558295467_e89e95e05a_b.jpg" title="The Shake"><img src="http://farm9.staticflickr.com/8235/8558295467_e89e95e05a_s.jpg" width="75" height="75"></a>
+		<a href="http://farm9.staticflickr.com/8378/8559402848_9fcd90d20b_b.jpg" title="Who's that, mommy?"><img src="http://farm9.staticflickr.com/8378/8559402848_9fcd90d20b_s.jpg" width="75" height="75"></a>
+	</div> -->
+
+
 	</div>
 	<!-- end - .container -->
 
@@ -401,6 +420,10 @@ if ($isAdmin) {
 	<?php
 	}
 	?>
+
+
+
+	</div>
 
 </div>
 <!-- end - .ver-capitulo -->

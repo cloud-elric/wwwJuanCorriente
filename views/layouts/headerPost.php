@@ -31,7 +31,7 @@ AppAsset::register($this);
         <div class="animsition">
             
             <?php if(!Yii::$app->user->isGuest){?>
-                <a class="btn btn-primary cerrar-sesion" href="salir">Salir</a>
+                 <a class="cerrar-sesion" href="salir"><i class="ion ion-android-exit"></i></a>
             <?php }?>
 
             <!-- .page -->
