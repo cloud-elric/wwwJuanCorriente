@@ -153,9 +153,9 @@ $form = ActiveForm::begin ( [
 		] );
 		?>
 
-			<?= $form->field($model, 'username')->textInput(['autofocus' => true])?>
+			<?= $form->field($model, 'username')->textInput(['autofocus' => true, 'placeholder'=>'Email'])?>
 
-			<?= $form->field($model, 'password')->passwordInput()?>
+			<?= $form->field($model, 'password')->passwordInput(['placeholder'=>'Contraseña'])?>
 
 			<div class="form-group">
 			<div class="col-lg-12">

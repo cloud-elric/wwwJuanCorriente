@@ -187,6 +187,33 @@ function readURL(input, element) {
  * @param element
  */
 function readURLCap(input, element) {
+	
+	var file = input.files[0];
+
+	if (!file) {
+
+		return false;
+	}
+
+	var imagefile = file.type;
+
+	var filename = element.val();
+
+	if (filename.substring(3, 11) == 'fakepath') {
+		filename = filename.substring(12);
+	}// remove c:\fake at beginning from localhost chrome
+	// var url = base+'usrUsuarios/guardarFotosCompetencia';
+
+	var match = [ "image/jpeg", "image/jpg", 'image/png' ];
+
+	if (!((imagefile == match[0]) || (imagefile == match[1]) || (imagefile == match[2]))) {
+
+		alert('Archivo no valido');
+
+		return false;
+	}
+	
+	
 	if (input.files && input.files[0]) {
 		var reader = new FileReader();
 
@@ -211,6 +238,7 @@ function readURLCap(input, element) {
  */
 function guardarImagen(input, jav) {
 
+	
 	var tokenHistoria = $("#js-historia").data('historia');
 	var tokenCapitulo = input.parents('.listado-articles-item').data('token');
 	var data = new FormData();

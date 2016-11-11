@@ -121,10 +121,12 @@ if ($isAdmin) {
 
 				</div> <!-- end - .listado-articles-item-imagen --> <!-- .listado-articles-item-title -->
 				<h3 class="listado-articles-item-title"><?=$capitulo->txt_nombre?></h3>
+				
 
 				<?php
 				if ($isAdmin) {
 					?>
+				<!--  <h3 class="listado-articles-item-title"><?=Utils::changeFormatDate($capitulo->fch_publicacion)?></h3>-->	
 				<!-- Btn de Close --> <span
 				class="listado-articles-item-hover-close-btn" style="display: none;"><i
 					class="ion ion-close-round"></i></span>
