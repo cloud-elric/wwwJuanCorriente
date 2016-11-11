@@ -1807,6 +1807,87 @@ footer.footer-white .social-media a:hover {
   width: 100%;
 }
 
+.ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-desc .ver-capitulo-post-desc-text {
+  border: 1px solid transparent;
+}
+
+.ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-desc .ver-capitulo-post-desc-text:focus, .ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-desc .ver-capitulo-post-desc-text:hover {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  outline: none;
+}
+
+.ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-imagen img {
+  border: 1px solid transparent;
+}
+
+.ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-imagen img:focus, .ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-imagen img:hover {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  outline: none;
+}
+
+.ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-hover-close {
+  position: relative;
+}
+
+.ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-hover-close .ver-capitulo-post-hover-close-btn {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  align-items: center;
+  background-color: red;
+  color: #FFF;
+  cursor: pointer;
+  display: none;
+  height: 24px;
+  justify-content: center;
+  opacity: .9;
+  position: absolute;
+  right: -12px;
+  top: -12px;
+  width: 24px;
+}
+
+.ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-hover-close .ver-capitulo-post-hover-close-btn i {
+  font-size: 1em;
+}
+
+.ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-hover-close .ver-capitulo-post-hover-close-btn:hover {
+  opacity: 1;
+}
+
+.ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-hover-close .ver-capitulo-post-hover-mover-btn {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  align-items: center;
+  background-color: #4E83DA;
+  color: #FFF;
+  cursor: pointer;
+  display: none;
+  height: 24px;
+  justify-content: center;
+  opacity: .9;
+  position: absolute;
+  right: 18px;
+  top: -12px;
+  width: 24px;
+}
+
+.ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-hover-close .ver-capitulo-post-hover-mover-btn i {
+  font-size: 1em;
+}
+
+.ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-hover-close .ver-capitulo-post-hover-mover-btn:hover {
+  opacity: 1;
+}
+
+.ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-hover-close:hover .ver-capitulo-post-hover-close-btn,
+.ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-hover-close:hover .ver-capitulo-post-hover-mover-btn {
+  display: flex;
+}
+
 .ver-capitulo.ver-capitulo-focus {
   background-color: #FFF;
   color: #2F2F2F;
