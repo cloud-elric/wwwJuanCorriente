@@ -174,6 +174,11 @@ $(document)
 												+ '<span id="js-progress-bar-texto" class="w3-center w3-text-white">0%</span>'
 												+ '</div>'
 												+ '<img class="js-element-img" alt="" style="display: block;">'
+												+ '<div class="ver-capitulo-post-image-item-zoom">'
+												+ '<a href="" title="The Cleaner">'
+												+ '<i class="ion ion-arrow-expand"></i>'
+												+ '</a>'
+												+ '</div>'
 												+'<span class="ver-capitulo-post-hover-close-btn js-remove-element" data-token><i class="ion ion-close-round"></i></span>'
 												+ '<span class="ver-capitulo-post-hover-mover-btn js-mover-elemento"><i class="ion ion-arrow-move"></i></span>'
 										'</div>' + '</div>';
@@ -370,7 +375,11 @@ function readURL(input, element) {
 				var img = padre.find('.js-element-img');
 
 				img.attr("src", e.target.result);
-				
+
+				var zoom = padre.find(".ver-capitulo-post-image-item-zoom a");
+				zoom.attr("src", e.target.result);
+
+				$(".ver-capitulo-post-image-item").addClass("ver-capitulo-post-image-item-active-zoom");
             };
 			
 

@@ -10,6 +10,7 @@
 /*  Ver Capítulo
 	================================================ */
 .ver-capitulo
+	background-color: $black
 	position: relative
 	// Header
 	.ver-capitulo-header
@@ -21,259 +22,516 @@
 		background-size: cover
 		display: flex
 		flex-direction: column
-		height: 444px
+		height: 70vh
+		left: 0
 		justify-content: space-around
-		margin-bottom: 30px
-		position: relative
+		// margin-bottom: 30px
+		position: fixed
+		right: 0
+		top: 0
 		+transition(all 0.3s ease-in)
-		// Logo
-		h1
-			color: $white
-			font-size: 1.406em
-			margin-top: 30px
-		// Title
-		h2
-			color: $white
-			font-size: 4.063em
-			font-weight: 400
-			margin-top: 140px
-			text-align: center
-		// Btn to Back
-		.ver-capitulo-back
-			color: $white
-			cursor: pointer
-			font-size: 1.3em
-			left: 30px
-			position: absolute
-			top: 42px
-			z-index: 3
-			&:hover
-				color: $teal
-		// Leer de día o noche
-		.ver-capitulo-leer
-			color: $teal
-			cursor: pointer
-			font-size: 1.250em
-			left: 60px
-			position: absolute
-			top: 44px
-			z-index: 3
-			&:hover
-				color: $white
-		// Leer de día o noche - Full
-		.ver-capitulo-leer-full
-			color: $teal
-			cursor: pointer
-			display: none
-			font-size: 1.250em
-			left: 60px
-			position: absolute
-			top: 44px
-			z-index: 3
-			&:hover
-				color: $white
-		// FullScreen
-		.ver-capitulo-full-screen,
-		.ver-capitulo-close-screen
-			align-items: center
-			color: $teal
-			cursor: pointer
-			display: flex
-			justify-content: center
-			position: absolute
-			right: 20px
-			top: 400px
-			z-index: 3
-			span
-				font-size: 0.7em
-				margin-right: 8px
-				text-transform: uppercase
-			i
-				font-size: 0.85em
-		.ver-capitulo-close-screen
-			display: none
-	// Post
-	.ver-capitulo-post
-		margin: 0 auto
-		max-width: 600px
-		width: 90%
-		// Descripción
-		.ver-capitulo-post-desc
-			.ver-capitulo-post-desc-text
-				// border: 1px solid transparent
-				color: #AAF5F5
-				font-size: .9em
-				line-height: 1.250em
-				margin-bottom: 22px
-				padding: 4px
-				text-align: justify
-				// &:focus
-				// 	border: 1px solid rgba($white,.1)
-				// 	outline: none
-		// Imagen
-		.ver-capitulo-post-image
-			// background-color: red
-			align-items: center
-			display: flex
-			justify-content: center
-			margin: 0 auto 20px
+		z-index: 1
+	.ver-capitulo-cont
+		position: relative
+		z-index: 4
+		.ver-capitulo-header-textos
+			// background-color: rgba(yellow,.34)
+			height: 70vh
+			padding: 30px 0
 			position: relative
-			.ver-capitulo-post-image-item
+			text-align: center
+			z-index: 2
+			+respond-to(xs)
+				padding: 120px 0 30px
+			// Logo
+			h1
+				color: $white
+				font-size: 1.406em
+				margin-top: 0
+			// Title
+			h2
+				bottom: 30px
+				color: $white
+				font-size: 4.063em
+				font-weight: 400
+				left: 50%
+				margin-left: -400px
+				margin-top: 140px
+				position: absolute
+				text-align: center
+				width: 800px
+				+respond-to(sm)
+					font-size: 3.7em
+					margin-left: -45%
+					width: 90%
+				+respond-to(xs)
+					font-size: 2.2em
+					margin-left: -45%
+					width: 90%
+				+respond-to(xx)
+					font-size: 1.6em
+			// Btn to Back
+			.ver-capitulo-back
+				color: $white
+				cursor: pointer
+				font-size: 1.3em
+				left: 30px
+				position: fixed
+				top: 54px
+				z-index: 3
+				+respond-to(xx)
+					left: 20px
+				&:hover
+					color: $teal
+			// Ver capítulos
+			.ver-capitulos
 				align-items: center
-				// background-color: yellow
+				background-color: $black
+				+border-radius(4px)
+				+box-shadow(2)
+				color: $teal
+				cursor: pointer
 				display: flex
 				justify-content: center
-				&.ver-capitulo-post-image-item-file
-					.inputfile
-						+ label
-							+box-shadow(2)
-							left: 50%
-							margin-left: -78px
-							margin-top: -22.5px
-							position: absolute
-							top: 50%
-				.inputfile
-					width: 0.1px
-					height: 0.1px
-					opacity: 0
-					overflow: hidden
-					position: absolute
-					z-index: -1
-					// display: none
-					// visibility: hidden
-					+ label
-						align-items: center
-						background-color: $black
-						border: 1px dashed #C4CFD4
-						color: $white
-						display: flex
-						justify-content: center
-						font-family: $font-base
+				height: 40px
+				left: 60px
+				padding: 0 14px
+				position: fixed
+				top: 44px
+				z-index: 3
+				+respond-to(xx)
+					left: 44px
+					padding: 0 12px
+				i
+					font-size: 1.7em
+					+respond-to(xx)
 						font-size: 1.2em
-						font-weight: 300
-						min-height: 30px
-						overflow: hidden
-						padding: 10px
-						position: relative
-						width: 156px
-						// &:focus
-						// 	outline: none
-					&:focus + label,
-					+ label:hover
-						background-color: rgba($black,.8)
-					+ label
+				span
+					font-size: 1em
+					margin-left: 8px
+					+respond-to(xx)
+						display: none
+				&:hover
+					color: $white
+			// Nav capítulos
+			.nav-capitulos
+				background-color: #222
+				bottom: 0
+				height: 100vh
+				left: 0
+				position: fixed
+				top: 0
+				width: 300px
+				+transition(all 300ms ease-in-out)
+				transform: translateX(-300px)
+				z-index: 4
+				.nav-capitulos-cont
+					// background-color: white
+					height: 100%
+					overflow: hidden
+					padding: 30px 15px
+					position: relative
+					width: 100%
+					.nav-capitulos-item
+						background-color: #1a1a1a
+						margin: 0 auto 30px
+						max-width: 270px
+						text-align: left
+						width: 90%
+						.nav-capitulos-item-capitulo
+							color: $white
+							font-size: .9em
+							font-weight: 300
+							padding: 3px 6px
+						.nav-capitulos-item-imagen
+							background-position: 50%
+							background-repeat: no-repeat
+							background-size: cover
+							height: 300px
+							width: 100%
+						.nav-capitulos-item-titulo
+							background-color: #AAA
+							color: $white
+							font-size: 1.25em
+							padding: 10px 6px
+					// Close
+					.close-nav-capitulos
+						align-items: center
+						background-color: $teal
+						+border-radius(50%)
+						color: $black
 						cursor: pointer
-					&:focus + label
-						// outline: 1px dotted #000
-						// outline: -webkit-focus-ring-color auto 5px
+						display: flex
+						font-size: .76em
+						height: 18px
+						justify-content: center
+						position: fixed
+						right: 8px
+						top: 20px
+						width: 18px
+						z-index: 7
+						i
+							margin-top: 2px
+				// Nav ver capitulo toggle
+				&.nav-capitulos-toggle
+					// +transition(all 300ms ease-in-out)
+					transform: translateX(0)
+			// Options
+			.ver-capitulo-options
+				// background-color: rgba(red,.8)
+				color: $teal
+				display: flex
+				font-size: 1.250em
+				position: fixed
+				right: 70px
+				top: 44px
+				// width: 150px
+				z-index: 8
+				+respond-to(xs)
+					right: 66px
+				+respond-to(xx)
+					right: 64px
+				
+				// option - text
+				.ver-capitulo-options-texto-resize
+					background-color: $black
+					+box-shadow(2)
+					display: flex
+					overflow: hidden
+					+border-radius(4px)
+					// Iniciar sesión
+					.ver-capitulo-options-texto-resize-slider
+						// background-color: $black
+						border: none
+						font-size: .95em
+						height: 40px
+						margin: 0
+						opacity: 0
+						padding: 0
+						width: 0
+						color: #A9A9A9
+						+transition(width .3s ease-out)
+						+transition(padding .3s ease-out)
+						span
+							color: $teal
+							&:first-child
+								font-size: 1em
+								margin-right: 4px
+							&:last-child
+								font-size: 1.8em
+								margin-left: 4px
+						input[type="range"]
+							background-color: transparent
+						// Iniciar sesión - anim
+						&.ver-capitulo-options-texto-resize-slider-anim
+							align-items: center
+							color: $teal
+							display: flex
+							justify-content: center
+							opacity: 1
+							padding: 0 4px
+							width: 190px
+							+transition(width .2s ease-in)
+					// Icon
+					.ver-capitulo-options-texto-resize-icon
+						background-color: $black
+						border: none
+						color: #fff
+						overflow: hidden
+						cursor: pointer
+						height: 40px
+						width: 40px
+						&:focus,
+						&:hover
+							color: $teal
+							outline: none
+						i
+							+transition(all 0.3s ease-in)
+				
+				// option - focus
+				.ver-capitulo-options-focus
+					align-items: center
+					background-color: $black
+					+border-radius(4px)
+					+box-shadow(2)
+					color: #fff
+					cursor: pointer
+					display: flex
+					height: 40px
+					justify-content: center
+					margin-left: 10px
+					width: 40px
+					+respond-to(xs)
+						margin-left: 8px
+					+respond-to(xx)
+						margin-left: 4px
+					&:hover
 						color: $teal
-						border: 1px dashed $teal
-					+ label *
-						pointer-events: none
+				
+				// 
+				.ver-capitulo-options-volume
+					align-items: center
+					background-color: $black
+					+border-radius(4px)
+					+box-shadow(2)
+					color: #fff
+					cursor: pointer
+					display: flex
+					height: 40px
+					justify-content: center
+					margin-left: 10px
+					width: 40px
+					+respond-to(xs)
+						margin-left: 8px
+					+respond-to(xx)
+						margin-left: 4px
+					&:hover
+						color: $teal
+
+			// FullScreen
+			.ver-capitulo-full-screen,
+			.ver-capitulo-close-screen
+				align-items: center
+				color: $teal
+				cursor: pointer
+				display: flex
+				justify-content: center
+				position: fixed
+				right: 20px
+				top: 400px
+				z-index: 8
+				+respond-to(xx)
+					right: 10px
+				span
+					font-size: 0.7em
+					margin-right: 8px
+					text-transform: uppercase
+					+respond-to(xs)
+						display: none
+				i
+					font-size: 0.85em
+					+respond-to(xs)
+						font-size: 1.8em
+					+respond-to(xx)
+						font-size: 1.6em
+
+			.ver-capitulo-close-screen
+				display: none
+		.container
+			position: relative
+			z-index: 1
+		// Post
+		.ver-capitulo-post
+			// background-color: rgba(red,.34)
+			margin: 0 auto
+			max-width: 600px
+			padding: 20px 0
+			position: relative
+			width: 90%
+			z-index: 2
+			// Descripción
+			.ver-capitulo-post-desc
+				.ver-capitulo-post-desc-text
+					// border: 1px solid transparent
+					color: #AAF5F5
+					font-size: .9em
+					line-height: 1.250em
+					margin-bottom: 22px
+					padding: 4px
+					text-align: justify
+					// &:focus
+					// 	border: 1px solid rgba($white,.1)
+					// 	outline: none
+			// Imagen
+			.ver-capitulo-post-image
+				// background-color: red
+				align-items: center
+				display: flex
+				justify-content: center
+				margin: 0 auto 20px
+				position: relative
+				.ver-capitulo-post-image-item
+					align-items: center
+					// background-color: yellow
+					display: flex
+					justify-content: center
+					&.ver-capitulo-post-image-item-file
+						.inputfile
+							+ label
+								+box-shadow(2)
+								left: 50%
+								margin-left: -78px
+								margin-top: -22.5px
+								position: absolute
+								top: 50%
+					.inputfile
+						width: 0.1px
+						height: 0.1px
+						opacity: 0
+						overflow: hidden
+						position: absolute
+						z-index: -1
+						// display: none
+						// visibility: hidden
+						+ label
+							align-items: center
+							background-color: $black
+							border: 1px dashed #C4CFD4
+							color: $white
+							display: flex
+							justify-content: center
+							font-family: $font-base
+							font-size: 1.2em
+							font-weight: 300
+							min-height: 30px
+							overflow: hidden
+							padding: 10px
+							position: relative
+							width: 156px
+							// &:focus
+							// 	outline: none
+						&:focus + label,
+						+ label:hover
+							background-color: rgba($black,.8)
+						+ label
+							cursor: pointer
+						&:focus + label
+							// outline: 1px dotted #000
+							// outline: -webkit-focus-ring-color auto 5px
+							color: $teal
+							border: 1px dashed $teal
+						+ label *
+							pointer-events: none
+					img
+						display: none
+						margin: 0 auto 22px
+						max-width: 100%
+						width: auto
+					// zoom
+					.ver-capitulo-post-image-item-zoom
+						align-items: center
+						background-color: #AAA
+						+border-radius(6px)
+						+box-shadow(1)
+						bottom: 16%
+						cursor: pointer
+						display: none
+						height: 30px
+						justify-content: center
+						position: absolute
+						right: 10%
+						width: 30px
+						i
+							color: $white
+							font-size: 1.36em
+					// &:hover
+					// 	.ver-capitulo-post-image-item-zoom
+					// 		display: flex
+					// item + zoom
+					&.ver-capitulo-post-image-item-active-zoom
+						&:hover
+							.ver-capitulo-post-image-item-zoom
+								display: flex
+
+			.ver-capitulo-post-imagen
+				text-align: center
 				img
-					display: none
+					// border: 1px solid transparent
 					margin: 0 auto 22px
 					max-width: 100%
 					width: auto
-		.ver-capitulo-post-imagen
-			text-align: center
-			img
-				// border: 1px solid transparent
-				margin: 0 auto 22px
-				max-width: 100%
-				width: auto
+					// &:focus
+					// 	border: 1px solid rgba($white,.1)
+					// 	outline: none
+			
 				// &:focus
 				// 	border: 1px solid rgba($white,.1)
 				// 	outline: none
-		
-			// &:focus
-			// 	border: 1px solid rgba($white,.1)
-			// 	outline: none
-		// File Imagen Post
-		.modal-admin-form-imagen
-			align-items: center
-			background-color: $black
-			display: flex
-			border: 1px dashed #C4CFD4
-			justify-content: center
-			height: 100px
-			margin-bottom: 30px
-			overflow: hidden
-			position: relative
-			width: 100%
-			span
-				color: #979797
-				display: block
-				font-size: 1.6em
-			&:focus,
-			&:hover
-				border: 1px dashed #979797
-				outline: none
-				&:after
-					color: #979797
-			&:after
+			// File Imagen Post
+			.modal-admin-form-imagen
 				align-items: center
 				background-color: $black
-				bottom: 0
-				content: "Agregar Imagen"
-				color: #C4CFD4
-				cursor: pointer
 				display: flex
-				font-family: $font-base
-				font-size: 1.3em
-				font-weight: 400
-				height: 100%
+				border: 1px dashed #C4CFD4
 				justify-content: center
-				left: 0
-				position: absolute
-				right: 0
-				top: 0
+				height: 100px
+				margin-bottom: 30px
+				overflow: hidden
+				position: relative
 				width: 100%
+				span
+					color: #979797
+					display: block
+					font-size: 1.6em
+				&:focus,
+				&:hover
+					border: 1px dashed #979797
+					outline: none
+					&:after
+						color: #979797
+				&:after
+					align-items: center
+					background-color: $black
+					bottom: 0
+					content: "Agregar Imagen"
+					color: #C4CFD4
+					cursor: pointer
+					display: flex
+					font-family: $font-base
+					font-size: 1.3em
+					font-weight: 400
+					height: 100%
+					justify-content: center
+					left: 0
+					position: absolute
+					right: 0
+					top: 0
+					width: 100%
 	
-	// Ver capítulo - white
-	&.ver-capitulo-white
-		background-color: $white
-		// Post
-		.ver-capitulo-post
-			// background-color: pink
-			.ver-capitulo-post-desc
-				.ver-capitulo-post-desc-text
-					border: 1px solid transparent
-					color: $text-base
-					&:focus,
-					&:hover
-						border: 1px solid rgba($black,.1)
-		// Imagen
-		.modal-admin-form-imagen
-			&:after
-				background-color: $white
-	// Ver capítulo - Full
-	&.ver-capitulo-full
-		// background-color: $black
-		// background-color: transparent
-		overflow-y: auto !important
-		width: 100%
-		// Imagen
-		.modal-admin-form-imagen
-			&:after
-				background-color: #000
-	// Ver capítulo - white full
-	&.ver-capitulo-white-full
-		background-color: $white
-		// Post
-		.ver-capitulo-post
-			// background-color: pink
-			.ver-capitulo-post-desc
-				.ver-capitulo-post-desc-text
-					border: 1px solid transparent
-					color: $black
-					&:focus,
-					&:hover
-						border: 1px solid rgba($black,.1)
-		// Imagen
-		.modal-admin-form-imagen
-			&:after
-				background-color: $white
+	// // Ver capítulo - white
+	// &.ver-capitulo-white
+	// 	background-color: $white
+	// 	// Post
+	// 	.ver-capitulo-post
+	// 		// background-color: pink
+	// 		.ver-capitulo-post-desc
+	// 			.ver-capitulo-post-desc-text
+	// 				border: 1px solid transparent
+	// 				color: $text-base
+	// 				&:focus,
+	// 				&:hover
+	// 					border: 1px solid rgba($black,.1)
+	// 	// Imagen
+	// 	.modal-admin-form-imagen
+	// 		&:after
+	// 			background-color: $white
+	// // Ver capítulo - Full
+	// &.ver-capitulo-full
+	// 	// background-color: $black
+	// 	// background-color: transparent
+	// 	overflow-y: auto !important
+	// 	width: 100%
+	// 	// Imagen
+	// 	.modal-admin-form-imagen
+	// 		&:after
+	// 			background-color: #000
+	// // Ver capítulo - white full
+	// &.ver-capitulo-white-full
+	// 	background-color: $white
+	// 	// Post
+	// 	.ver-capitulo-post
+	// 		// background-color: pink
+	// 		.ver-capitulo-post-desc
+	// 			.ver-capitulo-post-desc-text
+	// 				border: 1px solid transparent
+	// 				color: $black
+	// 				&:focus,
+	// 				&:hover
+	// 					border: 1px solid rgba($black,.1)
+	// 	// Imagen
+	// 	.modal-admin-form-imagen
+	// 		&:after
+	// 			background-color: $white
 	// Ver capítulo - Admin
 	&.ver-capitulo-admin
 		// Post
@@ -342,66 +600,86 @@
 					.ver-capitulo-post-hover-close-btn,
 					.ver-capitulo-post-hover-mover-btn
 						display: flex
-		// Ver capítulo - white
-		&.ver-capitulo-white
-			background-color: $white
-			// Post
-			.ver-capitulo-post
-				// background-color: pink
-				.ver-capitulo-post-desc
-					.ver-capitulo-post-desc-text
-						border: 1px solid transparent
-						color: $text-base
-						&:focus,
-						&:hover
-							border: 1px solid rgba($black,.1)
-			// Imagen
-			.ver-capitulo-post-imagen
-				img
-					border: 1px solid transparent
-					&:focus,
-					&:hover
-						border: 1px solid rgba($black,.1)
-						outline: none
-				&:after
-					background-color: $white
-		// Ver capítulo - white full
-		&.ver-capitulo-white-full,
-		&.ver-capitulo-white
-			background-color: $white
-			// Post
-			.ver-capitulo-post
-				// background-color: pink
-				.ver-capitulo-post-desc
-					.ver-capitulo-post-desc-text
-						border: 1px solid transparent
-						color: $text-base
-						&:focus,
-						&:hover
-							border: 1px solid rgba($black,.1)
-			// Imagen
-			.ver-capitulo-post-imagen
-				img
-					border: 1px solid transparent
-					&:focus,
-					&:hover
-						border: 1px solid rgba($black,.1)
-						outline: none
-				&:after
-					background-color: $white
+	// 	// Ver capítulo - white
+	// 	&.ver-capitulo-white
+	// 		background-color: $white
+	// 		// Post
+	// 		.ver-capitulo-post
+	// 			// background-color: pink
+	// 			.ver-capitulo-post-desc
+	// 				.ver-capitulo-post-desc-text
+	// 					border: 1px solid transparent
+	// 					color: $text-base
+	// 					&:focus,
+	// 					&:hover
+	// 						border: 1px solid rgba($black,.1)
+	// 		// Imagen
+	// 		.ver-capitulo-post-imagen
+	// 			img
+	// 				border: 1px solid transparent
+	// 				&:focus,
+	// 				&:hover
+	// 					border: 1px solid rgba($black,.1)
+	// 					outline: none
+	// 			&:after
+	// 				background-color: $white
+	// 	// Ver capítulo - white full
+	// 	&.ver-capitulo-white-full,
+	// 	&.ver-capitulo-white
+	// 		background-color: $white
+	// 		// Post
+	// 		.ver-capitulo-post
+	// 			// background-color: pink
+	// 			.ver-capitulo-post-desc
+	// 				.ver-capitulo-post-desc-text
+	// 					border: 1px solid transparent
+	// 					color: $text-base
+	// 					&:focus,
+	// 					&:hover
+	// 						border: 1px solid rgba($black,.1)
+	// 		// Imagen
+	// 		.ver-capitulo-post-imagen
+	// 			img
+	// 				border: 1px solid transparent
+	// 				&:focus,
+	// 				&:hover
+	// 					border: 1px solid rgba($black,.1)
+	// 					outline: none
+	// 			&:after
+	// 				background-color: $white
 	// Etiquetas para full screen
-	&:fullscreen,
-	&:-webkit-full-screen,
-	&:-moz-full-screen
-		background-color: transparent
+	// &:fullscreen,
+	// &:-webkit-full-screen,
+	// &:-moz-full-screen
+	// 	background-color: transparent
 
+	// Ver capítulo FOCUS
+	&.ver-capitulo-focus
+		background-color: $white
+		color: $text-base
+		.ver-capitulo-post
+			.ver-capitulo-post-desc
+				.ver-capitulo-post-desc-text
+					color: $text-base
+
+		.ver-capitulo-cont
+			.ver-capitulo-header-textos
+				h2
+					text-shadow: 0px 1px 10px rgba($black, .45);
+	
+	// Ver capítulo - Full
+	&.ver-capitulo-full
+		overflow-y: auto !important
+		width: 100%
+		.ver-capitulo-header
+			right: 18px
 
 /*  FullScreen
 	================================================ */
-:-webkit-full-screen
-	background-color: transparent
-:-moz-full-screen
-	background-color: transparent
+// :-webkit-full-screen
+// 	background-color: transparent
+// :-moz-full-screen
+// 	background-color: transparent
 
 
 
@@ -416,6 +694,17 @@
 	bottom: 50px
 	position: fixed
 	right: 40px
+	z-index: 9
+	+respond-to(sm)
+		// background-color: red
+		flex-direction: column
+	+respond-to(xs)
+		// background-color: yellow
+		flex-direction: column
+		right: 18px
+	+respond-to(xx)
+		// background-color: blue
+		right: 4px
 	.ver-capitulo-controlers-btn-circle,
 	.listado-controlers-btn-circle
 		align-items: center
@@ -430,6 +719,10 @@
 		margin-left: 12px
 		position: relative
 		width: 50px
+		+respond-to(sm)
+			margin-top: 10px
+		+respond-to(xs)
+			margin-top: 10px
 		i
 			font-size: 1.5em
 		// Btn Ver capítulo - Texto
@@ -505,3 +798,98 @@
 		text-align: center
 		top: 50%
 		width: 90%
+
+
+/*  Input [RANGE]
+	================================================ */
+input[type=range] 
+	-webkit-appearance: none
+	margin: 10px 0
+	width: 100%
+
+input[type=range]:focus 
+	outline: none
+
+input[type=range]::-webkit-slider-runnable-track 
+	width: 100%
+	height: 6px
+	cursor: pointer
+	animate: 0.2s
+	box-shadow: 0px 0px 0px #000000
+	background: rgba($teal,.8)
+	border-radius: 14px
+	border: 0px solid #000000
+
+input[type=range]::-webkit-slider-thumb 
+	box-shadow: 0px 0px 0px #000000
+	border: 0px solid #000000
+	height: 20px
+	width: 20px
+	border-radius: 50px
+	background: #948AF8
+	cursor: pointer
+	-webkit-appearance: none
+	margin-top: -7px
+
+input[type=range]:focus::-webkit-slider-runnable-track 
+	background: rgba($teal,.8)
+
+input[type=range]::-moz-range-track 
+	width: 100%
+	height: 6px
+	cursor: pointer
+	animate: 0.2s
+	box-shadow: 0px 0px 0px #000000
+	background: rgba($teal,.8)
+	border-radius: 14px
+	border: 0px solid #000000
+
+input[type=range]::-moz-range-thumb 
+	box-shadow: 0px 0px 0px #000000
+	border: 0px solid #000000
+	height: 20px
+	width: 20px
+	border-radius: 50px
+	background: #948AF8
+	cursor: pointer
+
+input[type=range]::-ms-track 
+	width: 100%
+	height: 6px
+	cursor: pointer
+	animate: 0.2s
+	background: transparent
+	border-color: transparent
+	color: transparent
+
+input[type=range]::-ms-fill-lower 
+	background: rgba($teal,.8)
+	border: 0px solid #000000
+	border-radius: 28px
+	box-shadow: 0px 0px 0px #000000
+
+input[type=range]::-ms-fill-upper 
+	background: rgba($teal,.8)
+	border: 0px solid #000000
+	border-radius: 28px
+	box-shadow: 0px 0px 0px #000000
+
+input[type=range]::-ms-thumb 
+	box-shadow: 0px 0px 0px #000000
+	border: 0px solid #000000
+	height: 20px
+	width: 20px
+	border-radius: 50px
+	background: #948AF8
+	cursor: pointer
+
+input[type=range]:focus::-ms-fill-lower 
+	background: rgba($teal,.8)
+
+input[type=range]:focus::-ms-fill-upper 
+	background: rgba($teal,.8)
+
+
+// asScroll
+.asScrollable-container-full
+	height: 100vh !important

@@ -29,8 +29,9 @@ body
 		size: 16px
 		weight: 300
 	color: $text-base
-	&.body-white
+	&.body-focus
 		background-color: $white
+		color: $text-base
 
 /* a */
 a
@@ -45,6 +46,8 @@ a
 		color: $primary-color-light
 		text-decoration: none
 		+transition(all 0.3s ease-out)
+	&:focus
+		outline: none
 
 /* img */
 img
@@ -401,8 +404,21 @@ hr
 
 // Cerrar sesión
 .cerrar-sesion
+	align-items: center
+	background-color: $black
+	+border-radius(4px)
+	+box-shadow(2)
+	color: $white
 	cursor: pointer
-	position: absolute
-	right: 30px
-	top: 20px
-	z-index: 4
+	display: flex
+	font-size: 1.1em
+	height: 40px
+	justify-content: center
+	margin-left: 10px
+	position: fixed
+	right: 20px
+	top: 44px
+	width: 40px
+	z-index: 9
+	&:hover
+		color: $teal
