@@ -117,7 +117,17 @@ class AdminPanelController extends Controller {
 		
 		if ($file) {
 			$capitulo->txt_imagen = Utils::generateToken ( 'imgC_' ) . '.' . $file->extension;
-			$file->saveAs ( 'webAssets/uploads/' . $capitulo->txt_imagen );
+			$file->saveAs ( 'webAssets/uploads/' . $capitulo->txt_imagen, false );
+			
+			$raw_file_name = $file->tempName;
+				
+			// Valida que sea una imagen
+			$size = getimagesize ( $raw_file_name );
+			list ( $width, $height, $otro, $wh ) = getimagesize ( $raw_file_name );
+			$basePath = 'webAssets/uploads/';
+			
+			$this->rezisePicture ( $basePath.$capitulo->txt_imagen, $width, $height, $width, $basePath.'min_'.$capitulo->txt_imagen, $file->extension);
+			
 		}
 		
 		if ($capitulo->save ()) {
