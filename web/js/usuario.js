@@ -28,3 +28,29 @@ function reproducirAudio(){
 function detenerAudio(){
 	audio.pause();
 }
+
+function cargarCapitulos(token){
+	var url = basePath+'site/cargar-capitulos-historia?token='+token;
+	$.ajax({
+		url:url,
+		success:function(resp){
+			
+			$.each(resp,function(index, value){
+				
+				var template = '<div class="nav-capitulos-item">'+
+				'<h4 class="nav-capitulos-item-capitulo">Capítulo '+(index+1)+'</h4>'+
+				'<div class="nav-capitulos-item-imagen" style="background-image: url('+basePath+'webAssets/uploads/'+value.txt_imagen+');">'+
+				'</div>'+
+				'<h3 class="nav-capitulos-item-titulo">'+
+					value.txt_nombre+
+				'</h3>'+
+			'</div>';
+				$('.nav-capitulos-cont').append(template);
+			});
+			
+			
+			
+			
+		}
+	});
+}
