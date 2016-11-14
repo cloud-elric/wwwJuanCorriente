@@ -43,6 +43,8 @@ if ($isAdmin) {
 
 <input type="hidden" data-token="<?=$capitulo->txt_token?>"
 	id="js-capitulo" />
+	
+<input type="hidden" data-token="<?=$historia?>" id="js-historia" />
 
 <!-- .ver-capitulo -->
 <div class="ver-capitulo <?=$isAdmin?'ver-capitulo-admin':''?>"
