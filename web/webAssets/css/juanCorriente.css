@@ -602,15 +602,15 @@ footer .social-media a:hover {
   color: #326fd4;
 }
 
-footer.footer-white h6 {
+footer.footer-focus h6 {
   color: #2F2F2F;
 }
 
-footer.footer-white .social-media a {
+footer.footer-focus .social-media a {
   color: #2F2F2F;
 }
 
-footer.footer-white .social-media a:hover {
+footer.footer-focus .social-media a:hover {
   color: #326fd4;
 }
 
@@ -1577,7 +1577,7 @@ footer.footer-white .social-media a:hover {
   justify-content: center;
   position: fixed;
   right: 20px;
-  top: 400px;
+  top: 60vh;
   z-index: 8;
 }
 
@@ -1908,6 +1908,11 @@ footer.footer-white .social-media a:hover {
 
 .ver-capitulo.ver-capitulo-full .ver-capitulo-header {
   right: 18px;
+}
+
+.ver-capitulo.ver-capitulo-full .ver-capitulo-cont .ver-capitulo-header-textos .ver-capitulo-close-screen {
+  right: 80px;
+  top: 60vh;
 }
 
 /*  FullScreen
