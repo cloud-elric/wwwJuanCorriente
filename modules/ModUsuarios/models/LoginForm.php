@@ -31,7 +31,8 @@ class LoginForm extends Model {
 								'password' 
 						],
 						'required',
-						'on' => 'login' 
+						'on' => 'login',
+						'message'=>'Campo requerido'
 				],
 				// username es requerido para recuperar la contraseña
 				[ 
@@ -54,7 +55,7 @@ class LoginForm extends Model {
 						],
 						'trim' 
 				],
-				['username','email'],
+				['username','email', 'message'=>'Debe ingresar una dirección de correo válida'],
 				
 				// rememberMe must be a boolean value
 				[ 

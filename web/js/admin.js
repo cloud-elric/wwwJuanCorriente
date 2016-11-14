@@ -1,4 +1,4 @@
-var basePath = 'http://localhost/wwwJuanCorriente/web/';
+//var basePath = 'http://localhost/wwwJuanCorriente/web/';
 //var basePath = 'http://notei.com.mx/test/wwwJuanCorriente/web/';
 
 function eliminarElemento(token) {

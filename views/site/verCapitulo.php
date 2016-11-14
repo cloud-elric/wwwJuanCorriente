@@ -6,8 +6,6 @@ use yii\helpers\Url;
 use app\models\EntElementos;
 use app\models\ConstantesWeb;
 
-
-
 $header = EntElementos::find ()->where ( [ 
 		'id_capitulo' => $capitulo->id_capitulo,
 		'b_header' => 1,
@@ -16,22 +14,28 @@ $header = EntElementos::find ()->where ( [
 
 $editable = '';
 $classEditable = '';
-$isAdmin = !Yii::$app->user->isGuest;
+$isAdmin = ! Yii::$app->user->isGuest;
 
 if ($isAdmin) {
 	$editable = " contentEditable='true' data-new='noNuevo'  data-progress='noProceso' ";
 	$classEditable = ' js-elemento-editable';
 	
-	$this->registerJsFile ( 'https://code.jquery.com/ui/1.12.1/jquery-ui.js', [
-			'depends' => [
-					\app\assets\AppAsset::className ()
-			]
+	$this->registerJsFile ( 'https://code.jquery.com/ui/1.12.1/jquery-ui.js', [ 
+			'depends' => [ 
+					\app\assets\AppAsset::className () 
+			] 
 	] );
 	
-	$this->registerJsFile ( '@web/js/admin.js', [
-			'depends' => [
-					\app\assets\AppAsset::className ()
-			]
+	$this->registerJsFile ( '@web/js/admin.js', [ 
+			'depends' => [ 
+					\app\assets\AppAsset::className () 
+			] 
+	] );
+} else {
+	$this->registerJsFile ( '@web/js/usuario.js', [ 
+			'depends' => [ 
+					\app\assets\AppAsset::className () 
+			] 
 	] );
 }
 ?>
@@ -40,7 +44,8 @@ if ($isAdmin) {
 	id="js-capitulo" />
 
 <!-- .ver-capitulo -->
-<div class="ver-capitulo <?=$isAdmin?'ver-capitulo-admin':''?>" id="specialstuff">
+<div class="ver-capitulo <?=$isAdmin?'ver-capitulo-admin':''?>"
+	id="specialstuff">
 
 	<!-- .ver-capitulo-header -->
 	<div class="ver-capitulo-header" data-token='<?=empty($header)?'':$header->txt_valor?>' style="background-image: url(<?=Url::base().'/webAssets/uploads/'.(empty($header)?'portada.jpg':ConstantesWeb::PREX_IMG.$header->txt_valor)?>)">
@@ -53,22 +58,23 @@ if ($isAdmin) {
 	<div class="ver-capitulo-header-textos">
 	<?php if($isAdmin){?>
 <div class="listado-image">
-						<div class="listado-image-item">
-							<!-- Input -->
-							<input type="file" 
-								class="inputfile modal-admin-form-imagen inputFileCard" onchange='uploadImageHeader($(this), this)' id="js-header-img">
-							<!-- Label -->
-							<label for="js-header-img" class="js-label-header">Cambiar header</label>
-							<!-- Progress Bar -->
-							<div
-								class="ver-capitulo-post-progress ver-capitulo-post-progress-full">
-<!-- 							class="ver-capitulo-post-progress ver-capitulo-post-progress-full ver-capitulo-post-progress-anim"> -->
-								<div id="js-progress-bar" class="ver-capitulo-post-progress-bar"></div>
-								<span id="js-progress-bar-texto" class="w3-center w3-text-white">0%</span>
-							</div>
-						</div>
-					</div>
-					<!-- end .listado-image -->
+			<div class="listado-image-item">
+				<!-- Input -->
+				<input type="file"
+					class="inputfile modal-admin-form-imagen inputFileCard"
+					onchange='uploadImageHeader($(this), this)' id="js-header-img">
+				<!-- Label -->
+				<label for="js-header-img" class="js-label-header">Cambiar header</label>
+				<!-- Progress Bar -->
+				<div
+					class="ver-capitulo-post-progress ver-capitulo-post-progress-full">
+					<!-- 							class="ver-capitulo-post-progress ver-capitulo-post-progress-full ver-capitulo-post-progress-anim"> -->
+					<div id="js-progress-bar" class="ver-capitulo-post-progress-bar"></div>
+					<span id="js-progress-bar-texto" class="w3-center w3-text-white">0%</span>
+				</div>
+			</div>
+		</div>
+		<!-- end .listado-image -->
 <?php }?>
 		<h1>Historias de México</h1>
 
@@ -265,8 +271,10 @@ if ($isAdmin) {
 				</div>
 			</div>
 
+
 		</div>
 		<!-- end - .nav-capitulos -->
+
 
 		<!-- FullScreen -->
 		<div class="ver-capitulo-full-screen" id="full-screen">
@@ -299,7 +307,7 @@ if ($isAdmin) {
 			<!-- end - .ver-capitulo-options-focus -->
 
 			<!-- .ver-capitulo-options-volume -->
-			<span class="ver-capitulo-options-volume">
+			<span class="ver-capitulo-options-volume js-silenciar-audio">
 				<i class="ion ion-android-volume-up"></i>
 				<!-- <i class="ion ion-android-volume-off"></i> -->
 			</span>
@@ -325,6 +333,7 @@ if ($isAdmin) {
 					$closeButton = '<span class="ver-capitulo-post-hover-close-btn js-remove-element" data-token="' . $elemento->txt_token . '"><i class="ion ion-close-round"></i></span><span class="ver-capitulo-post-hover-mover-btn js-mover-elemento"><i class="ion ion-arrow-move"></i></span>';
 				}
 				
+
 				if($elemento->id_tipo_elemento ==ConstantesWeb::TIPO_ELEMENTO_TEXTO){
 				?>
 					<div
@@ -341,9 +350,12 @@ if ($isAdmin) {
 					?>
 				<div data-token="<?=$elemento->txt_token?>" class="ver-capitulo-post-image ver-capitulo-post-hover-close js-elemento-leer" id="js-elemento-<?=$elemento->txt_token?>">
 				<div class="ver-capitulo-post-image-item ver-capitulo-post-image-item-active-zoom js-container-image ver-capitulo-post-image-item-file">
+
 					<!-- Input -->
 					<?php if($isAdmin){?>
-					<input type="file" class="inputfile modal-admin-form-imagen" onchange="uploadImage($(this),this)" data-token="<?=$elemento->txt_token?>">
+					<input type="file" class="inputfile modal-admin-form-imagen"
+						onchange="uploadImage($(this),this)"
+						data-token="<?=$elemento->txt_token?>">
 					<!-- Label -->
 					<label class="js-imagen-trigger">Cambiar</label>
 					<?php }?>
@@ -365,8 +377,7 @@ if ($isAdmin) {
 				</div>
 			</div>
 
-				<?php 
-				
+				<?php
 				}
 			}
 		}
