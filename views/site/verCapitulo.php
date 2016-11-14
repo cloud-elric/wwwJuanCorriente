@@ -49,6 +49,13 @@ if ($isAdmin) {
 
 	<!-- .ver-capitulo-header -->
 	<div class="ver-capitulo-header" data-token='<?=empty($header)?'':$header->txt_valor?>' style="background-image: url(<?=Url::base().'/webAssets/uploads/'.(empty($header)?'portada.jpg':ConstantesWeb::PREX_IMG.$header->txt_valor)?>)">
+		
+	</div>
+
+	<div class="ver-capitulo-cont">
+	
+	<!-- .ver-capitulo-header -->
+	<div class="ver-capitulo-header-textos">
 	<?php if($isAdmin){?>
 <div class="listado-image">
 			<div class="listado-image-item">
@@ -78,17 +85,196 @@ if ($isAdmin) {
 			class="ion ion-android-arrow-back"></i>
 		</a>
 
-		<!-- Leer de día o noche -->
-		<i class="ion ion-ios-book ver-capitulo-leer"></i>
+		<!-- Ver capítulos -->
+		<p class="ver-capitulos">
+			<i class="ion ion-ios-book "></i>
+			<span>Capítulos</span>
+		</p>
 
-		<!-- Desactivar sonido -->
-		<i class="ion ion-android-volume-off ver-capitulo-leer js-silenciar-audio"
-			style="left: initial; right: 60px; color: #8EF0EF;"></i>
-		<!-- 		<i class="ion ion-android-volume-up ver-capitulo-leer"></i> -->
+		<!-- .nav-capitulos -->
+		<div class="nav-capitulos nav-scroll" data-options='{"direction": "vertical", "contentSelector": ">", "containerSelector": ">"}'>
+
+			<div>
+				<div>
+
+					<!-- .nav-capitulos-cont -->
+					<div class="nav-capitulos-cont">
+						
+						<!-- .close-nav-capitulos -->
+						<span class="close-nav-capitulos"><i class="ion ion-close-round"></i></span>
+
+						<!-- .nav-capitulos-item -->
+						<div class="nav-capitulos-item">
+
+							<!-- .nav-capitulos-item-capitulo -->
+							<h4 class="nav-capitulos-item-capitulo">Capítulo 1</h4>
+							<!-- end .nav-capitulos-item-capitulo -->
 
 
-		<!-- Leer de día o noche FullScreen -->
-		<i class="ion ion-ios-book ver-capitulo-leer-full"></i>
+							<!-- .nav-capitulos-item-imagen -->
+							<div class="nav-capitulos-item-imagen" style="background-image: url(<?=Url::base()?>/webAssets/images/portada1.jpg);">
+								Imagen
+							</div>
+							<!-- end - .nav-capitulos-item-imagen -->
+							
+							<!-- .nav-capitulos-item-titulo -->
+							<h3 class="nav-capitulos-item-titulo">
+								Título del siguiente capítulo
+							</h3>
+							<!-- end - .nav-capitulos-item-titulo -->
+
+						</div>
+						<!-- end - .nav-capitulos-item -->
+
+						<!-- .nav-capitulos-item -->
+						<div class="nav-capitulos-item">
+
+							<!-- .nav-capitulos-item-capitulo -->
+							<h4 class="nav-capitulos-item-capitulo">Capítulo 1</h4>
+							<!-- end .nav-capitulos-item-capitulo -->
+
+
+							<!-- .nav-capitulos-item-imagen -->
+							<div class="nav-capitulos-item-imagen" style="background-image: url(<?=Url::base()?>/webAssets/images/portada1.jpg);">
+								Imagen
+							</div>
+							<!-- end - .nav-capitulos-item-imagen -->
+							
+							<!-- .nav-capitulos-item-titulo -->
+							<h3 class="nav-capitulos-item-titulo">
+								Título del siguiente capítulo
+							</h3>
+							<!-- end - .nav-capitulos-item-titulo -->
+
+						</div>
+						<!-- end - .nav-capitulos-item -->
+
+						<!-- .nav-capitulos-item -->
+						<div class="nav-capitulos-item">
+
+							<!-- .nav-capitulos-item-capitulo -->
+							<h4 class="nav-capitulos-item-capitulo">Capítulo 1</h4>
+							<!-- end .nav-capitulos-item-capitulo -->
+
+
+							<!-- .nav-capitulos-item-imagen -->
+							<div class="nav-capitulos-item-imagen" style="background-image: url(<?=Url::base()?>/webAssets/images/portada1.jpg);">
+								Imagen
+							</div>
+							<!-- end - .nav-capitulos-item-imagen -->
+							
+							<!-- .nav-capitulos-item-titulo -->
+							<h3 class="nav-capitulos-item-titulo">
+								Título del siguiente capítulo
+							</h3>
+							<!-- end - .nav-capitulos-item-titulo -->
+
+						</div>
+						<!-- end - .nav-capitulos-item -->
+
+						<!-- .nav-capitulos-item -->
+						<div class="nav-capitulos-item">
+
+							<!-- .nav-capitulos-item-capitulo -->
+							<h4 class="nav-capitulos-item-capitulo">Capítulo 1</h4>
+							<!-- end .nav-capitulos-item-capitulo -->
+
+
+							<!-- .nav-capitulos-item-imagen -->
+							<div class="nav-capitulos-item-imagen" style="background-image: url(<?=Url::base()?>/webAssets/images/portada1.jpg);">
+								Imagen
+							</div>
+							<!-- end - .nav-capitulos-item-imagen -->
+							
+							<!-- .nav-capitulos-item-titulo -->
+							<h3 class="nav-capitulos-item-titulo">
+								Título del siguiente capítulo
+							</h3>
+							<!-- end - .nav-capitulos-item-titulo -->
+
+						</div>
+						<!-- end - .nav-capitulos-item -->
+
+						<!-- .nav-capitulos-item -->
+						<div class="nav-capitulos-item">
+
+							<!-- .nav-capitulos-item-capitulo -->
+							<h4 class="nav-capitulos-item-capitulo">Capítulo 1</h4>
+							<!-- end .nav-capitulos-item-capitulo -->
+
+
+							<!-- .nav-capitulos-item-imagen -->
+							<div class="nav-capitulos-item-imagen" style="background-image: url(<?=Url::base()?>/webAssets/images/portada1.jpg);">
+								Imagen
+							</div>
+							<!-- end - .nav-capitulos-item-imagen -->
+							
+							<!-- .nav-capitulos-item-titulo -->
+							<h3 class="nav-capitulos-item-titulo">
+								Título del siguiente capítulo
+							</h3>
+							<!-- end - .nav-capitulos-item-titulo -->
+
+						</div>
+						<!-- end - .nav-capitulos-item -->
+
+						<!-- .nav-capitulos-item -->
+						<div class="nav-capitulos-item">
+
+							<!-- .nav-capitulos-item-capitulo -->
+							<h4 class="nav-capitulos-item-capitulo">Capítulo 1</h4>
+							<!-- end .nav-capitulos-item-capitulo -->
+
+
+							<!-- .nav-capitulos-item-imagen -->
+							<div class="nav-capitulos-item-imagen" style="background-image: url(<?=Url::base()?>/webAssets/images/portada1.jpg);">
+								Imagen
+							</div>
+							<!-- end - .nav-capitulos-item-imagen -->
+							
+							<!-- .nav-capitulos-item-titulo -->
+							<h3 class="nav-capitulos-item-titulo">
+								Título del siguiente capítulo
+							</h3>
+							<!-- end - .nav-capitulos-item-titulo -->
+
+						</div>
+						<!-- end - .nav-capitulos-item -->
+
+						<!-- .nav-capitulos-item -->
+						<div class="nav-capitulos-item">
+
+							<!-- .nav-capitulos-item-capitulo -->
+							<h4 class="nav-capitulos-item-capitulo">Capítulo 1</h4>
+							<!-- end .nav-capitulos-item-capitulo -->
+
+
+							<!-- .nav-capitulos-item-imagen -->
+							<div class="nav-capitulos-item-imagen" style="background-image: url(<?=Url::base()?>/webAssets/images/portada1.jpg);">
+								Imagen
+							</div>
+							<!-- end - .nav-capitulos-item-imagen -->
+							
+							<!-- .nav-capitulos-item-titulo -->
+							<h3 class="nav-capitulos-item-titulo">
+								Título del siguiente capítulo
+							</h3>
+							<!-- end - .nav-capitulos-item-titulo -->
+
+						</div>
+						<!-- end - .nav-capitulos-item -->
+
+
+					</div>
+					<!-- end - .nav-capitulos-cont -->
+
+				</div>
+			</div>
+
+
+		</div>
+		<!-- end - .nav-capitulos -->
+
 
 		<!-- FullScreen -->
 		<div class="ver-capitulo-full-screen" id="full-screen">
@@ -99,11 +285,42 @@ if ($isAdmin) {
 		<div class="ver-capitulo-close-screen" id="close-screen">
 			<span>Exit Screen</span> <i class="ion ion-arrow-shrink"></i>
 		</div>
+
+		<!-- .ver-capitulo-options -->
+		<div class="ver-capitulo-options">
+
+			<!-- .ver-capitulo-options-texto-resize -->
+			<div class="ver-capitulo-options-texto-resize">
+				<button class="ver-capitulo-options-texto-resize-icon"><i id="icon-resize" class="ion ion-arrow-resize"></i></i></button>
+				<div href="#" class="ver-capitulo-options-texto-resize-slider">
+					<span>a</span>
+					<input type="range" id="my-texto" min="16" max="40" step ="2" value="16">
+					<span>a</span>
+				</div>
+			</div>
+			<!-- end - .ver-capitulo-options-texto-resize -->
+
+			<!-- .ver-capitulo-options-focus -->
+			<span class="ver-capitulo-options-focus">
+				<i class="ion ion-android-bulb"></i>
+			</span>
+			<!-- end - .ver-capitulo-options-focus -->
+
+			<!-- .ver-capitulo-options-volume -->
+			<span class="ver-capitulo-options-volume js-silenciar-audio">
+				<i class="ion ion-android-volume-up"></i>
+				<!-- <i class="ion ion-android-volume-off"></i> -->
+			</span>
+			<!-- end - .ver-capitulo-options-volume -->
+
+		</div>
+		<!-- end - .ver-capitulo-options -->
+
 	</div>
 	<!-- end - .ver-capitulo-header -->
 
 	<!-- .container -->
-	<div class="container">
+	<div class="container popup-gallery">
 
 		<!-- .ver-capitulo-post -->
 		<div class="ver-capitulo-post" id="sortable">
@@ -116,27 +333,24 @@ if ($isAdmin) {
 					$closeButton = '<span class="ver-capitulo-post-hover-close-btn js-remove-element" data-token="' . $elemento->txt_token . '"><i class="ion ion-close-round"></i></span><span class="ver-capitulo-post-hover-mover-btn js-mover-elemento"><i class="ion ion-arrow-move"></i></span>';
 				}
 				
-				if ($elemento->id_tipo_elemento == ConstantesWeb::TIPO_ELEMENTO_TEXTO) {
+
+				if($elemento->id_tipo_elemento ==ConstantesWeb::TIPO_ELEMENTO_TEXTO){
+				?>
+					<div
+						class="ver-capitulo-post-desc ver-capitulo-post-hover-close js-elemento-leer"
+						id="js-elemento-<?=$elemento->txt_token?>" data-token="<?=$elemento->txt_token?>">
+						<div class="ver-capitulo-post-desc-text <?=$classEditable?>"
+							<?=$editable?> data-token="<?=$elemento->txt_token?>">
+							<?=$elemento->txt_valor?>
+						</div>
+						<?=$closeButton?>
+					</div>
+				<?php
+				}else if($elemento->id_tipo_elemento ==ConstantesWeb::TIPO_ELEMENTO_IMAGEN){
 					?>
-		<div
-				class="ver-capitulo-post-desc ver-capitulo-post-hover-close js-elemento-leer"
-				id="js-elemento-<?=$elemento->txt_token?>"
-				data-token="<?=$elemento->txt_token?>">
-				<div class="ver-capitulo-post-desc-text <?=$classEditable?>"
-					<?=$editable?> data-token="<?=$elemento->txt_token?>">
-					<?=$elemento->txt_valor?>
-				</div>
-				<?=$closeButton?>
-			</div>		
-		
-		<?php
-				} else if ($elemento->id_tipo_elemento == ConstantesWeb::TIPO_ELEMENTO_IMAGEN) {
-					?>
-				<div data-token="<?=$elemento->txt_token?>"
-				class="ver-capitulo-post-image ver-capitulo-post-hover-close js-elemento-leer"
-				id="js-elemento-<?=$elemento->txt_token?>">
-				<div
-					class="ver-capitulo-post-image-item js-container-image ver-capitulo-post-image-item-file">
+				<div data-token="<?=$elemento->txt_token?>" class="ver-capitulo-post-image ver-capitulo-post-hover-close js-elemento-leer" id="js-elemento-<?=$elemento->txt_token?>">
+				<div class="ver-capitulo-post-image-item ver-capitulo-post-image-item-active-zoom js-container-image ver-capitulo-post-image-item-file">
+
 					<!-- Input -->
 					<?php if($isAdmin){?>
 					<input type="file" class="inputfile modal-admin-form-imagen"
@@ -151,9 +365,13 @@ if ($isAdmin) {
 						<span id="js-progress-bar-texto" class="w3-center w3-text-white">0%</span>
 					</div>
 					<!-- Imagen -->
-					<img class="js-element-img"
-						src="<?=Url::base().'/webAssets/uploads/'.ConstantesWeb::PREX_IMG.$elemento->txt_valor?>"
-						alt="" style="display: block;">
+					<img class="ver-capitulo-post-image-imagen js-element-img" src="<?=Url::base().'/webAssets/uploads/'.ConstantesWeb::PREX_IMG.$elemento->txt_valor?>" alt="" style="display: block;">
+					<div class="ver-capitulo-post-image-item-zoom">
+						<a href="<?=Url::base().'/webAssets/uploads/'.ConstantesWeb::PREX_IMG.$elemento->txt_valor?>" title="The Cleaner">
+							<i class="ion ion-arrow-expand"></i>
+						</a>
+					</div>
+
 					<!-- Btn de Close -->
 					<?=$closeButton?>
 				</div>
@@ -168,6 +386,31 @@ if ($isAdmin) {
 
 		</div>
 		<!-- end - .ver-capitulo-post -->
+
+
+<!-- <div style="background-color: pink;">
+	
+
+
+<p id="demo"></p>
+
+<a href="#" class="aumentarFont">[ + aumentar ]</a> 
+<a href="#" class="disminuirFont">[ - disminuir ]</a> 
+<a href="#" class="resetearFont">[ resetear ]</a>
+
+</div> -->
+
+
+	<!-- <div class="popup-gallery">
+		<a href="http://farm9.staticflickr.com/8242/8558295633_f34a55c1c6_b.jpg" title="The Cleaner"><img src="http://farm9.staticflickr.com/8242/8558295633_f34a55c1c6_s.jpg" width="75" height="75"></a>
+		<a href="http://farm9.staticflickr.com/8382/8558295631_0f56c1284f_b.jpg" title="Winter Dance"><img src="http://farm9.staticflickr.com/8382/8558295631_0f56c1284f_s.jpg" width="75" height="75"></a>
+		<a href="http://farm9.staticflickr.com/8225/8558295635_b1c5ce2794_b.jpg" title="The Uninvited Guest"><img src="http://farm9.staticflickr.com/8225/8558295635_b1c5ce2794_s.jpg" width="75" height="75"></a>
+		<a href="http://farm9.staticflickr.com/8383/8563475581_df05e9906d_b.jpg" title="Oh no, not again!"><img src="http://farm9.staticflickr.com/8383/8563475581_df05e9906d_s.jpg" width="75" height="75"></a>
+		<a href="http://farm9.staticflickr.com/8235/8559402846_8b7f82e05d_b.jpg" title="Swan Lake"><img src="http://farm9.staticflickr.com/8235/8559402846_8b7f82e05d_s.jpg" width="75" height="75"></a>
+		<a href="http://farm9.staticflickr.com/8235/8558295467_e89e95e05a_b.jpg" title="The Shake"><img src="http://farm9.staticflickr.com/8235/8558295467_e89e95e05a_s.jpg" width="75" height="75"></a>
+		<a href="http://farm9.staticflickr.com/8378/8559402848_9fcd90d20b_b.jpg" title="Who's that, mommy?"><img src="http://farm9.staticflickr.com/8378/8559402848_9fcd90d20b_s.jpg" width="75" height="75"></a>
+	</div> -->
+
 
 	</div>
 	<!-- end - .container -->
@@ -195,6 +438,10 @@ if ($isAdmin) {
 	<?php
 	}
 	?>
+
+
+
+	</div>
 
 </div>
 <!-- end - .ver-capitulo -->

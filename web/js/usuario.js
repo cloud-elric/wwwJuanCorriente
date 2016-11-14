@@ -8,13 +8,13 @@ $(document).ready(function(){
 		var claseIconoSilencio = 'ion-android-volume-off';
 		var claseIconoVolumen = 'ion-android-volume-up';
 		
-		if($(this).hasClass(claseIconoSilencio)){
-			$(this).removeClass(claseIconoSilencio);
-			$(this).addClass(claseIconoVolumen);
+		if($(this).find('i').hasClass(claseIconoVolumen)){
+			$(this).find('i').removeClass(claseIconoVolumen);
+			$(this).find('i').addClass(claseIconoSilencio);
 			 detenerAudio();
 		}else{
-			$(this).removeClass(claseIconoVolumen);
-			$(this).addClass(claseIconoSilencio);
+			$(this).find('i').removeClass(claseIconoSilencio);
+			$(this).find('i').addClass(claseIconoVolumen);
 			reproducirAudio();
 		}
 	});

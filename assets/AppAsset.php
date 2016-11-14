@@ -24,6 +24,8 @@ class AppAsset extends AssetBundle
         'webAssets/plugins/flexboxgrid/css/flexboxgrid.min.css',
         'https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css',
         'webAssets/plugins/animate/css/animate.css',
+        'webAssets/plugins/asScrollbar/dist/css/asScrollable.css',
+        'webAssets/plugins/magnific-popup/css/magnific-popup.css',
         'webAssets/css/juanCorriente.css',
     ];
     public $js = [
@@ -33,6 +35,10 @@ class AppAsset extends AssetBundle
         'https://code.jquery.com/ui/1.12.1/jquery-ui.js',
         'webAssets/js/juanCorriente.js',
         'webAssets/plugins/fullScreen/js/fullscreen.min.js',
+        'webAssets/plugins/asScrollbar/js/holder.js',
+        'webAssets/plugins/asScrollbar/js/jquery-asScrollbar.js',
+        'webAssets/plugins/asScrollbar/dist/jquery-asScrollable.js',
+        'webAssets/plugins/magnific-popup/js/jquery.magnific-popup.min.js',
     	'js/site.js'	
     ];
     public $depends = [
