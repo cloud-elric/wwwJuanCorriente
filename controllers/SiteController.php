@@ -192,7 +192,7 @@ class SiteController extends Controller {
 		
 		$historia = $this->getHistoriaByToken($token);
 		
-		$capitulos = EntCapitulos::find('fch_publicacion <=NOW() AND b_habilitado=1')->where(['id_historia'=>$historia->id_historia])->orderBy('fch_publicacion DESC')->asArray()->all();
+		$capitulos = EntCapitulos::find('fch_publicacion <=NOW() AND b_habilitado=1')->where(['id_historia'=>$historia->id_historia])->orderBy('fch_publicacion ASC')->asArray()->all();
 		
 		return $capitulos;
 	}

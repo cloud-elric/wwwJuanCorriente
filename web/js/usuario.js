@@ -39,7 +39,7 @@ function cargarCapitulos(token){
 				
 				var template = '<div class="nav-capitulos-item" data-token="'+value.txt_token+'">'+
 				'<h4 class="nav-capitulos-item-capitulo">Capítulo '+(index+1)+'</h4>'+
-				'<div class="nav-capitulos-item-imagen" style="background-image: url('+basePath+'webAssets/uploads/'+value.txt_imagen+');">'+
+				'<div class="nav-capitulos-item-imagen" style="background-image: url('+basePath+'webAssets/uploads/min_'+value.txt_imagen+');">'+
 				'</div>'+
 				'<h3 class="nav-capitulos-item-titulo">'+
 					value.txt_nombre+
