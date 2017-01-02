@@ -480,6 +480,16 @@ class AdminPanelController extends Controller {
 		
 	}
 	
+	public function actionEditarHistoria($token=null){
+		$historia = $this->getHistoriaByToken($token);
+		
+		if($_POST['valor']){
+			$historia->txt_descripcion = $_POST['valor'];
+			$historia->save();
+		}
+		
+	}
+	
 	/**
 	 * Calcula el factor
 	 *
@@ -495,5 +505,43 @@ class AdminPanelController extends Controller {
 		}
 		
 		return $factor;
+	}
+	
+	/**
+	 * Guarda la imagen
+	 */
+	public function actionGuardarImagenHistoria($token=null) {
+		Yii::$app->response->format = Response::FORMAT_JSON;
+	
+		$historia = $this->getHistoriaByToken ( $token );
+	
+	
+		$file = UploadedFile::getInstanceByName ( 'fileHistoria' );
+	
+		if ($file) {
+				
+			$historia->txt_image = Utils::generateToken ( 'imc_' ) . '.' . $file->extension;
+				
+			if ($historia->save ()) {
+				$file->saveAs ( 'webAssets/uploads/' . $historia->txt_image, false );
+	
+				$raw_file_name = $file->tempName;
+					
+				// Valida que sea una imagen
+				$size = getimagesize ( $raw_file_name );
+				list ( $width, $height, $otro, $wh ) = getimagesize ( $raw_file_name );
+				$basePath = 'webAssets/uploads/';
+	
+				$this->rezisePicture ( $basePath.$historia->txt_image, $width, $height, $width, $basePath.'min_'.$historia->txt_image, $file->extension);
+	
+				return [
+						'status' => 'success'
+				];
+			}
+		} else {
+			return [
+					'status' => 'error'
+			];
+		}
 	}
 }

@@ -13,6 +13,7 @@ use app\models\EntHistoriasExtend;
 use app\models\EntCapitulos;
 use yii\web\NotFoundHttpException;
 use app\models\EntElementos;
+use yii\web\Response;
 
 class SiteController extends Controller {
 	/**
@@ -141,7 +142,8 @@ class SiteController extends Controller {
 		
 		return $this->render ( 'verCapitulo', [ 
 				'capitulo' => $capitulo,
-				'elementos'=>$elementos
+				'elementos'=>$elementos,
+				'historia'=>$historia->txt_token
 		] );
 	}
 	
@@ -179,5 +181,19 @@ class SiteController extends Controller {
 		Yii::$app->user->logout ();
 		
 		return $this->goHome ();
+	}
+	
+	/**
+	 * 
+	 * @param unknown $token
+	 */
+	public function actionCargarCapitulosHistoria($token=null){
+		Yii::$app->response->format = Response::FORMAT_JSON;
+		
+		$historia = $this->getHistoriaByToken($token);
+		
+		$capitulos = EntCapitulos::find('fch_publicacion <=NOW() AND b_habilitado=1')->where(['id_historia'=>$historia->id_historia])->orderBy('fch_publicacion ASC')->asArray()->all();
+		
+		return $capitulos;
 	}
 }

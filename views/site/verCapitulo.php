@@ -5,6 +5,7 @@ $this->title = 'Ver Capítulo';
 use yii\helpers\Url;
 use app\models\EntElementos;
 use app\models\ConstantesWeb;
+use yii\web\View;
 
 $header = EntElementos::find ()->where ( [ 
 		'id_capitulo' => $capitulo->id_capitulo,
@@ -31,17 +32,19 @@ if ($isAdmin) {
 					\app\assets\AppAsset::className () 
 			] 
 	] );
-} else {
+}
 	$this->registerJsFile ( '@web/js/usuario.js', [ 
 			'depends' => [ 
 					\app\assets\AppAsset::className () 
 			] 
 	] );
-}
+
 ?>
 
 <input type="hidden" data-token="<?=$capitulo->txt_token?>"
 	id="js-capitulo" />
+	
+<input type="hidden" data-token="<?=$historia?>" id="js-historia" />
 
 <!-- .ver-capitulo -->
 <div class="ver-capitulo <?=$isAdmin?'ver-capitulo-admin':''?>"
@@ -103,166 +106,7 @@ if ($isAdmin) {
 						<!-- .close-nav-capitulos -->
 						<span class="close-nav-capitulos"><i class="ion ion-close-round"></i></span>
 
-						<!-- .nav-capitulos-item -->
-						<div class="nav-capitulos-item">
 
-							<!-- .nav-capitulos-item-capitulo -->
-							<h4 class="nav-capitulos-item-capitulo">Capítulo 1</h4>
-							<!-- end .nav-capitulos-item-capitulo -->
-
-
-							<!-- .nav-capitulos-item-imagen -->
-							<div class="nav-capitulos-item-imagen" style="background-image: url(<?=Url::base()?>/webAssets/images/portada1.jpg);">
-								Imagen
-							</div>
-							<!-- end - .nav-capitulos-item-imagen -->
-							
-							<!-- .nav-capitulos-item-titulo -->
-							<h3 class="nav-capitulos-item-titulo">
-								Título del siguiente capítulo
-							</h3>
-							<!-- end - .nav-capitulos-item-titulo -->
-
-						</div>
-						<!-- end - .nav-capitulos-item -->
-
-						<!-- .nav-capitulos-item -->
-						<div class="nav-capitulos-item">
-
-							<!-- .nav-capitulos-item-capitulo -->
-							<h4 class="nav-capitulos-item-capitulo">Capítulo 1</h4>
-							<!-- end .nav-capitulos-item-capitulo -->
-
-
-							<!-- .nav-capitulos-item-imagen -->
-							<div class="nav-capitulos-item-imagen" style="background-image: url(<?=Url::base()?>/webAssets/images/portada1.jpg);">
-								Imagen
-							</div>
-							<!-- end - .nav-capitulos-item-imagen -->
-							
-							<!-- .nav-capitulos-item-titulo -->
-							<h3 class="nav-capitulos-item-titulo">
-								Título del siguiente capítulo
-							</h3>
-							<!-- end - .nav-capitulos-item-titulo -->
-
-						</div>
-						<!-- end - .nav-capitulos-item -->
-
-						<!-- .nav-capitulos-item -->
-						<div class="nav-capitulos-item">
-
-							<!-- .nav-capitulos-item-capitulo -->
-							<h4 class="nav-capitulos-item-capitulo">Capítulo 1</h4>
-							<!-- end .nav-capitulos-item-capitulo -->
-
-
-							<!-- .nav-capitulos-item-imagen -->
-							<div class="nav-capitulos-item-imagen" style="background-image: url(<?=Url::base()?>/webAssets/images/portada1.jpg);">
-								Imagen
-							</div>
-							<!-- end - .nav-capitulos-item-imagen -->
-							
-							<!-- .nav-capitulos-item-titulo -->
-							<h3 class="nav-capitulos-item-titulo">
-								Título del siguiente capítulo
-							</h3>
-							<!-- end - .nav-capitulos-item-titulo -->
-
-						</div>
-						<!-- end - .nav-capitulos-item -->
-
-						<!-- .nav-capitulos-item -->
-						<div class="nav-capitulos-item">
-
-							<!-- .nav-capitulos-item-capitulo -->
-							<h4 class="nav-capitulos-item-capitulo">Capítulo 1</h4>
-							<!-- end .nav-capitulos-item-capitulo -->
-
-
-							<!-- .nav-capitulos-item-imagen -->
-							<div class="nav-capitulos-item-imagen" style="background-image: url(<?=Url::base()?>/webAssets/images/portada1.jpg);">
-								Imagen
-							</div>
-							<!-- end - .nav-capitulos-item-imagen -->
-							
-							<!-- .nav-capitulos-item-titulo -->
-							<h3 class="nav-capitulos-item-titulo">
-								Título del siguiente capítulo
-							</h3>
-							<!-- end - .nav-capitulos-item-titulo -->
-
-						</div>
-						<!-- end - .nav-capitulos-item -->
-
-						<!-- .nav-capitulos-item -->
-						<div class="nav-capitulos-item">
-
-							<!-- .nav-capitulos-item-capitulo -->
-							<h4 class="nav-capitulos-item-capitulo">Capítulo 1</h4>
-							<!-- end .nav-capitulos-item-capitulo -->
-
-
-							<!-- .nav-capitulos-item-imagen -->
-							<div class="nav-capitulos-item-imagen" style="background-image: url(<?=Url::base()?>/webAssets/images/portada1.jpg);">
-								Imagen
-							</div>
-							<!-- end - .nav-capitulos-item-imagen -->
-							
-							<!-- .nav-capitulos-item-titulo -->
-							<h3 class="nav-capitulos-item-titulo">
-								Título del siguiente capítulo
-							</h3>
-							<!-- end - .nav-capitulos-item-titulo -->
-
-						</div>
-						<!-- end - .nav-capitulos-item -->
-
-						<!-- .nav-capitulos-item -->
-						<div class="nav-capitulos-item">
-
-							<!-- .nav-capitulos-item-capitulo -->
-							<h4 class="nav-capitulos-item-capitulo">Capítulo 1</h4>
-							<!-- end .nav-capitulos-item-capitulo -->
-
-
-							<!-- .nav-capitulos-item-imagen -->
-							<div class="nav-capitulos-item-imagen" style="background-image: url(<?=Url::base()?>/webAssets/images/portada1.jpg);">
-								Imagen
-							</div>
-							<!-- end - .nav-capitulos-item-imagen -->
-							
-							<!-- .nav-capitulos-item-titulo -->
-							<h3 class="nav-capitulos-item-titulo">
-								Título del siguiente capítulo
-							</h3>
-							<!-- end - .nav-capitulos-item-titulo -->
-
-						</div>
-						<!-- end - .nav-capitulos-item -->
-
-						<!-- .nav-capitulos-item -->
-						<div class="nav-capitulos-item">
-
-							<!-- .nav-capitulos-item-capitulo -->
-							<h4 class="nav-capitulos-item-capitulo">Capítulo 1</h4>
-							<!-- end .nav-capitulos-item-capitulo -->
-
-
-							<!-- .nav-capitulos-item-imagen -->
-							<div class="nav-capitulos-item-imagen" style="background-image: url(<?=Url::base()?>/webAssets/images/portada1.jpg);">
-								Imagen
-							</div>
-							<!-- end - .nav-capitulos-item-imagen -->
-							
-							<!-- .nav-capitulos-item-titulo -->
-							<h3 class="nav-capitulos-item-titulo">
-								Título del siguiente capítulo
-							</h3>
-							<!-- end - .nav-capitulos-item-titulo -->
-
-						</div>
-						<!-- end - .nav-capitulos-item -->
 
 
 					</div>
@@ -445,3 +289,11 @@ if ($isAdmin) {
 
 </div>
 <!-- end - .ver-capitulo -->
+
+<?php 
+
+$this->registerJs ( "
+  		cargarCapitulos('".$historia."');
+	", View::POS_END, 'cargarCapitulos' );
+
+?>
