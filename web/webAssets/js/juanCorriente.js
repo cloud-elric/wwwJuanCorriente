@@ -173,10 +173,12 @@ $(document).ready(function(){
 	 */
 	// Open Modal
 	$(modalOpenMensaje).on("click", function(){
+		
 		modalMensaje.style.display = "flex";
 	});
 	// Close Modal
 	$(modalCloseMensaje).on("click", function(){
+		
 		modalMensaje.style.display = "none";
 	});
 

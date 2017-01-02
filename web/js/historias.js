@@ -239,5 +239,174 @@ function desHabilitarEdicion() {
 	$("#js-edicion-capitulos i").addClass('ion-android-create');
 	$('.listado-image').css('display', 'none');
 	$('.home-article-desc').removeAttr('contenteditable');
+	$('#modal-agregar-post-open').css('display', 'flex');
 
+}
+
+
+$('body')
+.on(
+		'beforeSubmit',
+		'#form-agregar-historia',
+		function() {
+			var form = $(this);
+			var token = $("#js-historia").data('historia');
+
+			if (form.find('.has-error').length) {
+				return false;
+			}
+			var button = document
+					.getElementById('modal-agregar-post-guardar');
+			var l = Ladda.create(button);
+			l.start();
+
+			$
+					.ajax({
+						url : basePath
+								+ 'admin-panel/guardar-historia',
+						type : 'post',
+						data : new FormData(this),
+						dataType : 'json',
+						cache : false,
+						contentType : false,
+						processData : false,
+						success : function(response) {
+							if (response.hasOwnProperty('status')
+									&& response.status == 'success') {
+
+								document.getElementById(
+										"form-agregar-historia")
+										.reset();
+								
+
+								$(modal).trigger('click');
+
+								$("#js-contenedor-image-cap img")
+										.remove();
+								$(".modal-admin-form-titulo").html(
+										'Dame un título...');
+								
+								$(".modal-admin-form-descripcion").html('Agrega la descripción de la historia');
+							} else {
+
+								$('#form-agregar-historia')
+										.yiiActiveForm(
+												'updateMessages',
+												response, true);
+							}
+							l.stop();
+						},
+						error : function() {
+							l.stop();
+						},
+						statusCode : {
+							404 : function() {
+								alert("page not found");
+							}
+						}
+
+					});
+			return false;
+		});
+
+
+$(document).ready(function(){
+	
+	$('#js-nombre-capitulo').focusout(function() {
+
+		if (($(this).text()).trim() == '') {
+			$(this).text('Dame un nombre...');
+			$(this).data('new', 'esNuevo');
+		} else {
+			$("#enthistorias-txt_nombre").val($(this).text());
+
+		}
+
+	});
+	
+	
+	$('#js-descripcion-historia').focusout(function() {
+
+		if (($(this).text()).trim() == '') {
+			$(this).text('Agrega la descripción de la historia');
+			$(this).data('new', 'esNuevo');
+		} else {
+			$("#enthistorias-txt_descripcion").val($(this).html());
+
+		}
+
+	});
+//	$('#modal-agregar-post-open').on('click', function(e){
+//		e.preventDefault();
+//		
+//		$('#modal-agregar-post').css('display', 'flex');
+//		
+//	});
+});
+
+$(document).on({
+	'click' : function(e) {
+		$('.inputFileCapitulo').trigger('click');
+
+	}
+}, '.js-label-image-cap');
+
+//funciones para el input de imagen
+$(document).on({
+	'change' : function(e) {
+		$("#js-contenedor-image-cap img").remove();
+		// guardarImagen($(this), this);
+		readURLCap(this, $(this));
+	}
+}, '.inputFileCapitulo');
+
+
+/**
+ * Pone la imagen para vista previa
+ * 
+ * @param input
+ * @param element
+ */
+function readURLCap(input, element) {
+	
+	var file = input.files[0];
+
+	if (!file) {
+
+		return false;
+	}
+
+	var imagefile = file.type;
+
+	var filename = element.val();
+
+	if (filename.substring(3, 11) == 'fakepath') {
+		filename = filename.substring(12);
+	}// remove c:\fake at beginning from localhost chrome
+	// var url = base+'usrUsuarios/guardarFotosCompetencia';
+
+	var match = [ "image/jpeg", "image/jpg", 'image/png' ];
+
+	if (!((imagefile == match[0]) || (imagefile == match[1]) || (imagefile == match[2]))) {
+
+		alert('Archivo no valido');
+
+		return false;
+	}
+	
+	
+	if (input.files && input.files[0]) {
+		var reader = new FileReader();
+
+		reader.onload = function(e) {
+			$("#js-contenedor-image-cap").addClass(
+					"listado-modal-image-item-file");
+			$("#js-contenedor-image-cap").append(
+					'<img class="modal-admin-form-imagen" src="'
+							+ e.target.result + '" style="display: block;"/>');
+
+		}
+
+		reader.readAsDataURL(input.files[0]);
+	}
 }
