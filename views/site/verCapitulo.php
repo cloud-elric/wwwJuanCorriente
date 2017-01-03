@@ -46,6 +46,18 @@ if ($isAdmin) {
 	
 <input type="hidden" data-token="<?=$historia?>" id="js-historia" />
 
+<!-- .ver-capitulo-head -->
+<div class="ver-capitulo-head">
+	<!-- <a class="ver-capitulo-head-txt" href="#">Capítulo 1 - The chain</a> -->
+	<a class="ver-capitulo-head-img" href="#"><img src="http://placehold.it/50x40" alt=""></a>
+	<a class="ver-capitulo-head-img" href="#"><img src="http://placehold.it/50x40" alt=""></a>
+	<a class="ver-capitulo-head-img" href="#"><img src="http://placehold.it/50x40" alt=""></a>
+	<a class="ver-capitulo-head-img" href="#"><img src="http://placehold.it/50x40" alt=""></a>
+	<a class="ver-capitulo-head-img" href="#"><img src="http://placehold.it/50x40" alt=""></a>
+	<a class="ver-capitulo-head-img" href="#"><img src="http://placehold.it/50x40" alt=""></a>
+</div>
+<!-- end - .ver-capitulo-head -->
+
 <!-- .ver-capitulo -->
 <div class="ver-capitulo <?=$isAdmin?'ver-capitulo-admin':''?>"
 	id="specialstuff">
