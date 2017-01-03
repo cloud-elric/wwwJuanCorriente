@@ -34,18 +34,14 @@ if ($isAdmin) {
 		<div class="listado-seach">
 		
 		<?php
-		$form = ActiveForm::begin (['method'=>'GET']);
-		
+			$form = ActiveForm::begin (['method'=>'GET', 'options'=>['class'=>'listado-seach-form']]);
 		?>
 			<input type="text" name="q">
 			<button>
 				<i class="ion ion-ios-search-strong"></i>
 			</button>
-			
 		<?php
-
-		ActiveForm::end ();
-
+			ActiveForm::end ();
 		?>
 		</div>
 		<!-- end - .listado-seach -->

@@ -49,16 +49,42 @@ AppAsset::register($this);
             
             <!-- footer -->
             <footer>
-                <!-- .container-full -->
-                <div class="container-full">
-                    <h6>Síguenos</h6>
-                    <div class="social-media">
-                        <a href=""><i class="ion ion-social-facebook"></i></a>
-                        <a href=""><i class="ion ion-social-twitter"></i></a>
-                        <a href=""><i class="ion ion-social-pinterest"></i></a>
+                <!-- .container -->
+                <div class="container">
+
+                    <!-- .footer-siguenos -->
+                    <div class="footer-siguenos">
+                        <h6>Síguenos</h6>
+                        <div class="social-media">
+                            <a href=""><i class="ion ion-social-facebook"></i></a>
+                            <a href=""><i class="ion ion-social-twitter"></i></a>
+                            <a href=""><i class="ion ion-social-pinterest"></i></a>
+                        </div>
                     </div>
+                    <!-- end - .footer-siguenos -->
+
+                    <!-- .footer-suscribete -->
+                    <div class="footer-suscribete">
+                        <h6>Suscríbete</h6>
+                        <p>¿Quieres recibir notificaciones cada que haya un capítulo nuevo?</p>
+                        <form name="suscribir" method="post" id="formaDeSuscripccion">
+                            <div class="inputs">
+                                <input type="text" name="e-mail" placeholder="Dejanos tu correo" class="emailInput">
+                            </div>
+                            <div class="actions">
+                                <button type="submit" data-style="slide-up" class="mailSubmit ladda-button"><span class="ladda-label"><i class="ion ion-paper-airplane"></i></span></button>
+                            </div>
+                            <div class="loader">
+                                <div class="msg">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!--  end - .footer-suscribete -->
+
                 </div>
-                <!-- end - .container-full -->
+                <!-- end - .container -->
             </footer>
             <!-- end - footer -->
 

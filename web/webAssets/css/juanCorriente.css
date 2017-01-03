@@ -547,7 +547,7 @@ hr {
   margin-left: 10px;
   position: fixed;
   right: 20px;
-  top: 44px;
+  top: 50px;
   width: 40px;
   z-index: 9;
 }
@@ -605,16 +605,56 @@ header h1 {
 /*  Footer
 	@mixin =============================================== */
 footer {
+  background-color: #1f1e1e;
   padding: 38px 0;
   text-align: center;
 }
 
-footer h6 {
-  color: #FFF;
-  margin-bottom: 6px;
+footer .container {
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
-footer .social-media {
+@media screen and (max-width: 768px) {
+  footer .container {
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  footer .container .footer-siguenos {
+    margin-bottom: 45px;
+  }
+}
+
+footer .container .footer-siguenos h6 {
+  color: #8EF0EF;
+  margin-bottom: 58px;
+  text-align: left;
+}
+
+@media screen and (max-width: 768px) {
+  footer .container .footer-siguenos h6 {
+    margin-bottom: 18px;
+  }
+}
+
+footer .container .footer-siguenos .social-media {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -623,19 +663,194 @@ footer .social-media {
           justify-content: center;
 }
 
-footer .social-media a {
-  color: #FFF;
+footer .container .footer-siguenos .social-media a {
+  color: #8EF0EF;
   display: block;
-  font-size: .95em;
-  margin-right: 20px;
+  font-size: .98em;
+  margin-right: 30px;
 }
 
-footer .social-media a:last-child {
+footer .container .footer-siguenos .social-media a:last-child {
   margin-right: 0;
 }
 
-footer .social-media a:hover {
-  color: #326fd4;
+footer .container .footer-siguenos .social-media a:hover {
+  color: rgba(142, 240, 239, 0.85);
+}
+
+footer .container .footer-suscribete {
+  margin-left: 70px;
+}
+
+@media screen and (max-width: 768px) {
+  footer .container .footer-suscribete {
+    margin-left: 0;
+  }
+}
+
+footer .container .footer-suscribete h6 {
+  color: #8EF0EF;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+footer .container .footer-suscribete p {
+  color: #8EF0EF;
+  font-size: .84rem;
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+footer .container .footer-suscribete form {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  background-color: transparent;
+  width: 100%;
+  position: relative;
+}
+
+footer .container .footer-suscribete form label {
+  color: #8EF0EF;
+  top: 0;
+  left: 0;
+  z-index: 15;
+}
+
+footer .container .footer-suscribete form .actions,
+footer .container .footer-suscribete form .inputs {
+  display: block;
+  height: 44px;
+  width: 20%;
+  position: relative;
+}
+
+footer .container .footer-suscribete form .inputs {
+  width: 80%;
+}
+
+footer .container .footer-suscribete form .inputs input {
+  background-color: transparent;
+  border: 1px solid #83EB91;
+  color: #FFF;
+  font-size: 1rem;
+  height: 100%;
+  padding: 0 1em;
+  width: 100%;
+}
+
+footer .container .footer-suscribete form .inputs input:focus, footer .container .footer-suscribete form .inputs input:active {
+  outline: none;
+  border: 1px solid #66e677;
+}
+
+footer .container .footer-suscribete form .inputs input::-webkit-input-placeholder {
+  color: #white;
+  font-weight: 300;
+}
+
+footer .container .footer-suscribete form .inputs input::-moz-placeholder {
+  color: #white;
+  font-weight: 300;
+}
+
+footer .container .footer-suscribete form .inputs input:-moz-placeholder {
+  color: #white;
+  font-weight: 300;
+}
+
+footer .container .footer-suscribete form .inputs input:-ms-input-placeholder {
+  color: #white;
+  font-weight: 300;
+}
+
+footer .container .footer-suscribete form .inputs span.error {
+  position: absolute;
+  top: 52px;
+  left: 0;
+  color: red;
+}
+
+footer .container .footer-suscribete form .actions button {
+  width: 100%;
+  z-index: 10;
+  background-color: #83EB91;
+  border: 1px solid #83EB91;
+  cursor: pointer;
+  right: 0;
+  top: 0;
+  height: 44px;
+  transition: all 0.3s ease-in-out;
+  z-index: 10;
+}
+
+footer .container .footer-suscribete form .actions button:focus, footer .container .footer-suscribete form .actions button:hover {
+  background-color: #66e677;
+  border: 1px solid #66e677;
+  outline: none;
+}
+
+footer .container .footer-suscribete form .actions button i {
+  color: white;
+  font-size: 1.5em;
+  transition: all 0.3s ease-in-out;
+}
+
+footer .container .footer-suscribete form .actions button:hover i {
+  font-size: 1.8em;
+}
+
+footer .container .footer-suscribete form .loader {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 44px;
+  width: 0%;
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
+  z-index: 20;
+}
+
+footer .container .footer-suscribete form .loader img {
+  display: none;
+  text-align: center;
+}
+
+footer .container .footer-suscribete form .loader .msg {
+  width: 100%;
+  height: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: white;
+}
+
+footer .container .footer-suscribete form .loader .msg p {
+  margin: 0;
+}
+
+footer .container .footer-suscribete form .loader .msg_success {
+  background-color: #83EB91;
+}
+
+footer .container .footer-suscribete form .loader .msg_error {
+  background-color: #dd0000;
+}
+
+footer .container .footer-suscribete form .loaderShow {
+  width: 20%;
+  left: auto;
+}
+
+footer .container .footer-suscribete form .loaderComplete {
+  width: 100%;
 }
 
 footer.footer-focus h6 {
@@ -723,7 +938,7 @@ footer.footer-focus .social-media a:hover {
   .home .home-categorias .home-categorias-item {
     margin-bottom: 30px;
     margin-right: 8px;
-    width: 25%;
+    width: 35%;
   }
   .home .home-categorias .home-categorias-item:nth-child(3n+3) {
     margin-right: 0;
@@ -798,6 +1013,12 @@ footer.footer-focus .social-media a:hover {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+}
+
+.listado .listado-seach .listado-seach-form {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -808,11 +1029,11 @@ footer.footer-focus .social-media a:hover {
   transition: opacity 0.3s ease-in;
 }
 
-.listado .listado-seach:hover {
+.listado .listado-seach .listado-seach-form:hover {
   opacity: 1;
 }
 
-.listado .listado-seach input[type="text"] {
+.listado .listado-seach .listado-seach-form input[type="text"] {
   background-color: #1B1D20;
   border: none;
   border-radius: 51px;
@@ -824,11 +1045,11 @@ footer.footer-focus .social-media a:hover {
   width: 100%;
 }
 
-.listado .listado-seach input[type="text"]:focus {
+.listado .listado-seach .listado-seach-form input[type="text"]:focus {
   outline: none;
 }
 
-.listado .listado-seach button {
+.listado .listado-seach .listado-seach-form button {
   background-color: transparent;
   border: none;
   color: #C4E5EE;
@@ -843,15 +1064,15 @@ footer.footer-focus .social-media a:hover {
   transition: opacity 0.3s ease-in;
 }
 
-.listado .listado-seach button i {
+.listado .listado-seach .listado-seach-form button i {
   font-size: 1.8em;
 }
 
-.listado .listado-seach button:focus {
+.listado .listado-seach .listado-seach-form button:focus {
   outline: none;
 }
 
-.listado .listado-seach button:focus, .listado .listado-seach button:hover {
+.listado .listado-seach .listado-seach-form button:focus, .listado .listado-seach .listado-seach-form button:hover {
   opacity: 1;
 }
 
@@ -1254,11 +1475,15 @@ footer.footer-focus .social-media a:hover {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  height: 50px;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
+  left: 0;
   padding: 6px 30px;
-  position: relative;
+  right: 0;
+  top: 0;
+  width: 100%;
   z-index: 9;
 }
 
@@ -1272,7 +1497,6 @@ footer.footer-focus .social-media a:hover {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: red;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
