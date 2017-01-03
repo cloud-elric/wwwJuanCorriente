@@ -274,6 +274,8 @@ $('body')
 							if (response.hasOwnProperty('status')
 									&& response.status == 'success') {
 
+								window.location.href = basePath+'site/lista-de-capitulos?token='+response.tk;
+								
 								document.getElementById(
 										"form-agregar-historia")
 										.reset();
