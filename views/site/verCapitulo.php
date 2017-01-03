@@ -48,13 +48,12 @@ if ($isAdmin) {
 
 <!-- .ver-capitulo-head -->
 <div class="ver-capitulo-head">
+<?php 
+foreach($historias as $history){
+?>
 	<!-- <a class="ver-capitulo-head-txt" href="#">Capítulo 1 - The chain</a> -->
-	<a class="ver-capitulo-head-img" href="#"><img src="http://placehold.it/50x40" alt=""></a>
-	<a class="ver-capitulo-head-img" href="#"><img src="http://placehold.it/50x40" alt=""></a>
-	<a class="ver-capitulo-head-img" href="#"><img src="http://placehold.it/50x40" alt=""></a>
-	<a class="ver-capitulo-head-img" href="#"><img src="http://placehold.it/50x40" alt=""></a>
-	<a class="ver-capitulo-head-img" href="#"><img src="http://placehold.it/50x40" alt=""></a>
-	<a class="ver-capitulo-head-img" href="#"><img src="http://placehold.it/50x40" alt=""></a>
+	<a class="ver-capitulo-head-img" href="#"><img src="<?=Url::base().'/webAssets/uploads/min_'.$history->txt_image?>" alt=""></a>
+<?php }?>	
 </div>
 <!-- end - .ver-capitulo-head -->
 
