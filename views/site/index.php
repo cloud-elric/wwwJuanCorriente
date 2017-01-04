@@ -36,12 +36,19 @@ if ($isAdmin) {
 					$class = 'active';
 				}
 				?>
-				<div class="home-categorias-item <?=$class?> home-categorias-item-<?=$historia->txt_token?>"
-				data-token="<?=$historia->txt_token ?>"><?=$historia->txt_nombre?></div>
+				<div class="home-categorias-item tooltip <?=$class?> home-categorias-item-<?=$historia->txt_token?>" data-token="<?=$historia->txt_token ?>">
+					<p><?=$historia->txt_nombre?></p>
+					<span class="tooltiptext"><?=$historia->txt_nombre?></span>
+				</div>
 			<?php
 				$active ++;
 			}
 			?>
+			<!-- .home-categorias-delete -->
+			<span class="home-categorias-delete">
+				<i class="ion ion-close-round"></i>
+			</span>
+			<!-- end - .home-categorias-delete -->
 		</div>
 		<!-- end - .home-categorias -->
 
@@ -92,6 +99,11 @@ if ($isAdmin) {
 	<!-- end - .container -->
 </div>
 <!-- end - .home -->
+
+<div class="tooltip">
+	<p>Hover over me</p>
+	<span class="tooltiptext">Tooltip text</span>
+</div>
 
 <?php
 if ($isAdmin) {
