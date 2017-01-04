@@ -77,7 +77,7 @@ if ($isAdmin) {
 				<!-- .listado-articles-item-imagen -->
 				<div class="listado-articles-item-imagen" style="background-image:url('<?=Url::base()?>/webAssets/uploads/<?=empty($capitulo->txt_imagen)?'noImage.jpg':ConstantesWeb::PREX_IMG.$capitulo->txt_imagen?>')">
 					<div class="listado-articles-item-capitulo">
-						<h4>Capitulo <?=$numCapitulo?></h4>
+						<h4>Capítulo <?=$numCapitulo?></h4>
 					</div>
 					<?php
 				if ($numCapitulos == $numCapitulo) {
