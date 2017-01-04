@@ -1,6 +1,7 @@
 // formulario MI CUENTA
-$(function(){
-    $('.mailSubmit').on('click',function(e) {
+
+$(document).ready(function(){
+	$('.mailSubmit').on('click',function(e) {
 
         e.preventDefault();
         var l = Ladda.create(this);
@@ -42,7 +43,7 @@ $(function(){
         }, 100);
 
     });
-})();
+});
 
 var modalHideCuenta = '';
 

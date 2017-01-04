@@ -40,7 +40,9 @@ if ($isAdmin) {
 	] );
 
 ?>
-
+<script>
+var audio = new Audio(basePath+'audios/<?=$capitulo->txt_audio?>');
+</script>
 <input type="hidden" data-token="<?=$capitulo->txt_token?>"
 	id="js-capitulo" />
 	

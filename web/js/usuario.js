@@ -1,4 +1,3 @@
-var audio = new Audio(basePath+'audios/cortinilla.mp3');
 audio.loop = true;
 
 $(document).ready(function(){
