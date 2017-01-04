@@ -37,7 +37,7 @@ if ($isAdmin) {
 				}
 				?>
 				<div class="home-categorias-item <?=$class?> home-categorias-item-<?=$historia->txt_token?>"
-				data-token="<?=$historia->txt_token ?>"><?=$historia->txt_nombre?></div>
+				data-token="<?=$historia->txt_token ?>" <?=$editable?> ><?=$historia->txt_nombre?></div>
 			<?php
 				$active ++;
 			}
