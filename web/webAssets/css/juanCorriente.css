@@ -1472,7 +1472,6 @@ footer.footer-focus .social-media a:hover {
       -ms-flex-align: center;
           align-items: center;
   background-color: #2F2F2F;
-  background-color: green;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -1498,7 +1497,6 @@ footer.footer-focus .social-media a:hover {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: red;
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: contain;
