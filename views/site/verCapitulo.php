@@ -52,7 +52,7 @@ if ($isAdmin) {
 foreach($historias as $history){
 ?>
 	<!-- <a class="ver-capitulo-head-txt" href="#">Capítulo 1 - The chain</a> -->
-	<a class="ver-capitulo-head-img" href="#"><img src="<?=Url::base().'/webAssets/uploads/min_'.$history->txt_image?>" alt=""></a>
+	<a class="ver-capitulo-head-img" href="#" style="background-image: url(<?=Url::base().'/webAssets/uploads/min_'.$history->txt_image?>);"></a>
 <?php }?>	
 </div>
 <!-- end - .ver-capitulo-head -->
