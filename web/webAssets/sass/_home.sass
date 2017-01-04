@@ -28,10 +28,10 @@
 			background-color: $white
 			+border-radius(4px)
 			cursor: pointer
-			margin-right: 49px
 			opacity: .45
 			padding: 10px 8px
 			position: relative
+			
 			&:last-child
 				margin-right: 0
 			&.active
@@ -44,14 +44,94 @@
 					left: -4px
 					position: absolute
 					right: -4px
+			+respond-to(lg)
+				margin-right: 14px
+			+respond-to(md)
+				margin-right: 12px
 			+respond-to(sm)
-				margin-right: 16px
+				margin-right: 10px
 			+respond-to(xs)
 				margin-bottom: 30px
 				margin-right: 8px
-				width: 35%
-				&:nth-child(3n+3)
-					margin-right: 0
+
+		// Delete
+		.home-categorias-delete
+			align-items: center
+			background-color: red
+			+border-radius(50%)
+			cursor: pointer
+			height: 20px
+			display: flex
+			justify-content: center
+			opacity: .7
+			position: absolute
+			right: 0
+			top: 20px
+			width: 20px
+			i
+				color: $white
+				font-size: .7rem
+				margin-bottom: 1px
+			&:hover
+				opacity: 1
+		
+		// Tooltip container
+		.tooltip
+			// background-color: pink
+			position: relative
+			
+			p
+				// background-color: red
+				overflow: hidden
+				white-space: nowrap
+				text-overflow: ellipsis
+				+respond-to(lg)
+					width: 150px
+				+respond-to(md)
+					width: 150px
+				+respond-to(sm)
+					width: 110px
+				+respond-to(xs)
+					width: 90px
+				+respond-to(xx)
+					width: 60px
+
+			// Tooltip text
+			.tooltiptext 
+				visibility: hidden
+				width: 120px
+				background-color: black
+				color: #fff
+				text-align: center
+				padding: 5px 0
+				border-radius: 6px
+				// Position the tooltip text - see examples below!
+				position: absolute
+				z-index: 1
+				// Bottom
+				width: 120px
+				top: 100%
+				left: 50% 
+				margin-left: -60px
+				&:after
+					content: " "
+					position: absolute
+					bottom: 100%  // At the top of the tooltip
+					left: 50%
+					margin-left: -5px
+					border-width: 5px
+					border-style: solid
+					border-color: transparent transparent black transparent
+
+
+			// Show the tooltip text when you mouse over the tooltip container
+			&:hover
+				// background-color: yellow
+				.tooltiptext 
+					visibility: visible
+					top: 130%
+
+
 	// Article
 	.home-article
 		color: $white
@@ -85,3 +165,6 @@
 		// Button
 		.home-article-button
 			margin-top: 40px
+
+
+		
