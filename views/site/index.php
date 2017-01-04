@@ -37,8 +37,8 @@ if ($isAdmin) {
 				}
 				?>
 				<div class="home-categorias-item tooltip <?=$class?> home-categorias-item-<?=$historia->txt_token?>" data-token="<?=$historia->txt_token ?>">
-					<p><?=$historia->txt_nombre?></p>
-					<span class="tooltiptext"><?=$historia->txt_nombre?></span>
+					<div class="tooltipitem"><?=$historia->txt_nombre?></div>
+					<div class="tooltiptext"><?=$historia->txt_nombre?></div>
 				</div>
 			<?php
 				$active ++;

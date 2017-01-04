@@ -923,38 +923,38 @@ footer.footer-focus .social-media a:hover {
   position: relative;
 }
 
-.home .home-categorias .tooltip p {
+.home .home-categorias .tooltip .tooltipitem {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
 @media (min-width: 1201px) {
-  .home .home-categorias .tooltip p {
+  .home .home-categorias .tooltip .tooltipitem {
     width: 150px;
   }
 }
 
 @media (min-width: 992px) and (max-width: 1200px) {
-  .home .home-categorias .tooltip p {
+  .home .home-categorias .tooltip .tooltipitem {
     width: 150px;
   }
 }
 
 @media (min-width: 769px) and (max-width: 991px) {
-  .home .home-categorias .tooltip p {
+  .home .home-categorias .tooltip .tooltipitem {
     width: 110px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .home .home-categorias .tooltip p {
+  .home .home-categorias .tooltip .tooltipitem {
     width: 90px;
   }
 }
 
 @media screen and (max-width: 544px) {
-  .home .home-categorias .tooltip p {
+  .home .home-categorias .tooltip .tooltipitem {
     width: 60px;
   }
 }
