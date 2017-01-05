@@ -107,7 +107,7 @@ var isVarAdmin = false;
 			</div>
 			<?php if($isAdmin){?>
 			<!-- .home-categorias-delete -->
-			<span class="home-categorias-delete" data-token="delete-historia-<?=$historia->txt_token?>">
+			<span class="home-categorias-delete" id="delete-historia-<?=$historia->txt_token?>" data-token="<?=$historia->txt_token?>">
 				<i class="ion ion-close-round"></i>
 			</span>
 			<!-- end - .home-categorias-delete -->

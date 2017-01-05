@@ -587,4 +587,11 @@ class AdminPanelController extends Controller {
 				'status' => 'error' 
 		];
 	}
+	
+	
+	public function actionEliminarHistoria($token=null){
+		$historia = $this->getHistoriaByToken($token);
+		
+		$historia->delete();
+	}
 }

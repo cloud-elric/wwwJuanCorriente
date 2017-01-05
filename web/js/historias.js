@@ -22,6 +22,48 @@ $(document).on({
 	}
 }, '.home-article-desc');
 
+$(document).on({
+	'click' : function(e) {
+
+		e.preventDefault();
+		var token = $(this).data('token');
+		
+		swal({
+			  title: "Eliminar historia",
+			  text: "¿Estas seguro de eliminar la historia y todo su contenido?",
+			  type: "warning",
+			  showCancelButton: true,
+			  closeOnConfirm: false,
+				 html: true,
+				showLoaderOnConfirm: true,
+			  animation: "slide-from-top",
+				confirmButtonText: "Sí, eliminar todo",
+			},
+			function(isConfirm){
+			  if (isConfirm) {
+				 
+				  $.ajax({
+					  url:basePath+'admin-panel/eliminar-historia?token='+token,
+					  success:function(){
+						  
+						  swal("Listo", "Historia eliminada", "success");
+						  
+						  
+					  }
+				  });
+				  
+				}else{
+					swal.close();
+				}
+				
+				return false;
+			  
+			  
+			});
+	}
+}, '.home-categorias-delete');
+
+
 //Revisa lo que hay que borrar
 setInterval(function() {
 	$('.sinGuardar').each(function(index) {

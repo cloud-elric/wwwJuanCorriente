@@ -26,7 +26,7 @@ class AppAsset extends AssetBundle
         'webAssets/plugins/animate/css/animate.css',
         'webAssets/plugins/asScrollbar/dist/css/asScrollable.css',
         'webAssets/plugins/magnific-popup/css/magnific-popup.css',
-        // 'webAssets/css/sweetalert.css',
+        'webAssets/plugins/sweetAlert/css/sweetalert.css',
         'webAssets/css/juanCorriente.css'
     ];
     public $js = [
@@ -40,7 +40,7 @@ class AppAsset extends AssetBundle
         'webAssets/plugins/asScrollbar/js/jquery-asScrollbar.js',
         'webAssets/plugins/asScrollbar/dist/jquery-asScrollable.js',
         'webAssets/plugins/magnific-popup/js/jquery.magnific-popup.min.js',
-    	// 'webAssets/js/sweetalert.min.js',
+    	'webAssets/plugins/sweetAlert/js/sweetalert.min.js',
         'js/mail.js',
     	'js/site.js'
     	
