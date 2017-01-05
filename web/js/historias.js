@@ -48,6 +48,12 @@ $(document).on({
 						  
 						  swal("Listo", "Historia eliminada", "success");
 						  
+						  $('.home-categorias-item-'+token).remove();
+						
+						  $('.animsition-effect-'+token).remove();
+						  
+						  $('.home-categorias-item:eq(0)').addClass('active');
+						  $('.home-article:eq(0)').addClass('active');
 						  
 					  }
 				  });
