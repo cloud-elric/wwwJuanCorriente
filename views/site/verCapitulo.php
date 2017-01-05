@@ -49,12 +49,13 @@ var audio = new Audio(basePath+'audios/<?=$capitulo->txt_audio?>');
 <input type="hidden" data-token="<?=$historia?>" id="js-historia" />
 
 <!-- .ver-capitulo-head -->
+<span class="logoSitio"></span>
 <div class="ver-capitulo-head">
 <?php 
 foreach($historias as $history){
 ?>
 	<!-- <a class="ver-capitulo-head-txt" href="#">Capítulo 1 - The chain</a> -->
-	<a class="ver-capitulo-head-img" href="#" style="background-image: url(<?=Url::base().'/webAssets/uploads/min_'.$history->txt_image?>);"></a>
+	<a class="ver-capitulo-head-img" href="<?=Url::base() ?>/site/lista-de-capitulos?token=<?=$history->txt_token?>" style="background-image: url(<?=Url::base().'/webAssets/uploads/min_'.$history->txt_image?>);"></a>
 <?php }?>	
 </div>
 <!-- end - .ver-capitulo-head -->
@@ -92,7 +93,7 @@ foreach($historias as $history){
 		</div>
 		<!-- end .listado-image -->
 <?php }?>
-		<h1>Historias de México</h1>
+<!-- 		<h1>Simulador de vuelo</h1> -->
 
 		<h2><?=$capitulo->txt_nombre?></h2>
 

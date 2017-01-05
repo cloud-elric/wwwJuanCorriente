@@ -62,7 +62,7 @@ if ($isAdmin) {
 			$numCapitulos = count ( $capitulos );
 			
 			if($numCapitulos==0){
-				echo "<h1>No hay capitulos disponibles</h1>";
+				#echo "<h1>No hay capitulos disponibles</h1>";
 			}
 			
 			foreach ( $capitulos as $capitulo ) {

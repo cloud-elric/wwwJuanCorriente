@@ -20,6 +20,25 @@ $(document).on({
 			document.execCommand('paste', false, text);
 		}
 	}
+}, '.tooltipitem');
+
+//Metodo para eliminar elemento
+$(document).on({
+	'paste' : function(e) {
+
+		e.preventDefault();
+		var text = '';
+		if (e.clipboardData || e.originalEvent.clipboardData) {
+			text = (e.originalEvent || e).clipboardData.getData('text/plain');
+		} else if (window.clipboardData) {
+			text = window.clipboardData.getData('Text');
+		}
+		if (document.queryCommandSupported('insertText')) {
+			document.execCommand('insertText', false, text);
+		} else {
+			document.execCommand('paste', false, text);
+		}
+	}
 }, '.home-article-desc');
 
 $(document).on({
@@ -277,9 +296,14 @@ function habilitarEdicion() {
 	$('.listado-image').css('display', 'block');
 	$('.home-article-desc').attr('contenteditable', 'true');
 	$('.home-categorias-item.active .tooltipitem').attr('contenteditable', 'true');
-
+	
+	$('.home-categorias-item.active .tooltipitem').attr('contenteditable', 'true');
+	$('.home-categorias-item.active .tooltipitem').css('white-space', 'normal');
+	$('.home-categorias-item.active .tooltipitem').css('text-overflow', 'initial');
+	
 	$('#modal-agregar-post-open').css('display', 'none');
 	$('.listado-articles-item-hover-close-btn').css('display', 'flex');
+	$('.home-categorias-delete').css('display', 'flex');
 }
 
 function desHabilitarEdicion() {
@@ -289,7 +313,10 @@ function desHabilitarEdicion() {
 	$('.home-article-desc').removeAttr('contenteditable');
 	$('.home-categorias-item .tooltipitem').removeAttr('contenteditable');
 	$('#modal-agregar-post-open').css('display', 'flex');
-
+	$('.home-categorias-delete').css('display', 'none');
+	
+	$('.home-categorias-item.active .tooltipitem').css('white-space', 'nowrap');
+	$('.home-categorias-item.active .tooltipitem').css('text-overflow', 'ellipsis');
 }
 
 
@@ -461,3 +488,121 @@ function readURLCap(input, element) {
 		reader.readAsDataURL(input.files[0]);
 	}
 }
+
+
+
+var token = '';
+$(document).ready(
+		function() {
+			$(".animsition-effect").animsition({
+				transition : function(url) {
+					// console.log(token);
+
+					// $('.animsition-effect-'+token).animsition('in');
+
+				}
+			});
+
+			$('.animsition-effect').on(
+					'animsition.outEnd',
+					function() {
+						//if (typeof enEdicion === 'undefined') {
+							// $('.animsition-effect-'+token).addClass('active');
+							
+							$('.animsition-effect.active').removeClass('active');
+
+							$('.animsition-effect-' + token).addClass('active');
+							
+								
+
+							$('.animsition-effect-' + token).animsition('in');
+						
+						
+						
+					});
+
+			$(".home-categorias-item").on('click', function(e) {
+				e.preventDefault();
+				
+				$(".home-categorias-item .tooltipitem").removeAttr('contenteditable');
+				$('.home-categorias-item .tooltipitem').css('white-space', 'nowrap');
+				$('.home-categorias-item .tooltipitem').css('text-overflow', 'ellipsis');
+				
+				if(enEdicion){
+					$(this).find('.tooltipitem').attr('contenteditable', 'true');
+					$(this).find('.tooltipitem').css('white-space', 'normal');
+					$(this).find('.tooltipitem').css('text-overflow', 'initial');
+				}else{
+					$(".home-categorias-item .tooltipitem").removeAttr('contenteditable');
+				}
+				
+				if($(this).hasClass('active')){
+					return false;
+				}
+				
+				token = $(this).data('token');
+
+				var actual = $('.animsition-effect.active');
+				actual.animsition('out', $('.animsition-effect.active'), '');
+
+				$('.home-categorias-item').removeClass('active');
+				$(this).addClass('active');
+				
+				
+			})
+
+		});
+
+
+
+//Metodo para guardar al elemento
+$(document).on(
+		{
+			'focus' : function() {
+				var esNuevo = $(this).data('new');
+				if (esNuevo == 'esNuevo') {
+					$(this).text('');
+				}
+			},
+			'focusout' : function() {
+				
+				
+				var element = $(this);
+				if (($(this).text()).trim() == '') {
+					$(this).text('Agregar texto');
+					$(this).data('new', 'esNuevo');
+				} else {
+					var token = element.data('token');
+					
+					$('#tool-tip-text-'+token).html($(this).html());
+					
+					var url = basePath
+							+ 'admin-panel/editar-historia-nombre?token='
+							+ token;
+					
+					if (element.data('progress') == 'noProceso') {
+						element.data('progress', 'enProceso');
+						var valor = element.html();
+
+						$.ajax({
+							url : url,
+							data : {
+								valor : valor,
+								token : token
+							},
+							method : "POST",
+							success : function(response) {
+								
+								element.data('progress', 'noProceso');
+							}
+						});
+					} else if (element.data('progress') == 'enProceso') {
+						element.addClass('sinGuardar');
+					}
+				}
+			},
+			'DOMSubtreeModified' : function() {
+				$(this).data('new', 'noNuevo');
+			}
+
+		}, '.tooltipitem');

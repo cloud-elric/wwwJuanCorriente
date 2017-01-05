@@ -37,7 +37,7 @@ AppAsset::register($this);
             
             <!-- header -->
             <header>
-                <h1>Historias de México</h1>
+                <h1></h1>
             </header>
             <!-- end - header -->
 

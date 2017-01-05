@@ -18,6 +18,12 @@ if ($isAdmin) {
 					\app\assets\AppAsset::className ()
 			]
 	] );
+}else{
+	$this->registerJsFile ( '@web/js/site.js', [
+			'depends' => [
+					\app\assets\AppAsset::className ()
+			]
+	] );
 }
 ?>
 
@@ -53,7 +59,7 @@ var isVarAdmin = false;
 
 				<div class="home-categorias-item tooltip <?=$class?> home-categorias-item-<?=$historia->txt_token?>" data-token="<?=$historia->txt_token ?>">
 					<div class="tooltipitem" <?=$editable?> data-token="<?=$historia->txt_token ?>" ><?=$historia->txt_nombre?></div>
-					<div class="tooltiptext" data-token="<?=$historia->txt_token ?>"><?=$historia->txt_nombre?></div>
+					<div class="tooltiptext" id="tool-tip-text-<?=$historia->txt_token?>" data-token="<?=$historia->txt_token ?>"><?=$historia->txt_nombre?></div>
 				</div>
 	
 				
@@ -99,7 +105,7 @@ var isVarAdmin = false;
 					<?php }?>
 				</div>
 				<div class="col-xs-12 col-sm-6 home-article-col">
-					<h3 class="home-article-title">Descripción</h3>
+<!-- 					<h3 class="home-article-title">Descripción</h3> -->
 					<div data-token="<?=$historia->txt_token?>" class="home-article-desc" <?=$editable?>>
 							<?=$historia->txt_descripcion?>
 						</div>
@@ -107,7 +113,7 @@ var isVarAdmin = false;
 			</div>
 			<?php if($isAdmin){?>
 			<!-- .home-categorias-delete -->
-			<span class="home-categorias-delete" id="delete-historia-<?=$historia->txt_token?>" data-token="<?=$historia->txt_token?>">
+			<span style="display:none;" class="home-categorias-delete" id="delete-historia-<?=$historia->txt_token?>" data-token="<?=$historia->txt_token?>">
 				<i class="ion ion-close-round"></i>
 			</span>
 			<!-- end - .home-categorias-delete -->

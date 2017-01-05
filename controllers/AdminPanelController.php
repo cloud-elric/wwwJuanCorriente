@@ -594,4 +594,14 @@ class AdminPanelController extends Controller {
 		
 		$historia->delete();
 	}
+	
+	public function actionEditarHistoriaNombre(){
+		$token = $_POST['token'];
+		$valor = $_POST['valor'];
+		
+		$historia = $this->getHistoriaByToken($token);
+		
+		$historia->txt_nombre = $valor;
+		$historia->save();
+	}
 }

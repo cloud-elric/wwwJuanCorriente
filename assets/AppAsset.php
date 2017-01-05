@@ -42,7 +42,6 @@ class AppAsset extends AssetBundle
         'webAssets/plugins/magnific-popup/js/jquery.magnific-popup.min.js',
     	'webAssets/plugins/sweetAlert/js/sweetalert.min.js',
         'js/mail.js',
-    	'js/site.js'
     	
     ];
     public $depends = [

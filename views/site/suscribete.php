@@ -11,13 +11,13 @@ if($email != '' ){
 	$dest = "humberto@2gom.com.mx";
 	 
 	// Estas son cabeceras que se usan para evitar que el correo llegue a SPAM:
-	$headers = "From: Portal Charlenetas <$email>\r\n";  
+	$headers = "From: Portal Simulador de vuelo <$email>\r\n";  
 	$headers .= "X-Mailer: PHP5\n";
 	$headers .= 'MIME-Version: 1.0' . "\n";
-	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+	$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
 	 
 	// Aqui definimos el asunto y armamos el cuerpo del mensaje
-	$asunto = "Suscripcción a lista de Mailing";
+	$asunto = "Suscripccion a lista de Mailing";
 	$cuerpo .= "El usuario ".$email." se ha registrado en JuanCorriente";
 
 
