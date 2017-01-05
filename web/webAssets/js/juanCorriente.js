@@ -304,7 +304,7 @@ $(document).on("scroll", function(){
 	 */
 	var desplazamientoActual = $(document).scrollTop();
 	if(desplazamientoActual > 100 ){
-		$(".ver-capitulo-header").fadeTo( 18, 0.45 );
+		$(".ver-capitulo-header").fadeTo( 18, 0.15 );
 	}
 	else{
 		$(".ver-capitulo-header").fadeTo( 10, 1 );

@@ -1999,7 +1999,7 @@ footer.footer-focus .social-media a:hover {
 
 .ver-capitulo .ver-capitulo-cont .ver-capitulo-post {
   margin: 0 auto;
-  max-width: 600px;
+  max-width: 700px;
   padding: 20px 0;
   position: relative;
   width: 90%;
@@ -2008,8 +2008,9 @@ footer.footer-focus .social-media a:hover {
 
 .ver-capitulo .ver-capitulo-cont .ver-capitulo-post .ver-capitulo-post-desc .ver-capitulo-post-desc-text {
   color: #AAF5F5;
-  font-size: .9em;
-  line-height: 1.250em;
+  font-size: 1em;
+  letter-spacing: 1px;
+  line-height: 1.8em;
   margin-bottom: 22px;
   padding: 4px;
   text-align: justify;
