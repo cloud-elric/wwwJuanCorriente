@@ -228,7 +228,7 @@ function habilitarEdicion() {
 	$("#js-edicion-capitulos i").addClass('ion-checkmark-circled');
 	$('.listado-image').css('display', 'block');
 	$('.home-article-desc').attr('contenteditable', 'true');
-	$('.home-categorias-item.active').attr('contenteditable', 'true');
+	$('.home-categorias-item.active .tooltipitem').attr('contenteditable', 'true');
 
 	$('#modal-agregar-post-open').css('display', 'none');
 	$('.listado-articles-item-hover-close-btn').css('display', 'flex');
@@ -239,7 +239,7 @@ function desHabilitarEdicion() {
 	$("#js-edicion-capitulos i").addClass('ion-android-create');
 	$('.listado-image').css('display', 'none');
 	$('.home-article-desc').removeAttr('contenteditable');
-	$('.home-categorias-item').removeAttr('contenteditable');
+	$('.home-categorias-item .tooltipitem').removeAttr('contenteditable');
 	$('#modal-agregar-post-open').css('display', 'flex');
 
 }

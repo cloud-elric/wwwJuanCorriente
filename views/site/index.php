@@ -21,6 +21,19 @@ if ($isAdmin) {
 }
 ?>
 
+
+<?php 
+if($isAdmin){
+	?>
+<script>
+var isVarAdmin = true;
+</script>
+<?php }else{
+?>
+<script>
+var isVarAdmin = false;
+</script>
+<?php }?>
 <!-- .home -->
 <div class="home">
 	<!-- .container -->
@@ -37,23 +50,20 @@ if ($isAdmin) {
 				}
 				?>
 
-				<div class="home-categorias-item tooltip <?=$class?> home-categorias-item-<?=$historia->txt_token?>"
-				data-token="<?=$historia->txt_token ?>" <?=$editable?> ><?=$historia->txt_nombre?></div>
 
-				<div class="home-categorias-item tooltip <?=$class?> home-categorias-item-<?=$historia->txt_token?>" data-token="<?=$historia->txt_token ?>"  <?=$editable?>>
-					<div class="tooltipitem"><?=$historia->txt_nombre?></div>
-					<div class="tooltiptext"><?=$historia->txt_nombre?></div>
+				<div class="home-categorias-item tooltip <?=$class?> home-categorias-item-<?=$historia->txt_token?>" data-token="<?=$historia->txt_token ?>">
+					<div class="tooltipitem" <?=$editable?> data-token="<?=$historia->txt_token ?>" ><?=$historia->txt_nombre?></div>
+					<div class="tooltiptext" data-token="<?=$historia->txt_token ?>"><?=$historia->txt_nombre?></div>
 				</div>
-
+	
+				
+	
 			<?php
 				$active ++;
 			}
 			?>
-			<!-- .home-categorias-delete -->
-			<span class="home-categorias-delete">
-				<i class="ion ion-close-round"></i>
-			</span>
-			<!-- end - .home-categorias-delete -->
+			
+			
 		</div>
 		<!-- end - .home-categorias -->
 
@@ -65,8 +75,10 @@ if ($isAdmin) {
 				$class = 'active';
 			}
 			?>
+			
 			<article class="home-article animsition-effect-<?=$historia->txt_token?> animsition-effect <?=$class?>">
 			<div class="row">
+			
 				<div class="col-xs-12 col-sm-6 home-article-col">
 					<img class="home-article-imagen image-change-<?=$historia->txt_token?>" data-token="<?=$historia->txt_token?>"
 						src="<?=Url::base().'/webAssets/uploads/min_'.$historia->txt_image?>"
@@ -93,6 +105,13 @@ if ($isAdmin) {
 						</div>
 				</div>
 			</div>
+			<?php if($isAdmin){?>
+			<!-- .home-categorias-delete -->
+			<span class="home-categorias-delete" data-token="delete-historia-<?=$historia->txt_token?>">
+				<i class="ion ion-close-round"></i>
+			</span>
+			<!-- end - .home-categorias-delete -->
+			<?php }?>
 			<a class="btn btn-primary home-article-button ladda-button"
 				href="<?=Url::base()?>/site/lista-de-capitulos?token=<?=$historia->txt_token?>" data-style="zoom-out"><span class="ladda-label">Comenzar a leer</span></a>
 		</article>
