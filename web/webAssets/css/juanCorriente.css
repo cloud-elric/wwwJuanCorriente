@@ -658,6 +658,7 @@ footer .container {
 @media screen and (max-width: 768px) {
   footer .container .footer-siguenos {
     margin-bottom: 45px;
+    width: 100%;
   }
 }
 
@@ -670,6 +671,7 @@ footer .container .footer-siguenos h6 {
 @media screen and (max-width: 768px) {
   footer .container .footer-siguenos h6 {
     margin-bottom: 18px;
+    text-align: center;
   }
 }
 
@@ -704,6 +706,7 @@ footer .container .footer-suscribete {
 @media screen and (max-width: 768px) {
   footer .container .footer-suscribete {
     margin-left: 0;
+    width: 100%;
   }
 }
 
@@ -2518,6 +2521,7 @@ footer.footer-focus .social-media a:hover {
 @media screen and (max-width: 768px) {
   .ver-capitulo-controlers,
   .listado-controlers {
+    bottom: 90px;
     -webkit-flex-direction: column;
         -ms-flex-direction: column;
             flex-direction: column;
