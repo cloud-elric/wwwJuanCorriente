@@ -303,7 +303,9 @@ function habilitarEdicion() {
 	
 	$('#modal-agregar-post-open').css('display', 'none');
 	$('.listado-articles-item-hover-close-btn').css('display', 'flex');
+	$('.listado-articles-item-hover-close-btn').css('display', '-ms-flexbox');
 	$('.home-categorias-delete').css('display', 'flex');
+	$('.home-categorias-delete').css('display', '-ms-flexbox');
 }
 
 function desHabilitarEdicion() {
@@ -313,6 +315,7 @@ function desHabilitarEdicion() {
 	$('.home-article-desc').removeAttr('contenteditable');
 	$('.home-categorias-item .tooltipitem').removeAttr('contenteditable');
 	$('#modal-agregar-post-open').css('display', 'flex');
+	$('#modal-agregar-post-open').css('display', '-ms-flexbox');
 	$('.home-categorias-delete').css('display', 'none');
 	
 	$('.home-categorias-item.active .tooltipitem').css('white-space', 'nowrap');
@@ -418,6 +421,7 @@ $(document).ready(function(){
 //		e.preventDefault();
 //		
 //		$('#modal-agregar-post').css('display', 'flex');
+//		$('#modal-agregar-post').css('display', '-ms-flexbox');
 //		
 //	});
 });
