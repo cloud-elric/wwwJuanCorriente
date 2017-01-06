@@ -135,14 +135,14 @@ foreach($historias as $history){
 
 
 		<!-- FullScreen -->
-		<div class="ver-capitulo-full-screen" id="full-screen">
+		<!-- <div class="ver-capitulo-full-screen" id="full-screen">
 			<span>FullScreen</span> <i class="ion ion-arrow-expand"></i>
-		</div>
+		</div> -->
 
 		<!-- CloseScreen -->
-		<div class="ver-capitulo-close-screen" id="close-screen">
+		<!-- <div class="ver-capitulo-close-screen" id="close-screen">
 			<span>Exit Screen</span> <i class="ion ion-arrow-shrink"></i>
-		</div>
+		</div> -->
 
 		<!-- .ver-capitulo-options -->
 		<div class="ver-capitulo-options">
@@ -170,6 +170,18 @@ foreach($historias as $history){
 				<!-- <i class="ion ion-android-volume-off"></i> -->
 			</span>
 			<!-- end - .ver-capitulo-options-volume -->
+
+			<!-- .ver-capitulo-options-full -->
+			<span class="ver-capitulo-options-full ver-capitulo-full-screen" id="full-screen">
+				<span>FullScreen</span> <i class="ion ion-arrow-expand "></i>
+			</span>
+			<!-- end - .ver-capitulo-options-full -->
+
+			<!-- .ver-capitulo-options-full -->
+			<span class="ver-capitulo-options-close ver-capitulo-close-screen" id="close-screen">
+				<span>Exit Screen</span> <i class="ion ion-arrow-shrink"></i>
+			</span>
+			<!-- end - .ver-capitulo-options-full -->
 
 		</div>
 		<!-- end - .ver-capitulo-options -->

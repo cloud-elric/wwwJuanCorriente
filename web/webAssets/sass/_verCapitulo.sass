@@ -329,36 +329,62 @@
 						margin-left: 4px
 					&:hover
 						color: $teal
-
-			// FullScreen
-			.ver-capitulo-full-screen,
-			.ver-capitulo-close-screen
-				align-items: center
-				color: $teal
-				cursor: pointer
-				display: flex
-				justify-content: center
-				position: fixed
-				right: 20px
-				top: 60vh
-				z-index: 8
-				+respond-to(xx)
-					right: 10px
-				span
-					font-size: 0.7em
-					margin-right: 8px
-					text-transform: uppercase
+				
+				// 
+				.ver-capitulo-options-full,
+				.ver-capitulo-options-close
+					align-items: center
+					background-color: $black
+					+border-radius(4px)
+					+box-shadow(2)
+					color: #fff
+					cursor: pointer
+					display: flex
+					height: 40px
+					justify-content: center
+					margin-left: 10px
+					width: 40px
+					+respond-to(sm)
+						display: none
 					+respond-to(xs)
 						display: none
-				i
-					font-size: 0.85em
-					+respond-to(xs)
-						font-size: 1.8em
-					+respond-to(xx)
-						font-size: 1.6em
+					&:hover
+						color: $teal
+					span
+						display: none
 
-			.ver-capitulo-close-screen
-				display: none
+				.ver-capitulo-options-close
+					display: none
+
+			// FullScreen
+			// .ver-capitulo-full-screen,
+			// .ver-capitulo-close-screen
+			// 	align-items: center
+			// 	color: $teal
+			// 	cursor: pointer
+			// 	display: flex
+			// 	justify-content: center
+			// 	position: fixed
+			// 	right: 20px
+			// 	top: 60vh
+			// 	z-index: 8
+			// 	+respond-to(xx)
+			// 		right: 10px
+			// 	span
+			// 		font-size: 0.7em
+			// 		margin-right: 8px
+			// 		text-transform: uppercase
+			// 		+respond-to(xs)
+			// 			display: none
+			// 	i
+			// 		font-size: 0.85em
+			// 		+respond-to(xs)
+			// 			font-size: 1.8em
+			// 		+respond-to(xx)
+			// 			font-size: 1.6em
+
+			// .ver-capitulo-close-screen
+			// 	display: none
 		.container
 			position: relative
 			z-index: 1
@@ -715,6 +741,7 @@
 		overflow-y: auto !important
 		width: 100%
 		.ver-capitulo-header
+			opacity: .15!important
 			right: 18px
 		.ver-capitulo-cont
 			.ver-capitulo-header-textos

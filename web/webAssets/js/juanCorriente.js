@@ -93,6 +93,7 @@ $(document).ready(function(){
 
 		$('.ver-capitulo-full-screen').fadeOut();
 		$('.ver-capitulo-close-screen').fadeIn();
+		$('.ver-capitulo-close-screen').css("display", "flex");
 		$('.ver-capitulo').fullscreen();
 		$(".ver-capitulo").addClass("ver-capitulo-full");
 
@@ -119,6 +120,7 @@ $(document).ready(function(){
 	$('.ver-capitulo-close-screen').on("click", function(){
 
 		$('.ver-capitulo-full-screen').fadeIn();
+		$('.ver-capitulo-full-screen').css("display", "flex");
 		$('.ver-capitulo-close-screen').fadeOut();
 		$(".ver-capitulo").removeClass("ver-capitulo-full");
 
@@ -143,6 +145,7 @@ $(document).ready(function(){
 		if (e.keyCode == 27) {
 		
 			$('.ver-capitulo-full-screen').fadeIn();
+			$('.ver-capitulo-full-screen').css("display", "flex");
 			$('.ver-capitulo-close-screen').fadeOut();
 			$(".ver-capitulo").removeClass("ver-capitulo-full");
 
