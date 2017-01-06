@@ -62,6 +62,7 @@ $(document).ready(function(){
 	// Open Modal
 	$(modalOpen).on("click", function(){
 		modal.style.display = "flex";
+		modal.style.display = "-ms-flexbox";
 	});
 
 	/**
@@ -95,6 +96,7 @@ $(document).ready(function(){
 		// $('.ver-capitulo-full-screen').fadeOut();
 		$('.ver-capitulo-full-screen').hide();
 		$('.ver-capitulo-close-screen').css("display", "flex");
+		$('.ver-capitulo-close-screen').css("display", "-ms-flexbox");
 		$('.ver-capitulo').fullscreen();
 		$(".ver-capitulo").addClass("ver-capitulo-full");
 
@@ -123,6 +125,7 @@ $(document).ready(function(){
 		// $('.ver-capitulo-full-screen').fadeIn();
 		// $('.ver-capitulo-close-screen').fadeOut();
 		$('.ver-capitulo-full-screen').css("display", "flex");
+		$('.ver-capitulo-full-screen').css("display", "-ms-flexbox");
 		$('.ver-capitulo-close-screen').hide();
 		$(".ver-capitulo").removeClass("ver-capitulo-full");
 
@@ -149,6 +152,7 @@ $(document).ready(function(){
 			// $('.ver-capitulo-full-screen').fadeIn();
 			// $('.ver-capitulo-close-screen').fadeOut();
 			$('.ver-capitulo-full-screen').css("display", "flex");
+			$('.ver-capitulo-full-screen').css("display", "-ms-flexbox");
 			$('.ver-capitulo-close-screen').hide();
 			$(".ver-capitulo").removeClass("ver-capitulo-full");
 
@@ -181,6 +185,7 @@ $(document).ready(function(){
 	$(modalOpenMensaje).on("click", function(){
 		
 		modalMensaje.style.display = "flex";
+		modalMensaje.style.display = "-ms-flexbox";
 	});
 	// Close Modal
 	$(modalCloseMensaje).on("click", function(){
