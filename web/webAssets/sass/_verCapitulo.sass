@@ -21,8 +21,9 @@
 	right: 0
 	// top: 0
 	width: 100%
-	z-index: 4
+	z-index: 3
 	+respond-to(xs)
+		justify-content: flex-end
 		padding: 6px 14px
 	a
 		align-items: center
@@ -35,18 +36,19 @@
 		justify-content: center
 		margin-right: 10px
 		+respond-to(xs)
-			height: auto
+			height: 24px
 			margin-right: 4px
 		&:last-child
 			margin-right: 0
 		&.ver-capitulo-head-txt
 			padding: 0 6px
 		&.ver-capitulo-head-img
-			width: 50px
+			width: 40px
 			img
 				width: 100%
 			+respond-to(xs)
-				width: 30px
+				height: 24px
+				width: 24px
 
 /*  Ver Capítulo
 	================================================ */
@@ -121,11 +123,16 @@
 				left: 30px
 				position: fixed
 				top: 70px
+				+transition(top .3s ease-out)
 				z-index: 3
 				+respond-to(xx)
 					left: 20px
 				&:hover
 					color: $teal
+				// SCROLL
+				&.ver-capitulo-back-scroll
+					+respond-to(xs)
+						top: 21px
 			// Ver capítulos
 			.ver-capitulos
 				align-items: center
@@ -141,6 +148,7 @@
 				padding: 0 14px
 				position: fixed
 				top: 60px
+				+transition(top .3s ease-out)
 				z-index: 3
 				+respond-to(xx)
 					left: 44px
@@ -156,6 +164,10 @@
 						display: none
 				&:hover
 					color: $white
+				// SCROLL
+				&.ver-capitulos-scroll
+					+respond-to(xs)
+						top: 10px
 			// Nav capítulos
 			.nav-capitulos
 				background-color: #222
@@ -229,6 +241,7 @@
 				right: 70px
 				top: 60px
 				// width: 150px
+				+transition(top .3s ease-out)
 				z-index: 8
 				+respond-to(xs)
 					right: 66px
@@ -242,6 +255,8 @@
 					display: flex
 					overflow: hidden
 					+border-radius(4px)
+					+respond-to(xs)
+						display: none
 					// Iniciar sesión
 					.ver-capitulo-options-texto-resize-slider
 						// background-color: $black
@@ -356,6 +371,11 @@
 
 				.ver-capitulo-options-close
 					display: none
+				
+				// SROLL
+				&.ver-capitulo-options-scroll
+					+respond-to(xs)
+						top: 10px
 
 			// FullScreen
 			// .ver-capitulo-full-screen,
@@ -666,10 +686,23 @@
 					&:hover
 						opacity: 1
 				&:hover
-					// border: 1px solid rgba($white,.1)
-					.ver-capitulo-post-hover-close-btn,
-					.ver-capitulo-post-hover-mover-btn
-						display: flex
+					+respond-to(lg)
+						.ver-capitulo-post-hover-close-btn,
+						.ver-capitulo-post-hover-mover-btn
+							display: flex
+					+respond-to(md)
+						.ver-capitulo-post-hover-close-btn,
+						.ver-capitulo-post-hover-mover-btn
+							display: flex
+					+respond-to(sm)
+						.ver-capitulo-post-hover-close-btn,
+						.ver-capitulo-post-hover-mover-btn
+							display: none
+					+respond-to(xs)
+						.ver-capitulo-post-hover-close-btn,
+						.ver-capitulo-post-hover-mover-btn
+							display: none
+
 	// 	// Ver capítulo - white
 	// 	&.ver-capitulo-white
 	// 		background-color: $white
@@ -773,9 +806,11 @@
 	z-index: 9
 	+respond-to(sm)
 		// background-color: red
+		display: none
 		flex-direction: column
 	+respond-to(xs)
 		// background-color: yellow
+		display: none
 		bottom: 90px
 		flex-direction: column
 		right: 18px
@@ -980,3 +1015,6 @@ input[type=range]:focus::-ms-fill-upper
 	background-size: cover
 	background-position: -408px
 	left: 50px
+	z-index: 4
+	+respond-to(xs)
+		left: 10px

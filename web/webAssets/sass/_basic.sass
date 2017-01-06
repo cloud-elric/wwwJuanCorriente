@@ -419,6 +419,11 @@ hr
 	right: 20px
 	top: 60px
 	width: 40px
-	z-index: 9
+	+transition(top .3s ease-out)
+	z-index: 4
 	&:hover
 		color: $teal
+	// SCROLL
+	&.cerrar-sesion-scroll
+		+respond-to(xs)
+			top: 10px

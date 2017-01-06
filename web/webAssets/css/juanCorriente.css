@@ -549,11 +549,18 @@ hr {
   right: 20px;
   top: 60px;
   width: 40px;
-  z-index: 9;
+  transition: top 0.3s ease-out;
+  z-index: 4;
 }
 
 .cerrar-sesion:hover {
   color: #8EF0EF;
+}
+
+@media screen and (max-width: 768px) {
+  .cerrar-sesion.cerrar-sesion-scroll {
+    top: 10px;
+  }
 }
 
 /*!
@@ -657,7 +664,10 @@ footer .container {
 
 @media screen and (max-width: 768px) {
   footer .container .footer-siguenos {
-    margin-bottom: 45px;
+    -webkit-order: 2;
+        -ms-flex-order: 2;
+            order: 2;
+    margin-bottom: 10px;
     width: 100%;
   }
 }
@@ -705,7 +715,11 @@ footer .container .footer-suscribete {
 
 @media screen and (max-width: 768px) {
   footer .container .footer-suscribete {
+    -webkit-order: 1;
+        -ms-flex-order: 1;
+            order: 1;
     margin-left: 0;
+    margin-bottom: 40px;
     width: 100%;
   }
 }
@@ -1413,6 +1427,18 @@ footer.footer-focus .social-media a:hover {
   width: 130px;
 }
 
+@media (min-width: 769px) and (max-width: 991px) {
+  .listado-image {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .listado-image {
+    display: none;
+  }
+}
+
 .listado-image .listado-image-item {
   -webkit-align-items: center;
       -ms-flex-align: center;
@@ -1630,11 +1656,14 @@ footer.footer-focus .social-media a:hover {
   position: relative;
   right: 0;
   width: 100%;
-  z-index: 4;
+  z-index: 3;
 }
 
 @media screen and (max-width: 768px) {
   .ver-capitulo-head {
+    -webkit-justify-content: flex-end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
     padding: 6px 14px;
   }
 }
@@ -1658,7 +1687,7 @@ footer.footer-focus .social-media a:hover {
 
 @media screen and (max-width: 768px) {
   .ver-capitulo-head a {
-    height: auto;
+    height: 24px;
     margin-right: 4px;
   }
 }
@@ -1672,7 +1701,7 @@ footer.footer-focus .social-media a:hover {
 }
 
 .ver-capitulo-head a.ver-capitulo-head-img {
-  width: 50px;
+  width: 40px;
 }
 
 .ver-capitulo-head a.ver-capitulo-head-img img {
@@ -1681,7 +1710,8 @@ footer.footer-focus .social-media a:hover {
 
 @media screen and (max-width: 768px) {
   .ver-capitulo-head a.ver-capitulo-head-img {
-    width: 30px;
+    height: 24px;
+    width: 24px;
   }
 }
 
@@ -1785,6 +1815,7 @@ footer.footer-focus .social-media a:hover {
   left: 30px;
   position: fixed;
   top: 70px;
+  transition: top 0.3s ease-out;
   z-index: 3;
 }
 
@@ -1796,6 +1827,12 @@ footer.footer-focus .social-media a:hover {
 
 .ver-capitulo .ver-capitulo-cont .ver-capitulo-header-textos .ver-capitulo-back:hover {
   color: #8EF0EF;
+}
+
+@media screen and (max-width: 768px) {
+  .ver-capitulo .ver-capitulo-cont .ver-capitulo-header-textos .ver-capitulo-back.ver-capitulo-back-scroll {
+    top: 21px;
+  }
 }
 
 .ver-capitulo .ver-capitulo-cont .ver-capitulo-header-textos .ver-capitulos {
@@ -1818,6 +1855,7 @@ footer.footer-focus .social-media a:hover {
   padding: 0 14px;
   position: fixed;
   top: 60px;
+  transition: top 0.3s ease-out;
   z-index: 3;
 }
 
@@ -1851,6 +1889,12 @@ footer.footer-focus .social-media a:hover {
 
 .ver-capitulo .ver-capitulo-cont .ver-capitulo-header-textos .ver-capitulos:hover {
   color: #FFF;
+}
+
+@media screen and (max-width: 768px) {
+  .ver-capitulo .ver-capitulo-cont .ver-capitulo-header-textos .ver-capitulos.ver-capitulos-scroll {
+    top: 10px;
+  }
 }
 
 .ver-capitulo .ver-capitulo-cont .ver-capitulo-header-textos .nav-capitulos {
@@ -1948,6 +1992,7 @@ footer.footer-focus .social-media a:hover {
   position: fixed;
   right: 70px;
   top: 60px;
+  transition: top 0.3s ease-out;
   z-index: 8;
 }
 
@@ -1971,6 +2016,12 @@ footer.footer-focus .social-media a:hover {
   display: flex;
   overflow: hidden;
   border-radius: 4px;
+}
+
+@media screen and (max-width: 768px) {
+  .ver-capitulo .ver-capitulo-cont .ver-capitulo-header-textos .ver-capitulo-options .ver-capitulo-options-texto-resize {
+    display: none;
+  }
 }
 
 .ver-capitulo .ver-capitulo-cont .ver-capitulo-header-textos .ver-capitulo-options .ver-capitulo-options-texto-resize .ver-capitulo-options-texto-resize-slider {
@@ -2159,6 +2210,12 @@ footer.footer-focus .social-media a:hover {
 
 .ver-capitulo .ver-capitulo-cont .ver-capitulo-header-textos .ver-capitulo-options .ver-capitulo-options-close {
   display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .ver-capitulo .ver-capitulo-cont .ver-capitulo-header-textos .ver-capitulo-options.ver-capitulo-options-scroll {
+    top: 10px;
+  }
 }
 
 .ver-capitulo .ver-capitulo-cont .container {
@@ -2455,11 +2512,36 @@ footer.footer-focus .social-media a:hover {
   opacity: 1;
 }
 
-.ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-hover-close:hover .ver-capitulo-post-hover-close-btn,
-.ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-hover-close:hover .ver-capitulo-post-hover-mover-btn {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+@media (min-width: 1201px) {
+  .ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-hover-close:hover .ver-capitulo-post-hover-close-btn,
+  .ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-hover-close:hover .ver-capitulo-post-hover-mover-btn {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-hover-close:hover .ver-capitulo-post-hover-close-btn,
+  .ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-hover-close:hover .ver-capitulo-post-hover-mover-btn {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 991px) {
+  .ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-hover-close:hover .ver-capitulo-post-hover-close-btn,
+  .ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-hover-close:hover .ver-capitulo-post-hover-mover-btn {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-hover-close:hover .ver-capitulo-post-hover-close-btn,
+  .ver-capitulo.ver-capitulo-admin .ver-capitulo-post .ver-capitulo-post-hover-close:hover .ver-capitulo-post-hover-mover-btn {
+    display: none;
+  }
 }
 
 .ver-capitulo.ver-capitulo-focus {
@@ -2512,6 +2594,7 @@ footer.footer-focus .social-media a:hover {
 @media (min-width: 769px) and (max-width: 991px) {
   .ver-capitulo-controlers,
   .listado-controlers {
+    display: none;
     -webkit-flex-direction: column;
         -ms-flex-direction: column;
             flex-direction: column;
@@ -2521,6 +2604,7 @@ footer.footer-focus .social-media a:hover {
 @media screen and (max-width: 768px) {
   .ver-capitulo-controlers,
   .listado-controlers {
+    display: none;
     bottom: 90px;
     -webkit-flex-direction: column;
         -ms-flex-direction: column;
@@ -2820,6 +2904,13 @@ input[type=range]:focus::-ms-fill-upper {
   background-size: cover;
   background-position: -408px;
   left: 50px;
+  z-index: 4;
+}
+
+@media screen and (max-width: 768px) {
+  .logoSitio {
+    left: 10px;
+  }
 }
 
 /*!

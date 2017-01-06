@@ -316,9 +316,17 @@ $(document).on("scroll", function(){
 	var desplazamientoActual = $(document).scrollTop();
 	if(desplazamientoActual > 100 ){
 		$(".ver-capitulo-header").fadeTo( 18, 0.15 );
+		$(".ver-capitulo-options").addClass("ver-capitulo-options-scroll");
+		$(".cerrar-sesion").addClass("cerrar-sesion-scroll");
+		$(".ver-capitulo-back").addClass("ver-capitulo-back-scroll");
+		$(".ver-capitulos").addClass("ver-capitulos-scroll");
 	}
 	else{
 		$(".ver-capitulo-header").fadeTo( 10, 1 );
+		$(".ver-capitulo-options").removeClass("ver-capitulo-options-scroll");
+		$(".cerrar-sesion").removeClass("cerrar-sesion-scroll");
+		$(".ver-capitulo-back").removeClass("ver-capitulo-back-scroll");
+		$(".ver-capitulos").removeClass("ver-capitulos-scroll");
 	}
 
 	// if(desplazamientoActual >100){
