@@ -576,14 +576,26 @@ header {
 
 header h1 {
   color: #FFF;
+  color: #FFF;
   font-size: 1.406em;
   text-indent: -9999px;
-    background-image: url(../images/sdvuelo-logo.png);
-    display: block;
-    height: 120px;
-    width: 677px;
-    margin: 0 auto;
-    transform: scale(0.8);
+  background-image: url(../images/sdvuelo-logo.png);
+  display: block;
+  height: 120px;
+  width: 677px;
+  margin: 0 auto;
+  -webkit-transform: scale(0.8);
+      -ms-transform: scale(0.8);
+          transform: scale(0.8);
+}
+
+@media screen and (max-width: 768px) {
+  header h1 {
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 100%;
+  }
 }
 
 /*  Header Admin
@@ -2782,6 +2794,17 @@ input[type=range]:focus::-ms-fill-upper {
   height: 100vh !important;
 }
 
+.logoSitio {
+  width: 40px;
+  height: 50px;
+  display: block;
+  position: absolute;
+  background-image: url(../images/sdvuelo-logo.png);
+  background-size: cover;
+  background-position: -408px;
+  left: 50px;
+}
+
 /*!
 	-----------------------------------------------------------------------------
 
@@ -3230,16 +3253,4 @@ input[type=range]:focus::-ms-fill-upper {
   color: #FFF;
   background-color: #95a2f4;
   border-color: #95a2f4;
-}
-
-.logoSitio{
-	    width: 40px;
-    height: 50px;
-    /* background-color: red; */
-    display: block;
-    position: absolute;
-    background-image: url(../images/sdvuelo-logo.png);
-    background-size: cover;
-    background-position: -408px;
-    left: 50px;
 }
