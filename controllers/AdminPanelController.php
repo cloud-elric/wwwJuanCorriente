@@ -139,7 +139,7 @@ class AdminPanelController extends Controller {
 			
 			$elemento->id_capitulo = $capitulo->id_capitulo;
 			$elemento->id_historia = $capitulo->id_historia;
-			$elemento->txt_valor = 'portada.jpg';
+			$elemento->txt_valor = '-';
 			$elemento->num_orden = '0';
 			
 			$elemento->save ();
