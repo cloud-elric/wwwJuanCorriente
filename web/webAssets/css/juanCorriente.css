@@ -1865,7 +1865,7 @@ footer.footer-focus .social-media a:hover {
   -webkit-transform: translateX(-300px);
       -ms-transform: translateX(-300px);
           transform: translateX(-300px);
-  z-index: 4;
+  z-index: 9;
 }
 
 .ver-capitulo .ver-capitulo-cont .ver-capitulo-header-textos .nav-capitulos .nav-capitulos-cont {
