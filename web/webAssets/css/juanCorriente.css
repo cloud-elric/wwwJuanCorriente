@@ -2820,6 +2820,7 @@ input[type=range]:focus::-ms-fill-upper {
   background-size: cover;
   background-position: -408px;
   left: 50px;
+      z-index: 99999999;
 }
 
 /*!

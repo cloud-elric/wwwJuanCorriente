@@ -134,7 +134,7 @@ window.fbAsyncInit = function() {
 	<!-- .login-cont -->
 	<div class="login-cont">
 
-		<h1 class="animated">Historias de México</h1>
+		<h1 class="animated">Simulador de vuelo</h1>
 		<?php # Html::encode($this->title) ?>
 
 		<?php
@@ -153,7 +153,7 @@ $form = ActiveForm::begin ( [
 		] );
 		?>
 
-			<?= $form->field($model, 'username')->textInput(['autofocus' => true, 'placeholder'=>'Email'])?>
+			<?= $form->field($model, 'username')->textInput(['autofocus' => true, 'placeholder'=>'Nombre de usuario'])?>
 
 			<?= $form->field($model, 'password')->passwordInput(['placeholder'=>'Contraseña'])?>
 
