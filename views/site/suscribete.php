@@ -18,7 +18,7 @@ if($email != '' ){
 	 
 	// Aqui definimos el asunto y armamos el cuerpo del mensaje
 	$asunto = "Suscripccion a lista de Mailing";
-	$cuerpo .= "El usuario ".$email." se ha registrado en JuanCorriente";
+	$cuerpo = "El usuario ".$email." se ha registrado en simulador de vuelo";
 
 
 

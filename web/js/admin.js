@@ -263,9 +263,9 @@ function readURLHeader(input, element) {
 			return function(e) {
                 // //
 				// element.parents('.js-container-image').css('background-image','url('+e.target.result+')');
-				var padre = element.parents('.ver-capitulo-header');
-
-				padre.css("background-image", 'url("'+e.target.result+'")');
+				var padre = element.parents('.ver-capitulo-admin');
+				
+				padre.find('.ver-capitulo-header').css("background-image", 'url("'+e.target.result+'")');
 				
 				console.log(padre);
 				

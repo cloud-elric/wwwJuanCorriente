@@ -38,7 +38,7 @@ AppAsset::register($this);
             
             <!-- header -->
             <header>
-                <a class="logoSite" href="<?=Url::base() ?>"></a>
+                <a class="logoSite" href="<?=Yii::$app->urlManager->createAbsoluteUrl ( [''] );?>"><h1></h1></a>
             </header>
             <!-- end - header -->
 

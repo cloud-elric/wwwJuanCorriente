@@ -36,7 +36,7 @@ AppAsset::register($this);
             
             <!-- header -->
             <header class="header-admin">
-                <h1></h1>
+                <a href="<?=Yii::$app->urlManager->createAbsoluteUrl ( [''] );?>"><h1></h1></a>
                 <div class="header-admin-agregar"></div>
             </header>
             <!-- end - header -->

@@ -605,6 +605,10 @@ header a.logoSite {
   }
 }
 
+header a.logoSite h1 {
+  display: none;
+}
+
 /*  Header Admin
 	@mixin =============================================== */
 .header-admin {

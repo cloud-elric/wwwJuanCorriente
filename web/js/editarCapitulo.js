@@ -13,7 +13,7 @@ function agregarTarjetaCapitulo(json) {
 	var numeroCap = $('.listado-articles-item').length;
 	var template = '<a class="listado-articles-item listado-articles-item-hover-close" id="js-element-cap-'+json.tk+'" data-token="'
 			+ json.tk
-			+ '" href="/wwwJuanCorriente/web/site/ver-capitulo?token='
+			+ '" href="'+basePath+'site/ver-capitulo?token='
 			+ tokenHistoria
 			+ '&capitulo='
 			+ json.tk
