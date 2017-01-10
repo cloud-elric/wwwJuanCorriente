@@ -275,6 +275,15 @@ function guardarImagen(input, jav) {
 }
 
 $(document).ready(function(){
+	
+	$('.js-imagen-historia').on('click', function(e){
+		if (enEdicion) {
+			
+		} else {
+			
+		}
+	});
+	
 	$("#js-edicion-capitulos").on('click', function(){
 		
 		if (!enEdicion) {

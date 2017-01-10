@@ -86,9 +86,9 @@ var isVarAdmin = false;
 			<div class="row">
 			
 				<div class="col-xs-12 col-sm-6 home-article-col">
-					<img class="home-article-imagen image-change-<?=$historia->txt_token?>" data-token="<?=$historia->txt_token?>"
+					<a class="js-imagen-historia" href="<?=Url::base()?>/site/lista-de-capitulos?token=<?=$historia->txt_token?>"><img class="home-article-imagen image-change-<?=$historia->txt_token?>" data-token="<?=$historia->txt_token?>"
 						src="<?=Url::base().'/webAssets/uploads/min_'.$historia->txt_image?>"
-						alt="<?=$historia->txt_nombre ?>">
+						alt="<?=$historia->txt_nombre ?>"></a>
 						
 						<?php if($isAdmin){?>
 						<!-- .listado-image -->

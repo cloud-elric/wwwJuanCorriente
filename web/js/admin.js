@@ -136,7 +136,20 @@ $(document).on(
 $(document)
 		.ready(
 				function() {
-
+					
+					$(window).resize(function(){
+						 if ($(window).width() <= 768){ 
+							 $('.js-elemento-editable').removeAttr('contenteditable');
+						 } else{
+							 $('.js-elemento-editable').attr('contenteditable', 'true');
+						 }
+					});
+					
+					
+					if ($(window).width() <= 768){ 
+						 $('.js-elemento-editable').removeAttr('contenteditable');
+					 } 
+					
 					/**
 					 * Elemento de la fecha
 					 */
