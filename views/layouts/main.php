@@ -3,6 +3,7 @@
 /* @var $content string */
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
@@ -37,7 +38,7 @@ AppAsset::register($this);
             
             <!-- header -->
             <header>
-                <h1></h1>
+                <a class="logoSite" href="<?=Url::base() ?>"></a>
             </header>
             <!-- end - header -->
 
