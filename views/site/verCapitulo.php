@@ -55,7 +55,7 @@ var audio = new Audio(basePath+'audios/<?=$capitulo->txt_audio?>');
 <input type="hidden" data-token="<?=$historia?>" id="js-historia" />
 
 <!-- .ver-capitulo-head -->
-<span class="logoSitio"></span>
+<a class="logoSitio" href="<?=Url::base() ?>"></a>
 <div class="ver-capitulo-head">
 	<?php foreach($historias as $history){ ?>
 		<!-- <a class="ver-capitulo-head-txt" href="#">Capítulo 1 - The chain</a> -->
@@ -336,25 +336,7 @@ var audio = new Audio(basePath+'audios/<?=$capitulo->txt_audio?>');
 						<a class="ver-capitulo-head-img" href="<?=Url::base() ?>/site/lista-de-capitulos?token=<?=$history->txt_token?>" style="background-image: url(<?=Url::base().'/webAssets/uploads/min_'.$history->txt_image?>);"></a>
 					</li>
 				<?php }?>
-
-				<!-- <li class="menuItem" style="animation-delay: 0ms;">
-					<a href="about">1</a>
-				</li>
-				<li class="menuItem" style="animation-delay: 60ms;">
-					<a href="bio">2</a>
-				</li>
-				<li class="menuItem" style="animation-delay: 120ms;">
-					<a href="fgdfg">3</a>
-				</li>
-				<li class="menuItem" style="animation-delay: 180ms;">
-					<a href="contact">4</a>
-				</li>
-				<li class="menuItem" style="animation-delay: 240ms;">
-					<a href="contact">5</a>
-				</li>
-				<li class="menuItem" style="animation-delay: 300ms;">
-					<a href="contact">6</a>
-				</li> -->
+				
 			</ul>
 		</div>
 

@@ -581,28 +581,32 @@ header {
   z-index: 2;
 }
 
-header h1 {
-  color: #FFF;
-  color: #FFF;
-  font-size: 1.406em;
-  text-indent: -9999px;
+header a.logoSite {
   background-image: url(../images/sdvuelo-logo.png);
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #FFF;
   display: block;
+  font-size: 1.406em;
   height: 120px;
-  width: 677px;
   margin: 0 auto;
   -webkit-transform: scale(0.8);
       -ms-transform: scale(0.8);
           transform: scale(0.8);
+  width: 677px;
 }
 
 @media screen and (max-width: 768px) {
-  header h1 {
-    background-position: 50%;
-    background-repeat: no-repeat;
+  header a.logoSite {
     background-size: 100%;
+    height: 100px;
     width: 100%;
   }
+}
+
+header a.logoSite h1 {
+  display: none;
 }
 
 /*  Header Admin
@@ -2934,9 +2938,6 @@ input[type=range]:focus::-ms-fill-upper {
   background-size: cover;
   background-position: -408px;
   left: 50px;
-<<<<<<< HEAD
-      z-index: 99999999;
-=======
   z-index: 4;
 }
 
@@ -3265,7 +3266,6 @@ input[type=range]:focus::-ms-fill-upper {
     -webkit-transform: translate3d(-100%, 0, 0);
     transform: translate3d(-100%, 0, 0);
   }
->>>>>>> 2bf80bdd5cf0394ed2b034bb24efdd3c212a4465
 }
 
 /*!

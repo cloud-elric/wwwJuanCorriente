@@ -132,7 +132,7 @@ $(document).ready(function(){
 		$(".asScrollable-container").toggleClass("asScrollable-container-full");
 		$(".asScrollable-bar-vertical").delay(400).css("height", "calc(100vh - 10px)");
 
-		$('.ver-capitulos').addClass("ver-js-capitulos'");
+		$('.ver-capitulos').addClass("ver-js-capitulos");
 		$(".ver-capitulos").removeClass("ver-js-capitulos-full");
 
 		// $(".asScrollable-bar-vertical").delay(400).css("height", "100vh");
@@ -159,7 +159,7 @@ $(document).ready(function(){
 			$(".asScrollable-container").toggleClass("asScrollable-container-full");
 			$(".asScrollable-bar-vertical").delay(400).css("height", "calc(100vh - 10px)");
 
-			$('.ver-capitulos').addClass("ver-js-capitulos'");
+			$('.ver-capitulos').addClass("ver-js-capitulos");
 			$(".ver-capitulos").removeClass("ver-js-capitulos-full");
 
 			// $(".asScrollable-bar-vertical").delay(400).css("height", "100vh");
