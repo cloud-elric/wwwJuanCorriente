@@ -153,6 +153,27 @@ hr {
   margin: 0;
 }
 
+a,
+article,
+blockquote,
+button,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+input,
+p,
+section,
+span,
+strong,
+svg {
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
 /* Page */
 .page {
   display: block;
