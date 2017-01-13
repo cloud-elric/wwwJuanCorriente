@@ -21,6 +21,7 @@ class AppAsset extends AssetBundle
         'webAssets/plugins/animsition/css/animsition.min.css',
         'webAssets/plugins/ladda/css/ladda.min.css',
         'webAssets/plugins/ionicons/css/ionicons.min.css',
+        'webAssets/plugins/fontawesome/css/font-awesome.min.css',
         'webAssets/plugins/flexboxgrid/css/flexboxgrid.min.css',
         'https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css',
         'webAssets/plugins/animate/css/animate.css',

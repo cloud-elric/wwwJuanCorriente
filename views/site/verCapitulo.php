@@ -159,7 +159,7 @@ var audio = new Audio(basePath+'audios/<?=$capitulo->txt_audio?>');
 				<button class="ver-capitulo-options-texto-resize-icon"><i id="icon-resize" class="ion ion-arrow-resize"></i></i></button>
 				<div href="#" class="ver-capitulo-options-texto-resize-slider">
 					<span>a</span>
-					<input type="range" id="my-texto" min="16" max="40" step ="2" value="16">
+					<input type="range" id="my-texto" min="16" max="40" step ="2" value="28">
 					<span>a</span>
 				</div>
 			</div>

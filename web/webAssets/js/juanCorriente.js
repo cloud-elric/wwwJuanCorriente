@@ -251,9 +251,11 @@ $(document).ready(function(){
 
 	});
 
+	
 	/**
 	 * Change - Input[RANGE] optener size y agrandar texto
 	 */
+	$('.ver-capitulo-post-desc').css('font-size', "28px");
 	$( "#my-texto" ).change(function() {
 		var x = document.getElementById("my-texto").value;
 		$('.ver-capitulo-post-desc').css('font-size', x + "px");

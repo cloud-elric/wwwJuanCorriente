@@ -28,11 +28,11 @@
 	-----------------------------------------------------------------------------
 
 	0.0 - Tipografía
-			# Fira Sans
+			# Arima Madurai
 
 	----------------------------------------------------------------------------- */
-/* Fira Sans */
-@import url("https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,500,500i,700,700i");
+/* Arima Madurai */
+@import url("https://fonts.googleapis.com/css?family=Arima+Madurai:400,800");
 /*!
 	-----------------------------------------------------------------------------
 
@@ -60,9 +60,9 @@
 
 body {
   background-color: #2F2F2F;
-  font-family: "Fira Sans", sans-serif;
+  font-family: "Arima Madurai", cursive;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   color: #2F2F2F;
 }
 
@@ -74,7 +74,7 @@ body.body-focus {
 /* a */
 a {
   color: #4E83DA;
-  font-family: "Fira Sans", sans-serif;
+  font-family: "Arima Madurai", cursive;
   font-size: 16px;
   font-weight: 400;
   text-decoration: none;
@@ -111,8 +111,8 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: "Fira Sans", sans-serif;
-  font-weight: 400;
+  font-family: "Arima Madurai", cursive;
+  font-weight: 800;
   margin: 0;
   padding: 0;
 }
@@ -1202,7 +1202,7 @@ footer.footer-focus .social-media a:hover {
   border: none;
   border-radius: 51px;
   color: #FFF;
-  font-family: "Fira Sans", sans-serif;
+  font-family: "Arima Madurai", cursive;
   font-size: .96em;
   font-weight: 300;
   padding: 10px 42px 10px 18px;
@@ -1486,7 +1486,7 @@ footer.footer-focus .social-media a:hover {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  font-family: "Fira Sans", sans-serif;
+  font-family: "Arima Madurai", cursive;
   font-size: .85em;
   font-weight: 300;
   min-height: 30px;
@@ -1570,7 +1570,7 @@ footer.footer-focus .social-media a:hover {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  font-family: "Fira Sans", sans-serif;
+  font-family: "Arima Madurai", cursive;
   font-size: 1.2em;
   font-weight: 300;
   min-height: 30px;
@@ -1843,19 +1843,31 @@ footer.footer-focus .social-media a:hover {
 }
 
 .ver-capitulo .ver-capitulo-cont .ver-capitulo-header-textos .ver-capitulo-back {
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #2F2F2F;
+  border-radius: 4px;
+  box-shadow: 0 3px 6px rgba(47, 47, 47, 0.16), 0 3px 6px rgba(47, 47, 47, 0.23);
   color: #FFF;
   cursor: pointer;
-  font-size: 1.3em;
-  left: 30px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 40px;
+  left: 16px;
+  padding: 0 14px;
   position: fixed;
-  top: 70px;
+  top: 60px;
   transition: top 0.3s ease-out;
-  z-index: 3;
 }
 
 @media screen and (max-width: 544px) {
   .ver-capitulo .ver-capitulo-cont .ver-capitulo-header-textos .ver-capitulo-back {
-    left: 20px;
+    left: 8px;
   }
 }
 
@@ -1865,7 +1877,7 @@ footer.footer-focus .social-media a:hover {
 
 @media screen and (max-width: 768px) {
   .ver-capitulo .ver-capitulo-cont .ver-capitulo-header-textos .ver-capitulo-back.ver-capitulo-back-scroll {
-    top: 21px;
+    top: 10px;
   }
 }
 
@@ -1895,7 +1907,7 @@ footer.footer-focus .social-media a:hover {
 
 @media screen and (max-width: 544px) {
   .ver-capitulo .ver-capitulo-cont .ver-capitulo-header-textos .ver-capitulos {
-    left: 44px;
+    left: 52px;
     padding: 0 12px;
   }
 }
@@ -2333,7 +2345,7 @@ footer.footer-focus .social-media a:hover {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  font-family: "Fira Sans", sans-serif;
+  font-family: "Arima Madurai", cursive;
   font-size: 1.2em;
   font-weight: 300;
   min-height: 30px;
@@ -2454,7 +2466,7 @@ footer.footer-focus .social-media a:hover {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  font-family: "Fira Sans", sans-serif;
+  font-family: "Arima Madurai", cursive;
   font-size: 1.3em;
   font-weight: 400;
   height: 100%;
@@ -3400,7 +3412,7 @@ input[type=range]:focus::-ms-fill-upper {
   border: none;
   color: #252B31;
   display: block;
-  font-family: "Fira Sans", sans-serif;
+  font-family: "Arima Madurai", cursive;
   font-size: 2.813em;
   font-weight: 500;
   opacity: .21;
@@ -3490,25 +3502,25 @@ input[type=range]:focus::-ms-fill-upper {
 
 .modal-admin .modal-content .modal-admin-form .modal-admin-form-datepiker input::-webkit-input-placeholder {
   color: #252B31;
-  font-family: "Fira Sans", sans-serif;
+  font-family: "Arima Madurai", cursive;
   font-weight: 500;
 }
 
 .modal-admin .modal-content .modal-admin-form .modal-admin-form-datepiker input:-moz-placeholder {
   color: #252B31;
-  font-family: "Fira Sans", sans-serif;
+  font-family: "Arima Madurai", cursive;
   font-weight: 500;
 }
 
 .modal-admin .modal-content .modal-admin-form .modal-admin-form-datepiker input::-moz-placeholder {
   color: #252B31;
-  font-family: "Fira Sans", sans-serif;
+  font-family: "Arima Madurai", cursive;
   font-weight: 500;
 }
 
 .modal-admin .modal-content .modal-admin-form .modal-admin-form-datepiker input:-ms-input-placeholder {
   color: #252B31;
-  font-family: "Fira Sans", sans-serif;
+  font-family: "Arima Madurai", cursive;
   font-weight: 500;
 }
 
@@ -3572,7 +3584,7 @@ input[type=range]:focus::-ms-fill-upper {
   border: none;
   color: #252B31;
   display: block;
-  font-family: "Fira Sans", sans-serif;
+  font-family: "Arima Madurai", cursive;
   font-size: 1.15em;
   font-weight: 300;
   opacity: .51;
@@ -3676,7 +3688,7 @@ input[type=range]:focus::-ms-fill-upper {
 .login .login-cont .form-login input[type="text"] {
   background-color: #FFF;
   border: 1px solid #CCC;
-  font-family: "Fira Sans", sans-serif;
+  font-family: "Arima Madurai", cursive;
   font-size: 1.1em;
   font-weight: 300;
   margin-top: 14px;
