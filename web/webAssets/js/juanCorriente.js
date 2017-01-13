@@ -251,7 +251,7 @@ $(document).ready(function(){
 
 	});
 
-	
+	$('.ver-capitulo-post-desc').css('font-size', "28px");	
 	/**
 	 * Change - Input[RANGE] optener size y agrandar texto
 	 */
