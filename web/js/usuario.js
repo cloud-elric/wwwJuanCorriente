@@ -1,4 +1,6 @@
+if(audio){
 audio.loop = true;
+}
 
 $(document).ready(function(){
 	
