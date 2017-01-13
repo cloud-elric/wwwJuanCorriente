@@ -255,13 +255,21 @@ $(document).ready(function(){
 	/**
 	 * Change - Input[RANGE] optener size y agrandar texto
 	 */
-	$('.ver-capitulo-post-desc').css('font-size', "28px");
+	$(window).resize(function(){
+		if ($(window).width() <= 767){
+			$('.ver-capitulo-post-desc').css('font-size', "18px");
+		} else {
+			$('.ver-capitulo-post-desc').css('font-size', "28px");
+		}
+	});
 	$( "#my-texto" ).change(function() {
 		var x = document.getElementById("my-texto").value;
 		$('.ver-capitulo-post-desc').css('font-size', x + "px");
 
 		$('.ver-capitulo-post-desc').animate({fontSize: x + "px"}, 300);
 	});
+
+	
 
 	/**
 	 * Click - Modo de Lectura (FOCUS)
