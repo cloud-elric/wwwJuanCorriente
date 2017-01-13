@@ -59,7 +59,7 @@ AppAsset::register($this);
                         <div class="social-media">
                             <a href=""><i class="ion ion-social-facebook"></i></a>
                             <a href=""><i class="ion ion-social-twitter"></i></a>
-                            <a href=""><i class="ion ion-social-pinterest"></i></a>
+                            <a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a>
                         </div>
                     </div>
                     <!-- end - .footer-siguenos -->
