@@ -1,7 +1,7 @@
 <?php
 
 /* @var $this yii\web\View */
-$this->title = 'Inicio';
+$this->title = 'Simulador de vuelo';
 use yii\helpers\Url;
 use yii\bootstrap\ActiveForm;
 
