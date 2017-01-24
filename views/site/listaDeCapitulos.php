@@ -34,18 +34,14 @@ if ($isAdmin) {
 		<div class="listado-seach">
 		
 		<?php
-		$form = ActiveForm::begin (['method'=>'GET']);
-		
+			$form = ActiveForm::begin (['method'=>'GET', 'options'=>['class'=>'listado-seach-form']]);
 		?>
 			<input type="text" name="q">
 			<button>
 				<i class="ion ion-ios-search-strong"></i>
 			</button>
-			
 		<?php
-
-		ActiveForm::end ();
-
+			ActiveForm::end ();
 		?>
 		</div>
 		<!-- end - .listado-seach -->
@@ -66,7 +62,7 @@ if ($isAdmin) {
 			$numCapitulos = count ( $capitulos );
 			
 			if($numCapitulos==0){
-				echo "<h1>No hay capitulos disponibles</h1>";
+				#echo "<h1>No hay capitulos disponibles</h1>";
 			}
 			
 			foreach ( $capitulos as $capitulo ) {
@@ -81,7 +77,7 @@ if ($isAdmin) {
 				<!-- .listado-articles-item-imagen -->
 				<div class="listado-articles-item-imagen" style="background-image:url('<?=Url::base()?>/webAssets/uploads/<?=empty($capitulo->txt_imagen)?'noImage.jpg':ConstantesWeb::PREX_IMG.$capitulo->txt_imagen?>')">
 					<div class="listado-articles-item-capitulo">
-						<h4>Capitulo <?=$numCapitulo?></h4>
+						<h4>Capítulo <?=$numCapitulo?></h4>
 					</div>
 					<?php
 				if ($numCapitulos == $numCapitulo) {

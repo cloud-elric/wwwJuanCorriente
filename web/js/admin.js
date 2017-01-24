@@ -136,7 +136,20 @@ $(document).on(
 $(document)
 		.ready(
 				function() {
-
+					
+					$(window).resize(function(){
+						 if ($(window).width() <= 768){ 
+							 $('.js-elemento-editable').removeAttr('contenteditable');
+						 } else{
+							 $('.js-elemento-editable').attr('contenteditable', 'true');
+						 }
+					});
+					
+					
+					if ($(window).width() <= 768){ 
+						 $('.js-elemento-editable').removeAttr('contenteditable');
+					 } 
+					
 					/**
 					 * Elemento de la fecha
 					 */
@@ -263,9 +276,9 @@ function readURLHeader(input, element) {
 			return function(e) {
                 // //
 				// element.parents('.js-container-image').css('background-image','url('+e.target.result+')');
-				var padre = element.parents('.ver-capitulo-header');
-
-				padre.css("background-image", 'url("'+e.target.result+'")');
+				var padre = element.parents('.ver-capitulo-admin');
+				
+				padre.find('.ver-capitulo-header').css("background-image", 'url("'+e.target.result+'")');
 				
 				console.log(padre);
 				

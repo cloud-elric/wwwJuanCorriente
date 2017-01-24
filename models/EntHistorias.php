@@ -32,10 +32,10 @@ class EntHistorias extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['txt_token', 'txt_image', 'txt_descripcion'], 'required'],
+            [['txt_token', 'txt_descripcion','txt_nombre'], 'required'],
             [['b_habilitado'], 'integer'],
             [['txt_token'], 'string', 'max' => 60],
-            [['txt_image', 'txt_descripcion'], 'string', 'max' => 500],
+            [['txt_image'], 'string', 'max' => 500],
         ];
     }
 

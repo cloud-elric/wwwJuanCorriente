@@ -16,9 +16,26 @@ header
 	position: relative
 	text-align: center
 	z-index: 2
-	h1
+	a.logoSite
+		// background-color: red
+		background-image: url(../images/sdvuelo-logo.png)
+		background-position: 50%
+		background-repeat: no-repeat
+		background-size: cover
 		color: $white
+		display: block
 		font-size: 1.406em
+		height: 120px
+		margin: 0 auto
+		// text-indent: -9999px
+		transform: scale(0.8)
+		width: 677px
+		+respond-to(xs)
+			background-size: 100%
+			height: 100px
+			width: 100%
+		h1
+			display: none
 
 /*  Header Admin
 	================================================ */

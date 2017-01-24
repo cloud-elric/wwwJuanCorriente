@@ -7,6 +7,64 @@
 	-----------------------------------------------------------------------------
 	*/
 
+.ver-capitulo-head
+	align-items: center
+	background-color: $black
+	// background-color: green
+	display: flex
+	height: 50px
+	justify-content: center
+	left: 0
+	padding: 6px 30px
+	// position: fixed
+	position: relative
+	right: 0
+	// top: 0
+	width: 100%
+	z-index: 3
+	+respond-to(xs)
+		justify-content: flex-end
+		padding: 6px 14px
+	a
+		align-items: center
+		// background-color: #EEE
+		background-position: 50%
+		background-repeat: no-repeat
+		background-size: cover
+		display: flex
+		height: 40px
+		justify-content: center
+		margin-right: 10px
+		+respond-to(sm)
+			display: none
+		+respond-to(xs)
+			height: 24px
+			margin-right: 4px
+			display: none
+		&:last-child
+			margin-right: 0
+		&.ver-capitulo-head-txt
+			padding: 0 6px
+		&.ver-capitulo-head-img
+			width: 40px
+			img
+				width: 100%
+			+respond-to(xs)
+				height: 24px
+				width: 24px
+
+	// Historial Movil
+	.ver-capitulo-head-movil
+		color: $white
+		cursor: pointer
+		display: none
+		position: relative
+		+respond-to(xs)
+			display: flex
+		+respond-to(sm)
+			display: flex
+
+
 /*  Ver Capítulo
 	================================================ */
 .ver-capitulo
@@ -29,9 +87,11 @@
 		position: fixed
 		right: 0
 		top: 0
+		// top: 52px
 		+transition(all 0.3s ease-in)
 		z-index: 1
 	.ver-capitulo-cont
+		// background-color: coral
 		position: relative
 		z-index: 4
 		.ver-capitulo-header-textos
@@ -72,17 +132,36 @@
 					font-size: 1.6em
 			// Btn to Back
 			.ver-capitulo-back
+				// color: $white
+				// cursor: pointer
+				// font-size: 1.3em
+				// left: 30px
+				// position: fixed
+				// top: 70px
+				// +transition(top .3s ease-out)
+				// z-index: 3
+				align-items: center
+				background-color: $black
+				+border-radius(4px)
+				+box-shadow(2)
 				color: $white
 				cursor: pointer
-				font-size: 1.3em
-				left: 30px
+				display: flex
+				justify-content: center
+				height: 40px
+				left: 16px
+				padding: 0 14px
 				position: fixed
-				top: 54px
-				z-index: 3
+				top: 60px
+				+transition(top .3s ease-out)
 				+respond-to(xx)
-					left: 20px
+					left: 8px
 				&:hover
 					color: $teal
+				// SCROLL
+				&.ver-capitulo-back-scroll
+					+respond-to(xs)
+						top: 10px
 			// Ver capítulos
 			.ver-capitulos
 				align-items: center
@@ -97,10 +176,11 @@
 				left: 60px
 				padding: 0 14px
 				position: fixed
-				top: 44px
+				top: 60px
+				+transition(top .3s ease-out)
 				z-index: 3
 				+respond-to(xx)
-					left: 44px
+					left: 52px
 					padding: 0 12px
 				i
 					font-size: 1.7em
@@ -113,6 +193,10 @@
 						display: none
 				&:hover
 					color: $white
+				// SCROLL
+				&.ver-capitulos-scroll
+					+respond-to(xs)
+						top: 10px
 			// Nav capítulos
 			.nav-capitulos
 				background-color: #222
@@ -124,7 +208,7 @@
 				width: 300px
 				+transition(all 300ms ease-in-out)
 				transform: translateX(-300px)
-				z-index: 4
+				z-index: 9
 				.nav-capitulos-cont
 					// background-color: white
 					height: 100%
@@ -165,7 +249,7 @@
 						font-size: .76em
 						height: 18px
 						justify-content: center
-						position: fixed
+						position: absolute
 						right: 8px
 						top: 20px
 						width: 18px
@@ -184,8 +268,9 @@
 				font-size: 1.250em
 				position: fixed
 				right: 70px
-				top: 44px
+				top: 60px
 				// width: 150px
+				+transition(top .3s ease-out)
 				z-index: 8
 				+respond-to(xs)
 					right: 66px
@@ -199,6 +284,8 @@
 					display: flex
 					overflow: hidden
 					+border-radius(4px)
+					+respond-to(xs)
+						display: none
 					// Iniciar sesión
 					.ver-capitulo-options-texto-resize-slider
 						// background-color: $black
@@ -287,36 +374,67 @@
 						margin-left: 4px
 					&:hover
 						color: $teal
-
-			// FullScreen
-			.ver-capitulo-full-screen,
-			.ver-capitulo-close-screen
-				align-items: center
-				color: $teal
-				cursor: pointer
-				display: flex
-				justify-content: center
-				position: fixed
-				right: 20px
-				top: 60vh
-				z-index: 8
-				+respond-to(xx)
-					right: 10px
-				span
-					font-size: 0.7em
-					margin-right: 8px
-					text-transform: uppercase
+				
+				// 
+				.ver-capitulo-options-full,
+				.ver-capitulo-options-close
+					align-items: center
+					background-color: $black
+					+border-radius(4px)
+					+box-shadow(2)
+					color: #fff
+					cursor: pointer
+					display: flex
+					height: 40px
+					justify-content: center
+					margin-left: 10px
+					width: 40px
+					+respond-to(sm)
+						display: none
 					+respond-to(xs)
 						display: none
-				i
-					font-size: 0.85em
-					+respond-to(xs)
-						font-size: 1.8em
-					+respond-to(xx)
-						font-size: 1.6em
+					&:hover
+						color: $teal
+					span
+						display: none
 
-			.ver-capitulo-close-screen
-				display: none
+				.ver-capitulo-options-close
+					display: none
+				
+				// SROLL
+				&.ver-capitulo-options-scroll
+					+respond-to(xs)
+						top: 10px
+
+			// FullScreen
+			// .ver-capitulo-full-screen,
+			// .ver-capitulo-close-screen
+			// 	align-items: center
+			// 	color: $teal
+			// 	cursor: pointer
+			// 	display: flex
+			// 	justify-content: center
+			// 	position: fixed
+			// 	right: 20px
+			// 	top: 60vh
+			// 	z-index: 8
+			// 	+respond-to(xx)
+			// 		right: 10px
+			// 	span
+			// 		font-size: 0.7em
+			// 		margin-right: 8px
+			// 		text-transform: uppercase
+			// 		+respond-to(xs)
+			// 			display: none
+			// 	i
+			// 		font-size: 0.85em
+			// 		+respond-to(xs)
+			// 			font-size: 1.8em
+			// 		+respond-to(xx)
+			// 			font-size: 1.6em
+
+			// .ver-capitulo-close-screen
+			// 	display: none
 		.container
 			position: relative
 			z-index: 1
@@ -324,7 +442,7 @@
 		.ver-capitulo-post
 			// background-color: rgba(red,.34)
 			margin: 0 auto
-			max-width: 600px
+			max-width: 700px
 			padding: 20px 0
 			position: relative
 			width: 90%
@@ -334,8 +452,9 @@
 				.ver-capitulo-post-desc-text
 					// border: 1px solid transparent
 					color: #AAF5F5
-					font-size: .9em
-					line-height: 1.250em
+					font-size: 1em
+					letter-spacing: 1px
+					line-height: 1.8em
 					margin-bottom: 22px
 					padding: 4px
 					text-align: justify
@@ -596,10 +715,23 @@
 					&:hover
 						opacity: 1
 				&:hover
-					// border: 1px solid rgba($white,.1)
-					.ver-capitulo-post-hover-close-btn,
-					.ver-capitulo-post-hover-mover-btn
-						display: flex
+					+respond-to(lg)
+						.ver-capitulo-post-hover-close-btn,
+						.ver-capitulo-post-hover-mover-btn
+							display: flex
+					+respond-to(md)
+						.ver-capitulo-post-hover-close-btn,
+						.ver-capitulo-post-hover-mover-btn
+							display: flex
+					+respond-to(sm)
+						.ver-capitulo-post-hover-close-btn,
+						.ver-capitulo-post-hover-mover-btn
+							display: none
+					+respond-to(xs)
+						.ver-capitulo-post-hover-close-btn,
+						.ver-capitulo-post-hover-mover-btn
+							display: none
+
 	// 	// Ver capítulo - white
 	// 	&.ver-capitulo-white
 	// 		background-color: $white
@@ -665,13 +797,14 @@
 		.ver-capitulo-cont
 			.ver-capitulo-header-textos
 				h2
-					text-shadow: 0px 1px 10px rgba($black, .45);
+					text-shadow: 0px 1px 10px rgba($black, .45)
 	
 	// Ver capítulo - Full
 	&.ver-capitulo-full
 		overflow-y: auto !important
 		width: 100%
 		.ver-capitulo-header
+			opacity: .15!important
 			right: 18px
 		.ver-capitulo-cont
 			.ver-capitulo-header-textos
@@ -702,9 +835,12 @@
 	z-index: 9
 	+respond-to(sm)
 		// background-color: red
+		display: none
 		flex-direction: column
 	+respond-to(xs)
 		// background-color: yellow
+		display: none
+		bottom: 90px
 		flex-direction: column
 		right: 18px
 	+respond-to(xx)
@@ -898,3 +1034,319 @@ input[type=range]:focus::-ms-fill-upper
 // asScroll
 .asScrollable-container-full
 	height: 100vh !important
+
+.logoSitio
+	width: 40px
+	height: 50px
+	display: block
+	position: absolute
+	background-image: url(../images/sdvuelo-logo.png)
+	background-size: cover
+	background-position: -408px
+	left: 50px
+	z-index: 4
+	+respond-to(xs)
+		left: 10px
+
+
+
+
+
+
+
+/*  Menu Movil
+	================================================ */
+.naver
+	// background-color: teal
+	display: none
+	+respond-to(sm)
+		display: block
+	+respond-to(xs)
+		display: block
+
+.mainColumn 
+	padding: 1rem
+
+.headerWrapper .siteSearch 
+	left: auto
+	right: 0
+
+.mainMenu 
+	position: absolute
+	display: block
+	-moz-transition: -moz-transform 0.3s cubic-bezier(0.7, 0, 0.3, 1)
+	-o-transition: -o-transform 0.3s cubic-bezier(0.7, 0, 0.3, 1)
+	-webkit-transition: -webkit-transform 0.3s cubic-bezier(0.7, 0, 0.3, 1)
+	transition: transform 0.3s cubic-bezier(0.7, 0, 0.3, 1)
+	top: 0
+	left: 0
+	width: 100%
+	background-color: rgba($black,.91)
+	-moz-transform: translate3d(-100%, 0, 0)
+	-ms-transform: translate3d(-100%, 0, 0)
+	-webkit-transform: translate3d(-100%, 0, 0)
+	transform: translate3d(-100%, 0, 0)
+	z-index: 20
+
+	.close-menu-movil
+		cursor: pointer
+		position: absolute
+		right: 30px
+		top: 30px
+		i
+			color: $white
+			font-size: 3vh
+
+.open .mainMenu 
+	-moz-transform: translate3d(0, 0, 0)
+	-ms-transform: translate3d(0, 0, 0)
+	-webkit-transform: translate3d(0, 0, 0)
+	transform: translate3d(0, 0, 0)
+	z-index: 20
+
+.mainNavigation 
+	width: 100%
+	// background-color: rgba($gris-obscuro,.7)
+	position: relative
+	height: 100vh
+	align-items: center
+	justify-content: center
+	display: flex
+	flex-direction: column
+	list-style: none
+
+
+.mainNavigationList
+	text-align: center
+	position: absolute
+	top: 0
+	left: 0
+	visibility: hidden
+	// opacity: 0
+	width: 100%
+	height: 100%
+	flex-direction: column
+	list-style: none
+	// animation: 1s fadeOut
+	// animation-fill-mode: forwards
+	// en cuadro
+	display: flex
+	flex-wrap: wrap
+	justify-content: flex-start
+	padding: 20vh 0
+	align-items: center
+
+.mainNavigationList.current
+	visibility: visible
+	// opacity: 1
+	// animation: 1s fadeIn
+	// animation-fill-mode: forwards
+
+// @keyframes fadeIn
+// 	0%
+// 		opacity: 0
+
+// 	100%
+// 		visibility: visible
+// 		opacity: 1
+
+.mainNavigationList .menuItemMainContactLogin 
+	display: -webkit-flex
+	display: none
+
+.mainNavigationList .menuItemMainContactLogin a 
+	width: 50%
+	text-align: center
+
+.mainNavigationList .menuMainContactLogin a.MainContact 
+	position: relative
+
+.mainNavigationList a
+	align-items: center
+	// background-color: red
+	background-position: 50%
+	background-repeat: no-repeat
+	background-size: cover
+	color: $white
+	display: block
+	display: flex
+	justify-content: center
+	padding: 0
+	+respond-to(sm)
+		height: 60px
+		margin-bottom: 20px
+		width: 60px
+	+respond-to(xs)
+		height: 50px
+		margin-bottom: 10px
+		width: 50px
+	img
+		width: 100%
+
+.mainNavigationList a i
+	color: $white
+	margin-left: 12px
+
+.mainNavigationList a.backToParent, .mainNavigationList a.MainContact, .mainNavigationList a.login 
+	font-weight: bold
+	// font-size: 2.1rem
+	text-transform: uppercase
+	// line-height: 60px
+	line-height: 12vh
+	+respond-to(sm)
+		font-size: 3.4vw
+	+respond-to(xs)
+		font-size: 4.7vw
+	+respond-to(xx)
+		font-size: 5vw
+
+.mainNavigationList a:hover 
+	color: rgba($white,.6)
+
+.mainNavigationList .hasSubMenu, .mainNavigationList .channelLink 
+	position: relative
+
+.animate-outToRight,
+.animate-outToLeft,
+.animate-inFromLeft,
+.animate-inFromRight 
+	visibility: visible
+
+.animate-outToRight .menuItem 
+	-moz-animation: outToRight 0.6s both cubic-bezier(0.7, 0, 0.3, 1)
+	-webkit-animation: outToRight 0.6s both cubic-bezier(0.7, 0, 0.3, 1)
+	animation: outToRight 0.6s both cubic-bezier(0.7, 0, 0.3, 1)
+
+.animate-outToLeft .menuItem 
+	-moz-animation: outToLeft 0.6s both cubic-bezier(0.7, 0, 0.3, 1)
+	-webkit-animation: outToLeft 0.6s both cubic-bezier(0.7, 0, 0.3, 1)
+	animation: outToLeft 0.6s both cubic-bezier(0.7, 0, 0.3, 1)
+
+.animate-inFromLeft .menuItem 
+	-moz-animation: inFromLeft 0.6s both cubic-bezier(0.7, 0, 0.3, 1)
+	-webkit-animation: inFromLeft 0.6s both cubic-bezier(0.7, 0, 0.3, 1)
+	animation: inFromLeft 0.6s both cubic-bezier(0.7, 0, 0.3, 1)
+
+.animate-inFromRight .menuItem 
+	-moz-animation: inFromRight 0.6s both cubic-bezier(0.7, 0, 0.3, 1)
+	-webkit-animation: inFromRight 0.6s both cubic-bezier(0.7, 0, 0.3, 1)
+	animation: inFromRight 0.6s both cubic-bezier(0.7, 0, 0.3, 1)
+
+
+
+/*  Keyframes
+	================================================ */
+@-moz-keyframes inFromRight 
+	from 
+		opacity: 0
+		-moz-transform: translate3d(100%, 0, 0)
+		transform: translate3d(100%, 0, 0)
+  
+	to 
+		opacity: 1
+		-moz-transform: translate3d(0, 0, 0)
+		transform: translate3d(0, 0, 0)
+  
+
+@-webkit-keyframes inFromRight 
+	from 
+		opacity: 0
+		-webkit-transform: translate3d(100%, 0, 0)
+		transform: translate3d(100%, 0, 0)
+
+	to 
+		opacity: 1
+		-webkit-transform: translate3d(0, 0, 0)
+		transform: translate3d(0, 0, 0)
+
+@keyframes inFromRight 
+	from 
+		opacity: 0
+		-moz-transform: translate3d(100%, 0, 0)
+		-ms-transform: translate3d(100%, 0, 0)
+		-webkit-transform: translate3d(100%, 0, 0)
+		transform: translate3d(100%, 0, 0)
+
+	to 
+		opacity: 1
+		-moz-transform: translate3d(0, 0, 0)
+		-ms-transform: translate3d(0, 0, 0)
+		-webkit-transform: translate3d(0, 0, 0)
+		transform: translate3d(0, 0, 0)
+
+@-moz-keyframes inFromLeft 
+	from 
+		opacity: 0
+		-moz-transform: translate3d(-100%, 0, 0)
+		transform: translate3d(-100%, 0, 0)
+
+	to 
+		opacity: 1
+		-moz-transform: translate3d(0, 0, 0)
+		transform: translate3d(0, 0, 0)
+
+@-webkit-keyframes inFromLeft 
+	from 
+		opacity: 0
+		-webkit-transform: translate3d(-100%, 0, 0)
+		transform: translate3d(-100%, 0, 0)
+
+	to 
+		opacity: 1
+		-webkit-transform: translate3d(0, 0, 0)
+		transform: translate3d(0, 0, 0)
+
+@keyframes inFromLeft 
+	from 
+		opacity: 0
+		-moz-transform: translate3d(-100%, 0, 0)
+		-ms-transform: translate3d(-100%, 0, 0)
+		-webkit-transform: translate3d(-100%, 0, 0)
+		transform: translate3d(-100%, 0, 0)
+
+	to 
+		opacity: 1
+		-moz-transform: translate3d(0, 0, 0)
+		-ms-transform: translate3d(0, 0, 0)
+		-webkit-transform: translate3d(0, 0, 0)
+		transform: translate3d(0, 0, 0)
+
+@-moz-keyframes outToRight 
+	to 
+		opacity: 0
+		-moz-transform: translate3d(100%, 0, 0)
+		transform: translate3d(100%, 0, 0)
+
+@-webkit-keyframes outToRight 
+	to 
+		opacity: 0
+		-webkit-transform: translate3d(100%, 0, 0)
+		transform: translate3d(100%, 0, 0)
+
+@keyframes outToRight 
+	to 
+		opacity: 0
+		-moz-transform: translate3d(100%, 0, 0)
+		-ms-transform: translate3d(100%, 0, 0)
+		-webkit-transform: translate3d(100%, 0, 0)
+		transform: translate3d(100%, 0, 0)
+
+@-moz-keyframes outToLeft 
+	to 
+		opacity: 0
+		-moz-transform: translate3d(-100%, 0, 0)
+		transform: translate3d(-100%, 0, 0)
+
+@-webkit-keyframes outToLeft 
+	to 
+		opacity: 0
+		-webkit-transform: translate3d(-100%, 0, 0)
+		transform: translate3d(-100%, 0, 0)
+
+@keyframes outToLeft 
+	to 
+		opacity: 0
+		-moz-transform: translate3d(-100%, 0, 0)
+		-ms-transform: translate3d(-100%, 0, 0)
+		-webkit-transform: translate3d(-100%, 0, 0)
+		transform: translate3d(-100%, 0, 0)

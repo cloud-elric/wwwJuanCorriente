@@ -62,6 +62,7 @@ $(document).ready(function(){
 	// Open Modal
 	$(modalOpen).on("click", function(){
 		modal.style.display = "flex";
+		modal.style.display = "-ms-flexbox";
 	});
 
 	/**
@@ -91,8 +92,11 @@ $(document).ready(function(){
 		// var heightScreen = $( window ).height();
 		// alert(heightScreen);
 
-		$('.ver-capitulo-full-screen').fadeOut();
-		$('.ver-capitulo-close-screen').fadeIn();
+		// $('.ver-capitulo-full-screen').fadeOut();
+		// $('.ver-capitulo-full-screen').fadeOut();
+		$('.ver-capitulo-full-screen').hide();
+		$('.ver-capitulo-close-screen').css("display", "flex");
+		$('.ver-capitulo-close-screen').css("display", "-ms-flexbox");
 		$('.ver-capitulo').fullscreen();
 		$(".ver-capitulo").addClass("ver-capitulo-full");
 
@@ -121,12 +125,16 @@ $(document).ready(function(){
 	 */
 	$('.ver-capitulo-close-screen').on("click", function(){
 
-		$('.ver-capitulo-full-screen').fadeIn();
-		$('.ver-capitulo-close-screen').fadeOut();
+		// $('.ver-capitulo-full-screen').fadeIn();
+		// $('.ver-capitulo-close-screen').fadeOut();
+		$('.ver-capitulo-full-screen').css("display", "flex");
+		$('.ver-capitulo-full-screen').css("display", "-ms-flexbox");
+		$('.ver-capitulo-close-screen').hide();
 		$(".ver-capitulo").removeClass("ver-capitulo-full");
 
 		$(".asScrollable-container").toggleClass("asScrollable-container-full");
 		$(".asScrollable-bar-vertical").delay(400).css("height", "calc(100vh - 10px)");
+
 
 		$(".ver-capitulos").removeClass("ver-js-capitulos-full");
 		$('.ver-capitulos').addClass("ver-js-capitulos");
@@ -147,12 +155,16 @@ $(document).ready(function(){
 	$(document).keyup(function (e) {
 		if (e.keyCode == 27) {
 		
-			$('.ver-capitulo-full-screen').fadeIn();
-			$('.ver-capitulo-close-screen').fadeOut();
+			// $('.ver-capitulo-full-screen').fadeIn();
+			// $('.ver-capitulo-close-screen').fadeOut();
+			$('.ver-capitulo-full-screen').css("display", "flex");
+			$('.ver-capitulo-full-screen').css("display", "-ms-flexbox");
+			$('.ver-capitulo-close-screen').hide();
 			$(".ver-capitulo").removeClass("ver-capitulo-full");
 
 			$(".asScrollable-container").toggleClass("asScrollable-container-full");
 			$(".asScrollable-bar-vertical").delay(400).css("height", "calc(100vh - 10px)");
+
 
 			$(".ver-capitulos").removeClass("ver-js-capitulos-full");
 			$('.ver-capitulos').addClass("ver-js-capitulos");
@@ -180,10 +192,13 @@ $(document).ready(function(){
 	 */
 	// Open Modal
 	$(modalOpenMensaje).on("click", function(){
+		
 		modalMensaje.style.display = "flex";
+		modalMensaje.style.display = "-ms-flexbox";
 	});
 	// Close Modal
 	$(modalCloseMensaje).on("click", function(){
+		
 		modalMensaje.style.display = "none";
 	});
 
@@ -246,15 +261,25 @@ $(document).ready(function(){
 
 	});
 
+	$('.ver-capitulo-post-desc').css('font-size', "28px");	
 	/**
 	 * Change - Input[RANGE] optener size y agrandar texto
 	 */
+	$(window).resize(function(){
+		if ($(window).width() <= 767){
+			$('.ver-capitulo-post-desc').css('font-size', "18px");
+		} else {
+			$('.ver-capitulo-post-desc').css('font-size', "28px");
+		}
+	});
 	$( "#my-texto" ).change(function() {
 		var x = document.getElementById("my-texto").value;
 		$('.ver-capitulo-post-desc').css('font-size', x + "px");
 
 		$('.ver-capitulo-post-desc').animate({fontSize: x + "px"}, 300);
 	});
+
+	
 
 	/**
 	 * Click - Modo de Lectura (FOCUS)
@@ -310,10 +335,18 @@ $(document).on("scroll", function(){
 	 */
 	var desplazamientoActual = $(document).scrollTop();
 	if(desplazamientoActual > 100 ){
-		$(".ver-capitulo-header").fadeTo( 18, 0.45 );
+		$(".ver-capitulo-header").fadeTo( 18, 0.15 );
+		$(".ver-capitulo-options").addClass("ver-capitulo-options-scroll");
+		$(".cerrar-sesion").addClass("cerrar-sesion-scroll");
+		$(".ver-capitulo-back").addClass("ver-capitulo-back-scroll");
+		$(".ver-capitulos").addClass("ver-capitulos-scroll");
 	}
 	else{
 		$(".ver-capitulo-header").fadeTo( 10, 1 );
+		$(".ver-capitulo-options").removeClass("ver-capitulo-options-scroll");
+		$(".cerrar-sesion").removeClass("cerrar-sesion-scroll");
+		$(".ver-capitulo-back").removeClass("ver-capitulo-back-scroll");
+		$(".ver-capitulos").removeClass("ver-capitulos-scroll");
 	}
 
 	// if(desplazamientoActual >100){

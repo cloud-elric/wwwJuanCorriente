@@ -18,6 +18,7 @@
 		display: flex
 		justify-content: center
 		position: relative
+		flex-wrap: wrap
 		// +respond-to(sm)
 		// 	align-items: center
 		// 	flex-wrap: wrap
@@ -25,17 +26,18 @@
 			align-items: center
 			flex-wrap: wrap
 		.home-categorias-item
-			background-color: $white
+			background-color: rgba($white,.45)
 			+border-radius(4px)
 			cursor: pointer
-			margin-right: 49px
-			opacity: .45
+			margin-bottom: 18px
+			// opacity: .45
 			padding: 10px 8px
 			position: relative
-			&:last-child
-				margin-right: 0
+			
+			// &:last-child
+			// 	margin-right: 0
 			&.active
-				opacity: 1
+				background-color: $white
 				&:before
 					background-color: $white
 					bottom: -12px
@@ -44,19 +46,84 @@
 					left: -4px
 					position: absolute
 					right: -4px
+			+respond-to(lg)
+				margin-right: 14px
+			+respond-to(md)
+				margin-right: 12px
 			+respond-to(sm)
-				margin-right: 16px
+				margin-right: 10px
 			+respond-to(xs)
 				margin-bottom: 30px
 				margin-right: 8px
-				width: 25%
-				&:nth-child(3n+3)
-					margin-right: 0
+
+		
+		
+		// Tooltip container
+		.tooltip
+			// background-color: pink
+			position: relative
+			
+			.tooltipitem
+				// background-color: red
+				opacity: .6
+				overflow: hidden
+				white-space: nowrap
+				text-overflow: ellipsis
+				+respond-to(lg)
+					width: 150px
+				+respond-to(md)
+					width: 150px
+				+respond-to(sm)
+					width: 110px
+				+respond-to(xs)
+					width: 90px
+				+respond-to(xx)
+					width: 60px
+
+			// Tooltip text
+			.tooltiptext 
+				visibility: hidden
+				width: 120px
+				background-color: black
+				color: #fff
+				text-align: center
+				padding: 5px 0
+				border-radius: 6px
+				// Position the tooltip text - see examples below!
+				position: absolute
+				z-index: 99
+				// Bottom
+				width: 120px
+				top: 100%
+				left: 50% 
+				margin-left: -60px
+				&:after
+					content: " "
+					position: absolute
+					bottom: 100%  // At the top of the tooltip
+					left: 50%
+					margin-left: -5px
+					border-width: 5px
+					border-style: solid
+					border-color: transparent transparent black transparent
+
+
+			// Show the tooltip text when you mouse over the tooltip container
+			&:hover
+				// background-color: yellow
+				.tooltiptext 
+					visibility: visible
+					top: 130%
+
+			&.active
+				.tooltipitem
+					opacity: 1
 	// Article
 	.home-article
 		color: $white
 		display: none
 		padding: 70px 0
+		position: relative
 		margin: 0 auto
 		max-width: 600px
 		width: 90%
@@ -70,6 +137,7 @@
 			display: flex
 			flex-direction: column
 			justify-content: center
+			position: relative
 			text-align: left
 			+respond-to(xs)
 				margin-bottom: 30px
@@ -79,8 +147,35 @@
 				font-size: 1.563em
 				margin-bottom: 10px
 			.home-article-desc
+				// background-color: red
 				font-size: .95em
 				line-height: 1.4em
+				width: 100%
 		// Button
 		.home-article-button
 			margin-top: 40px
+
+		// Delete
+		.home-categorias-delete
+			align-items: center
+			background-color: red
+			+border-radius(50%)
+			cursor: pointer
+			height: 20px
+			display: flex
+			justify-content: center
+			opacity: .7
+			position: absolute
+			right: 0
+			top: 20px
+			width: 20px
+			i
+				align-items: center
+				display: flex
+				color: $white
+				font-size: .7rem
+				justify-content: center
+				// margin-bottom: 1px
+			&:hover
+				opacity: 1
+		

@@ -21,13 +21,14 @@ class AppAsset extends AssetBundle
         'webAssets/plugins/animsition/css/animsition.min.css',
         'webAssets/plugins/ladda/css/ladda.min.css',
         'webAssets/plugins/ionicons/css/ionicons.min.css',
+        'webAssets/plugins/fontawesome/css/font-awesome.min.css',
         'webAssets/plugins/flexboxgrid/css/flexboxgrid.min.css',
         'https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css',
         'webAssets/plugins/animate/css/animate.css',
         'webAssets/plugins/asScrollbar/dist/css/asScrollable.css',
         'webAssets/plugins/magnific-popup/css/magnific-popup.css',
-        'webAssets/css/juanCorriente.css',
-    		'webAssets/css/sweetalert.css'
+        'webAssets/plugins/sweetAlert/css/sweetalert.css',
+        'webAssets/css/juanCorriente.css'
     ];
     public $js = [
         'webAssets/plugins/animsition/js/animsition.min.js',
@@ -40,8 +41,8 @@ class AppAsset extends AssetBundle
         'webAssets/plugins/asScrollbar/js/jquery-asScrollbar.js',
         'webAssets/plugins/asScrollbar/dist/jquery-asScrollable.js',
         'webAssets/plugins/magnific-popup/js/jquery.magnific-popup.min.js',
-    		'webAssets/js/sweetalert.min.js',
-    	'js/site.js',
+    	'webAssets/plugins/sweetAlert/js/sweetalert.min.js',
+        'js/mail.js',
     	
     ];
     public $depends = [

@@ -27,7 +27,7 @@ body
 	font:
 		family: $font-base
 		size: 16px
-		weight: 300
+		weight: 400
 	color: $text-base
 	&.body-focus
 		background-color: $white
@@ -70,7 +70,7 @@ h6,
 .h6
 	font:
 		family: $font-base
-		weight: 400
+		weight: 800
 	margin: 0
 	padding: 0
 h1,
@@ -97,6 +97,26 @@ hr
 	border: none
 	margin: 0
 
+a,
+article,
+blockquote,
+button,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+input,
+p,
+section,
+span,
+strong,
+svg
+	-webkit-font-smoothing: subpixel-antialiased
+	
 /* Page */
 .page
 	display: block
@@ -417,8 +437,13 @@ hr
 	margin-left: 10px
 	position: fixed
 	right: 20px
-	top: 44px
+	top: 60px
 	width: 40px
-	z-index: 9
+	+transition(top .3s ease-out)
+	z-index: 4
 	&:hover
 		color: $teal
+	// SCROLL
+	&.cerrar-sesion-scroll
+		+respond-to(xs)
+			top: 10px

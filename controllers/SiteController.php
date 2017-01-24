@@ -70,14 +70,15 @@ class SiteController extends Controller {
 	 * @return string
 	 */
 	public function actionIndex() {
-		
+		$historia = new EntHistorias();
 		// Obtiene todas las historias activas
 		$historias = EntHistorias::find ()->where ( [ 
 				'b_habilitado' => 1 
 		] )->all ();
 		
 		return $this->render ( 'index', [ 
-				'historias' => $historias 
+				'historias' => $historias,
+				'historia'=>$historia
 		] );
 	}
 	
@@ -140,10 +141,13 @@ class SiteController extends Controller {
 		
 		$elementos = EntElementos::find()->where(['id_capitulo'=>$capitulo->id_capitulo,'id_historia'=>$historia->id_historia])->orderBy('num_orden')->all();
 		
+		$historias = EntHistorias::find()->where(['b_habilitado'=>1])->all();
+		
 		return $this->render ( 'verCapitulo', [ 
 				'capitulo' => $capitulo,
 				'elementos'=>$elementos,
-				'historia'=>$historia->txt_token
+				'historia'=>$historia->txt_token,
+				'historias'=>$historias
 		] );
 	}
 	

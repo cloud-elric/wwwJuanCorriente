@@ -1,8 +1,11 @@
-var audio = new Audio(basePath+'audios/cortinilla.mp3');
+if(audio){
 audio.loop = true;
+}
 
 $(document).ready(function(){
-	reproducirAudio();
+	
+		reproducirAudio();
+	
 	
 	$('.js-silenciar-audio').on('click' , function(){
 		var claseIconoSilencio = 'ion-android-volume-off';
@@ -21,12 +24,15 @@ $(document).ready(function(){
 });
 
 function reproducirAudio(){
-	
+	if(audio){
 	audio.play();
+	}
 }
 
 function detenerAudio(){
+	if(audio){
 	audio.pause();
+	}
 }
 
 function cargarCapitulos(token){

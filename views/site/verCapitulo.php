@@ -13,6 +13,12 @@ $header = EntElementos::find ()->where ( [
 		'id_tipo_elemento' => ConstantesWeb::TIPO_ELEMENTO_HEADER 
 ] )->one ();
 
+$this->registerJsFile ( '@web/js/menu.js', [ 
+		'depends' => [ 
+				\app\assets\AppAsset::className () 
+		] 
+] );
+
 $editable = '';
 $classEditable = '';
 $isAdmin = ! Yii::$app->user->isGuest;
@@ -35,16 +41,36 @@ if ($isAdmin) {
 }
 	$this->registerJsFile ( '@web/js/usuario.js', [ 
 			'depends' => [ 
-					\app\assets\AppAsset::className () 
+					\app\assets\AppAsset::className ()
 			] 
 	] );
 
 ?>
+<script>
+<?php if($capitulo->txt_audio){?>
+var audio = new Audio(basePath+'audios/<?=$capitulo->txt_audio?>');
+<?php }else{?>
+var audio = null;
+<?php }?>
 
+</script>
 <input type="hidden" data-token="<?=$capitulo->txt_token?>"
 	id="js-capitulo" />
 	
 <input type="hidden" data-token="<?=$historia?>" id="js-historia" />
+
+<!-- .ver-capitulo-head -->
+<a class="logoSitio" href="<?=Url::base() ?>"></a>
+<div class="ver-capitulo-head">
+	<?php foreach($historias as $history){ ?>
+		<!-- <a class="ver-capitulo-head-txt" href="#">Capítulo 1 - The chain</a> -->
+		<a class="ver-capitulo-head-img" href="<?=Url::base() ?>/site/lista-de-capitulos?token=<?=$history->txt_token?>" style="background-image: url(<?=Url::base().'/webAssets/uploads/min_'.$history->txt_image?>);"></a>
+	<?php }?>
+
+	<span class="ver-capitulo-head-movil closeMainNav">Historias</span>
+
+</div>
+<!-- end - .ver-capitulo-head -->
 
 <!-- .ver-capitulo -->
 <div class="ver-capitulo <?=$isAdmin?'ver-capitulo-admin':''?>"
@@ -79,7 +105,7 @@ if ($isAdmin) {
 		</div>
 		<!-- end .listado-image -->
 <?php }?>
-		<h1>Historias de México</h1>
+<!-- 		<h1>Simulador de vuelo</h1> -->
 
 		<h2><?=$capitulo->txt_nombre?></h2>
 
@@ -121,14 +147,14 @@ if ($isAdmin) {
 
 
 		<!-- FullScreen -->
-		<div class="ver-capitulo-full-screen" id="full-screen">
+		<!-- <div class="ver-capitulo-full-screen" id="full-screen">
 			<span>FullScreen</span> <i class="ion ion-arrow-expand"></i>
-		</div>
+		</div> -->
 
 		<!-- CloseScreen -->
-		<div class="ver-capitulo-close-screen" id="close-screen">
+		<!-- <div class="ver-capitulo-close-screen" id="close-screen">
 			<span>Exit Screen</span> <i class="ion ion-arrow-shrink"></i>
-		</div>
+		</div> -->
 
 		<!-- .ver-capitulo-options -->
 		<div class="ver-capitulo-options">
@@ -138,7 +164,7 @@ if ($isAdmin) {
 				<button class="ver-capitulo-options-texto-resize-icon"><i id="icon-resize" class="ion ion-arrow-resize"></i></i></button>
 				<div href="#" class="ver-capitulo-options-texto-resize-slider">
 					<span>a</span>
-					<input type="range" id="my-texto" min="16" max="40" step ="2" value="16">
+					<input type="range" id="my-texto" min="16" max="40" step ="2" value="28">
 					<span>a</span>
 				</div>
 			</div>
@@ -156,6 +182,18 @@ if ($isAdmin) {
 				<!-- <i class="ion ion-android-volume-off"></i> -->
 			</span>
 			<!-- end - .ver-capitulo-options-volume -->
+
+			<!-- .ver-capitulo-options-full -->
+			<span class="ver-capitulo-options-full ver-capitulo-full-screen" id="full-screen">
+				<span>FullScreen</span> <i class="ion ion-arrow-expand "></i>
+			</span>
+			<!-- end - .ver-capitulo-options-full -->
+
+			<!-- .ver-capitulo-options-full -->
+			<span class="ver-capitulo-options-close ver-capitulo-close-screen" id="close-screen">
+				<span>Exit Screen</span> <i class="ion ion-arrow-shrink"></i>
+			</span>
+			<!-- end - .ver-capitulo-options-full -->
 
 		</div>
 		<!-- end - .ver-capitulo-options -->
@@ -289,6 +327,28 @@ if ($isAdmin) {
 
 </div>
 <!-- end - .ver-capitulo -->
+
+
+<!-- Menu movil -->
+<nav id="navContainer" class="naver">
+	<section class="mainMenu">
+
+		<div class="mainNavigation current">
+			<ul class="mainNavigationList current" id="mainNavigationList">
+
+				<?php foreach($historias as $history){ ?>
+					<li class="menuItem" style="animation-delay: 0ms;">
+						<a class="ver-capitulo-head-img" href="<?=Url::base() ?>/site/lista-de-capitulos?token=<?=$history->txt_token?>" style="background-image: url(<?=Url::base().'/webAssets/uploads/min_'.$history->txt_image?>);"></a>
+					</li>
+				<?php }?>
+				
+			</ul>
+		</div>
+
+		<span class="close-menu-movil closeMainNav"><i class="ion ion-close-round"></i></span>
+
+	</section>
+</nav>
 
 <?php 
 

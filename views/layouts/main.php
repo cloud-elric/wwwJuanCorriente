@@ -3,6 +3,7 @@
 /* @var $content string */
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
@@ -15,13 +16,24 @@ AppAsset::register($this);
 <html lang="<?= Yii::$app->language ?>">
 
     <head>
-
+		<link rel="shortcut icon" href="<?php echo Yii::$app->getHomeUrl(); ?>/favicon.png" type="image/x-icon" />
         <meta charset="<?= Yii::$app->charset ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <?= Html::csrfMetaTags() ?>
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
 <script> var basePath = '<?=Yii::$app->urlManager->createAbsoluteUrl ( [''] );?>'; </script>
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-90131249-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
     </head>
 
     <body>
@@ -37,7 +49,7 @@ AppAsset::register($this);
             
             <!-- header -->
             <header>
-                <h1>Historias de México</h1>
+                <a class="logoSite" href="<?=Yii::$app->urlManager->createAbsoluteUrl ( [''] );?>"><h1></h1></a>
             </header>
             <!-- end - header -->
 
@@ -49,16 +61,42 @@ AppAsset::register($this);
             
             <!-- footer -->
             <footer>
-                <!-- .container-full -->
-                <div class="container-full">
-                    <h6>Síguenos</h6>
-                    <div class="social-media">
-                        <a href=""><i class="ion ion-social-facebook"></i></a>
-                        <a href=""><i class="ion ion-social-twitter"></i></a>
-                        <a href=""><i class="ion ion-social-pinterest"></i></a>
+                <!-- .container -->
+                <div class="container">
+
+                    <!-- .footer-siguenos -->
+                    <div class="footer-siguenos">
+                        <h6>Síguenos</h6>
+                        <div class="social-media">
+                            <a href=""><i class="ion ion-social-facebook"></i></a>
+                            <a href=""><i class="ion ion-social-twitter"></i></a>
+                            <a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        </div>
                     </div>
+                    <!-- end - .footer-siguenos -->
+
+                    <!-- .footer-suscribete -->
+                    <div class="footer-suscribete">
+                        <h6>Suscríbete</h6>
+                        <p>¿Quieres recibir notificaciones cada que haya un capítulo nuevo?</p>
+                        <form name="suscribir" method="post" id="formaDeSuscripccion">
+                            <div class="inputs">
+                                <input type="text" name="e-mail" placeholder="Dejanos tu correo" class="emailInput">
+                            </div>
+                            <div class="actions">
+                                <button type="submit" data-style="slide-up" class="mailSubmit ladda-button"><span class="ladda-label"><i class="ion ion-paper-airplane"></i></span></button>
+                            </div>
+                            <div class="loader">
+                                <div class="msg">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!--  end - .footer-suscribete -->
+
                 </div>
-                <!-- end - .container-full -->
+                <!-- end - .container -->
             </footer>
             <!-- end - footer -->
 

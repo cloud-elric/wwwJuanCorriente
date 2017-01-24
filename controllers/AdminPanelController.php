@@ -15,6 +15,7 @@ use yii\web\NotFoundHttpException;
 use app\models\EntElementos;
 use yii\web\UploadedFile;
 use app\models\ConstantesWeb;
+use app\models\EntHistorias;
 
 class AdminPanelController extends Controller {
 	
@@ -120,14 +121,13 @@ class AdminPanelController extends Controller {
 			$file->saveAs ( 'webAssets/uploads/' . $capitulo->txt_imagen, false );
 			
 			$raw_file_name = $file->tempName;
-				
+			
 			// Valida que sea una imagen
 			$size = getimagesize ( $raw_file_name );
 			list ( $width, $height, $otro, $wh ) = getimagesize ( $raw_file_name );
 			$basePath = 'webAssets/uploads/';
 			
-			$this->rezisePicture ( $basePath.$capitulo->txt_imagen, $width, $height, $width, $basePath.'min_'.$capitulo->txt_imagen, $file->extension);
-			
+			$this->rezisePicture ( $basePath . $capitulo->txt_imagen, $width, $height, $width, $basePath . 'min_' . $capitulo->txt_imagen, $file->extension );
 		}
 		
 		if ($capitulo->save ()) {
@@ -139,7 +139,7 @@ class AdminPanelController extends Controller {
 			
 			$elemento->id_capitulo = $capitulo->id_capitulo;
 			$elemento->id_historia = $capitulo->id_historia;
-			$elemento->txt_valor = 'portada.jpg';
+			$elemento->txt_valor = '-';
 			$elemento->num_orden = '0';
 			
 			$elemento->save ();
@@ -251,14 +251,13 @@ class AdminPanelController extends Controller {
 			$file->saveAs ( 'webAssets/uploads/' . $elemento->txt_valor, false );
 			
 			$raw_file_name = $file->tempName;
-				
+			
 			// Valida que sea una imagen
 			$size = getimagesize ( $raw_file_name );
 			list ( $width, $height, $otro, $wh ) = getimagesize ( $raw_file_name );
 			$basePath = 'webAssets/uploads/';
 			
-			$this->rezisePicture ( $basePath.$elemento->txt_valor, $width, $height, $width, $basePath.'min_'.$elemento->txt_valor, $file->extension);
-			
+			$this->rezisePicture ( $basePath . $elemento->txt_valor, $width, $height, $width, $basePath . 'min_' . $elemento->txt_valor, $file->extension );
 			
 			return [ 
 					'status' => 'success',
@@ -291,13 +290,13 @@ class AdminPanelController extends Controller {
 				$file->saveAs ( 'webAssets/uploads/' . $capituloF->txt_imagen, false );
 				
 				$raw_file_name = $file->tempName;
-					
+				
 				// Valida que sea una imagen
 				$size = getimagesize ( $raw_file_name );
 				list ( $width, $height, $otro, $wh ) = getimagesize ( $raw_file_name );
 				$basePath = 'webAssets/uploads/';
 				
-				$this->rezisePicture ( $basePath.$capituloF->txt_imagen, $width, $height, $width, $basePath.'min_'.$capituloF->txt_imagen, $file->extension);
+				$this->rezisePicture ( $basePath . $capituloF->txt_imagen, $width, $height, $width, $basePath . 'min_' . $capituloF->txt_imagen, $file->extension );
 				
 				return [ 
 						'status' => 'success' 
@@ -314,6 +313,16 @@ class AdminPanelController extends Controller {
 			Yii::$app->response->format = Response::FORMAT_JSON;
 			
 			return ActiveForm::validate ( $capitulo );
+		}
+	}
+	public function validarHistoria($historia) {
+		if (Yii::$app->request->isAjax && $historia->load ( Yii::$app->request->post () )) {
+			Yii::$app->response->format = Response::FORMAT_JSON;
+			
+			$historia->txt_nombre = nl2br ( $historia->txt_nombre );
+			$historia->txt_descripcion = nl2br ( $historia->txt_descripcion );
+			
+			return ActiveForm::validate ( $historia );
 		}
 	}
 	
@@ -416,8 +425,8 @@ class AdminPanelController extends Controller {
 				$size = getimagesize ( $raw_file_name );
 				list ( $width, $height, $otro, $wh ) = getimagesize ( $raw_file_name );
 				$basePath = 'webAssets/uploads/';
-					
-				$this->rezisePicture ( $basePath.$elemento->txt_valor, $width, $height, $width, $basePath.'min_'.$elemento->txt_valor, $file->extension);
+				
+				$this->rezisePicture ( $basePath . $elemento->txt_valor, $width, $height, $width, $basePath . 'min_' . $elemento->txt_valor, $file->extension );
 				
 				return [ 
 						'status' => 'success' 
@@ -439,7 +448,7 @@ class AdminPanelController extends Controller {
 	 * @param unknown $nuevo_ancho        	
 	 * @param unknown $nuevo_alto        	
 	 */
-	private function rezisePicture($file, $ancho, $alto, $redimencionar, $nombreNuevo,$extension) {
+	private function rezisePicture($file, $ancho, $alto, $redimencionar, $nombreNuevo, $extension) {
 		// Factor para el redimensionamiento
 		$factor = $this->calcularFactor ( $ancho, $alto, $redimencionar );
 		
@@ -450,44 +459,40 @@ class AdminPanelController extends Controller {
 		$thumb = imagecreatetruecolor ( $nuevo_ancho, $nuevo_alto );
 		
 		// preserve transparency
-		if($extension == "gif" || $extension == "png"){
-			imagecolortransparent($thumb, imagecolorallocatealpha($thumb, 0, 0, 0, 127));
-			imagealphablending($thumb, false);
-			imagesavealpha($thumb, true);
+		if ($extension == "gif" || $extension == "png") {
+			imagecolortransparent ( $thumb, imagecolorallocatealpha ( $thumb, 0, 0, 0, 127 ) );
+			imagealphablending ( $thumb, false );
+			imagesavealpha ( $thumb, true );
 		}
 		
-		if($extension=='jpg' || $extension=='jpeg'){
+		if ($extension == 'jpg' || $extension == 'jpeg') {
 			$origen = imagecreatefromjpeg ( $file );
 			// Cambiar el tamaño
 			imagecopyresampled ( $thumb, $origen, 0, 0, 0, 0, $nuevo_ancho, $nuevo_alto, $ancho, $alto );
 			
 			imagejpeg ( $thumb, $nombreNuevo );
-		}else if($extension=='png'){
-			$origen = imagecreatefrompng( $file );
+		} else if ($extension == 'png') {
+			$origen = imagecreatefrompng ( $file );
 			// Cambiar el tamaño
 			imagecopyresampled ( $thumb, $origen, 0, 0, 0, 0, $nuevo_ancho, $nuevo_alto, $ancho, $alto );
-				
-			imagepng( $thumb, $nombreNuevo );
+			
+			imagepng ( $thumb, $nombreNuevo );
 		}
-// 		else if($extension=='gif'){
-// 			$origen = imagecreatefromgif( $file );
-// 			// Cambiar el tamaño
-// 			imagecopyresampled ( $thumb, $origen, 0, 0, 0, 0, $nuevo_ancho, $nuevo_alto, $ancho, $alto );
-				
-// 			imagegif($thumb, $nombreNuevo );
-// 		}
+		// else if($extension=='gif'){
+		// $origen = imagecreatefromgif( $file );
+		// // Cambiar el tamaño
+		// imagecopyresampled ( $thumb, $origen, 0, 0, 0, 0, $nuevo_ancho, $nuevo_alto, $ancho, $alto );
 		
-		
+		// imagegif($thumb, $nombreNuevo );
+		// }
 	}
-	
-	public function actionEditarHistoria($token=null){
-		$historia = $this->getHistoriaByToken($token);
+	public function actionEditarHistoria($token = null) {
+		$historia = $this->getHistoriaByToken ( $token );
 		
-		if($_POST['valor']){
-			$historia->txt_descripcion = $_POST['valor'];
-			$historia->save();
+		if ($_POST ['valor']) {
+			$historia->txt_descripcion = $_POST ['valor'];
+			$historia->save ();
 		}
-		
 	}
 	
 	/**
@@ -510,38 +515,93 @@ class AdminPanelController extends Controller {
 	/**
 	 * Guarda la imagen
 	 */
-	public function actionGuardarImagenHistoria($token=null) {
+	public function actionGuardarImagenHistoria($token = null) {
 		Yii::$app->response->format = Response::FORMAT_JSON;
-	
+		
 		$historia = $this->getHistoriaByToken ( $token );
-	
-	
+		
 		$file = UploadedFile::getInstanceByName ( 'fileHistoria' );
-	
+		
 		if ($file) {
-				
+			
 			$historia->txt_image = Utils::generateToken ( 'imc_' ) . '.' . $file->extension;
-				
+			
 			if ($historia->save ()) {
 				$file->saveAs ( 'webAssets/uploads/' . $historia->txt_image, false );
-	
+				
 				$raw_file_name = $file->tempName;
-					
+				
 				// Valida que sea una imagen
 				$size = getimagesize ( $raw_file_name );
 				list ( $width, $height, $otro, $wh ) = getimagesize ( $raw_file_name );
 				$basePath = 'webAssets/uploads/';
-	
-				$this->rezisePicture ( $basePath.$historia->txt_image, $width, $height, $width, $basePath.'min_'.$historia->txt_image, $file->extension);
-	
-				return [
-						'status' => 'success'
+				
+				$this->rezisePicture ( $basePath . $historia->txt_image, $width, $height, $width, $basePath . 'min_' . $historia->txt_image, $file->extension );
+				
+				return [ 
+						'status' => 'success' 
 				];
 			}
 		} else {
-			return [
-					'status' => 'error'
+			return [ 
+					'status' => 'error' 
 			];
 		}
+	}
+	public function actionGuardarHistoria() {
+		
+		$historia = new EntHistorias ();
+		$historia->txt_token = Utils::generateToken ( 'hst_' );
+		
+		if ($validacion = $this->validarHistoria ( $historia )) {
+			return $validacion;
+		}
+		// Guarda la imagen
+		$file = UploadedFile::getInstanceByName ( 'imageCapitulo' );
+		
+		if ($file) {
+			$historia->txt_image = Utils::generateToken ( 'imgC_' ) . '.' . $file->extension;
+			$file->saveAs ( 'webAssets/uploads/' . $historia->txt_image, false );
+			
+			$raw_file_name = $file->tempName;
+			
+			// Valida que sea una imagen
+			$size = getimagesize ( $raw_file_name );
+			list ( $width, $height, $otro, $wh ) = getimagesize ( $raw_file_name );
+			$basePath = 'webAssets/uploads/';
+			
+			$this->rezisePicture ( $basePath . $historia->txt_image, $width, $height, $width, $basePath . 'min_' . $historia->txt_image, $file->extension );
+		}
+		
+		if ($historia->save ()) {
+			
+			return [ 
+					'status' => 'success',
+					'tk' => $historia->txt_token,
+					'i' => $historia->txt_image ? $historia->txt_image : 'noImage.jpg',
+					'n' => $historia->txt_nombre 
+			];
+		}
+		
+		return [ 
+				'status' => 'error' 
+		];
+	}
+	
+	
+	public function actionEliminarHistoria($token=null){
+		$historia = $this->getHistoriaByToken($token);
+		
+		$historia->delete();
+	}
+	
+	public function actionEditarHistoriaNombre(){
+		$token = $_POST['token'];
+		$valor = $_POST['valor'];
+		
+		$historia = $this->getHistoriaByToken($token);
+		
+		$historia->txt_nombre = $valor;
+		$historia->save();
 	}
 }
