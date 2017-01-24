@@ -7,6 +7,9 @@ use yii\bootstrap\ActiveForm;
 
 $editable = '';
 $classEditable = '';
+
+$userNormal = Yii::$app->user->isGuest;
+
 // $isAdmin = ! Yii::$app->user->isGuest;
 $isAdmin = ! Yii::$app->user->isGuest;
 
@@ -40,6 +43,13 @@ var isVarAdmin = true;
 var isVarAdmin = false;
 </script>
 <?php }?>
+
+
+<?php if($userNormal){ ?>
+	<p style="color: white">Proximamente</p>
+<?php }else{ ?>
+
+
 <!-- .home -->
 <div class="home">
 	<!-- .container -->
@@ -259,4 +269,8 @@ if ($isAdmin) {
 
 </div>
 
-<?php }?>
+<?php }
+
+
+}?>
+
