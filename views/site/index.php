@@ -46,7 +46,7 @@ var isVarAdmin = false;
 
 
 <?php if($userNormal){ ?>
-	<p style="color: white">Proximamente</p>
+	<p style="color: white;text-align: center;font-size: 40pt;">Próximamente</p>
 <?php }else{ ?>
 
 
