@@ -107,6 +107,9 @@ $(document).ready(function(){
 		
 		$('.ver-capitulos').removeClass("ver-js-capitulos");
 		$(".ver-capitulos").addClass("ver-js-capitulos-full");
+
+		$(".nav-capitulos").removeClass('nav-capitulos-toggle');
+
 		// $(".nav-capitulos-cont").delay(400).css("height", "100vh");
 
 		// $(".ver-capitulo-leer").fadeOut();
@@ -132,8 +135,11 @@ $(document).ready(function(){
 		$(".asScrollable-container").toggleClass("asScrollable-container-full");
 		$(".asScrollable-bar-vertical").delay(400).css("height", "calc(100vh - 10px)");
 
-		$('.ver-capitulos').addClass("ver-js-capitulos");
+
 		$(".ver-capitulos").removeClass("ver-js-capitulos-full");
+		$('.ver-capitulos').addClass("ver-js-capitulos");
+
+		$(".nav-capitulos").removeClass('nav-capitulos-toggle');
 
 		// $(".asScrollable-bar-vertical").delay(400).css("height", "100vh");
 		// $(".nav-capitulos-cont").delay(400).css("height", "100%");
@@ -159,8 +165,11 @@ $(document).ready(function(){
 			$(".asScrollable-container").toggleClass("asScrollable-container-full");
 			$(".asScrollable-bar-vertical").delay(400).css("height", "calc(100vh - 10px)");
 
-			$('.ver-capitulos').addClass("ver-js-capitulos");
+
 			$(".ver-capitulos").removeClass("ver-js-capitulos-full");
+			$('.ver-capitulos').addClass("ver-js-capitulos");
+
+			$(".nav-capitulos").removeClass('nav-capitulos-toggle');
 
 			// $(".asScrollable-bar-vertical").delay(400).css("height", "100vh");
 			// $(".nav-capitulos-cont").delay(400).css("height", "100%");
@@ -208,6 +217,7 @@ $(document).ready(function(){
 	$("body").on("click", '.ver-js-capitulos-full', function(){
 		$(".nav-capitulos").toggleClass('nav-capitulos-toggle');
 	});
+
 
 	/**
 	 * Click - Close Ver Capitulos
