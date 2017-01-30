@@ -604,4 +604,31 @@ class AdminPanelController extends Controller {
 		$historia->txt_nombre = $valor;
 		$historia->save();
 	}
+	
+	
+	public function actionGuardarAudioCapitulo($capitulo=null){
+		
+		Yii::$app->response->format = Response::FORMAT_JSON;
+		
+		$capitulo = $this->getCapituloByToken($capitulo);
+		
+		$file = UploadedFile::getInstanceByName ( 'fileUpload' );
+		
+		if ($file) {
+				
+			$capitulo->txt_audio= Utils::generateToken ( 'aud_' ) . '.' . $file->extension;
+				
+			if ($capitulo->save ()) {
+				$file->saveAs ( 'audios/' . $capitulo->txt_audio, false );
+		
+				return [
+						'status' => 'success'
+				];
+			}
+		} else {
+			return [
+					'status' => 'error'
+			];
+		}
+	}
 }

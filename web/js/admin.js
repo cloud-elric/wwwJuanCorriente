@@ -264,6 +264,47 @@ $(document)
 						reader.readAsDataURL(fileAudio);
 						viewer.setProperties(fileAudio);
 						
+						var data = new FormData();
+
+						data.append('fileUpload', fileAudio);
+						var tokenCapitulo = $("#js-capitulo").data('token');
+						$.ajax({
+							url : basePath + "admin-panel/guardar-audio-capitulo?capitulo="
+									+ tokenCapitulo,
+							type : "POST",
+							data : data,
+							processData : false, // Work around #1
+							contentType : false, // Work around #2
+							success : function(response) {
+
+							},
+							cache : false,
+							error : function() {
+								alert("Failed");
+							},
+							// Work around #3
+							xhr : function() {
+								var xhr = new window.XMLHttpRequest();
+								// Upload progress
+								xhr.upload.addEventListener("progress", function(evt) {
+									if (evt.lengthComputable) {
+										var percentComplete = evt.loaded / evt.total;
+										// Do something with upload progress
+										console.log('upload' + percentComplete);
+									}
+								}, false);
+								// Download progress
+								xhr.addEventListener("progress", function(evt) {
+									if (evt.lengthComputable) {
+										var percentComplete = evt.loaded / evt.total;
+										// Do something with download progress
+										console.log('download' + percentComplete);
+									}
+								}, false);
+								return xhr;
+							}
+						});
+						
 					});
 
 					$('#js-nombre-capitulo').focus(function() {
