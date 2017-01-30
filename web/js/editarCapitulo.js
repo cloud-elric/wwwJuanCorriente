@@ -292,6 +292,7 @@ $(document).ready(function() {
 		}
 	});
 	
+	
 	/**
 	 * Si el usuario permite borrar el capitulo
 	 */
@@ -391,3 +392,5 @@ $('body')
 							});
 					return false;
 				});
+
+

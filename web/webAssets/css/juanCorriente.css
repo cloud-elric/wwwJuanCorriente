@@ -2742,6 +2742,18 @@ footer.footer-focus .social-media a:hover {
   border-color: #F461A5;
 }
 
+.btn.ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-audio{
+	background-color:white;
+	border-color:white;
+	color:black;
+}
+
+.btn.ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-audio:hover{
+	background-color:#e7e7e7;
+	border-color:white;
+	color:black;
+}
+
 .ver-capitulo-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-texto:hover,
 .ver-capitulo-controlers .listado-controlers-btn-circle.ver-capitulo-controlers-btn-circle-texto:hover,
 .listado-controlers .ver-capitulo-controlers-btn-circle.ver-capitulo-controlers-btn-circle-texto:hover,
