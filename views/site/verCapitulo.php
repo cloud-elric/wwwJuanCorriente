@@ -313,6 +313,12 @@ var audio = null;
 			class="btn ver-capitulo-controlers-btn-circle ver-capitulo-controlers-btn-circle-imagen js-imagen">
 			<i class="ion ion-image"></i>
 		</button>
+		
+		<button
+			class="btn ver-capitulo-controlers-btn-circle ver-capitulo-controlers-btn-circle-audio js-audio">
+			<i class="ion ion-music-note"></i>
+		</button>
+		<input style="display:none;" type="file" id="js-input-cambiar-audio" />
 
 	</div>
 	<!-- end - .ver-capitulo-controlers -->

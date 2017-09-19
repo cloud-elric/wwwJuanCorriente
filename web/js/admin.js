@@ -211,6 +211,101 @@ $(document)
 						}
 
 					});
+					
+					$('.js-audio').on('click', function(e){
+						e.preventDefault();
+						
+						$('#js-input-cambiar-audio').trigger('click');
+					});
+					
+					var extensionAudio = null;
+					var fileAudio = null;
+					var audioExtensionPermitidas = ['audio/mp3'];
+					
+					var viewer = {
+							start : function(e) {
+								detenerAudio();
+								
+							},
+							end : function(e) {
+								
+								var url = URL.createObjectURL(fileAudio);
+								
+								audio = new Audio(url);
+
+								reproducirAudio();
+							},
+
+							setProperties : function(file) {
+
+							}
+						}
+					
+					$('#js-input-cambiar-audio').on('change', function(){
+						fileAudio = this.files[0];
+						extensionAudio = fileAudio.type;
+						
+						// Validacion del archivo
+						if (!((extensionAudio == audioExtensionPermitidas[0]))) {
+							swal(
+									"Espera",
+									"Archivo no admitido por el sistema",
+									"warning");
+
+							clearFileInput($(this))
+							
+							
+							return false;
+						}
+						
+						var reader = new FileReader();
+						reader.onloadstart = viewer.start;
+						reader.onloadend = viewer.end;
+						reader.readAsDataURL(fileAudio);
+						viewer.setProperties(fileAudio);
+						
+						var data = new FormData();
+
+						data.append('fileUpload', fileAudio);
+						var tokenCapitulo = $("#js-capitulo").data('token');
+						$.ajax({
+							url : basePath + "admin-panel/guardar-audio-capitulo?capitulo="
+									+ tokenCapitulo,
+							type : "POST",
+							data : data,
+							processData : false, // Work around #1
+							contentType : false, // Work around #2
+							success : function(response) {
+
+							},
+							cache : false,
+							error : function() {
+								alert("Failed");
+							},
+							// Work around #3
+							xhr : function() {
+								var xhr = new window.XMLHttpRequest();
+								// Upload progress
+								xhr.upload.addEventListener("progress", function(evt) {
+									if (evt.lengthComputable) {
+										var percentComplete = evt.loaded / evt.total;
+										// Do something with upload progress
+										console.log('upload' + percentComplete);
+									}
+								}, false);
+								// Download progress
+								xhr.addEventListener("progress", function(evt) {
+									if (evt.lengthComputable) {
+										var percentComplete = evt.loaded / evt.total;
+										// Do something with download progress
+										console.log('download' + percentComplete);
+									}
+								}, false);
+								return xhr;
+							}
+						});
+						
+					});
 
 					$('#js-nombre-capitulo').focus(function() {
 						var esNuevo = $(this).data('new');
@@ -512,4 +607,33 @@ function actualizarIndex(){
 		}
 	});
 	
+}
+
+/**
+ * Limpia un campo de File input
+ * 
+ * @param $input
+ */
+function clearFileInput($input) {
+	if ($input.val() == '') {
+		return;
+	}
+	// Fix for IE ver < 11, that does not clear file inputs
+	// Requires a sequence of steps to prevent IE crashing but
+	// still allow clearing of the file input.
+	if (/MSIE/.test(navigator.userAgent)) {
+		var $frm1 = $input.closest('form');
+		if ($frm1.length) { // check if the input is already wrapped in a form
+			$input.wrap('<form>');
+			var $frm2 = $input.closest('form'), // the wrapper form
+			$tmpEl = $(document.createElement('div')); // a temporary
+			// placeholder element
+			$frm2.before($tmpEl).after($frm1).trigger('reset');
+			$input.unwrap().appendTo($tmpEl).unwrap();
+		} else { // no parent form exists - just wrap a form element
+			$input.wrap('<form>').closest('form').trigger('reset').unwrap();
+		}
+	} else { // normal reset behavior for other sane browsers
+		$input.val('');
+	}
 }
